@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Storage and Sequence Association</TITLE>
+<META NAME="description" CONTENT="Storage and Sequence Association">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3643" HREF="HTMLNotesnode285.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3641" HREF="HTMLNotesnode265.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3635" HREF="HTMLNotesnode283.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3645" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3644" HREF="HTMLNotesnode285.html">Dual Fortran&nbsp;90 and HPF </A>
+<B>Up:</B> <A NAME="tex2html3642" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B> Previous:</B> <A NAME="tex2html3636" HREF="HTMLNotesnode283.html">Example of Array Sorting </A>
+<BR> <P>
+<A NAME="StorageAndSequenceAssociation1">&#160;</A><H2><A NAME="SECTION02054000000000000000">Storage and Sequence Association</A></H2>
+<P>
+Very complex and best avoided,
+<P>
+<UL><LI> sequence association does not work on distributed memory systems,<LI> storage association and retyping of memory does not mix well with
+distributed objects.
+</UL>
+<P>
+Things to avoid,
+<P>
+<UL><LI> <TT>COMMON</TT>,<LI> <TT>EQUIVALENCE</TT>,<LI> assumed-size arrays.
+</UL>
+<P>
+One of the hardest tasks of the HPFF was to try to marry F<font size=-1><small>ORTRAN</small></font>&nbsp;77 
+style sequence and storage association  with the HPF concept of
+distributed objects. Many of the 
+largest and most computationally intensive research programs that 
+would benefit the most from conversion to HPF will contain at least 
+some sequence or storage association. High Performance Fortran compilers are bound to 
+implement Chapter 7 of the HPF Specification; this will be very
+important to anybody who wishes to run legacy codes.
+<P>
+Due to the separate compilation nature of F<font size=-1><small>ORTRAN</small></font>&nbsp;77, it 
+was (and indeed still is) possible to perform many dirty tricks 
+with arrays when used as procedure arguments. For example, in F<font size=-1><small>ORTRAN</small></font>&nbsp;77 
+programs it was possible, and common, to use assumed-size arrays to
+change the shape of an array across a procedure boundary:
+<P>
+<PRE>       PROGRAM MAIN
+       REAL A(10,10)
+        ...
+       CALL SUBBO(A)
+
+       SUBROUTINE SUBBO(X)
+       REAL X(*)
+        ...</PRE>
+<P>
+As a F<font size=-1><small>ORTRAN</small></font>&nbsp;77 compiler cannot not necessarily see <TT>SUBBO</TT> when compiling
+<TT>
+MAIN</TT>, it had to rely on the fact that the whole of the actual argument
+<TT>
+A</TT> is stored as a contiguous block in memory. The assumption that
+memory is linear is of course
+not the case for a distributed object on a distributed memory
+machine. Given that Fortran program units can be separately
+compiled, it can be seen that supporting legacy F<font size=-1><small>ORTRAN</small></font>&nbsp;77 codes could prove
+to be
+a taxing problem.
+<P>
+There are other problems too, especially in the
+area of storage association, <TT>EQUIVALENCE</TT> and <TT>COMMON</TT> blocks.
+<TT>EQUIVALENCE</TT> can be used to change the type and variable name 
+that a particular area of
+memory is referred through;  <TT>COMMON</TT> blocks provide a mechanism
+to access global data. A <TT>COMMON</TT> block reserves a contiguous area of
+memory which is accessed through the specified names. Each
+instance of a common block can be different which means that the
+partitioning of the memory specified by the block can vary from routine
+to routine.  For example, the following <TT>COMMON</TT> block could appear in
+different procedures in a <EM>separately compiled</EM> Fortran
+program:
+<P>
+<PRE>       COMMON /BLEURGH/ X(10,10),Y(2,22),I(100)
+        ...
+       COMMON /BLEURGH/ Z(12,12),J(10,10)
+        ...
+       COMMON /BLEURGH/ I(44),J(100),X(2,50)</PRE>
+<P>
+If any of the arrays in the <TT>COMMON</TT> blocks are to  be distributed
+then a HPF compiler will have a problem! It is highly likely that,
+without prior warning, the arrays from these <TT>COMMON</TT> blocks would
+be distributed using the default mapping<A NAME="tex2html74" HREF="HTMLNotesfootnode.html#17885"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.
+This mapping is typically <TT>*</TT> (replication) or <TT>BLOCK</TT> 
+distribution.
+<P>
+The HPFF have defined some additions to Fortran&nbsp;90 to try to lever
+sequence and storage association back into the arena.
+It is
+possible to categorise two distinct situations, one where objects
+used in sequence and storage associations can be used as
+distributed objects and the second where they cannot. In general,
+if a <TT>COMMON</TT> block is used in the same way on every occurrence
+then it is possible to distribute its elements. (After the
+abovementioned
+<TT>COMMON</TT> block problem was recognised it was considered good
+programming style to place each <TT>COMMON</TT> block in an <TT>INCLUDE</TT> file and
+to
+attach this file whenever access to the <TT>COMMON</TT> block was desired.  
+This would ensure that every use was forced to be the same.)
+<P>
+There is a
+<TT>SEQUENCE</TT> directive which can be applied either in general or 
+to a named entity (variable name or <TT>COMMON</TT> block). This will mean 
+that the named entities are stored sequentially 
+and it will also allow <TT>COMMON</TT> 
+blocks such as <TT>BLEURGH</TT> to be used safely in HPF programs.
+The <TT>SEQUENCE</TT> directive must be applied to every instance of <TT>
+BLEURGH</TT>.
+<P>
+<PRE>!HPF$ SEQUENCE :: /BLEURGH/</PRE>
+<P>
+The HPFF have introduced the concept of covers and aggregates.
+In Fortran it is possible to use a <TT>COMMON</TT> or <TT>EQUIVALENCE</TT> statement
+to
+string together groups of variables by overlapping storage, a 
+very simple example would be:
+<P>
+<PRE>     REAL A(2), B(2), C(2)
+     EQUIVALENCE (A(2),B(1))
+     EQUIVALENCE (B(2),C(1))</PRE>
+<P>
+here <TT>A</TT> and <TT>C</TT> are linked by <TT>B</TT> so
+ must follow each other in memory. This
+group of overlapping variables is called an <EM>aggregate variable
+group</EM>. We can define a <EM>cover</EM> for this group in a further
+<TT>EQUIVALENCE</TT> statement:
+<P>
+<PRE>     REAL COVER(4)
+     EQUIVALENCE(COVER(1),A(1))</PRE>
+<P>
+The aggregate variable group are part of a single storage sequence
+(aliased as <TT>COVER</TT>) of size 4. Neither <TT>A, B</TT> or <TT>C</TT>
+can be mapped but  <TT>COVER</TT>, as long as it is one dimensional, can
+be.
+<P>
+Some variables are automatically sequential (ie they implicitly have 
+the <TT>SEQUENCE</TT> attribute). A variable is sequential if it is an
+assumed size array, if it appears in a sequential common block, is
+a member of an aggregate variable group, if
+it is a derived type with the <TT>SEQUENCE</TT> attribute or is given the
+HPF <TT>SEQUENCE</TT> attribute. A sequential variable can be storage or
+sequence associated ; nonsequential variables cannot.
+<P>
+A sequential variable cannot be mapped unless it is a scalar or a
+rank one array that is an aggregate cover. This means that an
+assumed sized array cannot be distributed as it can never be an 
+aggregate cover.
+<P>
+Recent developments at the HPFF have indicated that due to the
+complexity and non-usefulness of the mapping of sequential
+variables, it looks likely that the next version of HPF, HPF2, will not
+allow such
+mappings. It will be defined as a language extension!
+<P>
+<HR><A NAME="tex2html3643" HREF="HTMLNotesnode285.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3641" HREF="HTMLNotesnode265.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3635" HREF="HTMLNotesnode283.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3645" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3644" HREF="HTMLNotesnode285.html">Dual Fortran&nbsp;90 and HPF </A>
+<B>Up:</B> <A NAME="tex2html3642" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B> Previous:</B> <A NAME="tex2html3636" HREF="HTMLNotesnode283.html">Example of Array Sorting </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New Variables Example 1</TITLE>
+<META NAME="description" CONTENT="New Variables Example 1">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3119" HREF="HTMLNotesnode242.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3117" HREF="HTMLNotesnode240.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3111" HREF="HTMLNotesnode240.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3121" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3120" HREF="HTMLNotesnode242.html">New Variables Example 2</A>
+<B>Up:</B> <A NAME="tex2html3118" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<B> Previous:</B> <A NAME="tex2html3112" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<BR> <P>
+<A NAME="NewExample11">&#160;</A><H4><A NAME="SECTION02031910000000000000">New Variables Example 1</A></H4>
+<P>
+Consider,
+<P>
+<PRE>    DO i = 1, n
+     DO j = 1, m
+      x = A(j)
+      y = B(j)
+      C(i,j) = x+y
+     END DO
+    END DO</PRE>
+<P>
+with a nested loop such as this, it is the inner loops that must be
+examined first. Inspection of the <TT>j</TT> loop reveals that if copies
+were made of <TT>x</TT> and <TT>y</TT> for each iteration the loop would
+be <TT>INDEPENDENT</TT>. In order to parallelise, the directive:
+<P>
+<PRE>  !HPF$ INDEPENDENT, NEW (x,y)</PRE>
+<P>
+should prefix the inner loop.
+<P>
+Attention can now turn to the outermost loop. We could perform all the
+<TT>i</TT> iterations at the same time if there was a separate <TT>DO j</TT>
+loop for each iteration. Specifying <TT>j</TT> to be a <TT>NEW</TT> variable would
+do exactly this, viz:
+<P>
+<PRE>    !HPF$ INDEPENDENT, NEW (j)
+    DO i = 1, n
+     !HPF$ INDEPENDENT, NEW (x,y)
+     DO j = 1, m
+      x = A(j)
+      y = B(j)
+      C(i,j) = x+y
+     END DO
+    END DO</PRE>
+<P>
+After the loop <TT>x, y</TT> and <TT>j</TT>
+will have an undetermined value so <B>cannot</B> be used before being
+assigned a new value. (In regular Fortran they could be.)
+<P>
+<A NAME="NewExample12">&#160;</A>
+<P>
+Looking at the outermost leaves of Figure <A HREF="HTMLNotesnode241.html#DoubleNestedIndependentLoopfig">39</A> will illustrate what
+can
+be performed in parallel. It can be seen that all  <IMG WIDTH=35 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline23874" SRC="HTMLNotesimg139.gif"  > 
+iterations can be performed independently. There is no interaction
+between any iterations.
+<P>
+<P><A NAME="15717">&#160;</A><A NAME="DoubleNestedIndependentLoopfig">&#160;</A> <IMG WIDTH=495 HEIGHT=306 ALIGN=BOTTOM ALT="figure15711" SRC="HTMLNotesimg140.gif"  > <BR>
+<STRONG>Figure 39:</STRONG> Visualisation of Double Nested Independent New Loop<BR>
+<P>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode112.html#QIndependentLoop"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html3119" HREF="HTMLNotesnode242.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3117" HREF="HTMLNotesnode240.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3111" HREF="HTMLNotesnode240.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3121" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3120" HREF="HTMLNotesnode242.html">New Variables Example 2</A>
+<B>Up:</B> <A NAME="tex2html3118" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<B> Previous:</B> <A NAME="tex2html3112" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

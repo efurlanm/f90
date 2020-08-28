@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Encapsulation - Stack example</TITLE>
+<META NAME="description" CONTENT="Encapsulation - Stack example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2028" HREF="HTMLNotesnode155.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2026" HREF="HTMLNotesnode152.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2022" HREF="HTMLNotesnode153.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2030" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2029" HREF="HTMLNotesnode155.html">The USE Renames Facility</A>
+<B>Up:</B> <A NAME="tex2html2027" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<B> Previous:</B> <A NAME="tex2html2023" HREF="HTMLNotesnode153.html">Encapsulation Example</A>
+<BR> <P>
+<A NAME="ModulesProcedureDeclaration2">&#160;</A><H4><A NAME="SECTION01052420000000000000">Encapsulation - Stack example</A></H4>
+<P>
+We can also encapsulate the <TT>stack</TT> program,
+<P>
+<PRE>    MODULE stack
+     IMPLICIT NONE
+     INTEGER, PARAMETER :: stack_size = 100
+     INTEGER, SAVE :: store(stack_size), pos = 0
+    CONTAINS
+     SUBROUTINE push(i)
+      INTEGER, INTENT(IN) :: i
+      IF (pos &lt; stack_size) THEN
+       pos = pos + 1; store(pos) = i
+      ELSE
+       STOP 'Stack Full error'
+      END IF
+     END SUBROUTINE push
+     SUBROUTINE pop(i)
+      INTEGER, INTENT(OUT) :: i
+      IF (pos &gt; 0) THEN
+       i = store(pos); pos = pos - 1
+      ELSE
+       STOP 'Stack Empty error'
+      END IF
+     END SUBROUTINE pop
+    END MODULE stack</PRE>
+<P>
+all aspects of the stack are now defined in one place --
+the module provides all declarations, access functions and storage
+to implement a simple integer stack.
+<P>
+Any program unit that includes the line:
+<PRE>    USE stack</PRE>
+can access <TT>pop</TT> and <TT>push</TT> therefore use the stack.
+<P>
+<HR><A NAME="tex2html2028" HREF="HTMLNotesnode155.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2026" HREF="HTMLNotesnode152.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2022" HREF="HTMLNotesnode153.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2030" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2029" HREF="HTMLNotesnode155.html">The USE Renames Facility</A>
+<B>Up:</B> <A NAME="tex2html2027" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<B> Previous:</B> <A NAME="tex2html2023" HREF="HTMLNotesnode153.html">Encapsulation Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

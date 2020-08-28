@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pure Function Example</TITLE>
+<META NAME="description" CONTENT="Pure Function Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2845" HREF="HTMLSlidesnode213.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2843" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2837" HREF="HTMLSlidesnode211.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2847" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2846" HREF="HTMLSlidesnode213.html">Pure Subroutine Example</A>
+<B>Up:</B> <A NAME="tex2html2844" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2838" HREF="HTMLSlidesnode211.html">Pure Procedures</A>
+<BR> <P>
+<H2><A NAME="SECTION02049000000000000000">Pure Function Example</A></H2>
+<P>
+Consider,
+<P>
+<PRE>    PURE REAL FUNCTION F(x,y) 
+     IMPLICIT NONE
+     REAL, INTENT(IN) ::  x, y
+      F = x*x + y*y + 2*x*y + ASIN(MIN(x/y,y/x))
+    END FUNCTION F</PRE>
+<P>
+Here,
+<UL><LI> arguments are unchanged,<LI> intrinsics are pure so can be used.
+</UL>
+<P>
+Example of use:
+<P>
+<PRE>    FORALL (i=1:n,j=1:n) &amp;
+     A(i,j) = b(i) + F(1.0*i,1.0*j)</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode233.html#PureFunctionExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2845" HREF="HTMLSlidesnode213.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2843" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2837" HREF="HTMLSlidesnode211.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2847" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2846" HREF="HTMLSlidesnode213.html">Pure Subroutine Example</A>
+<B>Up:</B> <A NAME="tex2html2844" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2838" HREF="HTMLSlidesnode211.html">Pure Procedures</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

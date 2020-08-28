@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Integer Division</TITLE>
+<META NAME="description" CONTENT="Integer Division">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1175" HREF="HTMLNotesnode86.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1173" HREF="HTMLNotesnode82.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1169" HREF="HTMLNotesnode84.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1177" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1176" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<B>Up:</B> <A NAME="tex2html1174" HREF="HTMLNotesnode82.html">Mixing Objects of Different </A>
+<B> Previous:</B> <A NAME="tex2html1170" HREF="HTMLNotesnode84.html">Mixed Type Assignment</A>
+<BR> <P>
+<A NAME="IntegerDivision1">&#160;</A><H3><A NAME="SECTION01023300000000000000">Integer Division</A></H3>
+<P>
+If one integer divides another in a subexpression then type of that
+subexpression is <TT>INTEGER</TT>.
+Confusion often arises about integer division; in short,
+division of two integers produces an integer result by
+truncation (towards zero).
+<P>
+Consider,
+<PRE>    REAL a, b, c, d, e
+    a = 1999/1000
+    b = -1999/1000
+    c = (1999+1)/1000
+    d = 1999.0/1000
+    e = 1999/1000.0</PRE>
+<UL><LI> <TT>a</TT>  is (about) <TT>1.000</TT>. The integer expression <TT>
+1999/1000</TT> is evaluated and then truncated
+towards zero to produce an integral value.  Its says in the Fortran&nbsp;90 
+standard, [<A HREF="HTMLNotesnode306.html#F91">1</A>], P84 section 7.2.1.1, ``The result of such an operation
+[integer division] is the
+integer closest to the mathematical quotient and between zero and the
+mathematical quotient inclusively.''<LI> <TT>b</TT> is (about) <TT>-1.000</TT> for the same reasons as above.<LI> <TT>c</TT> is (about) <TT>2.000</TT> because, due to the parentheses
+<TT>2000/1000</TT> is calculated.<LI> <TT>d</TT> and <TT>e</TT> are  (about) <TT>1.999</TT> because both RHS's
+are evaluated to be  real numbers, in <TT>1999.0/1000</TT> and 
+<TT>1999/1000.0</TT> the integers are promoted to real numbers
+before the division.
+<P>
+</UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode16.html#QControlRomanNumerals"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1175" HREF="HTMLNotesnode86.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1173" HREF="HTMLNotesnode82.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1169" HREF="HTMLNotesnode84.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1177" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1176" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<B>Up:</B> <A NAME="tex2html1174" HREF="HTMLNotesnode82.html">Mixing Objects of Different </A>
+<B> Previous:</B> <A NAME="tex2html1170" HREF="HTMLNotesnode84.html">Mixed Type Assignment</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

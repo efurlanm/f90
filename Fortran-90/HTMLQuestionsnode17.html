@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html285" HREF="HTMLQuestionsnode18.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html283" HREF="HTMLQuestionsnode16.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html279" HREF="HTMLQuestionsnode16.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html287" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html286" HREF="HTMLQuestionsnode18.html">Concatenate Names</A>
+<B>Up:</B> <A NAME="tex2html284" HREF="HTMLQuestionsnode16.html">Decimal to Roman Numerals </A>
+<B> Previous:</B> <A NAME="tex2html280" HREF="HTMLQuestionsnode16.html">Decimal to Roman Numerals </A>
+<BR> <P>
+<H3><A NAME="SECTION00023100000000000000">Solution</A></H3>
+<PRE>    PROGRAM Rom_Num
+     IMPLICIT NONE
+     CHARACTER(LEN=12) :: Rnum
+     INTEGER           :: num, tnum1, tnum
+     INTEGER           :: pos
+     DO
+      Rnum = &quot;            &quot;
+      pos = 1
+      PRINT*, &quot;Type in your number between 0 and 999 (inclusive)&quot;
+      READ*, num
+      IF (num .GE. 0 .AND. num .LE. 999) THEN
+       tnum1 = num/100
+       SELECT CASE (tnum1)
+        CASE (1)
+         Rnum(pos:pos) = &quot;c&quot;
+         pos = pos + 1
+        CASE (2)
+         Rnum(pos:pos+1) = &quot;cc&quot;
+         pos = pos + 2
+        CASE (3)
+         Rnum(pos:pos+2) = &quot;ccc&quot;
+         pos = pos + 3
+        CASE (4)
+         Rnum(pos:pos+1) = &quot;cd&quot;
+         pos = pos + 2
+        CASE (5)
+         Rnum(pos:pos) = &quot;d&quot;
+         pos = pos + 1
+        CASE (6)
+         Rnum(pos:pos+1) = &quot;dc&quot;
+         pos = pos + 2
+        CASE (7)
+         Rnum(pos:pos+2) = &quot;dcc&quot;
+         pos = pos + 3
+        CASE (8)
+         Rnum(pos:pos+3) = &quot;dccc&quot;
+         pos = pos + 4
+        CASE (9)
+         Rnum(pos:pos+1) = &quot;cm&quot;
+         pos = pos + 2
+       END SELECT
+       tnum1 = tnum1*100
+       tnum = (num-tnum1)/10
+       SELECT CASE (tnum)
+        CASE (1)
+         Rnum(pos:pos) = &quot;x&quot;
+         pos = pos + 1
+        CASE (2)
+         Rnum(pos:pos+1) = &quot;xx&quot;
+         pos = pos + 2
+        CASE (3)
+         Rnum(pos:pos+2) = &quot;xxx&quot;
+         pos = pos + 3
+        CASE (4)
+         Rnum(pos:pos+1) = &quot;xl&quot;
+         pos = pos + 2
+        CASE (5)
+         Rnum(pos:pos) = &quot;l&quot;
+         pos = pos + 1
+        CASE (6)
+         Rnum(pos:pos+1) = &quot;lx&quot;
+         pos = pos + 2
+        CASE (7)
+         Rnum(pos:pos+2) = &quot;lxx&quot;
+         pos = pos + 3
+        CASE (8)
+         Rnum(pos:pos+3) = &quot;lxxx&quot;
+         pos = pos + 4
+        CASE (9)
+         Rnum(pos:pos+1) = &quot;xc&quot;
+         pos = pos + 2
+       END SELECT
+       tnum = num-tnum*10-tnum1
+       SELECT CASE (tnum)
+        CASE (1)
+         Rnum(pos:pos) = &quot;i&quot;
+         pos = pos + 1
+        CASE (2)
+         Rnum(pos:pos+1) = &quot;ii&quot;
+         pos = pos + 2
+        CASE (3)
+         Rnum(pos:pos+2) = &quot;iii&quot;
+         pos = pos + 3
+        CASE (4)
+         Rnum(pos:pos+1) = &quot;iv&quot;
+         pos = pos + 2
+        CASE (5)
+         Rnum(pos:pos) = &quot;v&quot;
+         pos = pos + 1
+        CASE (6)
+         Rnum(pos:pos+1) = &quot;vi&quot;
+         pos = pos + 2
+        CASE (7)
+         Rnum(pos:pos+2) = &quot;vii&quot;
+         pos = pos + 3
+        CASE (8)
+         Rnum(pos:pos+3) = &quot;viii&quot;
+         pos = pos + 4
+        CASE (9)
+         Rnum(pos:pos+1) = &quot;ix&quot;
+         pos = pos + 2
+       END SELECT
+       PRINT*, num, &quot;in Roman Numerals is &quot;, TRIM(Rnum)
+      ELSE
+       PRINT*, &quot;Number out of range&quot;
+       EXIT
+      END IF
+     END DO
+    END PROGRAM Rom_Num</PRE>
+<P>
+<OL><LI> 888 -- <EM>dcclxxxviii</EM><LI> 0 --<LI> 222 -- <EM>ccxxii</EM><LI> 536 -- <EM>dxxxvi</EM>
+</OL>
+<P>
+<HR><A NAME="tex2html285" HREF="HTMLQuestionsnode18.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html283" HREF="HTMLQuestionsnode16.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html279" HREF="HTMLQuestionsnode16.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html287" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html286" HREF="HTMLQuestionsnode18.html">Concatenate Names</A>
+<B>Up:</B> <A NAME="tex2html284" HREF="HTMLQuestionsnode16.html">Decimal to Roman Numerals </A>
+<B> Previous:</B> <A NAME="tex2html280" HREF="HTMLQuestionsnode16.html">Decimal to Roman Numerals </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

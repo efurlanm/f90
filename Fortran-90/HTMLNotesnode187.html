@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Visualisation of * Distribution</TITLE>
+<META NAME="description" CONTENT="Visualisation of * Distribution">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2474" HREF="HTMLNotesnode188.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2472" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2466" HREF="HTMLNotesnode186.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2476" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2475" HREF="HTMLNotesnode188.html">Commentary</A>
+<B>Up:</B> <A NAME="tex2html2473" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2467" HREF="HTMLNotesnode186.html">2D Distribution Example</A>
+<BR> <P>
+<A NAME="DataDistribution5">&#160;</A><H3><A NAME="SECTION02013800000000000000">Visualisation of <TT>*</TT> Distribution</A></H3>
+<P>
+A <TT>*</TT> instead of a distribution method means: ``do not distribute
+this
+dimension''.
+<P>
+<PRE>    PROGRAM Skwiffy
+     IMPLICIT NONE
+     REAL, DIMENSION(4,4)         :: A, B, C
+!HPF$ PROCESSORS, DIMENSION(4)    :: Q
+!HPF$ DISTRIBUTE (*,BLOCK) ONTO Q :: A, B, C
+      B = 1; C = 1; A = B + C; PRINT*, A
+    END PROGRAM Skwiffy</PRE>
+<P>
+Here, the first dimension is not distributed, the second dimension is
+distributed blockwise. This means that the second dimension is divided
+into equal sized blocks (the first dimension is not partitioned at all)
+and the sections are then distributed <EM>onto a 1D processor grid</EM>.
+The distribution of elements is such that:
+<P>
+<UL><LI> <TT>Q(1)</TT> owns <TT>A(:,1)</TT>,<LI> <TT>Q(2)</TT> owns <TT>A(:,2)</TT>,<LI> <TT>Q(3)</TT> owns <TT>A(:,3)</TT>,<LI> <TT>Q(4)</TT> owns <TT>A(:,4)</TT>.
+</UL>
+<P>
+This can be visualised in Figure
+<A HREF="HTMLNotesnode187.html#STARDistributionVisualisationfig">21</A>.
+<P>
+<P><A NAME="12696">&#160;</A><A NAME="STARDistributionVisualisationfig">&#160;</A> <IMG WIDTH=332 HEIGHT=295 ALIGN=BOTTOM ALT="figure12694" SRC="HTMLNotesimg99.gif"  > <BR>
+<STRONG>Figure 21:</STRONG> Visualisation of <TT>*</TT> Distribution<BR>
+<P>
+<P>
+There must be the same number of non-<TT>*</TT> distributed dimensions as
+there are dimensions in the processor grid.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode82.html#QLocalIndexSets"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html2474" HREF="HTMLNotesnode188.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2472" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2466" HREF="HTMLNotesnode186.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2476" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2475" HREF="HTMLNotesnode188.html">Commentary</A>
+<B>Up:</B> <A NAME="tex2html2473" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2467" HREF="HTMLNotesnode186.html">2D Distribution Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

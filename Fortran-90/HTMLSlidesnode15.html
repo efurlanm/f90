@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html382" HREF="HTMLSlidesnode16.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html380" HREF="HTMLSlidesnode14.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html376" HREF="HTMLSlidesnode14.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html384" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html383" HREF="HTMLSlidesnode16.html">Language Elements</A>
+<B>Up:</B> <A NAME="tex2html381" HREF="HTMLSlidesnode14.html">Fortran&nbsp;90 Programming</A>
+<B> Previous:</B> <A NAME="tex2html377" HREF="HTMLSlidesnode14.html">Fortran&nbsp;90 Programming</A>
+<BR> <P>
+<H2><A NAME="SECTION01051000000000000000">Example</A></H2>
+<P>
+Example Fortran&nbsp;90 program:
+<PRE>    PROGRAM Triangle
+     IMPLICIT NONE
+     REAL :: a, b, c, Area
+     PRINT*, 'Welcome, please enter the&amp;
+              &amp;lengths of the 3 sides.'
+     READ*, a, b, c
+     PRINT*,'Triangle''s area: ',Area(a,b,c)
+    END PROGRAM Triangle
+    FUNCTION Area(x,y,z)
+     IMPLICIT NONE
+     REAL :: Area       ! function type
+     REAL, INTENT( IN ) :: x, y, z
+     REAL :: theta, height
+     theta=ACOS((x**2+y**2-z**2)/(2.0*x*y))
+     height=x*SIN(theta); Area=0.5*y*height
+    END FUNCTION Area</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode38.html#TriangleAreaExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html382" HREF="HTMLSlidesnode16.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html380" HREF="HTMLSlidesnode14.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html376" HREF="HTMLSlidesnode14.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html384" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html383" HREF="HTMLSlidesnode16.html">Language Elements</A>
+<B>Up:</B> <A NAME="tex2html381" HREF="HTMLSlidesnode14.html">Fortran&nbsp;90 Programming</A>
+<B> Previous:</B> <A NAME="tex2html377" HREF="HTMLSlidesnode14.html">Fortran&nbsp;90 Programming</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

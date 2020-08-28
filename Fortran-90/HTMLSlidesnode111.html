@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedure Interfaces</TITLE>
+<META NAME="description" CONTENT="Procedure Interfaces">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1509" HREF="HTMLSlidesnode112.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1507" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1501" HREF="HTMLSlidesnode110.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1511" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1510" HREF="HTMLSlidesnode112.html">What Appears in an </A>
+<B>Up:</B> <A NAME="tex2html1508" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1502" HREF="HTMLSlidesnode110.html">Implicit SAVE Attribute and </A>
+<BR> <P>
+<H2><A NAME="SECTION0101516000000000000000">Procedure Interfaces</A></H2>
+<P>
+For <TT>EXTERNAL</TT> procedures it is possible to provide an <EM>explicit
+interface</EM> for a procedure. Consider:
+<PRE>    SUBROUTINE expsum( n, k, x, sum )! in interface
+     IMPLICIT NONE
+     INTEGER, INTENT(IN) :: n        ! in interface
+     REAL, INTENT(IN) :: k,x         ! in interface
+     REAL, INTENT(OUT) :: sum        ! in interface
+     REAL, SAVE :: cool_time
+      ...
+    END SUBROUTINE expsum            ! in interface</PRE>
+<P>
+The explicit  <TT>INTERFACE</TT> for this routine is given by the statements:
+<PRE>    INTERFACE ! for EXTERNAL procedure
+     SUBROUTINE expsum( n, k, x, sum )
+      INTEGER, INTENT(IN) :: n
+      REAL, INTENT(IN) :: k,x
+      REAL, INTENT(OUT)  :: sum
+     END SUBROUTINE expsum
+    END INTERFACE</PRE>
+This could be included in the declarations part of any other program
+unit which calls <TT>expsum</TT>.
+<P>
+Interfaces are <EM>not</EM> needed for internal (or module) procedures.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode136.html#Interfaces1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1509" HREF="HTMLSlidesnode112.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1507" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1501" HREF="HTMLSlidesnode110.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1511" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1510" HREF="HTMLSlidesnode112.html">What Appears in an </A>
+<B>Up:</B> <A NAME="tex2html1508" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1502" HREF="HTMLSlidesnode110.html">Implicit SAVE Attribute and </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

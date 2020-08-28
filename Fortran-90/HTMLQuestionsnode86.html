@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Masked Array Assignment</TITLE>
+<META NAME="description" CONTENT="Array Masked Array Assignment">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1066" HREF="HTMLQuestionsnode87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1064" HREF="HTMLQuestionsnode81.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1058" HREF="HTMLQuestionsnode85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1068" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1067" HREF="HTMLQuestionsnode87.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1065" HREF="HTMLQuestionsnode81.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html1059" HREF="HTMLQuestionsnode85.html">Solution</A>
+<BR> <P>
+<A NAME="QWhereStatementHPF">&#160;</A><H2><A NAME="SECTION00063000000000000000">Array Masked Array Assignment</A></H2>
+<P>
+Using an allocatable array, an array constructor and the <TT>WHERE</TT> statement,
+write an HPF program implement the following algorithm for finding 
+prime numbers:
+<P>
+<OL><LI> define a vector, <TT>Prime</TT>,  of size <I>n</I>,<LI> initialise <TT>Prime</TT> such that <TT>Prime(i) = i</TT> for <TT>i =
+1,n</TT><LI> set <TT>i = 2</TT><LI> for all  <IMG WIDTH=30 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline2886" SRC="HTMLQuestionsimg31.gif"  > , ( <IMG WIDTH=63 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline2888" SRC="HTMLQuestionsimg32.gif"  > ) if 
+<TT>Prime(j)</TT> is exactly
+divisible by <TT>i</TT> then set <TT>Prime(j) = 0</TT>, [hint: use the <TT>MOD</TT> 
+(remainder) intrinsic in conjunction with a <TT>WHERE</TT> statement.]<LI> increment <TT>i</TT>,<LI> if <TT>i</TT> equals <I>n</I> then exit<LI> if <TT>Prime(i)</TT> is zero then goto step 5<LI> goto step 4
+</OL>
+<P>
+Print out all non-zero entries of the vector (the prime numbers).
+<P>
+Hint: the <TT>WHERE</TT> statement is an <EM>array assignment statement</EM> and <B>
+not</B> a control construct therefore it cannot contain a <TT>PRINT</TT> statement.
+The <TT>PACK</TT> intrinsic can accept an array argument and a conformable 
+<TT>MASK</TT> and will
+return a 1D vector of all the elements of the array where the corresponding
+mask elements are <TT>.TRUE.</TT>.
+<P>
+<PRE>  Print*, PACK(Array,Mask)</PRE>
+<P>
+Choose a suitable distribution for the <TT>Prime</TT> vector; look at the
+element reference patterns in order to make your decision.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1069" HREF="HTMLQuestionsnode87.html#SECTION00063100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1066" HREF="HTMLQuestionsnode87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1064" HREF="HTMLQuestionsnode81.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1058" HREF="HTMLQuestionsnode85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1068" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1067" HREF="HTMLQuestionsnode87.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1065" HREF="HTMLQuestionsnode81.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html1059" HREF="HTMLQuestionsnode85.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

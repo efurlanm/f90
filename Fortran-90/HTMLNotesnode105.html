@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Deallocating Arrays</TITLE>
+<META NAME="description" CONTENT="Deallocating Arrays">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1440" HREF="HTMLNotesnode106.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1438" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1432" HREF="HTMLNotesnode104.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1442" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1441" HREF="HTMLNotesnode106.html">Printing Arrays</A>
+<B>Up:</B> <A NAME="tex2html1439" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1433" HREF="HTMLNotesnode104.html">Allocatable Arrays</A>
+<BR> <P>
+<A NAME="ArrayAllocation2">&#160;</A><H3><A NAME="SECTION010311400000000000000">Deallocating Arrays</A></H3>
+<P>
+Heap storage should be reclaimed using the <TT>DEALLOCATE</TT> statement:
+<P>
+<PRE>    IF (ALLOCATED(ages)) DEALLOCATE(ages,STAT=ierr)</PRE>
+<P>
+As a matter of course, the <TT>LOGICAL</TT> valued
+intrinsic inquiry function, <TT>ALLOCATED</TT>,
+should be used to check on the status of the array before attempting to
+<TT>DEALLOCATE</TT> because it is an error to attempt to deallocate an array 
+that has not previously been allocated space or one which does not have 
+the <TT>ALLOCATE</TT> attribute. Again one should only supply
+one array per <TT>DEALLOCATE</TT> statement and the optional <TT>STAT</TT><TT>=</TT> field 
+should always be used.
+<TT>ierr</TT> holds a value that 
+reports on the success / failure of the <TT>DEALLOCATE</TT> request in an
+analogous way to the <TT>ALLOCATE</TT> statement.
+<P>
+Memory leakage will occur 
+if a procedure containing an allocatable array (which does not possess
+the <TT>SAVE</TT> attribute) is exited without the array being 
+<TT>DEALLOCATE</TT> d<A NAME="tex2html18" HREF="HTMLNotesfootnode.html#7582"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.
+The storage associated with this array becomes inaccessible for the 
+whole of the life of the program.
+<P>
+Consider the following sorting program  which can handle any number 
+of items,
+<P>
+<PRE>    PROGRAM sort_any_number
+     !---------------------------------------------------------!
+     ! Read numbers into an array, sort into ascending order   !
+     ! and display the sorted list                             !
+     !---------------------------------------------------------!
+     INTEGER, DIMENSION(:), ALLOCATABLE :: nums
+     INTEGER :: temp, I, K, n_to_sort, ierr
+
+      PRINT*, 'How many numbers to sort'
+      READ*,  n_to_sort
+
+      ALLOCATE( nums(1:n_to_sort), STAT=ierr)
+      IF (ierr .NE. 0) THEN
+       PRINT*, &quot;nums: Allocation request denied&quot;
+       STOP ! halts execution
+      END IF
+
+      PRINT*,  'Type in ',n_to_sort, 'values one line at a time'  
+      
+      DO I=1,n_to_sort
+       READ*, nums(I)
+      END DO 
+
+      DO I = 1, n_to_sort-1
+       DO K = I+1, n_to_sort
+        IF(nums(I) &gt; nums(K)) THEN
+         temp = nums(K)      ! Store in temporary location        
+         nums(K) = nums(I)   ! Swap the contents over                
+         nums(I) = temp
+        END IF
+       END DO 
+      END DO 
+
+      DO I = 1, n_to_sort
+       PRINT*, 'Rank ',I,' value is ',nums(I)
+      END DO 
+
+      IF (ALLOCATED(nums)) DEALLOCATE(nums, STAT=ierr)
+      IF (ierr .NE. 0) THEN
+       PRINT*, &quot;nums: Deallocation request denied&quot;
+      END IF
+
+    END PROGRAM sort_any_number</PRE>
+<P>
+<HR><A NAME="tex2html1440" HREF="HTMLNotesnode106.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1438" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1432" HREF="HTMLNotesnode104.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1442" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1441" HREF="HTMLNotesnode106.html">Printing Arrays</A>
+<B>Up:</B> <A NAME="tex2html1439" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1433" HREF="HTMLNotesnode104.html">Allocatable Arrays</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>SPREAD Intrinsic</TITLE>
+<META NAME="description" CONTENT="SPREAD Intrinsic">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2112" HREF="HTMLNotesnode162.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2110" HREF="HTMLNotesnode159.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2104" HREF="HTMLNotesnode160.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2114" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2113" HREF="HTMLNotesnode162.html">PACK Intrinsic</A>
+<B>Up:</B> <A NAME="tex2html2111" HREF="HTMLNotesnode159.html">Array Construction Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2105" HREF="HTMLNotesnode160.html">MERGE Intrinsic</A>
+<BR> <P>
+<A NAME="SpreadIntrinsic1">&#160;</A><H4><A NAME="SECTION01053220000000000000"><TT>SPREAD</TT> Intrinsic</A></H4>
+<P>
+<TT>SPREAD</TT><TT>(</TT><TT>SOURCE</TT>,<TT>DIM</TT>,<TT>NCOPIES</TT><TT>)</TT>
+<P>
+This function replicates an array by adding 
+<TT>NCOPIES</TT> of in the direction of a stated dimension.
+<P>
+For example, if <TT>A</TT> is <TT>(/5, 7/)</TT>, then
+<P> <IMG WIDTH=350 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath23440" SRC="HTMLNotesimg73.gif"  > <P>
+<P>
+As <TT>DIM</TT><TT>=</TT> 2 the vector <code>(/ 5, 7/)</code>  is spread along dimension 2 (the direction of a row).
+<P>
+<P> <IMG WIDTH=331 HEIGHT=65 ALIGN=BOTTOM ALT="displaymath23441" SRC="HTMLNotesimg74.gif"  > <P>
+<P>
+In this case <TT>DIM</TT><TT>=</TT> 1 so the vector <code>(/ 5, 7/)</code>  is spread 
+along dimension 1 (the direction of a column).
+<P>
+A good use for this intrinsic is during vectorisation when, say, a
+doubly nested <TT>DO</TT> loop is combining a vector with each column of an
+array at the centre of the loop, the statement can be rewritten as a 2D
+array assignment by creating a copy of the vector for each column of the
+array. For example,
+<P>
+<PRE>    DO i = 1,100
+     DO j = 1,100
+      A(i,j) = B(i)*2
+     END DO
+    END DO</PRE>
+<P>
+can be transformed to
+<PRE>    A(1:100,1:100) = SPREAD(B(:),2,100)*2</PRE>
+<P>
+which exploits Fortran&nbsp;90 array syntax.
+<P>
+<HR><A NAME="tex2html2112" HREF="HTMLNotesnode162.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2110" HREF="HTMLNotesnode159.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2104" HREF="HTMLNotesnode160.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2114" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2113" HREF="HTMLNotesnode162.html">PACK Intrinsic</A>
+<B>Up:</B> <A NAME="tex2html2111" HREF="HTMLNotesnode159.html">Array Construction Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2105" HREF="HTMLNotesnode160.html">MERGE Intrinsic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

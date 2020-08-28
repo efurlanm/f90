@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Interfaces</TITLE>
+<META NAME="description" CONTENT="Interfaces">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3288" HREF="HTMLNotesnode255.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3286" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3280" HREF="HTMLNotesnode253.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3290" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3289" HREF="HTMLNotesnode255.html">Aligning to Dummy Arguments</A>
+<B>Up:</B> <A NAME="tex2html3287" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3281" HREF="HTMLNotesnode253.html">Templates and Modules</A>
+<BR> <P>
+<A NAME="ExplicitInterfaces1">&#160;</A><H3><A NAME="SECTION02041700000000000000">Interfaces</A></H3>
+<P>
+It is a <EM>very</EM> good idea to include interfaces for all external
+procedures. These interfaces should obviously contain all the usual
+Fortran&nbsp;90 information (especially the <TT>INTENT</TT>) but, in addition, should
+contain all relevant mapping information. Specifically they should
+contain:
+<P>
+<UL><LI> any modules containing global mapping information<LI> the mapping of any dummy arguments<LI> the mapping of any result variables (for <TT>FUNCTION</TT> s)
+</UL>
+<P>
+For example,
+<P>
+<PRE>    INTERFACE
+     SUBROUTINE Soobie(A,B,Res)
+      USE Global_Mapping_Info
+      REAL, DIMENSION(:,:), INTENT(IN) :: A, B
+      REAL, DIMENSION(:,:), INTENT(OUT) :: Res
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P :: A, B, Res
+     END SUBROUTINE Soobie
+    END INTERFACE</PRE>
+<P>
+If assumed-shape arrays are being used, interfaces will be mandatory
+anyway.
+<P>
+<HR><A NAME="tex2html3288" HREF="HTMLNotesnode255.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3286" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3280" HREF="HTMLNotesnode253.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3290" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3289" HREF="HTMLNotesnode255.html">Aligning to Dummy Arguments</A>
+<B>Up:</B> <A NAME="tex2html3287" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3281" HREF="HTMLNotesnode253.html">Templates and Modules</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

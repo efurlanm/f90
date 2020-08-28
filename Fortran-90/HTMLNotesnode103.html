@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Constructors in Initialisation Statements</TITLE>
+<META NAME="description" CONTENT="Array Constructors in Initialisation Statements">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1418" HREF="HTMLNotesnode104.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1416" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1410" HREF="HTMLNotesnode102.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1420" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1419" HREF="HTMLNotesnode104.html">Allocatable Arrays</A>
+<B>Up:</B> <A NAME="tex2html1417" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1411" HREF="HTMLNotesnode102.html">The RESHAPE Intrinsic Function</A>
+<BR> <P>
+<A NAME="ArrayInitialisation1">&#160;</A><H3><A NAME="SECTION010311200000000000000">Array Constructors in Initialisation Statements</A></H3>
+<P>
+Named array constants of any rank can be created using the <TT>RESHAPE</TT> function 
+as long as all components can be evaluated at compile time
+(just like in initialisation expressions):
+<P>
+<PRE>    INTEGER, PARAMETER :: Unit_vec = (/1,1,1/)
+    CHARACTER(LEN=*), DIMENSION(3), PARAMETER :: &amp;
+          lights = (/'RED  ','BLUE ','GREEN'/)
+    REAL, DIMENSION(3,3), PARAMETER :: &amp;
+          unit_matrix = RESHAPE((/1,0,0,0,1,0,0,0,1/), (/3,3/))</PRE>
+<P>
+Note how the string length of the <TT>PARAMETER</TT> <TT>lights</TT> can be assumed 
+from the
+length of the constructor values. The strings in the constructor <EM>
+must</EM> all be the same length.
+<P>
+Previously defined constants (<TT>PARAMETER</TT> s) may also be used to 
+initialise variables, consider,
+<P>
+<PRE>    INTEGER, DIMENSION(3,3) :: &amp;
+          unit_matrix_T = RESHAPE(unit_matrix, (/3,3/), ORDER=(/2,1/))</PRE>
+<P>
+This assigns the transpose of <TT>unit_matrix</TT> to <TT>unit_matrix_T</TT>.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode51.html#QArraySalesman"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1418" HREF="HTMLNotesnode104.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1416" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1410" HREF="HTMLNotesnode102.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1420" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1419" HREF="HTMLNotesnode104.html">Allocatable Arrays</A>
+<B>Up:</B> <A NAME="tex2html1417" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1411" HREF="HTMLNotesnode102.html">The RESHAPE Intrinsic Function</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Practical Example of Alignment</TITLE>
+<META NAME="description" CONTENT="Practical Example of Alignment">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2753" HREF="HTMLNotesnode211.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2751" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2747" HREF="HTMLNotesnode209.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2755" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2754" HREF="HTMLNotesnode211.html">Aligning Allocatable Arrays</A>
+<B>Up:</B> <A NAME="tex2html2752" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2748" HREF="HTMLNotesnode209.html">Reverse Strided Alignment Example</A>
+<BR> <P>
+<A NAME="PracticalAlignmentExample1">&#160;</A><H4><A NAME="SECTION02020360000000000000">Practical Example of Alignment</A></H4>
+<P>
+Consider the following Fortran&nbsp;90 program:
+<P>
+<PRE>    PROGRAM Warty
+     IMPLICIT NONE
+     REAL, DIMENSION(4) :: C
+     REAL, DIMENSION(8) :: D
+     REAL, DIMENSION(2) :: E
+      C = 1; D = 2
+      E = D(::4) + C(::2)
+    END PROGRAM Warty</PRE>
+<P>
+Given the patterns of array references in the program <TT>Warty</TT>, we
+would make the decision to align the arrays as stated on the slide. Our
+main concern is to minimise the communications in a program.
+<P>
+The main assignment combines <TT>E(1)</TT> with <TT>D(1)</TT> and <TT>C(1)</TT>;
+<TT>E(2)</TT> with <TT>
+D(5)</TT> and <TT>C(3)</TT>; <TT>E(3)</TT> with <TT>D(9)</TT> and <TT>C(5)</TT> and so
+on. We can use the subscript-triplet expressions in the assignment as
+the basis for our alignment specification:
+<P>
+should be given these HPF directives to ensure minimal (zero)
+communications:
+<P>
+<PRE>!HPF$ ALIGN C(:) WITH D(::2)
+!HPF$ ALIGN E(:) WITH D(::4)
+!HPF$ DISTRIBUTE (BLOCK) :: D</PRE>
+<P>
+This alignment that is given will result in zero communications.
+<P>
+(Clearly this is an artificial example. In the real world, there will be
+many different assignments and it will be much tougher to choose a good
+alignment. This is one of the most difficult area of HPF programming.)
+<P>
+<HR><A NAME="tex2html2753" HREF="HTMLNotesnode211.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2751" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2747" HREF="HTMLNotesnode209.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2755" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2754" HREF="HTMLNotesnode211.html">Aligning Allocatable Arrays</A>
+<B>Up:</B> <A NAME="tex2html2752" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2748" HREF="HTMLNotesnode209.html">Reverse Strided Alignment Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

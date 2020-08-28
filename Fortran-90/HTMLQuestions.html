@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>High Performance Fortran HTML Course - Practical Exercises</TITLE>
+<META NAME="description" CONTENT="High Performance Fortran HTML Course - Practical Exercises">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html10" HREF="HTMLQuestionsnode1.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html8" HREF="HTMLSlides.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif_gr.gif"> <A NAME="tex2html12" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html11" HREF="HTMLQuestionsnode1.html">Introduction to Fortran&nbsp;90</A>
+<B>Up:</B> <A NAME="tex2html9" HREF="HTMLSlides.html">Home</A>
+<BR> <P>
+ <IMG WIDTH=414 HEIGHT=225 ALIGN=BOTTOM ALT="tex2html_wrap2746" SRC="HTMLQuestionsimg1.gif"  > 
+<P>
+<B>High Performance Fortran Programming - Exercises</B> <EM>by</EM> <B>Dr. A C
+Marshall</B>
+<P>
+The development of this Course was funded by JISC/NTI. Acknowledgements
+to
+Steve Morgan of Liverpool University and Dave Watson and Mike Delves of
+NA Software. &#169;University of Liverpool, 1996.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html13" HREF="HTMLQuestionsnode1.html#SECTION00010000000000000000">Introduction to Fortran&nbsp;90</A>
+<UL> 
+<LI> <A NAME="tex2html14" HREF="HTMLQuestionsnode2.html#SECTION00011000000000000000">Reformatting Code</A>
+<LI> <A NAME="tex2html15" HREF="HTMLQuestionsnode4.html#SECTION00012000000000000000">Declaration Format</A>
+<LI> <A NAME="tex2html16" HREF="HTMLQuestionsnode6.html#SECTION00013000000000000000">Area Of a Circle</A>
+<LI> <A NAME="tex2html17" HREF="HTMLQuestionsnode8.html#SECTION00014000000000000000">Operator Precedence</A>
+</UL> 
+<LI> <A NAME="tex2html18" HREF="HTMLQuestionsnode11.html#SECTION00020000000000000000">Control Structure, Intrinsics and More Expressions</A>
+<UL> 
+<LI> <A NAME="tex2html19" HREF="HTMLQuestionsnode12.html#SECTION00021000000000000000">The `Triangle Program'</A>
+<LI> <A NAME="tex2html20" HREF="HTMLQuestionsnode14.html#SECTION00022000000000000000">Mathematical Magic</A>
+<LI> <A NAME="tex2html21" HREF="HTMLQuestionsnode16.html#SECTION00023000000000000000">Decimal to Roman Numerals Conversion</A>
+<LI> <A NAME="tex2html22" HREF="HTMLQuestionsnode18.html#SECTION00024000000000000000">Concatenate Names</A>
+<LI> <A NAME="tex2html23" HREF="HTMLQuestionsnode20.html#SECTION00025000000000000000">Point on a circle</A>
+<LI> <A NAME="tex2html24" HREF="HTMLQuestionsnode22.html#SECTION00026000000000000000">Quadratic equation solver</A>
+</UL> 
+<LI> <A NAME="tex2html25" HREF="HTMLQuestionsnode24.html#SECTION00030000000000000000">Arrays</A>
+<UL> 
+<LI> <A NAME="tex2html26" HREF="HTMLQuestionsnode25.html#SECTION00031000000000000000">Rank, Extents etc.</A>
+<LI> <A NAME="tex2html27" HREF="HTMLQuestionsnode27.html#SECTION00032000000000000000">Hotel Array</A>
+<LI> <A NAME="tex2html28" HREF="HTMLQuestionsnode29.html#SECTION00033000000000000000">Array Element Ordering</A>
+<LI> <A NAME="tex2html29" HREF="HTMLQuestionsnode31.html#SECTION00034000000000000000">Array References</A>
+<LI> <A NAME="tex2html30" HREF="HTMLQuestionsnode33.html#SECTION00035000000000000000">Array Sections</A>
+<LI> <A NAME="tex2html31" HREF="HTMLQuestionsnode35.html#SECTION00036000000000000000">Inqiry intrinsics etc.</A>
+<LI> <A NAME="tex2html32" HREF="HTMLQuestionsnode37.html#SECTION00037000000000000000">Array Constructor</A>
+<LI> <A NAME="tex2html33" HREF="HTMLQuestionsnode39.html#SECTION00038000000000000000">Array Masked Array Assignment</A>
+<LI> <A NAME="tex2html34" HREF="HTMLQuestionsnode41.html#SECTION00039000000000000000"><TT>MAXLOC</TT></A>
+<LI> <A NAME="tex2html35" HREF="HTMLQuestionsnode43.html#SECTION000310000000000000000">Operations on arrays and array intrinsics</A>
+<LI> <A NAME="tex2html36" HREF="HTMLQuestionsnode45.html#SECTION000311000000000000000">Vector Subscripts / <TT>MAXLOC</TT></A>
+<LI> <A NAME="tex2html37" HREF="HTMLQuestionsnode47.html#SECTION000312000000000000000">Summation Example</A>
+<LI> <A NAME="tex2html38" HREF="HTMLQuestionsnode49.html#SECTION000313000000000000000">Salaries Example</A>
+<LI> <A NAME="tex2html39" HREF="HTMLQuestionsnode51.html#SECTION000314000000000000000">Travelling Salesman Problem</A>
+</UL> 
+<LI> <A NAME="tex2html40" HREF="HTMLQuestionsnode53.html#SECTION00040000000000000000">Procedures</A>
+<UL> 
+<LI> <A NAME="tex2html41" HREF="HTMLQuestionsnode54.html#SECTION00041000000000000000">Erroneous Code</A>
+<LI> <A NAME="tex2html42" HREF="HTMLQuestionsnode56.html#SECTION00042000000000000000">Simple example of Subroutine</A>
+<LI> <A NAME="tex2html43" HREF="HTMLQuestionsnode58.html#SECTION00043000000000000000">Simple example of a Function</A>
+<LI> <A NAME="tex2html44" HREF="HTMLQuestionsnode60.html#SECTION00044000000000000000">Standard Deviation</A>
+<LI> <A NAME="tex2html45" HREF="HTMLQuestionsnode62.html#SECTION00045000000000000000">Local Variables</A>
+<LI> <A NAME="tex2html46" HREF="HTMLQuestionsnode64.html#SECTION00046000000000000000">Save Attribute</A>
+<LI> <A NAME="tex2html47" HREF="HTMLQuestionsnode66.html#SECTION00047000000000000000">Random Number Generation</A>
+</UL> 
+<LI> <A NAME="tex2html48" HREF="HTMLQuestionsnode68.html#SECTION00050000000000000000">Procedures and Modules</A>
+<UL> 
+<LI> <A NAME="tex2html49" HREF="HTMLQuestionsnode69.html#SECTION00051000000000000000">Types of Arrays</A>
+<LI> <A NAME="tex2html50" HREF="HTMLQuestionsnode71.html#SECTION00052000000000000000">Triangular Numbers - Array Valued Function' </A>
+<LI> <A NAME="tex2html51" HREF="HTMLQuestionsnode73.html#SECTION00053000000000000000">Vector Multiplication - Array Valued Function</A>
+<LI> <A NAME="tex2html52" HREF="HTMLQuestionsnode75.html#SECTION00054000000000000000">Encapsulation</A>
+<LI> <A NAME="tex2html53" HREF="HTMLQuestionsnode77.html#SECTION00055000000000000000">Complex Arithmetic - Modules</A>
+<LI> <A NAME="tex2html54" HREF="HTMLQuestionsnode79.html#SECTION00056000000000000000">Binary Cut</A>
+</UL> 
+<LI> <A NAME="tex2html55" HREF="HTMLQuestionsnode81.html#SECTION00060000000000000000">Data Distribution</A>
+<UL> 
+<LI> <A NAME="tex2html56" HREF="HTMLQuestionsnode82.html#SECTION00061000000000000000">Local Index Sets</A>
+<LI> <A NAME="tex2html57" HREF="HTMLQuestionsnode84.html#SECTION00062000000000000000">Column/Row Sum/Product</A>
+<LI> <A NAME="tex2html58" HREF="HTMLQuestionsnode86.html#SECTION00063000000000000000">Array Masked Array Assignment</A>
+<LI> <A NAME="tex2html59" HREF="HTMLQuestionsnode88.html#SECTION00064000000000000000">The Ising Model</A>
+</UL> 
+<LI> <A NAME="tex2html60" HREF="HTMLQuestionsnode90.html#SECTION00070000000000000000">Alignment using Templates</A>
+<UL> 
+<LI> <A NAME="tex2html61" HREF="HTMLQuestionsnode91.html#SECTION00071000000000000000">Local Index Sets</A>
+<LI> <A NAME="tex2html62" HREF="HTMLQuestionsnode93.html#SECTION00072000000000000000">Game o'Life - curtosy of Edinburgh Parallel Computing Centre.</A>
+<LI> <A NAME="tex2html63" HREF="HTMLQuestionsnode95.html#SECTION00073000000000000000">Matrix-Vector</A>
+<LI> <A NAME="tex2html64" HREF="HTMLQuestionsnode97.html#SECTION00074000000000000000">Run Gaussian Elimination 2D</A>
+<LI> <A NAME="tex2html65" HREF="HTMLQuestionsnode99.html#SECTION00075000000000000000">Local Index Sets</A>
+</UL> 
+<LI> <A NAME="tex2html66" HREF="HTMLQuestionsnode101.html#SECTION00080000000000000000">Parallel Loops</A>
+<UL> 
+<LI> <A NAME="tex2html67" HREF="HTMLQuestionsnode102.html#SECTION00081000000000000000">Forall</A>
+<LI> <A NAME="tex2html68" HREF="HTMLQuestionsnode104.html#SECTION00082000000000000000">The Mandelbrot Set  - curtosy of Edinburgh Parallel
+Computing Centre.</A>
+<LI> <A NAME="tex2html69" HREF="HTMLQuestionsnode106.html#SECTION00083000000000000000"><TT>PURE</TT> Procedures</A>
+<LI> <A NAME="tex2html70" HREF="HTMLQuestionsnode108.html#SECTION00084000000000000000">Forall</A>
+<LI> <A NAME="tex2html71" HREF="HTMLQuestionsnode110.html#SECTION00085000000000000000">Forall construct</A>
+<LI> <A NAME="tex2html72" HREF="HTMLQuestionsnode112.html#SECTION00086000000000000000">Independent Loop</A>
+</UL> 
+<LI> <A NAME="tex2html73" HREF="HTMLQuestionsnode114.html#SECTION00090000000000000000">Procedures</A>
+<UL> 
+<LI> <A NAME="tex2html74" HREF="HTMLQuestionsnode115.html#SECTION00091000000000000000">Decsriptive Distributions</A>
+<LI> <A NAME="tex2html75" HREF="HTMLQuestionsnode117.html#SECTION00092000000000000000">Life in a Procedure</A>
+<LI> <A NAME="tex2html76" HREF="HTMLQuestionsnode119.html#SECTION00093000000000000000">Procedures</A>
+<LI> <A NAME="tex2html77" HREF="HTMLQuestionsnode121.html#SECTION00094000000000000000">LU Decomposition</A>
+<LI> <A NAME="tex2html78" HREF="HTMLQuestionsnode123.html#SECTION00095000000000000000">Pivotal LU Decomposition</A>
+<LI> <A NAME="tex2html79" HREF="HTMLQuestionsnode124.html#SECTION00096000000000000000">Problem with Allocatable
+Arrays and Templates</A>
+<LI> <A NAME="tex2html80" HREF="HTMLQuestionsnode126.html#SECTION00097000000000000000">Optimised Life</A>
+<LI> <A NAME="tex2html81" HREF="HTMLQuestionsnode127.html#SECTION00098000000000000000">Body Count!</A>
+<LI> <A NAME="tex2html82" HREF="HTMLQuestionsnode128.html#SECTION00099000000000000000">Life Generation Number</A>
+</UL> 
+<LI> <A NAME="tex2html83" HREF="HTMLQuestionsnode129.html#SECTION000100000000000000000">Extrinsics and HPF Library</A>
+<UL> 
+<LI> <A NAME="tex2html84" HREF="HTMLQuestionsnode130.html#SECTION000101000000000000000">F77_LOCAL Extrinsic</A>
+<LI> <A NAME="tex2html85" HREF="HTMLQuestionsnode132.html#SECTION000102000000000000000">Extrinsic simulates an <TT>INDEPENDENT</TT> Loop</A>
+<LI> <A NAME="tex2html86" HREF="HTMLQuestionsnode134.html#SECTION000103000000000000000">Golf - HPF Intrinsics  - curtosy of Edinburgh Parallel
+Computing Centre.</A>
+<LI> <A NAME="tex2html87" HREF="HTMLQuestionsnode136.html#SECTION000104000000000000000">HPF Library</A>
+</UL>
+</UL>
+<HR><A NAME="tex2html10" HREF="HTMLQuestionsnode1.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html8" HREF="HTMLSlides.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif_gr.gif"> <A NAME="tex2html12" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html11" HREF="HTMLQuestionsnode1.html">Introduction to Fortran&nbsp;90</A>
+<B>Up:</B> <A NAME="tex2html9" HREF="HTMLSlides.html">Home</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

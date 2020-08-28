@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Program Example</TITLE>
+<META NAME="description" CONTENT="Program Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1377" HREF="HTMLSlidesnode100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1375" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1369" HREF="HTMLSlidesnode98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1379" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1378" HREF="HTMLSlidesnode100.html">Introduction to Procedures</A>
+<B>Up:</B> <A NAME="tex2html1376" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1370" HREF="HTMLSlidesnode98.html">Main Program Syntax</A>
+<BR> <P>
+<H2><A NAME="SECTION010154000000000000000">Program Example</A></H2>
+<P>
+<PRE>    PROGRAM Main
+     IMPLICIT NONE
+     REAL x
+     INTRINSIC FLOOR
+     REAL, EXTERNAL :: TenTimes
+      READ*, x
+      PRINT*, FLOOR(x)
+      PRINT*, Negative(x)
+      PRINT*, TenTimes(x)
+    CONTAINS
+     REAL FUNCTION Negative(a)
+      REAL, INTENT(IN) :: a
+       Negative = -a
+     END FUNCTION Negative
+    END PROGRAM Main
+    
+    REAL FUNCTION TenTimes(a)
+     IMPLICIT NONE
+     REAL, INTENT(IN) :: a
+      TenTimes = 10.0*a
+    END FUNCTION TenTimes</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode123.html#MainProgram2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1377" HREF="HTMLSlidesnode100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1375" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1369" HREF="HTMLSlidesnode98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1379" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1378" HREF="HTMLSlidesnode100.html">Introduction to Procedures</A>
+<B>Up:</B> <A NAME="tex2html1376" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1370" HREF="HTMLSlidesnode98.html">Main Program Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

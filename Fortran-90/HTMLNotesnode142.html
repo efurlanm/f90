@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Automatic Arrays</TITLE>
+<META NAME="description" CONTENT="Automatic Arrays">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1886" HREF="HTMLNotesnode143.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1884" HREF="HTMLNotesnode140.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1878" HREF="HTMLNotesnode141.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1888" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1887" HREF="HTMLNotesnode143.html">Array-valued Functions</A>
+<B>Up:</B> <A NAME="tex2html1885" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1879" HREF="HTMLNotesnode141.html">Assumed-shape Arrays</A>
+<BR> <P>
+<A NAME="AutomaticArrays1">&#160;</A><H3><A NAME="SECTION01051200000000000000">Automatic Arrays</A></H3>
+<P>
+<A NAME="AutomaticArrays">&#160;</A>
+<P>
+Other arrays can depend on dummy arguments, these are called
+ <EM>automatic</EM> arrays and their size is determined by the values of 
+dummy arguments.
+These arrays have local scope and a limited lifespan and, as they 
+have their size determined by dummy arguments and are created and destroyed
+with each invocation of the procedure, 
+cannot have the <TT>SAVE</TT> attribute (or be initialised). 
+Arrays of this class  are traditionally used for workspace.
+<P>
+Consider,
+<PRE>    PROGRAM Main
+     IMPLICIT NONE
+     INTERFACE 
+      SUBROUTINE une_bus_riot(A,M,N)
+       INTEGER, INTENT(IN) :: M, N
+       INTEGER, INTENT(INOUT) :: A(:,:)
+      END SUBROUTINE une_bus_riot
+     END INTERFACE 
+      ...
+     CALL une_bus_riot(IX,2,3)
+     CALL une_bus_riot(IY,7,2)
+      ...
+    END PROGRAM Main
+
+    SUBROUTINE une_bus_riot(A,M,N)
+     IMPLICIT NONE
+     INTEGER, INTENT(IN) :: M, N
+     INTEGER, INTENT(INOUT) :: A(:,:)
+     REAL  :: A1(M,N)             ! automatic
+     REAL  :: A2(SIZE(A,1),SIZE(A,2)) ! ditto
+     REAL  :: A3(A(1,1),A(1,1))   ! automatic
+      ...
+    END SUBROUTINE</PRE>
+<P>
+The bound specifiers of an automatic array can originate from:
+<UL><LI> scalar dummy arguments which are passed as arguments, for example, A1,<LI> components of other dummy arguments, for example, A3,<LI> characteristics of other dummy arguments (<TT>SIZE</TT> or <TT>LEN</TT> 
+intrinsics), for example, <TT>A2</TT> will be the same shape as <TT>A</TT>,<LI> a combination of the above.
+</UL>
+<P>
+There is currently no way to tell whether an automatic array has been
+created. Typically, if there is insufficient memory to allocate an
+automatic array, the program will ungracefully crash. If this is not
+desired then the less intuitive allocatable array should be used.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode69.html#QProcArrays"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1886" HREF="HTMLNotesnode143.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1884" HREF="HTMLNotesnode140.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1878" HREF="HTMLNotesnode141.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1888" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1887" HREF="HTMLNotesnode143.html">Array-valued Functions</A>
+<B>Up:</B> <A NAME="tex2html1885" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1879" HREF="HTMLNotesnode141.html">Assumed-shape Arrays</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

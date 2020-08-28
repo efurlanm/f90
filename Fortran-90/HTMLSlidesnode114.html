@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Argument Intent</TITLE>
+<META NAME="description" CONTENT="Argument Intent">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1540" HREF="HTMLSlidesnode115.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1538" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1534" HREF="HTMLSlidesnode113.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1542" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1541" HREF="HTMLSlidesnode115.html">Procedures and Array Arguments</A>
+<B>Up:</B> <A NAME="tex2html1539" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1535" HREF="HTMLSlidesnode113.html">Interface Example</A>
+<BR> <P>
+<H2><A NAME="SECTION0101519000000000000000">Argument Intent</A></H2>
+<P>
+Hints to the compiler can be given as to whether a dummy argument will:
+<P>
+<UL><LI> only be referenced -- <TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>)</TT>;<LI> be assigned to before use -- <TT>INTENT</TT><TT>(</TT><TT>OUT</TT><TT>)</TT>;<LI> be referenced and assigned to -- <TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>OUT</TT><TT>)</TT>;
+</UL>
+<PRE>    SUBROUTINE example(arg1,arg2,arg3)
+     IMPLICIT NONE
+     REAL, INTENT(IN) :: arg1
+     INTEGER, INTENT(OUT) :: arg2
+     CHARACTER, INTENT(INOUT) :: arg3
+     REAL :: r
+      r = arg1*ICHAR(arg3)
+      arg2 = ANINT(r)
+      arg3 = CHAR(MOD(127,arg2))
+    END SUBROUTINE example</PRE>
+ The use of <TT>INTENT</TT> attributes is recommended as it:
+<UL><LI>   allows good compilers to check for coding errors,<LI> facilitates efficient compilation and optimisation.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode138.html#Intent1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode54.html#QProcGoofIntent"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1540" HREF="HTMLSlidesnode115.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1538" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1534" HREF="HTMLSlidesnode113.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1542" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1541" HREF="HTMLSlidesnode115.html">Procedures and Array Arguments</A>
+<B>Up:</B> <A NAME="tex2html1539" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1535" HREF="HTMLSlidesnode113.html">Interface Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

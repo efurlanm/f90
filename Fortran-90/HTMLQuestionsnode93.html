@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Game o'Life - curtosy of Edinburgh Parallel Computing Centre.</TITLE>
+<META NAME="description" CONTENT="Game o'Life - curtosy of Edinburgh Parallel Computing Centre.">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1148" HREF="HTMLQuestionsnode94.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1146" HREF="HTMLQuestionsnode90.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1140" HREF="HTMLQuestionsnode92.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1150" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1149" HREF="HTMLQuestionsnode94.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1147" HREF="HTMLQuestionsnode90.html">Alignment using Templates</A>
+<B> Previous:</B> <A NAME="tex2html1141" HREF="HTMLQuestionsnode92.html">Solution</A>
+<BR> <P>
+<A NAME="QLife">&#160;</A><H2><A NAME="SECTION00072000000000000000">Game o'Life - curtosy of Edinburgh Parallel Computing Centre.</A></H2>
+<P>
+The aim of this exercise is to show how Fortran&nbsp;90 can be used to
+program the Game of Life, a simple grid based problem with complex 
+behaviour. It will show how
+ Fortran&nbsp;90 can be used to produce code in a very neat form and exposes
+the potential for coding in a data parallel programming style.
+<P>
+The game of life is a simple cellular automata where the world is a 2D
+grid of cells which have two states: alive or dead. At each iteration
+the new state of a cell is determined by the state of its neighbours at
+the previous iteration. This includes both the nearest neighbours and
+diagonal neighbours.
+<P>
+The rules for the evolution of the system are:
+<P>
+<UL><LI> if a cell has exactly two alive neighbours it maintains state.<LI>   if it has exactly three alive neighbours it is alive.<LI>   otherwise, it is dead. 
+</UL>
+<P>
+Your code will need to:
+<P>
+<OL><LI> initialise the board,<LI> <B>loop</B>,<LI> Print board,<LI> calculate number of neighbours,<LI> <B>if</B> (neighbours = 3) <B>then</B> live 
+<B>elseif</B> (neighbours &lt; 2) <B>or</B> (neighbours &gt; 3) <B>then</B> die,<LI> <B>end loop</B>.
+</OL>
+<P>
+The number of neighbours can be calculated using shifts,
+<P>
+<PRE>        target = CSHIFT(source, shift, dimension)</PRE>
+<P>
+sets target to be the same as source but with its elements shifted a
+distance shift along dimension of the array dimension. For example,
+<P>
+<PRE>        target = CSHIFT(source, -1, 1)</PRE>
+<P>
+would set
+<P>
+<PRE>        target(i) = source(i - 1)</PRE>
+<P>
+<TT>CSHIFT</TT> automatically performs periodic boundary conditions. Otherwise
+references would be made to elements outside the bounds of the array.
+<P>
+The following skeleton program (which is available by clicking <A NAME="tex2html4" HREF="LifeQuestion.hpf">here</A>) should be
+used as a starting point.
+<P>
+<PRE>      PROGRAM life
+      IMPLICIT NONE
+
+! This code performs MAXLOOP iterations of an NxN life board
+!
+      INTEGER, PARAMETER :: N=8, MAXLOOP=10
+      INTEGER            :: loop
+      CHARACTER(LEN=10)  :: picfile
+
+! 1) Declare main arrays
+!
+
+
+
+! 2) Initialise board
+!
+
+
+
+! Print starting config to file life00.pgm
+!
+      WRITE(picfile, 20) 0
+ 20   FORMAT('life', i2.2, '.pgm')
+
+      OPEN(UNIT=10, FILE=picfile)
+      WRITE(10, FMT='(''P2'',/,i3,2x,i3,/,i3)') N, N, 1
+      WRITE(10,*) board
+      CLOSE(UNIT=10)
+
+! 3) Perform MAXLOOP updates
+!
+
+
+
+! 4) Count number of neighbours
+!
+
+
+
+! 5) Calculate new generation
+!
+
+
+
+! Write out new state of board
+!
+        WRITE(picfile, 20) loop
+        OPEN(UNIT=10, FILE=picfile)
+        WRITE(10, FMT='(''P2'',/,i3,2x,i3,/,i3)') N, N, 1
+        WRITE(10,*) board
+        CLOSE(UNIT=10)
+
+      END DO
+
+      END</PRE>
+<P>
+<UL><LI> <EM>Initialisation:</EM> Use array syntax to initialise a board 
+(an  <IMG WIDTH=41 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline2994" SRC="HTMLQuestionsimg62.gif"  > 
+<TT>INTEGER</TT> array with value 1 for a live cell and 0 for a dead one) with the
+following pattern, where the marked cells are alive, where <I>N</I> = 8 in this case. Set the row
+and column nearest the centre (i.e. <I>N</I>/2)
+<P>
+ <IMG WIDTH=195 HEIGHT=195 ALIGN=BOTTOM ALT="tex2html_wrap3004" SRC="HTMLQuestionsimg63.gif"  > <LI>  <EM>Print board:</EM>  The board can be printed either as a plain
+text file using 
+the standard Fortran print format statements, or using the following
+pieces of code can be included to produce a series of bitmaps which 
+can be animated using <TT>xv</TT>.
+<P>
+<PRE>!     Include in the declarations; strings for filenaming
+      CHARACTER (LEN=2) :: cupdate
+      CHARACTER (LEN=12) :: filename
+!...
+! Include in the time loop
+! hack to write time into a string
+      WRITE(cupdate,'(I2.2)') update
+
+      filename = 'life'//cupdate//'.pgm'
+      OPEN(UNIT=10,FILE=filename)
+! write the board to a pgm file for viewing
+      WRITE(10,fmt='(''P2'',/,I3,2X,I3,/,I3)') N, N, 1
+! must be a capital P for the MAGIC NUMBER
+      WRITE(10,*) board
+      CLOSE(10)</PRE>
+<P>
+This should, when run, produce <TT>life_*.pgm</TT> files which can be viewed using
+<TT>xv</TT>. Alternativly, these files can be viewed as animation using,
+<P>
+<PRE>   xv -expand 10 -wait 0.1 -wloop -rw *.pgm</PRE><LI> <EM>Update:</EM> Declare an array the same size as the board  <IMG WIDTH=41 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline2994" SRC="HTMLQuestionsimg62.gif"  >  to
+contain the number of neighbours for each point. Include all nearest neighbours,
+including diagonal neighbours. This update can be done using the following Fortran&nbsp;90 
+features.
+<UL><LI>       Use <TT>CSHIFT</TT> to calculate the number of neighbours. In order to
+access the
+ diagonal neighbours you may need to used nested <TT>CSHIFT</TT> s. For example,
+<P>
+<PRE>        target = CSHIFT(CSHIFT(source, 1, 2), -1, 1)</PRE>
+<P>
+This would shift array source initially in the 2nd dimension and then in
+the 1st.<LI>       Use <TT>WHERE</TT> to decide whether to create or kill new organisms at
+each grid point. 
+</UL><LI> <EM>Compilation:</EM> Compile your code (<TT>life.f90</TT>, with a Fortran&nbsp;90 
+compiler with, say, board size 
+<I>N</I>=8 for the test, for 10 iterations of evolution) to  produce an 
+executable life.<LI> <EM>Run:</EM> and use <TT>xv</TT> to see your creations.
+</UL>
+<P>
+Now add distribution directives for the two arrays <TT>
+source</TT> and <TT>target</TT>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1151" HREF="HTMLQuestionsnode94.html#SECTION00072100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1148" HREF="HTMLQuestionsnode94.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1146" HREF="HTMLQuestionsnode90.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1140" HREF="HTMLQuestionsnode92.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1150" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1149" HREF="HTMLQuestionsnode94.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1147" HREF="HTMLQuestionsnode90.html">Alignment using Templates</A>
+<B> Previous:</B> <A NAME="tex2html1141" HREF="HTMLQuestionsnode92.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

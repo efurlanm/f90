@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html243" HREF="HTMLQuestionsnode14.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html241" HREF="HTMLQuestionsnode12.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html237" HREF="HTMLQuestionsnode12.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html245" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html244" HREF="HTMLQuestionsnode14.html">Mathematical Magic</A>
+<B>Up:</B> <A NAME="tex2html242" HREF="HTMLQuestionsnode12.html">The `Triangle Program'</A>
+<B> Previous:</B> <A NAME="tex2html238" HREF="HTMLQuestionsnode12.html">The `Triangle Program'</A>
+<BR> <P>
+<H3><A NAME="SECTION00021100000000000000">Solution</A></H3>
+<PRE>    PROGRAM Triangle
+     IMPLICIT NONE
+     LOGICAL l1, l2
+     INTEGER side1, side2, side3
+      PRINT*, &quot;Type in the three sides:&quot;
+      READ*, side1, side2, side3
+      IF (2*MAX(side1,side2,side3) .GE. side1+side2+side3) THEN
+       PRINT*, &quot;Not a Triangle&quot;
+      ELSE
+       l1 = side1 .EQ. side2
+       l2 = side2 .EQ. side3
+       IF (l1 .AND. l2) THEN
+        PRINT*, &quot;Equilateral&quot;
+       ELSE
+        IF (l1 .OR. l2 .OR. side1 .EQ. side3 ) THEN
+         PRINT*, &quot;Isosoles&quot;
+        ELSE
+         PRINT*, &quot;Scalene&quot;
+        END IF
+       END IF
+      END IF
+    END PROGRAM Triangle</PRE>
+<P>
+The results are
+<P>
+<OL><LI> (1, 1, 1) -- equilateral<LI> (2, 2, 1) -- isos<LI> (1, 1, 0) -- not a triangle<LI> (3, 4, 5) -- scalene<LI> (3, 2, 1) -- not a triangle (a straight line)<LI> (1, 2, 4) -- not a triangle
+</OL>
+<P>
+<HR><A NAME="tex2html243" HREF="HTMLQuestionsnode14.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html241" HREF="HTMLQuestionsnode12.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html237" HREF="HTMLQuestionsnode12.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html245" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html244" HREF="HTMLQuestionsnode14.html">Mathematical Magic</A>
+<B>Up:</B> <A NAME="tex2html242" HREF="HTMLQuestionsnode12.html">The `Triangle Program'</A>
+<B> Previous:</B> <A NAME="tex2html238" HREF="HTMLQuestionsnode12.html">The `Triangle Program'</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

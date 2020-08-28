@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedures and Array Arguments</TITLE>
+<META NAME="description" CONTENT="Procedures and Array Arguments">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1861" HREF="HTMLNotesnode141.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1859" HREF="HTMLNotesnode139.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1853" HREF="HTMLNotesnode139.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1863" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1862" HREF="HTMLNotesnode141.html">Assumed-shape Arrays</A>
+<B>Up:</B> <A NAME="tex2html1860" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<B> Previous:</B> <A NAME="tex2html1854" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<BR> <P>
+<A NAME="ArrayArguments1">&#160;</A><H2><A NAME="SECTION01051000000000000000">Procedures and Array Arguments</A></H2>
+<P>
+<A NAME="ArrayArguments">&#160;</A>
+<P>
+There are three types of dummy array argument:
+<P>
+<UL><LI> <EM>explicit-shape</EM> -- all bounds specified;
+<PRE>    INTEGER, DIMENSION(8,8), INTENT(IN) :: explicit_shape</PRE>
+<P>
+The actual argument that becomes associated with an explicit-shape dummy
+must conform in size and shape. An explicit <TT>INTERFACE</TT> is not required in this 
+case. This method of declaring dummy arguments is very inflexible as
+only arrays of one fixed size can be passed. This form of declaration is
+only very occasionally appropriate.<LI> <EM>assumed-size</EM> -- all bounds passed except the last;
+<P>
+<PRE>    INTEGER, INTENT(IN) :: lda ! dummy arg
+    INTEGER, DIMENSION(lda,*) :: assumed_size</PRE>
+<P>
+The last bound of an assumed-size array remains unspecified, (it contains a
+<TT>*</TT>,) and can adopt an assumed value. An explicit <TT>INTERFACE</TT> is not 
+required. This was the F<font size=-1><small>ORTRAN</small></font>&nbsp;77 method of passing arrays but has
+been totally superseeded by the next category.<LI> <EM>assumed-shape</EM> -- no bounds specified;
+<P>
+<PRE>    INTEGER, DIMENSION(:,:), INTENT(IN) :: assumed_shape</PRE>
+<P>
+All bounds can be inherited from the actual argument. The actual array that 
+corresponds to the dummy must match in type, kind and rank.
+An explicit <TT>INTERFACE</TT> <EM>must</EM> be provided. This type of argument
+should always  used in preference to <EM>assumed-size</EM> arrays.
+<P>
+</UL>
+<P>
+Note: an actual argument can be an <TT>ALLOCATABLE</TT> array  but a dummy argument 
+cannot
+be -- this means effectively that an <TT>ALLOCATABLE</TT> array must be allocated
+before being used as an actual argument.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1864" HREF="HTMLNotesnode141.html#SECTION01051100000000000000">Assumed-shape Arrays</A>
+<LI> <A NAME="tex2html1865" HREF="HTMLNotesnode142.html#SECTION01051200000000000000">Automatic Arrays</A>
+<LI> <A NAME="tex2html1866" HREF="HTMLNotesnode143.html#SECTION01051300000000000000">Array-valued Functions</A>
+</UL>
+<HR><A NAME="tex2html1861" HREF="HTMLNotesnode141.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1859" HREF="HTMLNotesnode139.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1853" HREF="HTMLNotesnode139.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1863" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1862" HREF="HTMLNotesnode141.html">Assumed-shape Arrays</A>
+<B>Up:</B> <A NAME="tex2html1860" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<B> Previous:</B> <A NAME="tex2html1854" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

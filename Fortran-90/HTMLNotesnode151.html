@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules Interface Declaration Example</TITLE>
+<META NAME="description" CONTENT="Modules Interface Declaration Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1995" HREF="HTMLNotesnode152.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1993" HREF="HTMLNotesnode150.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1989" HREF="HTMLNotesnode150.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1997" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1996" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<B>Up:</B> <A NAME="tex2html1994" HREF="HTMLNotesnode150.html">Modules - Interface Declaration</A>
+<B> Previous:</B> <A NAME="tex2html1990" HREF="HTMLNotesnode150.html">Modules - Interface Declaration</A>
+<BR> <P>
+<A NAME="ModulesInterfaceDeclaration2">&#160;</A><H4><A NAME="SECTION01052310000000000000">Modules Interface Declaration Example</A></H4>
+<P>
+Consider the following module containing procedure interfaces:
+<P>
+<PRE>    MODULE my_interfaces
+     IMPLICIT NONE
+     INTERFACE
+      SUBROUTINE sub1(A,B,C)
+       REAL, INTENT(IN), DIMENSION(:) :: A
+       INTEGER, INTENT(IN)            :: B
+       CHARACTER(LEN=*), INTENT(IN)   :: C
+      END SUBROUTINE sub1
+      SUBROUTINE sub2(time,dist)
+       ... ! etc
+      END SUBROUTINE sub2
+     END INTERFACE
+    END MODULE my_interfaces</PRE>
+<P>
+this can be used in the main program and will make the interfaces for
+<TT>sub1</TT> and <TT>sub2</TT> visible,
+<P>
+<PRE>    PROGRAM use_of_module
+     USE my_interfaces
+     IMPLICIT NONE
+      CALL sub1((/1.0,3.141,0.57112/),2,'Yobot')
+      CALL sub2(t,d)
+    END PROGRAM use_of_module
+    SUBROUTINE sub1(A,B,C)
+      ...
+    END SUBROUTINE sub1
+    SUBROUTINE sub2(time,dist)
+      ...
+    END SUBROUTINE sub2</PRE>
+<P>
+Even though the module contains all possible interfaces and
+can simply be <TT>USE</TT> d to make the interfaces visible this is 
+<B>not</B> the best way to use modules; we should use <EM>
+encapsulation</EM>.
+<P>
+<HR><A NAME="tex2html1995" HREF="HTMLNotesnode152.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1993" HREF="HTMLNotesnode150.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1989" HREF="HTMLNotesnode150.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1997" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1996" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<B>Up:</B> <A NAME="tex2html1994" HREF="HTMLNotesnode150.html">Modules - Interface Declaration</A>
+<B> Previous:</B> <A NAME="tex2html1990" HREF="HTMLNotesnode150.html">Modules - Interface Declaration</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

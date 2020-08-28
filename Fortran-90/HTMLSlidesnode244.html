@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Collapsing Dimensions</TITLE>
+<META NAME="description" CONTENT="Collapsing Dimensions">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3215" HREF="HTMLSlidesnode245.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3213" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3207" HREF="HTMLSlidesnode243.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3217" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3216" HREF="HTMLSlidesnode245.html">Scalar Arguments</A>
+<B>Up:</B> <A NAME="tex2html3214" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3208" HREF="HTMLSlidesnode243.html">Array Arguments Example 2</A>
+<BR> <P>
+<H2><A NAME="SECTION020617000000000000000">Collapsing Dimensions</A></H2>
+<P>
+If a dimension has a scalar index it is collapsed. Consider,
+<PRE>!HPF$ DISTRIBUTE (BLOCK,BLOCK) :: A, B
+     ...
+    CALL Xubbie(A(i,:),b(i,:))
+     ...
+    SUBROUTINE Xubbie(x,y)
+     REAL, DIMENSION(:) :: x, y
+     !HPF$ DISTRIBUTE (BLOCK) :: x, y</PRE>
+<P>
+Will cause remapping. With 16 processors:
+<UL><LI> actual arguments are distributed over 4 processors,<LI> on entry <TT>x</TT> and <TT>y</TT> will be redistributed over 16 processors,<LI> on exit <TT>x</TT> and <TT>y</TT> will be mapped in same way as actual argument,
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode262.html#PassingArraySections4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3215" HREF="HTMLSlidesnode245.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3213" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3207" HREF="HTMLSlidesnode243.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3217" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3216" HREF="HTMLSlidesnode245.html">Scalar Arguments</A>
+<B>Up:</B> <A NAME="tex2html3214" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3208" HREF="HTMLSlidesnode243.html">Array Arguments Example 2</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

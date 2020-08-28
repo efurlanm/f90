@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Extrinsic Procedures</TITLE>
+<META NAME="description" CONTENT="Extrinsic Procedures">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3288" HREF="HTMLSlidesnode251.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3286" HREF="HTMLSlidesnode249.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3280" HREF="HTMLSlidesnode249.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3290" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3289" HREF="HTMLSlidesnode251.html">Extrinsic Procedure Example</A>
+<B>Up:</B> <A NAME="tex2html3287" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<B> Previous:</B> <A NAME="tex2html3281" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<BR> <P>
+<H2><A NAME="SECTION02071000000000000000">Extrinsic Procedures</A></H2>
+<P>
+HPF can call procedures written in other languages or other parallel
+programming styles. These are called <TT>EXTRINSIC</TT> procedures.
+<P>
+An <TT>INTERFACE</TT> including mapping information <EM>must</EM> be given:
+<P>
+<PRE>  INTERFACE
+   EXTRINSIC (C) SUBROUTINE Job(a)
+    REAL, DIMENSION(:) :: a
+    !HPF$ DISTRIBUTE a(BLOCK)
+   END SUBROUTINE Job
+  END INTERFACE</PRE>
+<P>
+this would correspond to a C <TT>void</TT> function with a single array argument.
+<P>
+It is up to the compiler to decide which languages are supported.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode266.html#ExtrinsicProcedures1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3288" HREF="HTMLSlidesnode251.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3286" HREF="HTMLSlidesnode249.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3280" HREF="HTMLSlidesnode249.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3290" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3289" HREF="HTMLSlidesnode251.html">Extrinsic Procedure Example</A>
+<B>Up:</B> <A NAME="tex2html3287" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<B> Previous:</B> <A NAME="tex2html3281" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

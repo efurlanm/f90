@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Concatenation</TITLE>
+<META NAME="description" CONTENT="Concatenation">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html884" HREF="HTMLNotesnode62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html882" HREF="HTMLNotesnode59.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html878" HREF="HTMLNotesnode60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html886" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html885" HREF="HTMLNotesnode62.html">Relational Operators</A>
+<B>Up:</B> <A NAME="tex2html883" HREF="HTMLNotesnode59.html">Intrinsic Character Operations</A>
+<B> Previous:</B> <A NAME="tex2html879" HREF="HTMLNotesnode60.html">Character Substrings</A>
+<BR> <P>
+<A NAME="CharacterOperations2">&#160;</A><H4><A NAME="SECTION01018420000000000000">Concatenation</A></H4>
+<P>
+There is only one intrinsic character operator, the concatenation
+operator, <TT>/</TT><TT>/</TT>. Most string
+manipulation is performed using intrinsic functions.
+<P>
+<PRE>    CHARACTER(LEN=4), PARAMETER  :: name = &quot;Coal&quot;
+    CHARACTER(LEN=10) :: song = &quot;Firey &quot;//name
+    PRINT*, &quot;Rowche &quot;//&quot;Rumble&quot;
+    PRINT*, song(1:1)//name(2:4)</PRE>
+<P>
+would produce
+<P>
+<PRE>    Rowche Rumble
+    Foal</PRE>
+<P>
+The example joins together two strings and then
+the first character of <TT>song</TT> and the 2nd, 3rd and 4th of <TT>name</TT>. 
+Note that <TT>/</TT><TT>/</TT> cannot be mixed with other types or kinds.
+<P>
+<HR><A NAME="tex2html884" HREF="HTMLNotesnode62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html882" HREF="HTMLNotesnode59.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html878" HREF="HTMLNotesnode60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html886" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html885" HREF="HTMLNotesnode62.html">Relational Operators</A>
+<B>Up:</B> <A NAME="tex2html883" HREF="HTMLNotesnode59.html">Intrinsic Character Operations</A>
+<B> Previous:</B> <A NAME="tex2html879" HREF="HTMLNotesnode60.html">Character Substrings</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

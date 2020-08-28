@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html975" HREF="HTMLQuestionsnode79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html973" HREF="HTMLQuestionsnode77.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html969" HREF="HTMLQuestionsnode77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html977" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html976" HREF="HTMLQuestionsnode79.html">Binary Cut</A>
+<B>Up:</B> <A NAME="tex2html974" HREF="HTMLQuestionsnode77.html">Complex Arithmetic - Modules</A>
+<B> Previous:</B> <A NAME="tex2html970" HREF="HTMLQuestionsnode77.html">Complex Arithmetic - Modules</A>
+<BR> <P>
+<H3><A NAME="SECTION00055100000000000000">Solution</A></H3>
+<PRE>    MODULE Integer_Complex_Arithmetic
+
+     IMPLICIT NONE
+
+    CONTAINS
+
+     FUNCTION Addition(ic1,ic2)
+
+      INTEGER, INTENT(IN), DIMENSION(2) :: ic1, ic2
+      INTEGER, DIMENSION(2) :: Addition
+
+       Addition = ic1 + ic2
+
+     END FUNCTION Addition
+
+     FUNCTION Subtraction(ic1,ic2)
+
+      INTEGER, INTENT(IN), DIMENSION(2) :: ic1, ic2
+      INTEGER, DIMENSION(2) :: Subtraction
+
+       Subtraction = ic1 - ic2
+
+     END FUNCTION Subtraction
+
+     FUNCTION Multiplication(ic1,ic2)
+
+      INTEGER, INTENT(IN), DIMENSION(2) :: ic1, ic2
+      INTEGER, DIMENSION(2) :: Multiplication
+
+       Multiplication(1) = ic1(1)*ic2(1) - ic1(2)*ic2(2)
+       Multiplication(2) = ic1(1)*ic2(2) + ic1(2)*ic2(1)
+
+     END FUNCTION Multiplication
+
+     FUNCTION Division(ic1,ic2)
+
+      INTEGER, INTENT(IN), DIMENSION(2) :: ic1, ic2
+      INTEGER, DIMENSION(2) :: Division
+
+       Division = Multiplication(ic1,(/ic2(1),-ic2(2)/))/&amp;
+                      (ic2(1)*ic2(1)+ic2(2)*ic2(2))
+
+     END FUNCTION Division
+
+     FUNCTION Exponentiation(ic1,exp)
+
+      INTEGER, INTENT(IN), DIMENSION(2) :: ic1
+      INTEGER, INTENT(IN)               :: exp
+      INTEGER, DIMENSION(2) :: Exponentiation
+      INTEGER i
+
+      Exponentiation = (/1,0/) ! for exp = 0
+
+      DO i = 1, exp
+       Exponentiation = Multiplication(Exponentiation,ic1)
+      END DO
+
+     END FUNCTION Exponentiation
+
+    END MODULE Integer_Complex_Arithmetic
+
+    PROGRAM Testo
+     USE Integer_Complex_Arithmetic
+     IMPLICIT NONE
+     PRINT*, &quot;Addition((/1,2/),(/3,4/))&quot;,   &amp;
+              Addition((/1,2/),(/3,4/))
+     PRINT*, &quot;Subtraction((/1,2/),(/3,4/))&quot;,&amp;
+              Subtraction((/1,2/),(/3,4/))
+     PRINT*, &quot;Division((/1,2/),(/3,4/))&quot;,   &amp;
+              Division((/1,2/),(/3,4/))
+     PRINT*, &quot;Division((/3,4/),(/3,4/))&quot;,   &amp;
+              Division((/3,4/),(/3,4/))
+     PRINT*, &quot;Division((/3,4/),(/1,2/))&quot;,   &amp;
+              Division((/3,4/),(/1,2/))
+     PRINT*, &quot;Multiplication((/1,2/),(/3,4/))&quot;,&amp;
+              Multiplication((/1,2/),(/3,4/))
+     PRINT*, &quot;Exponentiation((/1,2/),3)&quot;,   &amp;
+              Exponentiation((/1,2/),3)
+    END PROGRAM Testo</PRE>
+<P>
+This produces,
+<PRE> Addition((/1,2/),(/3,4/))           4           6
+ Subtraction((/1,2/),(/3,4/))       -2          -2
+ Division((/1,2/),(/3,4/))           0           0
+ Division((/3,4/),(/3,4/))           1           0
+ Division((/3,4/),(/1,2/))           2           0
+ Multiplication((/1,2/),(/3,4/))    -5          10
+ Exponentiation((/1,2/),3)         -11          -2</PRE>
+<P>
+<HR><A NAME="tex2html975" HREF="HTMLQuestionsnode79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html973" HREF="HTMLQuestionsnode77.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html969" HREF="HTMLQuestionsnode77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html977" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html976" HREF="HTMLQuestionsnode79.html">Binary Cut</A>
+<B>Up:</B> <A NAME="tex2html974" HREF="HTMLQuestionsnode77.html">Complex Arithmetic - Modules</A>
+<B> Previous:</B> <A NAME="tex2html970" HREF="HTMLQuestionsnode77.html">Complex Arithmetic - Modules</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

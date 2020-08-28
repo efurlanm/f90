@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Local Variables</TITLE>
+<META NAME="description" CONTENT="Local Variables">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html797" HREF="HTMLQuestionsnode63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html795" HREF="HTMLQuestionsnode53.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html789" HREF="HTMLQuestionsnode61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html799" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html798" HREF="HTMLQuestionsnode63.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html796" HREF="HTMLQuestionsnode53.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html790" HREF="HTMLQuestionsnode61.html">Solution</A>
+<BR> <P>
+<A NAME="QProcScope">&#160;</A><H2><A NAME="SECTION00045000000000000000">Local Variables</A></H2>
+<P>
+At each of the indicated points in the code, give the status
+(local, dummy argument, host associated or undefined)
+and, if appropriate, the values of the variables 
+<TT>v1, v2, v3, v4, r</TT> and <TT>i</TT>.
+<P>
+<PRE>    SUBROUTINE Subby(V1,V2)
+     IMPLICIT NONE
+     REAL, INTENT(INOUT) :: V1,V2
+     INTEGER :: V3,V4
+      V1 = 1.0
+      V2 = 2.0
+      V3 = 3
+      V4 = 4
+       ...
+   !------ Position 1
+       ...
+      CALL Inte(V1,V3)
+       ...
+   !------ Position 2
+       ...
+      CALL Exte(V1,V3)
+       ...
+   !------ Position 3
+       ...
+    CONTAINS
+     SUBROUTINE Inte(r,i)
+      REAL, INTENT(INOUT) :: r
+      INTEGER, INTENT(INOUT) :: i
+      INTEGER :: v2 = 25
+       ...
+   !------ Position 4
+       ...
+       r = 24.7
+       i = 66
+       v4 = 77
+       ...
+     END SUBROUTINE Inte
+    END SUBROUTINE Subby
+    SUBROUTINE Exte(v1,v2)
+     REAL, INTENT(INOUT) :: v1 
+     INTEGER, INTENT(INOUT) :: v2
+     REAL :: v3 = -2.666
+       ...
+   !------ Position 5
+       ...
+      v1 = 234.675
+      v2 = -99
+      v3 = 0.001
+       ...
+    END SUBROUTINE Exte</PRE>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html800" HREF="HTMLQuestionsnode63.html#SECTION00045100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html797" HREF="HTMLQuestionsnode63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html795" HREF="HTMLQuestionsnode53.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html789" HREF="HTMLQuestionsnode61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html799" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html798" HREF="HTMLQuestionsnode63.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html796" HREF="HTMLQuestionsnode53.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html790" HREF="HTMLQuestionsnode61.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

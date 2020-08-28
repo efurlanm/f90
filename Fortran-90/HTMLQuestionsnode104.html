@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The Mandelbrot Set  - curtosy of Edinburgh Parallel
+Computing Centre.</TITLE>
+<META NAME="description" CONTENT="The Mandelbrot Set  - curtosy of Edinburgh Parallel
+Computing Centre.">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1274" HREF="HTMLQuestionsnode105.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1272" HREF="HTMLQuestionsnode101.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1266" HREF="HTMLQuestionsnode103.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1276" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1275" HREF="HTMLQuestionsnode105.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1273" HREF="HTMLQuestionsnode101.html">Parallel Loops</A>
+<B> Previous:</B> <A NAME="tex2html1267" HREF="HTMLQuestionsnode103.html">Solution</A>
+<BR> <P>
+<A NAME="QMandelbrot">&#160;</A><H2><A NAME="SECTION00082000000000000000">The Mandelbrot Set  - curtosy of Edinburgh Parallel
+Computing Centre.</A></H2>
+<P>
+The Mandelbrot Set is the set of numbers resulting from repeated
+iterations of  the following function  <IMG WIDTH=73 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline3010" SRC="HTMLQuestionsimg66.gif"  > 
+<P>
+which, separating real and imaginary components, looks like,
+<P> <IMG WIDTH=500 HEIGHT=32 ALIGN=BOTTOM ALT="eqnarray2421" SRC="HTMLQuestionsimg67.gif"  > <P>
+<P>
+for complex numbers, Z and C. This function is defined for complex
+values of <I>C</I>=(<I>cr</I>,<I>ci</I>) in the range ([-1.0,1.0], [-1.0,1.0]), with the
+initial conditions, <I>z</I>=<I>c</I>. In the case study, we will mainly be concerned
+with the Mandelbrot Set defined in the first quadrant of the complex plane, i.e. we will
+consider <I>c</I> in the range ([0.0, 1.0],[0.0,1.0]).
+<P>
+What is normally plotted is the number of iterations taken for <I>z</I> to
+reach some threshold value. We will take this threshold as  <IMG WIDTH=54 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline3024" SRC="HTMLQuestionsimg68.gif"  > 
+<P>
+and set an upper iteration limit of 255. This number is converted into a
+greyscale or colour, and plotted at the point whose coordinates are (<I>cr</I>
+, <I>ci</I>).
+<P>
+Below is a fragment of a serial F<font size=-1><small>ORTRAN</small></font>&nbsp;77 code which computes the Mandelbrot set.
+This should outline the algorithm to be used in the full HPF version.
+<P>
+<PRE>c Declare N*N arrays for real and imaginary parts of 
+c arrays C (CR, CR) and Z (ZR, ZI)
+c     ...
+c Initialise arrays CR, CI
+c Initialise arrays ZR=CR, ZI=CI
+c     ...
+c Initialise ZIS and ZRS to hold the squares of ZR and ZI
+c     ...
+      DO i = 0, 255
+        DO j = 1, N
+          DO k = 1, N
+            IF (ZRS(j,k) + ZIS(j,k) .LE. 4.0 ) THEN
+              ZRS(j,k) = ZR(j,k) * ZR(j,k)
+              ZIS(j,k) = ZI(j,k) * ZI(j,k)
+              ZI(j,k) = 2.0 * ZR(j,k) * ZI(j,k) + CI(j,k)
+              ZR(j,k) = ZRS(j,k) - ZIS(j,k) + CR(j,k)
+              COLOUR(j,k) = i
+            END IF
+          END DO
+        END DO
+      END DO
+c ...</PRE>
+<P>
+Write an HPF program, based on the above code fragment, which will
+compute the Mandelbrot set, using the Fortran&nbsp;90 array features (<TT>WHERE</TT> and
+<TT>FORALL</TT> etc)  to
+carry out the various stages.  Use the following skeleton program
+(which is available by clicking <A NAME="tex2html6" HREF="MandelQuestion.hpf">here</A>) to base your answer on.
+<P>
+<PRE>      PROGRAM mandel
+      IMPLICIT NONE
+
+      INTEGER, PARAMETER :: N=64, RESOLUTION=255
+
+! 1) Declare main arrays
+!
+
+
+
+! 2) Initialise cr and ci using FORALL
+!
+
+
+
+! 3) Initialise other arrays
+!
+
+
+
+! 4) Main loop: RESOLUTION number of iterations
+!
+
+
+
+! 5) Work: Fortran 90 translation of given FORTRAN 77 code
+!
+
+
+
+! Open output file
+!
+      OPEN(UNIT=10, FILE='mandel.pgm')
+      WRITE(10, FMT='(''P2'',/,i3,2x,i3,/,i3)') N, N, RESOLUTION
+      WRITE(10,*) colour
+      CLOSE(UNIT=10)
+
+      END</PRE>
+<P>
+The following steps are needed:
+<UL><LI>       <B>Initialisation</B>
+<P>
+Initialise the <EM>rows</EM> of <TT>CR</TT> (real component of <I>C</I>) to be 
+equidistantly valued in the range
+[0.0,1.0] (i.e. every element in the first row has value 0.0, every
+element in the last row has value 1.0, and the intermediate rows have
+values increasing by a constant amount as the rows are traversed ). 
+Initialise the columns of <TT>CI</TT> (imaginary component of <I>C</I>)
+similarly. Use <TT>FORALL</TT> for this initialisation. As an example, a 6
+element  <TT>CR</TT> matrix would look like
+<P>
+<PRE>          0.0 0.0 0.0 0.0 0.0 0.0
+          0.2 0.2 0.2 0.2 0.2 0.2
+          0.4 0.4 0.4 0.4 0.4 0.4
+          0.6 0.6 0.6 0.6 0.6 0.6
+          0.8 0.8 0.8 0.8 0.8 0.8
+          1.0 1.0 1.0 1.0 1.0 1.0</PRE>
+<P>
+Set the initial conditions <TT>ZR</TT> and <TT>ZI</TT> to be <TT>CR</TT> and <TT>CI</TT> respectively and
+define variables <TT>ZRS</TT> and <TT>ZIS</TT> to be the square of <TT>ZR</TT> and <TT>
+ZI</TT> respectively.<LI>       <B>Iteration</B>
+<P>
+Rewrite the above F<font size=-1><small>ORTRAN</small></font>&nbsp;77 code using Fortran&nbsp;90 array syntax, using
+the <TT>WHERE</TT> construct.
+<P>
+This program takes each point at a time and iterates the complex
+function (up to a maximum number of iterations, <TT>RESOLUTION = 255</TT>) . The
+iterations stop when the absolute value of <I>Z</I> reaches or exceeds 2. The
+colour values are a 
+measure of how many iterations it took to ``escape'' to 2 at each point.<LI>       <B>Output</B>
+<P>
+To write out the <TT>COLOUR</TT> array as a bitmap, use similar instructions as
+were used in the Game of Life. Include the following lines of code at
+the end of your program,
+<P>
+</UL>
+<PRE>        OPEN(UNIT=10,FILE='mandel.pgm')
+        WRITE(10,fmt='(''P2'',/,I3,2X,I3,/,I3)') N, N, 255
+        WRITE(10,*) colour
+        CLOSE(10)</PRE>
+<P>
+Compile and run the code on a single workstation, with the size of the
+arrays set with <I>N</I> = 128. View the resulting bitmap with
+<P>
+<PRE>        xv mandel.pgm</PRE>
+<P>
+and check that the code works correctly (i.e. you recognise the bitmap
+to be the well known Mandelbrot set).
+<P>
+Add HPF directives to parallelise the code.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1277" HREF="HTMLQuestionsnode105.html#SECTION00082100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1274" HREF="HTMLQuestionsnode105.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1272" HREF="HTMLQuestionsnode101.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1266" HREF="HTMLQuestionsnode103.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1276" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1275" HREF="HTMLQuestionsnode105.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1273" HREF="HTMLQuestionsnode101.html">Parallel Loops</A>
+<B> Previous:</B> <A NAME="tex2html1267" HREF="HTMLQuestionsnode103.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

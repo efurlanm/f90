@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Extrinsic Example Continued</TITLE>
+<META NAME="description" CONTENT="Extrinsic Example Continued">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3321" HREF="HTMLSlidesnode254.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3319" HREF="HTMLSlidesnode249.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3313" HREF="HTMLSlidesnode252.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3323" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3322" HREF="HTMLSlidesnode254.html">Extrinsic Example Continued</A>
+<B>Up:</B> <A NAME="tex2html3320" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<B> Previous:</B> <A NAME="tex2html3314" HREF="HTMLSlidesnode252.html">Extrinsic Example Continued</A>
+<BR> <P>
+<H2><A NAME="SECTION02074000000000000000">Extrinsic Example Continued</A></H2>
+<P>
+An <TT>F77_LOCAL</TT> <TT>EXTRINSIC</TT>:
+<P>
+<PRE> SUBROUTINE Calc_u_like(My_P_No,Siz,Tot_Proc,a,b,c)
+  INTEGER A(*), B(*), C(*), My_P_No(1), Siz, Tot_Proc
+C Find blocksize
+  Blk_Siz    = NINT((DBLE(Siz)/DBLE(Tot_Proc))+0.5D0)
+C How many elements have I got
+  My_Blk_Siz = MIN(Blk_Siz,Siz-(My_P_No(1)-1)*Blk_Siz)
+  My_Blk_Siz = MAX(My_Blk_Siz,0)
+C Do the Calculation
+  DO 100 i = 1,My_Blk_Siz
+   a(i) = b(i) + c(i)
+  END DO
+ END</PRE>
+<P>
+and in the calling program unit:
+<P>
+<PRE>  REAL, DIMENSION(Siz) :: A, B = 0, C = 0
+  INTEGER, DIMENSION(NUMBER_OF_PROCESSORS()) :: P_Nos
+  !HPF$ PROCESSORS, &amp;
+  !HPF$  DIMENSION(NUMBER_OF_PROCESSORS()) :: P
+  !HPF$ DISTRIBUTE (BLOCK) ONTO P :: A, B, C, P_Nos
+    ... Interface from before goes here
+  NOP   = NUMBER_OF_PROCESSORS()
+  P_Nos = (/ (i, i=1,NOP) /)
+  CALL Calc_u_like(P_Nos,SIZE(A),NOP,A,B,C)
+ END</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode268.html#ExtrinsicExample3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode130.html#QF77LocalExtrinsics"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3321" HREF="HTMLSlidesnode254.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3319" HREF="HTMLSlidesnode249.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3313" HREF="HTMLSlidesnode252.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3323" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3322" HREF="HTMLSlidesnode254.html">Extrinsic Example Continued</A>
+<B>Up:</B> <A NAME="tex2html3320" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<B> Previous:</B> <A NAME="tex2html3314" HREF="HTMLSlidesnode252.html">Extrinsic Example Continued</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

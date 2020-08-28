@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Syntax</TITLE>
+<META NAME="description" CONTENT="Array Syntax">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1330" HREF="HTMLNotesnode96.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1328" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1322" HREF="HTMLNotesnode94.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1332" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1331" HREF="HTMLNotesnode96.html">Whole Array Expressions</A>
+<B>Up:</B> <A NAME="tex2html1329" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1323" HREF="HTMLNotesnode94.html">Array Element Ordering</A>
+<BR> <P>
+<H3><A NAME="SECTION01031400000000000000">Array Syntax</A></H3>
+<P>
+Using the earlier declarations, references can be made to:
+<P>
+<UL><LI> whole arrays (conformable)
+<UL><LI> <code>A = 0</code> -- sets whole array <TT>A</TT> to zero; scalars always
+conform with arrays.<LI> <code>B = C + 1</code> -- adds one to all elements,
+of <TT>C</TT> and then assigns each element to the
+corresponding elements of <TT>B</TT>.
+<P>
+For this to be legal Fortran&nbsp;90 
+both arrays in the RHS expression must conform (<TT>B</TT> and <TT>C</TT> must 
+be same shape
+and size). The assignment could have been written <code>B(:) = C(:) + 1</code> 
+demonstrating how a whole array can be 
+referenced by subscripting it with a colon. (This is shorthand for <TT>
+lower_bound:upper_bound</TT> and is exactly equivalent to using only its
+name with no subscripts or parentheses.)
+<P>
+</UL><LI> elements
+<UL><LI> <code> A(1) = 0.0</code> sets one element to zero,<LI> <code> B = A(3) + C(5,1)</code> sets whole array <TT>B</TT> to the sum of
+two elements.
+</UL>
+If present, array subscripts must be integer valued expressions.
+<P>
+A particular element of an array is accessed by subscripting the
+array name with an integer which is within the bounds of the declared
+extent. Subscripting directly with a <TT>REAL</TT>, <TT>COMPLEX</TT>, <TT>CHARACTER</TT>,
+<TT>DOUBLE PRECISION</TT> or
+<TT>LOGICAL</TT> is an error. This, and indeed the previous example,  demonstrates 
+how scalars (literals
+and variables) conform to arrays; scalars can be used in many
+contexts in place of an array.<LI> array sections
+<UL><LI> <code>A(2:6) = 0</code> sets section of <TT>A</TT> to zero,<LI> <code>B(-1:0,1:2)=C(1:2,2:3)+1</code> adds one to the subsection of
+<TT>C</TT>
+and assigns to the subsection of <TT>B</TT>.
+</UL>
+The above examples demonstrate how parts (or subsections) 
+of arrays can be referenced.  An
+array section can be specified using the
+colon range notation first encountered in the <TT>SELECT</TT> <TT>CASE</TT> 
+construct.
+In addition, the sequence of elements can also have a stride (like
+<TT>DO</TT> 
+loops) meaning that the section specification is denoted  by a <EM>
+subscript-triplet</EM> which is a linear function.
+<P>
+</UL>
+<P>
+Care must be taken when referring to different sections of the same array
+on both sides of an assignment statement, for example,
+<P>
+<PRE>    DO i = 2,15
+     A(i) = A(i) + A(i-1)
+    END DO</PRE>
+<P>
+is not the same as
+<P>
+<PRE>    A(2:15) = A(2:15) + A(1:14)</PRE>
+<P>
+in the first case, a general element <I>i</I> of <TT>A</TT> has the value,
+<P>
+<PRE>    A(i) = A(i) + A(i-1) + ... + A(2) + A(1)</PRE>
+<P>
+but in the vectorised statement it has the value<A NAME="tex2html14" HREF="HTMLNotesfootnode.html#6839"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>,
+<P>
+<PRE>    A(i) = A(i) + A(i-1)</PRE>
+<P>
+In summary both scalars and arrays can be thought of as objects.
+(More or less)
+the same operations can be performed on each with the array operations
+being performed in parallel. It is not possible to have a scalar on the
+LHS of an assignment and a non scalar array reference on the RHS unless
+that section is an argument to a reduction function.
+<P>
+<HR><A NAME="tex2html1330" HREF="HTMLNotesnode96.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1328" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1322" HREF="HTMLNotesnode94.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1332" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1331" HREF="HTMLNotesnode96.html">Whole Array Expressions</A>
+<B>Up:</B> <A NAME="tex2html1329" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1323" HREF="HTMLNotesnode94.html">Array Element Ordering</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Random Number Intrinsic</TITLE>
+<META NAME="description" CONTENT="Random Number Intrinsic">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1250" HREF="HTMLSlidesnode90.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1248" HREF="HTMLSlidesnode88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1242" HREF="HTMLSlidesnode88.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1252" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1251" HREF="HTMLSlidesnode90.html">Vector and Matrix Multiply </A>
+<B>Up:</B> <A NAME="tex2html1249" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1243" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<BR> <P>
+<H2><A NAME="SECTION010141000000000000000">Random Number Intrinsic</A></H2>
+<P>
+<UL><LI>
+<TT>RANDOM_NUMBER</TT><TT>(</TT><TT>HARVEST</TT><TT>)</TT> will return
+a scalar (or array of) pseudorandom number(s)
+in the range  <IMG WIDTH=56 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline21568" SRC="HTMLSlidesimg44.gif"  > .
+<P>
+For example,
+<P>
+<PRE>  REAL HARVEST, HARVEYS(100,100,100)
+  CALL RANDOM_NUMBER(HARVEST)
+  CALL RANDOM_NUMBER(HARVEYS)</PRE><LI> <TT>RANDOM_SEED</TT><TT>(</TT>[<TT>SIZE</TT><TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;int </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > ]<TT>)</TT> finds the size of the seed.<LI> <TT>RANDOM_SEED</TT><TT>(</TT>[<TT>PUT</TT><TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;array </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > ]<TT>)</TT> seeds the
+random number generator.
+</UL>
+<PRE>    CALL RANDOM_SEED(SIZE=isze)
+    CALL RANDOM_SEED(PUT=IArr(1:isze))</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode113.html#RandomNumbers1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1250" HREF="HTMLSlidesnode90.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1248" HREF="HTMLSlidesnode88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1242" HREF="HTMLSlidesnode88.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1252" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1251" HREF="HTMLSlidesnode90.html">Vector and Matrix Multiply </A>
+<B>Up:</B> <A NAME="tex2html1249" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1243" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

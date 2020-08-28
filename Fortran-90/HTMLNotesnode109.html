@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Masked Assignment - Where Statement</TITLE>
+<META NAME="description" CONTENT="Masked Assignment - Where Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1483" HREF="HTMLNotesnode110.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1481" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1475" HREF="HTMLNotesnode108.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1485" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1484" HREF="HTMLNotesnode110.html">Masked Assignment - Where </A>
+<B>Up:</B> <A NAME="tex2html1482" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1476" HREF="HTMLNotesnode108.html">Array I/O Example</A>
+<BR> <P>
+<A NAME="MaskedAssignment1">&#160;</A><H3><A NAME="SECTION010311700000000000000">Masked Assignment - Where Statement</A></H3>
+<P>
+<A NAME="MaskedAssignment">&#160;</A>
+<P>
+The <TT>WHERE</TT> statement is used when an array assignment is to be
+performed on a non-regular section of the LHS array elements, in other 
+words, the
+whole array assignment is masked so that it only applies to specified
+elements. Masked array assignment is achieved using the <TT>WHERE</TT> statement:
+<P>
+<PRE>    WHERE (I .NE. 0) A = B/I</PRE>
+<P>
+the effect of this statement is to perform the assignment 
+<code>A(j,k) = B(j,k)/I(j,k)</code> for all values of <TT>j</TT> and <TT>k</TT>
+where the mask,  
+<code>(I(j,k) .NE. 0)</code>, is <TT>.TRUE.</TT>.
+In the cases where the mask is <TT>.FALSE.</TT> no action is taken.
+<P>
+For example, if
+<P>
+<P> <IMG WIDTH=301 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath22898" SRC="HTMLNotesimg41.gif"  > <P>
+and,
+<P> <IMG WIDTH=300 HEIGHT=41 ALIGN=BOTTOM ALT="displaymath22899" SRC="HTMLNotesimg42.gif"  > <P>
+<P>
+then
+<P>
+<P> <IMG WIDTH=311 HEIGHT=41 ALIGN=BOTTOM ALT="displaymath22886" SRC="HTMLNotesimg40.gif"  > <P>
+<P>
+Only the indicated elements, corresponding to the non-zero elements of
+<TT>I</TT>, have been assigned to.
+<P>
+Conformable array sections may be used in place of the whole arrays, for
+example,
+<P>
+<PRE>    WHERE (I(j:k,j:k) .NE. 0) A(j+1:k+1,j-1:k-1) = B(j:k,j:k)/I(j:k,j:k)</PRE>
+is perfectly valid.
+<P>
+<HR><A NAME="tex2html1483" HREF="HTMLNotesnode110.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1481" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1475" HREF="HTMLNotesnode108.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1485" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1484" HREF="HTMLNotesnode110.html">Masked Assignment - Where </A>
+<B>Up:</B> <A NAME="tex2html1482" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1476" HREF="HTMLNotesnode108.html">Array I/O Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

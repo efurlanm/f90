@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Declarative Directives</TITLE>
+<META NAME="description" CONTENT="Declarative Directives">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2400" HREF="HTMLNotesnode181.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2398" HREF="HTMLNotesnode179.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2392" HREF="HTMLNotesnode179.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2402" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2401" HREF="HTMLNotesnode181.html">Executable Directives</A>
+<B>Up:</B> <A NAME="tex2html2399" HREF="HTMLNotesnode179.html">HPF Directives</A>
+<B> Previous:</B> <A NAME="tex2html2393" HREF="HTMLNotesnode179.html">HPF Directives</A>
+<BR> <P>
+<H4><A NAME="SECTION02013310000000000000">Declarative Directives</A></H4>
+<P>
+Examples of declarative statements:
+<P>
+<PRE> !HPF$ PROCESSORS, DIMENSION(16)  :: P
+ !HPF$ TEMPLATE, &amp;
+ !HPF$           DIMENSION(4,4)   :: T1, T2
+ !HPF$ DISTRIBUTE                 :: A
+ !HPF$ DISTRIBUTE X(BLOCK)
+ !HPF$ DISTRIBUTE (CYCLIC)        :: Y1, Y2
+ !HPF$ DISTRIBUTE (BLOCK,*) ONTO P :: A</PRE>
+<P>
+Note: all HPF names must be different to Fortran&nbsp;90 names.
+<P>
+There are two different declaration styles: the F<font size=-1><small>ORTRAN</small></font>&nbsp;77 style and
+the Fortran&nbsp;90 style. It is
+recommended that the Fortran&nbsp;90 style be used. There are one or two instances
+where the F<font size=-1><small>ORTRAN</small></font>&nbsp;77 style of declaration leads to ambiguous code; using the
+Fortran&nbsp;90 declaration will alleviate the need to remember the specific cases
+that cannot be expressed in F<font size=-1><small>ORTRAN</small></font>&nbsp;77 syntax.
+<P>
+Most directives are concerned with data distribution - the
+<TT>INDEPENDENT</TT> directive (and its <TT>NEW</TT> clause) are the only executable
+directives. Most implementations currently (Jun '96) parse,
+ but do not act upon, the <TT>INDEPENDENT</TT> directive.
+<P>
+A directive
+is continued in the same way as a Fortran&nbsp;90 statement but the continued line
+must also begin with the directive origin (<code>!HPF$</code>).
+<P>
+<HR><A NAME="tex2html2400" HREF="HTMLNotesnode181.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2398" HREF="HTMLNotesnode179.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2392" HREF="HTMLNotesnode179.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2402" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2401" HREF="HTMLNotesnode181.html">Executable Directives</A>
+<B>Up:</B> <A NAME="tex2html2399" HREF="HTMLNotesnode179.html">HPF Directives</A>
+<B> Previous:</B> <A NAME="tex2html2393" HREF="HTMLNotesnode179.html">HPF Directives</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Intrinsic Procedures</TITLE>
+<META NAME="description" CONTENT="Intrinsic Procedures">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1184" HREF="HTMLNotesnode87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1182" HREF="HTMLNotesnode66.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1178" HREF="HTMLNotesnode85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1186" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1185" HREF="HTMLNotesnode87.html">Type Conversion Functions</A>
+<B>Up:</B> <A NAME="tex2html1183" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<B> Previous:</B> <A NAME="tex2html1179" HREF="HTMLNotesnode85.html">Integer Division</A>
+<BR> <P>
+<A NAME="IntrinsicProcedures1">&#160;</A><H2><A NAME="SECTION01024000000000000000">Intrinsic Procedures</A></H2>
+<P>
+<A NAME="IntrinsicProcedures">&#160;</A>
+<P>
+Some tasks in a language are performed frequently, Fortran&nbsp;90 has
+efficient implementations of such common tasks built-in to the language,
+these procedures are called <EM>intrinsic</EM> procedures. Fortran&nbsp;90 has 113
+intrinsic procedures in a number of different classes,
+<P>
+<UL><LI> elemental such as:
+<UL><LI> mathematical, such as, trigonometric and
+logarithms, for example, <TT>SIN</TT> or <TT>LOG</TT>.<LI> numeric, for example, <TT>SUM</TT> or <TT>CEILING</TT>.<LI> character, for example, <TT>INDEX</TT> and <TT>TRIM</TT>.<LI> bit manipulation<A NAME="tex2html8" HREF="HTMLNotesfootnode.html#5764"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, for example, <TT>IAND</TT> and <TT>IOR</TT>.
+</UL>
+<P>
+Elemental procedures apply to scalar objects as well as
+arrays -- when an array argument is supplied
+ the same function is applied to each
+element of the array at (conceptually) the same time.<LI> inquiry, for example, <TT>ALLOCATED</TT> and <TT>SIZE</TT>; These report on the
+status of a program. We can inquire about:
+<P>
+<UL><LI> the status of dynamic objects.<LI> array bounds, shape and size.<LI> kind parameters of an object and available kind representations,
+(useful for portable code).<LI> the numerical model; used to represent types and kinds.<LI> argument presence (for use with <TT>OPTIONAL</TT> dummy arguments).
+<P>
+</UL><LI>  transformational, for example, <TT>REAL</TT> and <TT>TRANSPOSE</TT>. The
+functionality includes:
+<P>
+<UL><LI> repeat (for characters -- repeats strings).<LI> mathematical reduction procedures, ie, given an array return an
+object of less rank.<LI> array manipulation -- shift operations, <TT>RESHAPE</TT>, <TT>PACK</TT>.<LI> type coercion, <TT>TRANSFER</TT> copies bit-for-bit to an object of a
+different type. (Stops people doing dirty tricks like changing the type
+of an object across a procedure boundary which was a popular F<font size=-1><small>ORTRAN</small></font>&nbsp;77 
+`trick'.)<LI> <TT>PRODUCT</TT> and <TT>DOT_PRODUCT</TT> (arrays).
+<P>
+</UL><LI> miscellaneous (non-elemental <TT>SUBROUTINE</TT> s) including timing
+routines, for example, <TT>SYSTEM_CLOCK</TT> and <TT>DATE_AND_TIME</TT>.
+<P>
+</UL>
+<P>
+The procedures vary in what arguments are permitted. Some
+procedures can be
+applied to scalars and arrays, some to only scalars and some to only
+arrays. All intrinsics which take <TT>REAL</TT> valued arguments also
+accept <TT>DOUBLE PRECISION</TT> arguments.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1187" HREF="HTMLNotesnode87.html#SECTION01024100000000000000">Type Conversion Functions</A>
+<LI> <A NAME="tex2html1188" HREF="HTMLNotesnode88.html#SECTION01024200000000000000">Mathematical Intrinsic Functions</A>
+<LI> <A NAME="tex2html1189" HREF="HTMLNotesnode89.html#SECTION01024300000000000000">Numeric Intrinsic Functions</A>
+</UL>
+<HR><A NAME="tex2html1184" HREF="HTMLNotesnode87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1182" HREF="HTMLNotesnode66.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1178" HREF="HTMLNotesnode85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1186" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1185" HREF="HTMLNotesnode87.html">Type Conversion Functions</A>
+<B>Up:</B> <A NAME="tex2html1183" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<B> Previous:</B> <A NAME="tex2html1179" HREF="HTMLNotesnode85.html">Integer Division</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

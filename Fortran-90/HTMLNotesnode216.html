@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Template Syntax</TITLE>
+<META NAME="description" CONTENT="Template Syntax">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2818" HREF="HTMLNotesnode217.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2816" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2810" HREF="HTMLNotesnode215.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2820" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2819" HREF="HTMLNotesnode217.html">Simple Template Example</A>
+<B>Up:</B> <A NAME="tex2html2817" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2811" HREF="HTMLNotesnode215.html">New HPF System Intrinsics</A>
+<BR> <P>
+<A NAME="Templates1">&#160;</A><H3><A NAME="SECTION02020800000000000000">Template Syntax</A></H3>
+<P>
+Templates are conceptual objects. They do not take up any storage space
+and must be statically defined. (This means that they do not interact
+well with <TT>ALLOCATABLE</TT> arrays.) One way to think of a template is as an
+array with zero-sized elements (which cannot be assigned to).
+<P>
+Templates are intended to make alignments easier and clearer.  They
+<P>
+<UL><LI> are declared,<LI> distributed,<LI> can have arrays aligned to them,
+</UL>
+<P>
+The ordering implied above is not strict. It is quite legal to
+align arrays to a template <EM>before</EM> specifying its distribution,
+however, the first stage must always be to declare the template.
+Templates are
+``local entities of class (1)'' -- this means they must have a
+unique name, so can be host- or use-associated, however, since they are
+only HPF objects, they cannot be argument-associated,
+<P>
+Distribution of a template follows exactly the same principles as
+distributing an array, with respect to distribution methods, blocksizes
+and so forth.
+<P>
+There is a school of thought that says that 
+<TT>TEMPLATE</TT> s are an unnecessary addition to the functionality of the
+language. (University of Vienna<A NAME="tex2html61" HREF="HTMLNotesfootnode.html#14390"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A> 
+opposed their inclusion in the HPF language.)
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2821" HREF="HTMLNotesnode217.html#SECTION02020810000000000000">Simple Template Example</A>
+</UL>
+<HR><A NAME="tex2html2818" HREF="HTMLNotesnode217.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2816" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2810" HREF="HTMLNotesnode215.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2820" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2819" HREF="HTMLNotesnode217.html">Simple Template Example</A>
+<B>Up:</B> <A NAME="tex2html2817" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2811" HREF="HTMLNotesnode215.html">New HPF System Intrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

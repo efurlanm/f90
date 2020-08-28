@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Named and Nested Loops</TITLE>
+<META NAME="description" CONTENT="Named and Nested Loops">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html773" HREF="HTMLSlidesnode49.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html771" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html765" HREF="HTMLSlidesnode47.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html775" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html774" HREF="HTMLSlidesnode49.html">Indexed DO Loops</A>
+<B>Up:</B> <A NAME="tex2html772" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html766" HREF="HTMLSlidesnode47.html">Conditional Cycle Loops</A>
+<BR> <P>
+<H2><A NAME="SECTION01097000000000000000">Named and Nested Loops</A></H2>
+<P>
+Loops can be given names and an  <TT>EXIT</TT> or <TT>CYCLE</TT> 
+statement can be made to refer to a particular loop.
+<P>
+<PRE>    outa: DO
+     inna: DO
+      ...
+      IF (a.GT.b) EXIT outa
+      ...
+      IF (a.EQ.b) CYCLE outa
+      ...
+      IF (c.GT.d) EXIT inna
+      ...
+     END DO inna
+     ...
+    END DO outa</PRE>
+<P>
+The (optional) name following the <TT>EXIT</TT> or <TT>CYCLE</TT> highlights which loop the
+statement refers to.
+<P>
+Loop names can only be used once per program unit.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode73.html#NestedLoops1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode14.html#QControlMathMagic"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html773" HREF="HTMLSlidesnode49.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html771" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html765" HREF="HTMLSlidesnode47.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html775" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html774" HREF="HTMLSlidesnode49.html">Indexed DO Loops</A>
+<B>Up:</B> <A NAME="tex2html772" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html766" HREF="HTMLSlidesnode47.html">Conditional Cycle Loops</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

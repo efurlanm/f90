@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1179" HREF="HTMLQuestionsnode97.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1177" HREF="HTMLQuestionsnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1173" HREF="HTMLQuestionsnode95.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1181" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1180" HREF="HTMLQuestionsnode97.html">Run Gaussian Elimination 2D</A>
+<B>Up:</B> <A NAME="tex2html1178" HREF="HTMLQuestionsnode95.html">Matrix-Vector</A>
+<B> Previous:</B> <A NAME="tex2html1174" HREF="HTMLQuestionsnode95.html">Matrix-Vector</A>
+<BR> <P>
+<H3><A NAME="SECTION00073100000000000000">Solution</A></H3>
+9 marks in total for all three parts.
+<P>
+<OL><LI> 5 marks
+<P>
+<UL><LI> 3 for <TT>ALIGN</TT> and <TT>DISTRIBUTE</TT>\<LI> 1 for <TT>DOT_PRODUCT</TT> or <TT>MATMUL</TT>,<LI> 1 for correct program
+</UL>
+<P>
+<PRE>PROGRAM Main
+ IMPLICIT NONE
+ INTEGER :: n
+ INTEGER :: i
+ REAL, ALLOCATABLE, DIMENSION(:,:) :: A
+ REAL, ALLOCATABLE, DIMENSION(:)   :: x, y
+
+!HPF$ PROCESSORS, DIMENSION(4)    :: P
+!HPF$ ALIGN (:) WITH A(*,:)       :: X
+!HPF$ ALIGN (:) WITH A(:,*)       :: Y
+!HPF$ DISTRIBUTE(CYCLIC,*) ONTO P :: A
+
+  PRINT*, &quot;Type in the size of matrix&quot;
+  READ*, n
+  ALLOCATE (A(n,n))
+  ALLOCATE (x(n))
+  ALLOCATE (y(n))
+  CALL RANDOM_NUMBER(A)
+  CALL RANDOM_NUMBER(X)
+  DO I = 1,n
+   Y(i) = DOT_PRODUCT(A(i,:),X(:))
+  END DO
+  PRINT*,Y
+  DEALLOCATE(A,x,y)
+END PROGRAM</PRE><LI> 3 marks
+<P>
+<UL><LI> 3 for <TT>ALIGN</TT> and <TT>DISTRIBUTE</TT> 
+</UL>
+<P>
+<PRE>PROGRAM Main
+ IMPLICIT NONE
+
+ INTEGER :: n
+ INTEGER :: i
+ REAL, ALLOCATABLE, DIMENSION(:,:) :: A
+ REAL, ALLOCATABLE, DIMENSION(:)   :: x, y
+
+!HPF$ PROCESSORS, DIMENSION(2,2)       :: P
+!HPF$ TEMPLATE, DIMENSION(n,n)         :: T
+!HPF$ ALIGN (:,:) WITH T(:,:)          :: A
+!HPF$ ALIGN (:)   WITH T(*,:)          :: X
+!HPF$ ALIGN (:) WITH A(:,*)            :: Y
+!HPF$ DISTRIBUTE(CYCLIC,CYCLIC) ONTO P :: T
+
+  PRINT*, &quot;Type in the size of matrix&quot;
+  READ*, n
+  ALLOCATE (A(n,n))
+  ALLOCATE (x(n))
+  ALLOCATE (y(n))
+  CALL RANDOM_NUMBER(A)
+  CALL RANDOM_NUMBER(X)
+  DO I = 1,n
+   Y(i) = DOT_PRODUCT(A(i,:),X(:))
+  END DO
+  PRINT*,Y
+  DEALLOCATE(A,x,y)
+END PROGRAM</PRE>
+<P>
+</OL>
+<P>
+1 mark for the last part:
+<P>
+The 2D grid version involves communications along the rows. The 1D
+version doesn't involve any communication, thusly 1D version is best.
+<P>
+<HR><A NAME="tex2html1179" HREF="HTMLQuestionsnode97.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1177" HREF="HTMLQuestionsnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1173" HREF="HTMLQuestionsnode95.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1181" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1180" HREF="HTMLQuestionsnode97.html">Run Gaussian Elimination 2D</A>
+<B>Up:</B> <A NAME="tex2html1178" HREF="HTMLQuestionsnode95.html">Matrix-Vector</A>
+<B> Previous:</B> <A NAME="tex2html1174" HREF="HTMLQuestionsnode95.html">Matrix-Vector</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

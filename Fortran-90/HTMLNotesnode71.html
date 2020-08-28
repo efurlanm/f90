@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Conditional Exit Loops</TITLE>
+<META NAME="description" CONTENT="Conditional Exit Loops">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1024" HREF="HTMLNotesnode72.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1022" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1016" HREF="HTMLNotesnode70.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1026" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1025" HREF="HTMLNotesnode72.html">Conditional Cycle Loops</A>
+<B>Up:</B> <A NAME="tex2html1023" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1017" HREF="HTMLNotesnode70.html">Nested and Named IF </A>
+<BR> <P>
+<A NAME="ExitStatement1">&#160;</A><H3><A NAME="SECTION01021400000000000000">Conditional Exit Loops</A></H3>
+<P>
+A loop comprises of a block of statements that are executed cyclically.  When
+the end of the loop is reached the block is repeated from the start of the
+loop.  Loops are differentiated by the way they are terminated.  Obviously
+it would not be reasonable to continue cycling a loop forever.  There must
+be some mechanism for a program to exit from a loop and carry on with
+the instructions following the End-of-loop.
+<P>
+The block of statements making up the loop is delimited by <TT>DO</TT> and
+<TT>END</TT> <TT>DO</TT> 
+statements.  This block is executed as many times as is required.  Each
+time
+through the loop, the condition is evaluated and the first time it is
+true the <TT>EXIT</TT> is performed and processing continues from the statement
+following the next <TT>END</TT> <TT>DO</TT>.
+<P>
+A non-incremental <TT>DO</TT> loop can be set up which is terminated by simply
+jumping out of it,
+<P>
+<PRE>    DO
+     DO
+      ...
+      IF (a.GT.b) EXIT
+      ...
+     END DO
+     ! if a.GT.b control jumps here
+     IF (c.GT.d) EXIT
+    END DO
+    ! if c.GT.d control jumps here</PRE>
+<P>
+The <TT>EXIT</TT> statement tells control to jump out of the current
+<TT>DO</TT> loop. Thus the first
+<TT>IF</TT> statement transfers control to after the first <TT>END</TT> <TT>DO</TT> 
+statement, that is, the second <TT>IF</TT> statement.  This type of conditional-exit 
+loop is useful for dealing with situations
+when we want input data to control the number of times the loop is
+executed.
+<P>
+The statements between the <TT>DO</TT> and its corresponding <TT>END</TT> <TT>DO</TT> must
+constitute a proper block.  The statements may be labelled but no
+transfer
+of control to such a statement is permitted from outside the loop-block.
+The loop-block may contain other block constructs, for example, <TT>DO</TT>,
+<TT>IF</TT> or <TT>CASE</TT>,  but they must be
+contained completely; that is they must be properly nested.
+<P>
+An <TT>EXIT</TT>  statement which is not within a loop is an error.
+<P>
+<HR><A NAME="tex2html1024" HREF="HTMLNotesnode72.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1022" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1016" HREF="HTMLNotesnode70.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1026" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1025" HREF="HTMLNotesnode72.html">Conditional Cycle Loops</A>
+<B>Up:</B> <A NAME="tex2html1023" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1017" HREF="HTMLNotesnode70.html">Nested and Named IF </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

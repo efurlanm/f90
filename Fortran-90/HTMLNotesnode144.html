@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules</TITLE>
+<META NAME="description" CONTENT="Modules">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1906" HREF="HTMLNotesnode145.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1904" HREF="HTMLNotesnode139.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1898" HREF="HTMLNotesnode143.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1908" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1907" HREF="HTMLNotesnode145.html">Modules - General Form</A>
+<B>Up:</B> <A NAME="tex2html1905" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<B> Previous:</B> <A NAME="tex2html1899" HREF="HTMLNotesnode143.html">Array-valued Functions</A>
+<BR> <P>
+<H2><A NAME="SECTION01052000000000000000">Modules</A></H2>
+<P>
+<A NAME="ModulesOverview1">&#160;</A>
+<A NAME="Modules">&#160;</A>
+<P>
+Modules are new to Fortran&nbsp;90. They have a very wide range of applications and
+their use should be encouraged. They allow the user to write object
+based code which is generally accepted to more reliable, reusable and
+easier the write than regular code.
+<P>
+A <TT>MODULE</TT> is a program unit whose functionality can be exploited by
+any other program unit which attaches it (via the <TT>USE</TT> statement). A
+module can contain the following:
+<UL><LI> global object declarations;
+<P>
+Modules should be used in place of F<font size=-1><small>ORTRAN</small></font>&nbsp;77 <TT>COMMON</TT> and <TT>INCLUDE</TT> 
+statements.  If global
+data is required, for example, to cut down on argument passing, then
+objects declared  in a module can be made visible wherever desired by
+simply attaching the module. Objects in a module
+ can be given a static storage class so will retain their values between uses.
+<P>
+Sets of variable declarations which are not globally visible
+can also be placed in a module and used at various places in the code;
+this mimics the functionality of the <TT>INCLUDE</TT> statement<A NAME="tex2html30" HREF="HTMLNotesfootnode.html#10397"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.<LI> interface declarations;
+<P>
+It is sometimes advantageous to package <TT>INTERFACE</TT> definitions into a
+module and then use the module whenever an explicit interface is needed.
+This should be done in conjunction with the <TT>ONLY</TT> clause but is only really
+useful when module procedures cannot be used.<LI> procedure declarations;
+<P>
+Procedures can be encapsulated 
+into a module which will make them visible to any program
+unit which uses the module. This approach has the advantage that all the
+module procedures, and hence their interfaces, are explicit within the module 
+so there will be no need for any <TT>INTERFACE</TT> blocks to be written.<LI> controlled object accessibility;
+<P>
+Variables, procedures and operator declarations can have their
+visibility controlled by access statements within the module. It is
+possible for  specified objects to be visible only inside the module.
+This technique is often used to provide security against a user meddling
+with the values of module objects which are purely internal to the
+module.<LI> packages of whole sets of facilities;
+<P>
+Derived types, operators,  procedures and generic
+interfaces can be defined and packaged 
+to provide simple object oriented capabilities.<LI> semantic extension;
+<P>
+A semantic extension module is a collection of user-defined type
+declarations, access routines and overloaded operators and intrinsics 
+which, when attached to a program unit, allow the user to use the
+functionality as if it were part of the language.
+</UL>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1909" HREF="HTMLNotesnode145.html#SECTION01052100000000000000">Modules - General Form</A>
+<LI> <A NAME="tex2html1910" HREF="HTMLNotesnode146.html#SECTION01052200000000000000">Modules - Global Data</A>
+<UL> 
+<LI> <A NAME="tex2html1911" HREF="HTMLNotesnode147.html#SECTION01052210000000000000">Module Global Data Example</A>
+<LI> <A NAME="tex2html1912" HREF="HTMLNotesnode148.html#SECTION01052220000000000000">Module Global Data Example</A>
+<LI> <A NAME="tex2html1913" HREF="HTMLNotesnode149.html#SECTION01052230000000000000">Visualisation of Global Storage</A>
+</UL> 
+<LI> <A NAME="tex2html1914" HREF="HTMLNotesnode150.html#SECTION01052300000000000000">Modules - Interface Declaration</A>
+<UL> 
+<LI> <A NAME="tex2html1915" HREF="HTMLNotesnode151.html#SECTION01052310000000000000">Modules Interface Declaration Example</A>
+</UL> 
+<LI> <A NAME="tex2html1916" HREF="HTMLNotesnode152.html#SECTION01052400000000000000">Modules - Procedure Declaration</A>
+<UL> 
+<LI> <A NAME="tex2html1917" HREF="HTMLNotesnode153.html#SECTION01052410000000000000">Encapsulation Example</A>
+<LI> <A NAME="tex2html1918" HREF="HTMLNotesnode154.html#SECTION01052420000000000000">Encapsulation - Stack example</A>
+</UL> 
+<LI> <A NAME="tex2html1919" HREF="HTMLNotesnode155.html#SECTION01052500000000000000">The <TT>USE</TT> Renames Facility</A>
+<LI> <A NAME="tex2html1920" HREF="HTMLNotesnode156.html#SECTION01052600000000000000"><TT>USE</TT> <TT>ONLY</TT> Statement</A>
+</UL>
+<HR><A NAME="tex2html1906" HREF="HTMLNotesnode145.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1904" HREF="HTMLNotesnode139.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1898" HREF="HTMLNotesnode143.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1908" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1907" HREF="HTMLNotesnode145.html">Modules - General Form</A>
+<B>Up:</B> <A NAME="tex2html1905" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<B> Previous:</B> <A NAME="tex2html1899" HREF="HTMLNotesnode143.html">Array-valued Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>PROCESSORS Declaration</TITLE>
+<META NAME="description" CONTENT="PROCESSORS Declaration">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2420" HREF="HTMLNotesnode183.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2418" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2412" HREF="HTMLNotesnode181.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2422" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2421" HREF="HTMLNotesnode183.html">DISTRIBUTE Directive</A>
+<B>Up:</B> <A NAME="tex2html2419" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2413" HREF="HTMLNotesnode181.html">Executable Directives</A>
+<BR> <P>
+<A NAME="ProcessorsStatement1">&#160;</A><H3><A NAME="SECTION02013400000000000000"><TT>PROCESSORS</TT> Declaration</A></H3>
+<P>
+Can declare a conceptual processor grid.
+These do not have to be the same shape as the underlying hardware. For
+example,
+<P>
+<PRE> !HPF$ PROCESSORS, DIMENSION(4)     :: P1
+ !HPF$ PROCESSORS, DIMENSION(2,2)   :: P2
+ !HPF$ PROCESSORS, DIMENSION(2,1,2) :: P3</PRE>
+<P>
+These declarations are in the Fortran&nbsp;90 style. The HPF specification states
+that all processor grids in one program must contain the same number of
+processors. This is to give a handle on the available resources. Also,
+if
+two processors arrangements are the same shape (conformable) then the
+corresponding elements of each arrangement refer to the same physical
+processor.
+<P>
+Can also  declare a scalar processor.
+<P>
+<PRE> !HPF$ PROCESSORS :: P</PRE>
+<P>
+<HR><A NAME="tex2html2420" HREF="HTMLNotesnode183.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2418" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2412" HREF="HTMLNotesnode181.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2422" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2421" HREF="HTMLNotesnode183.html">DISTRIBUTE Directive</A>
+<B>Up:</B> <A NAME="tex2html2419" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2413" HREF="HTMLNotesnode181.html">Executable Directives</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

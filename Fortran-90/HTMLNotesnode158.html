@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Bit Manipulation Intrinsic Functions</TITLE>
+<META NAME="description" CONTENT="Bit Manipulation Intrinsic Functions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2075" HREF="HTMLNotesnode159.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2073" HREF="HTMLNotesnode157.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2067" HREF="HTMLNotesnode157.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2077" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2076" HREF="HTMLNotesnode159.html">Array Construction Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html2074" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2068" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<BR> <P>
+<A NAME="BitIntrinsics1">&#160;</A><H3><A NAME="SECTION01053100000000000000">Bit Manipulation Intrinsic Functions</A></H3>
+<P>
+Summary,
+<P>
+<P> <IMG WIDTH=517 HEIGHT=179 ALIGN=BOTTOM ALT="tabular11313" SRC="HTMLNotesimg64.gif"  > <P>
+<P>
+Variables  used as bit arguments  must be <TT>INTEGER</TT> valued.
+The model for bit representation is that of an integer so <TT>0</TT>
+would have a bit representation of all <TT>0</TT>'s, <TT>1</TT> would have all 
+zeros except for a <TT>1</TT> in the last position (position zero) (<TT>
+00...0001</TT>). The positions are numbered from zero and go from right to
+left (just like regular binary numbers.)
+<P>
+The model for bit representation is that of an unsigned integer, for
+example,
+<P>
+<P><A NAME="11255">&#160;</A> <IMG WIDTH=234 HEIGHT=185 ALIGN=BOTTOM ALT="figure11253" SRC="HTMLNotesimg65.gif"  > <BR>
+<STRONG>Figure 13:</STRONG> Visualisation of Bit Variables<BR>
+<P>
+<P>
+The number of bits in a single variable depends on the compiler --
+parameterised integers should be used to fix the number of bytes. The
+intrinsic <TT>BIT_SIZE</TT> gives the number of bits in a variable.
+<P>
+Here is a summary of the bit intrinsics and examples of their use;
+assume that <TT>A</TT> has the value <TT>5</TT> (<TT>00...000101</TT>) and <TT>
+B</TT> the  value <TT>3</TT> (<TT>00...000011</TT>) in the
+following:
+<P>
+<UL><LI> <TT>BTEST</TT>  -- bit value.
+<P>
+<TT>.TRUE.</TT> if the bit in position <TT>pos</TT> of <TT>INTEGER</TT> <TT>i</TT> is 1,
+<TT>.FALSE.</TT> 
+otherwise, for example, <TT>BTEST</TT><TT>(A,0)</TT> has value <TT>.TRUE.</TT> and
+<TT>BTEST</TT><TT>(A,1)</TT> is <TT>.FALSE.</TT>.<LI> <TT>IAND</TT> -- bitwise <TT>.AND.</TT>.
+<P>
+The two arguments are <TT>INTEGER</TT> the result is an <TT>INTEGER</TT> obtained
+by doing a logical <TT>.AND.</TT> on each bit of arguments, for example,
+<TT>IAND</TT><TT>(A,B)</TT> is <TT>1</TT> (<TT>00...000001</TT>).<LI> <TT>IBCLR</TT> -- bit clear.
+<P>
+Set bit in position <TT>pos</TT> to 0, for example, <TT>IBCLR</TT><TT>(A,0)</TT> is
+<TT>4</TT> (<TT>00...000100</TT>).<LI> <TT>IBITS</TT> -- extract sequence of bits.
+<P>
+<TT>IBITS</TT><TT>(A,1,2)</TT> is <TT>2</TT> (<TT>10</TT> in binary) or
+effectively <TT>00..00010</TT>.<LI> <TT>IBSET</TT> -- set bit
+<P>
+Set bit in position <TT>pos</TT> to 1, for example, <TT>IBSET</TT><TT>(A,1)</TT> is
+<TT>7</TT> (<TT>00...000111</TT>).<LI> <TT>IEOR</TT>, <TT>IOR</TT> -- bitwise <TT>.OR.</TT> (exclusive or inclusive).
+<P>
+For example, <TT>IEOR</TT><TT>(A,B)</TT> is <TT>6</TT> (<TT>00...000110</TT>) and
+<TT>IOR</TT><TT>(A,B)</TT> is <TT>7</TT> (<TT>00...000111</TT>).<LI> <TT>ISHFT</TT>, <TT>ISHFTC</TT> -- logical and circular shift.
+<P>
+Shift the bits <TT>shft</TT> positions left (if <TT>
+shft</TT> is negative move bits  to the right). <TT>ISHFT</TT> fills vacated positions by
+zeros <TT>ISHFTC</TT> wraps around. for example,  <TT>ISHFT</TT><TT>(A,1)</TT> is <TT>
+00...001010</TT> (10), <TT>ISHFT</TT><TT>(A,-1)</TT> is <TT>00...000010</TT> (2).
+<TT>ISHFTC</TT><TT>(A,1)</TT> is <TT>00...001010</TT> (10), <TT>ISHFTC</TT><TT>(A,-1)</TT> is <TT>
+10...000010</TT> (-2147483646).<LI> <TT>NOT</TT> -- compliment of whole word.
+<P>
+<TT>NOT</TT><TT>(A)</TT> is <TT>11...111010</TT> (-6).<LI> <TT>MVBITS</TT> (<TT>SUBROUTINE</TT>) -- copy a sequence of bits between
+objects.
+<P>
+For example <TT>MVBITS</TT><TT>(A,1,2,B,0)</TT> says ``move 2 bits beginning at
+position <TT>1</TT> in <TT>A</TT> to <TT>B</TT> position <TT>0</TT>''<A NAME="tex2html38" HREF="HTMLNotesfootnode.html#11306"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, this gives <TT>
+B</TT> the value <TT>00...000010</TT> (2).
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html2075" HREF="HTMLNotesnode159.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2073" HREF="HTMLNotesnode157.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2067" HREF="HTMLNotesnode157.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2077" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2076" HREF="HTMLNotesnode159.html">Array Construction Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html2074" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2068" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

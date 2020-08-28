@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Constructors</TITLE>
+<META NAME="description" CONTENT="Array Constructors">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1125" HREF="HTMLSlidesnode79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1123" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1117" HREF="HTMLSlidesnode77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1127" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1126" HREF="HTMLSlidesnode79.html">The RESHAPE Intrinsic Function</A>
+<B>Up:</B> <A NAME="tex2html1124" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1118" HREF="HTMLSlidesnode77.html">Array Inquiry Intrinsics</A>
+<BR> <P>
+<H2><A NAME="SECTION0101311000000000000000">Array Constructors</A></H2>
+<P>
+Used to give arrays or sections of arrays specific values.
+For example,
+<PRE>    IMPLICIT NONE
+    INTEGER                        :: i
+    INTEGER, DIMENSION(10)         :: ints
+    CHARACTER(len=5), DIMENSION(3) :: colours
+    REAL, DIMENSION(4)             :: heights
+    heights = (/5.10, 5.6, 4.0, 3.6/)
+    colours = (/'RED  ','GREEN','BLUE '/)
+    ! note padding so strings are 5 chars
+    ints    = (/ 100, (i, i=1,8), 100 /)
+     ...</PRE>
+<UL><LI> constructors and array sections must conform.<LI> must be 1D.<LI> for higher rank arrays use <TT>RESHAPE</TT> intrinsic.<LI>
+<code>(i, i=1,8)</code> is an <EM>implied <TT>DO</TT></EM> and is 1,2,..,8, it is
+possible to specify a stride.
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode101.html#ArrayConstructors1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode37.html#QArrayConstructor"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1125" HREF="HTMLSlidesnode79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1123" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1117" HREF="HTMLSlidesnode77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1127" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1126" HREF="HTMLSlidesnode79.html">The RESHAPE Intrinsic Function</A>
+<B>Up:</B> <A NAME="tex2html1124" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1118" HREF="HTMLSlidesnode77.html">Array Inquiry Intrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

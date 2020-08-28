@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>HPF Library Module</TITLE>
+<META NAME="description" CONTENT="HPF Library Module">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3529" HREF="HTMLNotesnode275.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3527" HREF="HTMLNotesnode265.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3521" HREF="HTMLNotesnode273.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3531" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3530" HREF="HTMLNotesnode275.html">Mapping Inquiry Subroutines</A>
+<B>Up:</B> <A NAME="tex2html3528" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B> Previous:</B> <A NAME="tex2html3522" HREF="HTMLNotesnode273.html">New HPF Intrinsics</A>
+<BR> <P>
+<A NAME="HPFLibrary1">&#160;</A><H2><A NAME="SECTION02053000000000000000">HPF Library Module</A></H2>
+<P>
+The HPFF have defined the contents of a module called the `HPF Library
+Module' it can be attached to a program with: <code>USE HPF_LIBRARY</code>. It
+contains procedures in several areas.
+<P>
+<UL><LI>   Mapping inquiry functions
+<P>
+These routines are useful for <TT>HPF_LOCAL</TT> Extrinsics. They allow a
+naive local runtine to discover how its arguments are mapped and
+what objects they are aligned with and distributed onto.<LI>   Array reduction functions
+<P>
+These routines supplement the Fortran&nbsp;90 reduction functions. Reduction
+functions work well in a parallel environment.<LI>   Bit manipulation functions
+<P>
+These routines supplement the Fortran&nbsp;90 bit functions. Three new functions
+are defined and can be used in conjunction with the existing
+procedures.<LI>   Array combining scatter functions
+<P>
+These functions allow parallel execution when the LHS object in an array
+assignment statement 
+is indexed by a vector subscript that has repeated values. Using the  combining
+scatter functions allows  `something sensible' to be done when this 
+situation is encountered.<LI>   Prefix and suffix functions
+<P>
+These procedures provide an alternative to the Fortran&nbsp;90 reduction
+intrinsics. These new functions can be used in the same situations as 
+before but store the result in a different way!<LI>   Array sorting functions
+<P>
+These allow multidimensional arrays to be graded (sorted) on specific
+keys.
+<P>
+</UL>
+<P>
+The following sections present each class in more detail.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3532" HREF="HTMLNotesnode275.html#SECTION02053100000000000000">Mapping Inquiry Subroutines</A>
+<UL> 
+<LI> <A NAME="tex2html3533" HREF="HTMLNotesnode276.html#SECTION02053110000000000000">Example of Mapping Inquiry Procedures</A>
+</UL> 
+<LI> <A NAME="tex2html3534" HREF="HTMLNotesnode277.html#SECTION02053200000000000000">New HPF Reduction Functions</A>
+<UL> 
+<LI> <A NAME="tex2html3535" HREF="HTMLNotesnode278.html#SECTION02053210000000000000">Example of New Reduction Functions</A>
+</UL> 
+<LI> <A NAME="tex2html3536" HREF="HTMLNotesnode279.html#SECTION02053300000000000000">Bit Manipulation Functions</A>
+<LI> <A NAME="tex2html3537" HREF="HTMLNotesnode280.html#SECTION02053400000000000000">Array Combining Scatter Functions</A>
+<LI> <A NAME="tex2html3538" HREF="HTMLNotesnode281.html#SECTION02053500000000000000">Prefix and Suffix Functions</A>
+<LI> <A NAME="tex2html3539" HREF="HTMLNotesnode282.html#SECTION02053600000000000000">Array Sorting Functions</A>
+<UL> 
+<LI> <A NAME="tex2html3540" HREF="HTMLNotesnode283.html#SECTION02053610000000000000">Example of Array Sorting Functions</A>
+</UL>
+</UL>
+<HR><A NAME="tex2html3529" HREF="HTMLNotesnode275.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3527" HREF="HTMLNotesnode265.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3521" HREF="HTMLNotesnode273.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3531" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3530" HREF="HTMLNotesnode275.html">Mapping Inquiry Subroutines</A>
+<B>Up:</B> <A NAME="tex2html3528" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B> Previous:</B> <A NAME="tex2html3522" HREF="HTMLNotesnode273.html">New HPF Intrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

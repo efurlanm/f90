@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedures</TITLE>
+<META NAME="description" CONTENT="Procedures">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1675" HREF="HTMLNotesnode125.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1673" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1667" HREF="HTMLNotesnode123.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1677" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1676" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<B>Up:</B> <A NAME="tex2html1674" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1668" HREF="HTMLNotesnode123.html">Main Program Example</A>
+<BR> <P>
+<A NAME="Procedures1">&#160;</A><H3><A NAME="SECTION01041400000000000000">Procedures</A></H3>
+<P>
+<A NAME="Procedures">&#160;</A>
+<P>
+A procedure, such as an intrinsic function,
+ is an abstracted block of parameterised code that performs 
+a particular task.
+Procedures should generally be used if a task has to be performed two 
+or more times, this will cut down on code duplication.
+<P>
+Before writing a procedure the first question should be: ``Do we really 
+need to write this or does a routine already exist?''
+Very often a routine with the
+functionality already exists, for example, as an intrinsic procedure or
+in a library somewhere. (Fortran&nbsp;90 has 113 intrinsic procedures covering a
+variety of functionality and the NAg <TT>fl90</TT> Numerical Library contains
+over 300 mathematic procedures 
+so there is generally a wide choice<A NAME="tex2html22" HREF="HTMLNotesfootnode.html#9071"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>!)
+<P>
+As the use of Fortran&nbsp;90 grows many useful (portable) library modules will be
+developed<A NAME="tex2html23" HREF="HTMLNotesfootnode.html#9072"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>
+ which contain routines that can be <TT>USE</TT> d by any Fortran&nbsp;90 program. See
+World Wide Web <A NAME="tex2html24" HREF="http://www.fortran.com/fortran/market.html">Fortran Market</A>.
+<P>
+If a procedure is to be written from scratch then the following guidelines 
+should be followed:
+<P>
+<UL><LI> It is generally accepted that procedures should be no more
+than 50 lines long in order to keep the control structure simple and to
+keep the number of program paths to a minimum.<LI> Procedures should be as flexible as possible to allow for software
+reuse. Try to pass as many of the variable entities referenced in a
+procedure  as actual arguments and do not rely on global storage or
+host association unless absolutely necessary.<LI> Try to give procedures meaningful names and initial descriptive
+comments.<LI> There is absolutely no point in reinventing the wheel -- if a
+procedure or collection of procedures already exist as intrinsic functions or 
+in library module then they should be used.
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html1675" HREF="HTMLNotesnode125.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1673" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1667" HREF="HTMLNotesnode123.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1677" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1676" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<B>Up:</B> <A NAME="tex2html1674" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1668" HREF="HTMLNotesnode123.html">Main Program Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

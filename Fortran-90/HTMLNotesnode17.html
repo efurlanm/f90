@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>REAL and DOUBLE PRECISION DO-loop Variables</TITLE>
+<META NAME="description" CONTENT="REAL and DOUBLE PRECISION DO-loop Variables">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html373" HREF="HTMLNotesnode18.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html371" HREF="HTMLNotesnode10.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html365" HREF="HTMLNotesnode16.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html375" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html374" HREF="HTMLNotesnode18.html">Shared DO-loop Termination</A>
+<B>Up:</B> <A NAME="tex2html372" HREF="HTMLNotesnode10.html">Obsolescent Features</A>
+<B> Previous:</B> <A NAME="tex2html366" HREF="HTMLNotesnode16.html">PAUSE Statement</A>
+<BR> <P>
+<H4><A NAME="SECTION01013170000000000000"><TT>REAL</TT> and <TT>DOUBLE PRECISION</TT> <TT>DO</TT>-loop Variables</A></H4>
+<P>
+In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 <TT>REAL</TT> and <TT>DOUBLE PRECISION</TT> variables can be used in  <TT>DO</TT>-loop control 
+expressions and index variables. This is unsafe because 
+a loop with real valued <TT>DO</TT>-loop control expressions could easily iterate
+a different number of times on different machines -- a loop with control
+expression <TT>1.0,2.0,1.0</TT> may loop 1 or 2 times because real valued
+numbers are only stored approximately, <TT>1.0 + 1.0</TT>
+could equal, say, <TT>1.99</TT>, or <TT>2.01</TT>.  The first evaluation would
+execute 2 times whereas the second would only give 1 execution. The
+solution to this problem is to use <TT>INTEGER</TT> variables and construct 
+<TT>REAL</TT> or <TT>DOUBLE PRECISION</TT> variables within the loop.
+<P>
+The following loop is obsolescent:
+<PRE>    DO x = 1.0,2.0,1.0
+     PRINT*, INT(x)
+    END DO
+    PRINT*, x</PRE>
+<P>
+<HR><A NAME="tex2html373" HREF="HTMLNotesnode18.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html371" HREF="HTMLNotesnode10.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html365" HREF="HTMLNotesnode16.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html375" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html374" HREF="HTMLNotesnode18.html">Shared DO-loop Termination</A>
+<B>Up:</B> <A NAME="tex2html372" HREF="HTMLNotesnode10.html">Obsolescent Features</A>
+<B> Previous:</B> <A NAME="tex2html366" HREF="HTMLNotesnode16.html">PAUSE Statement</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

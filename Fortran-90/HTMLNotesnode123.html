@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Main Program Example</TITLE>
+<META NAME="description" CONTENT="Main Program Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1664" HREF="HTMLNotesnode124.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1662" HREF="HTMLNotesnode122.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1658" HREF="HTMLNotesnode122.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1666" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1665" HREF="HTMLNotesnode124.html">Procedures</A>
+<B>Up:</B> <A NAME="tex2html1663" HREF="HTMLNotesnode122.html">Main Program Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1659" HREF="HTMLNotesnode122.html">Main Program Syntax</A>
+<BR> <P>
+<A NAME="MainProgram2">&#160;</A><H4><A NAME="SECTION01041310000000000000">Main Program Example</A></H4>
+<P>
+The following example demonstrates a main program which calls one intrinsic
+function, (<TT>FLOOR</TT>), one internal
+procedure, (<TT>Negative</TT>) and one external procedure (<TT>TenTimes</TT>).
+<P>
+<PRE>    PROGRAM Main
+     IMPLICIT NONE
+     REAL x
+     INTRINSIC FLOOR
+     REAL, EXTERNAL :: TenTimes
+      READ*, x
+      PRINT*, FLOOR(x)
+      PRINT*, Negative(x)
+      PRINT*, TenTimes(x)
+    CONTAINS
+     REAL FUNCTION Negative(a)
+      REAL, INTENT(IN) :: a
+       Negative = -a
+     END FUNCTION Negative
+    END PROGRAM Main
+
+    REAL FUNCTION TenTimes(a)
+     IMPLICIT NONE
+     REAL, INTENT(IN) :: a
+      TenTimes = 10.0*a
+    END FUNCTION TenTimes</PRE>
+<P>
+Although not totally necessary, the intrinsic procedure is declared in
+an <TT>INTRINSIC</TT> statement (the type is not needed -- the compiler knows
+the types of all intrinsic functions).
+<P>
+The external procedure is a function so we must specify its type
+in the
+main program, it is also given the <TT>EXTERNAL</TT> attribute which is not
+essential but makes matters clearer.
+<P>
+The internal procedure is `contained within' the main program so
+does not require declaring in the main program.
+<P>
+<HR><A NAME="tex2html1664" HREF="HTMLNotesnode124.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1662" HREF="HTMLNotesnode122.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1658" HREF="HTMLNotesnode122.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1666" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1665" HREF="HTMLNotesnode124.html">Procedures</A>
+<B>Up:</B> <A NAME="tex2html1663" HREF="HTMLNotesnode122.html">Main Program Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1659" HREF="HTMLNotesnode122.html">Main Program Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

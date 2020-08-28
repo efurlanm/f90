@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Combined Directive</TITLE>
+<META NAME="description" CONTENT="Combined Directive">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2839" HREF="HTMLNotesnode219.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2837" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2831" HREF="HTMLNotesnode217.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2841" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2840" HREF="HTMLNotesnode219.html">Another Template Example</A>
+<B>Up:</B> <A NAME="tex2html2838" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2832" HREF="HTMLNotesnode217.html">Simple Template Example</A>
+<BR> <P>
+<A NAME="Templates4">&#160;</A><H3><A NAME="SECTION02020900000000000000">Combined Directive</A></H3>
+<P>
+A <TT>TEMPLATE</TT> declaration has a combined form:
+<P>
+<PRE>!HPF$ TEMPLATE, DIMENSION(100,100), &amp;
+!HPF$   DISTRIBUTE(BLOCK,CYCLIC) ONTO P :: T
+!HPF$ ALIGN A(:,:) WITH T(:,:)</PRE>
+<P>
+this is equivalent to
+<P>
+<PRE>!HPF$ TEMPLATE, DIMENSION(100,100) :: T
+!HPF$ ALIGN A(:,:) WITH T(:,:)
+!HPF$ DISTRIBUTE T(BLOCK,CYCLIC) ONTO P</PRE>
+<P>
+The combined declaration format is more concise and intuitive. The
+distribution method is an attribute of the <TT>TEMPLATE</TT> and not of the arrays
+that are aligned to the template.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2842" HREF="HTMLNotesnode219.html#SECTION02020910000000000000">Another Template Example</A>
+<LI> <A NAME="tex2html2843" HREF="HTMLNotesnode220.html#SECTION02020920000000000000">Further Examples of Template Alignment</A>
+</UL>
+<HR><A NAME="tex2html2839" HREF="HTMLNotesnode219.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2837" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2831" HREF="HTMLNotesnode217.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2841" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2840" HREF="HTMLNotesnode219.html">Another Template Example</A>
+<B>Up:</B> <A NAME="tex2html2838" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2832" HREF="HTMLNotesnode217.html">Simple Template Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

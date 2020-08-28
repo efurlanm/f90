@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Terminology</TITLE>
+<META NAME="description" CONTENT="Array Terminology">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1297" HREF="HTMLNotesnode93.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1295" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1289" HREF="HTMLNotesnode91.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1299" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1298" HREF="HTMLNotesnode93.html">Declarations</A>
+<B>Up:</B> <A NAME="tex2html1296" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1290" HREF="HTMLNotesnode91.html">Arrays</A>
+<BR> <P>
+<A NAME="ArrayTerminology1">&#160;</A><H3><A NAME="SECTION01031100000000000000">Array Terminology</A></H3>
+<P>
+Examples of declarations:
+<P>
+<PRE>    REAL, DIMENSION(15)       :: A
+    REAL, DIMENSION(-4:0,0:2) :: B
+    REAL  :: C(5,3), D(0:4,0:2) ! Shorthand</PRE>
+<P>
+The above are <EM>explicit-shape</EM> arrays.
+<P>
+Terminology:
+<P>
+<UL><LI> <EM>rank</EM> -- the number of dimensions up to and including 7
+dimensions. <TT>A</TT> has rank 1, <TT>B</TT>, <TT>C</TT> and <TT>D</TT> have rank 2.<LI> <EM>bounds</EM> -- upper and lower limits of indices, an unspecified
+bound is 1. <TT>A</TT> has lower bound 1 and upper bound 15, <TT>B</TT> has 
+lower bounds -4 and 0 and upper bounds 0 and 2, <TT>C</TT>
+has lower bounds of 1 and 1 with upper bounds 5 and 3, and  <TT>D</TT> has
+bounds 0 and 0, and 4 and 2.<LI> <EM>extent</EM> -- number of elements in dimension (which can be 
+zero).  <TT>A</TT> has extent 15, <TT>B</TT>, <TT>C</TT> and <TT>D</TT> 
+have extents 5 and 3.<LI> <EM>size</EM> -- either the total number of elements or, if
+particular dimension is specified, the number of elements in that
+dimension.  All arrays have size 15.<LI> <EM>shape</EM> -- rank and extents. <TT>A</TT> has shape <code>(/15/)</code>, 
+<TT>B</TT>, <TT>C</TT> and <TT>D</TT> have shape <code>(/5,3/)</code>.<LI> <EM>conformable</EM> -- two arrays are conformable if they have the
+same shape -- for operations between two
+arrays the shapes (of the sections) must (generally) conform (just like in 
+mathematics). <TT>B</TT>, <TT>C</TT> and <TT>D</TT> have the same shape so they conform.<LI> there is no <EM>storage association</EM><A NAME="tex2html10" HREF="HTMLNotesfootnode.html#6667"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A> for Fortran&nbsp;90 arrays.
+<P>
+</UL>
+<P>
+Explicit-shape arrays can have symbolic bounds so long as they are
+initialisation expressions -- evaluatable at compile time.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode25.html#QArray1234"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<A NAME="ArrayTerminology2">&#160;</A>
+<P>
+Consider the following declarations,
+<P>
+<PRE>    REAL, DIMENSION(15)       :: A
+    REAL, DIMENSION(-4:0,0:2) :: B
+    REAL  :: C(5,3), D(0:4,0:2) ! Shorthand</PRE>
+<P>
+<P>
+<P>
+Individual array elements are denoted by <EM>subscripting</EM> the array
+name by an <TT>INTEGER</TT>, for example, <TT>A(7)</TT>  <IMG WIDTH=16 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline22718" SRC="HTMLNotesimg21.gif"  >  element of <TT>A</TT>, or <TT>
+C(3,2)</TT>, 3 elements down, 2 across.
+<P>
+The arrays can be visualised as below:
+<P>
+<P><A NAME="6663">&#160;</A> <IMG WIDTH=333 HEIGHT=318 ALIGN=BOTTOM ALT="figure6661" SRC="HTMLNotesimg24.gif"  > <BR>
+<STRONG>Figure 1:</STRONG> Visualisation of Arrays<BR>
+<P>
+<P>
+The first dimension runs up and down the page and the second dimensions
+runs across the page.
+<P>
+<HR><A NAME="tex2html1297" HREF="HTMLNotesnode93.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1295" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1289" HREF="HTMLNotesnode91.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1299" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1298" HREF="HTMLNotesnode93.html">Declarations</A>
+<B>Up:</B> <A NAME="tex2html1296" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1290" HREF="HTMLNotesnode91.html">Arrays</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

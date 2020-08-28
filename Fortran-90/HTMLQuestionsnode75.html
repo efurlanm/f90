@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Encapsulation</TITLE>
+<META NAME="description" CONTENT="Encapsulation">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html944" HREF="HTMLQuestionsnode76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html942" HREF="HTMLQuestionsnode68.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html936" HREF="HTMLQuestionsnode74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html946" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html945" HREF="HTMLQuestionsnode76.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html943" HREF="HTMLQuestionsnode68.html">Procedures and Modules</A>
+<B> Previous:</B> <A NAME="tex2html937" HREF="HTMLQuestionsnode74.html">Solution</A>
+<BR> <P>
+<A NAME="QModEncapsulation">&#160;</A><H2><A NAME="SECTION00054000000000000000">Encapsulation</A></H2>
+<P>
+Define a module called <TT>Simple_Stats</TT> which contains encapsulated 
+functions
+ for calculating the mean and standard deviation of an arbitrary length
+<TT>REAL</TT> vector. The functions should have the following interfaces:
+<PRE>      REAL FUNCTION mean(vec)
+       REAL, INTENT(IN), DIMENSION(:) :: vec
+      END FUNCTION mean
+
+
+      REAL FUNCTION Std_Dev(vec)
+       REAL, INTENT(IN), DIMENSION(:) :: vec
+      END FUNCTION Std_Dev</PRE>
+<P>
+You may like to utilise your earlier code as a basis for this exercise.
+<P>
+Add some more code in the module which records how many times each
+statistical function is called during the lifetime of a program. Record
+these numbers in the variables: <TT>mean_use</TT> and <TT>std_dev_use</TT>.
+<P>
+Demonstrate the use of this module in a test program; in one execution of
+the program give the mean and
+standard deviation of the following sequences of numbers:
+<P>
+<PRE>5.0 3.0 17.0 -7.56 78.1 99.99 0.8 11.7 33.8 29.6</PRE>
+<P>
+and
+<P>
+<PRE>1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0</PRE>
+<P>
+plus two other sequences.
+<P>
+Print out the values of <TT>mean_use</TT> and <TT>std_dev_use</TT> for this
+run of the program.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html947" HREF="HTMLQuestionsnode76.html#SECTION00054100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html944" HREF="HTMLQuestionsnode76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html942" HREF="HTMLQuestionsnode68.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html936" HREF="HTMLQuestionsnode74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html946" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html945" HREF="HTMLQuestionsnode76.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html943" HREF="HTMLQuestionsnode68.html">Procedures and Modules</A>
+<B> Previous:</B> <A NAME="tex2html937" HREF="HTMLQuestionsnode74.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

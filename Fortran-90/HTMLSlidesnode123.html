@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules - Global Data</TITLE>
+<META NAME="description" CONTENT="Modules - Global Data">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1655" HREF="HTMLSlidesnode124.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1653" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1647" HREF="HTMLSlidesnode122.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1657" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1656" HREF="HTMLSlidesnode124.html">Stack Simulation</A>
+<B>Up:</B> <A NAME="tex2html1654" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1648" HREF="HTMLSlidesnode122.html">General Form</A>
+<BR> <P>
+<H2><A NAME="SECTION010173000000000000000">Modules - Global Data</A></H2>
+<P>
+Fortran&nbsp;90 implements a new mechanism to implement global data:
+<P>
+<UL><LI> declare the required objects within a module;<LI> give them the <TT>SAVE</TT> attribute;<LI> <TT>USE</TT> the module when global data is needed.
+</UL>
+<P>
+For example, to declare <TT>pi</TT> as a global constant
+<P>
+<PRE>  MODULE  Pye
+   REAL, SAVE :: pi = 3.142
+  END MODULE Pye
+
+  PROGRAM Area
+   USE Pye
+   IMPLICIT NONE
+   REAL :: r
+    READ*, r
+    PRINT*, &quot;Area= &quot;,pi*r*r
+  END PROGRAM Area</PRE>
+<P>
+<TT>MODULE</TT> s should be placed <EM>before</EM> the program.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode146.html#ModulesGlobalData1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1655" HREF="HTMLSlidesnode124.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1653" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1647" HREF="HTMLSlidesnode122.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1657" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1656" HREF="HTMLSlidesnode124.html">Stack Simulation</A>
+<B>Up:</B> <A NAME="tex2html1654" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1648" HREF="HTMLSlidesnode122.html">General Form</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

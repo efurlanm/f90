@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Local Data</TITLE>
+<META NAME="description" CONTENT="Local Data">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1754" HREF="HTMLNotesnode132.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1752" HREF="HTMLNotesnode130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1746" HREF="HTMLNotesnode130.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1756" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1755" HREF="HTMLNotesnode132.html">Host Association</A>
+<B>Up:</B> <A NAME="tex2html1753" HREF="HTMLNotesnode130.html">Scope</A>
+<B> Previous:</B> <A NAME="tex2html1747" HREF="HTMLNotesnode130.html">Scope</A>
+<BR> <P>
+<H4><A NAME="SECTION01041710000000000000">Local Data</A></H4>
+<P>
+Variables and other data objects are local to the program unit in which they
+ are declared unless they appear in the argument list for the procedure.
+When a procedure is compiled all local objects that are not arguments to
+the procedure are allocated new storage space that is local to the procedure.
+ The names of such objects are not ``visible'' outside the context of the
+ procedure in which they are declared.  Consider the following program:
+<P>
+<PRE>    PROGRAM tv
+     IMPLICIT NONE
+     REAL :: fun
+      fun = 1.0
+      CALL girl
+      PRINT*, fun
+    END PROGRAM tv
+
+    SUBROUTINE girl
+     IMPLICIT NONE
+     REAL :: fun
+       ...
+      fun=2.0
+       ...
+    END SUBROUTINE girl</PRE>
+<P>
+The variable <TT>fun</TT> in the main program is totally unrelated to 
+<TT>fun</TT> in <TT>girl</TT>.  A compiler would
+ allocate different memory locations to the two objects.  This would mean
+ that although the call to <TT>girl</TT> would cause the <TT>fun</TT> (in <TT>
+girl</TT>) to be assigned
+ the value 2.0, the value of <TT>fun</TT> in <TT>tv</TT> would be unaffected and the 
+program would write out the value 1.0.
+  In general, local objects are created each time a procedure is invoked
+and are destroyed when the procedure completes its execution and returns
+control to the calling program.  Local variables do not retain their values
+ between calls,  however, if a local variable has the <TT>SAVE</TT> attribute, then it
+ does retain its value.  The <TT>SAVE</TT> attribute can be declared explicitly,
+<P>
+<PRE>    REAL, SAVE :: fun</PRE>
+<P>
+or it is given implicitly by a variable being initialised, for example,
+in
+<P>
+<PRE>    REAL :: fun = 0.0</PRE>
+<TT>fun</TT> would implicitly have the <TT>SAVE</TT> attribute.
+<P>
+<HR><A NAME="tex2html1754" HREF="HTMLNotesnode132.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1752" HREF="HTMLNotesnode130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1746" HREF="HTMLNotesnode130.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1756" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1755" HREF="HTMLNotesnode132.html">Host Association</A>
+<B>Up:</B> <A NAME="tex2html1753" HREF="HTMLNotesnode130.html">Scope</A>
+<B> Previous:</B> <A NAME="tex2html1747" HREF="HTMLNotesnode130.html">Scope</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

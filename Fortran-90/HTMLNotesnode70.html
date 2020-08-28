@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Nested and Named IF Constructs</TITLE>
+<META NAME="description" CONTENT="Nested and Named IF Constructs">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1013" HREF="HTMLNotesnode71.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1011" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1005" HREF="HTMLNotesnode69.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1015" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1014" HREF="HTMLNotesnode71.html">Conditional Exit Loops</A>
+<B>Up:</B> <A NAME="tex2html1012" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1006" HREF="HTMLNotesnode69.html">IF Construct</A>
+<BR> <P>
+<A NAME="NestedIfConstruct1">&#160;</A><H3><A NAME="SECTION01021300000000000000">Nested and Named <TT>IF</TT> Constructs</A></H3>
+<P>
+All control constructs can be both named and nested,  for example, 
+<PRE>    outa: IF (a .NE. 0) THEN
+     x = b/a
+     inna1: IF (c .NE. 0) THEN
+      y = d/c
+     ELSE inna1
+      y = -99
+     END IF inna1
+    ELSE IF (a .GT. 0) THEN outa
+     CALL SUB1
+    ELSE outa
+     RETURN
+    END IF outa</PRE>
+<P>
+Here the names are only cosmetic and are 
+intended to make the code clearer 
+(<I>cf</I> <TT>DO</TT>-loop names which do). 
+If a name is given to the <TT>IF</TT> statement then it <EM>must</EM> be
+present on the <TT>END</TT><TT>IF</TT> statement but not necessarily on the <TT>ELSE</TT> or
+<TT>ELSE</TT><TT>IF</TT> statement. If a name is present on the <TT>ELSE</TT> or <TT>ELSE</TT><TT>IF</TT> 
+then it must be present on the <TT>IF</TT> statement.
+<P>
+The example has two nested and two named <TT>IF</TT> blocks. Nesting can be to
+any depth (unless the compiler prohibits this, even if it does the
+limit will almost certainly be configurable).
+<P>
+Even though construct names are only valid within the block that they
+apply to, their scope is the whole
+program unit. This means that a name may only be used once in a scoping
+unit even though no confusion would arise if it were re-used. (See Section
+<A HREF="HTMLNotesnode130.html#Scope">4.1.7</A> for a discussion of scope.)
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode12.html#QControlTriangle"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1013" HREF="HTMLNotesnode71.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1011" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1005" HREF="HTMLNotesnode69.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1015" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1014" HREF="HTMLNotesnode71.html">Conditional Exit Loops</A>
+<B>Up:</B> <A NAME="tex2html1012" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1006" HREF="HTMLNotesnode69.html">IF Construct</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

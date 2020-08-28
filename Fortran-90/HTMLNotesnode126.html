@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Subroutine Example</TITLE>
+<META NAME="description" CONTENT="Subroutine Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1699" HREF="HTMLNotesnode127.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1697" HREF="HTMLNotesnode125.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1691" HREF="HTMLNotesnode125.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1701" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1700" HREF="HTMLNotesnode127.html">External Subroutine Example</A>
+<B>Up:</B> <A NAME="tex2html1698" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1692" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<BR> <P>
+<A NAME="Subroutine2">&#160;</A><H4><A NAME="SECTION01041510000000000000">Subroutine Example</A></H4>
+<P>
+A subroutine (either internal or external) 
+such as <TT>sub1</TT> in the following example
+ is invoked by its appearance in a <TT>CALL</TT> statement,
+<P>
+<PRE>    CALL sub1(arg1, arg2, arg3)</PRE>
+<P>
+The variables (or expressions)
+ denoted by <TT>arg1, arg2</TT> and <TT>arg3</TT> are known as 
+<EM>actual arguments</EM> and, subject to certain conditions
+(see Section <A HREF="#OptionalArguments"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A>), must match in number with the 
+arguments in the <TT>SUBROUTINE</TT> 
+definition; they must also be of the same type, kind and rank<A NAME="tex2html26" HREF="HTMLNotesfootnode.html#9265"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.
+<P>
+An example of a subroutine definition:
+<PRE>  SUBROUTINE sub1(a,b,c)
+   IMPLICIT NONE
+   REAL :: a, b, c, s
+   REAL :: tmp
+     ...
+    CALL sum_sq(a,b,c,s)
+     ...
+  CONTAINS
+   SUBROUTINE sum_sq(aa,bb,cc,ss)
+    REAL, INTENT(IN) :: aa, bb, cc
+    REAL, INTENT(OUT) :: ss
+     ss = aa*aa + bb*bb + cc*cc
+   END SUBROUTINE sum_sq
+  END SUBROUTINE sub1</PRE>
+<P>
+The variables appearing in a <TT>SUBROUTINE</TT> statement, <TT>a, b</TT> and <TT>c</TT>,
+ are known as <EM>dummy arguments</EM>, whereas variables appearing in a
+<TT>CALL</TT> statement, <TT>arg1, arg2</TT> and <TT>arg3</TT>, are known as <EM>.
+actual arguments</EM>.  A dummy argument is said to be <EM>associated</EM>
+with its corresponding actual argument; here <TT>a</TT> is associated with
+<TT>arg1</TT>, <TT>b</TT> with <TT>arg2</TT> and so on. A reference to a dummy
+argument is really a reference to its corresponding actual argument, for
+example, changing the value of a dummy argument in reality changes the
+value of the actual argument.
+<P>
+The <TT>SUBROUTINE</TT> <TT>sub1</TT> contains an internal procedure <TT>
+sum_sq</TT> which is invoked in the same way as an external procedure but
+will never need to be declared. The 
+definition is the same as for a regular subroutine except that it
+follows a <TT>CONTAINS</TT> statement and is actually a part of the host
+procedure. This section of the program unit 
+may contain any number of declarations of internal procedures (both
+functions and subroutines). An internal procedure cannot have a
+<TT>CONTAINS</TT> block.
+<P>
+The procedure <TT>sum_sq</TT> has full access to all the objects
+declared in the surrounding procedure, this means that the <TT>IMPLICIT</TT> 
+<TT>NONE</TT> statement and all other declarations are visible in <TT>sum_sq</TT> 
+by <EM>host-association</EM>. Any variables will have the values that 
+they possessed at the exact point  that the procedure was invoked. 
+(The variables <TT>a, b, c</TT> and <TT>s</TT> would be 
+visible in the procedure but it is good practice to pass them as arguments
+anyway  -- this will make the procedure more flexible. <TT>a, b, c</TT> and
+<TT>s</TT> may be referred to in <TT>sum_sq</TT> but as they are argument
+associated with <TT>aa, bb, cc</TT> and <TT>ss</TT>, they may not be assigned
+to. If the value of a dummy argument is modified then so is the value of
+the corresponding actual argument, for example, if <TT>aa</TT> is modified
+the so is the value of <TT>a</TT>.)
+<P>
+The above subroutines are incomplete as there is no <TT>INTENT</TT> specified --
+this has been deliberately left out and will be described later (see
+Section <A HREF="HTMLNotesnode138.html#ArgumentIntent">4.1.11</A>).
+<P>
+<HR><A NAME="tex2html1699" HREF="HTMLNotesnode127.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1697" HREF="HTMLNotesnode125.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1691" HREF="HTMLNotesnode125.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1701" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1700" HREF="HTMLNotesnode127.html">External Subroutine Example</A>
+<B>Up:</B> <A NAME="tex2html1698" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1692" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

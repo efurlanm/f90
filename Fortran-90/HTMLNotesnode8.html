@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New Fortran&nbsp;90 Features</TITLE>
+<META NAME="description" CONTENT="New Fortran&nbsp;90 Features">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html246" HREF="HTMLNotesnode9.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html244" HREF="HTMLNotesnode5.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html240" HREF="HTMLNotesnode7.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html248" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html247" HREF="HTMLNotesnode9.html">Language Obsolescence</A>
+<B>Up:</B> <A NAME="tex2html245" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<B> Previous:</B> <A NAME="tex2html241" HREF="HTMLNotesnode7.html">Drawbacks of FORTRAN&nbsp;77</A>
+<BR> <P>
+<A NAME="Fortran77and902">&#160;</A><H3><A NAME="SECTION01012300000000000000">New Fortran&nbsp;90 Features</A></H3>
+<P>
+Fortran&nbsp;90 is a major revision of its predecessor many of the inadequacies of
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 have been addressed:
+<P>
+<OL><LI> Fortran&nbsp;90 defines a new code format which is much more like every other
+language;
+<UL><LI> free format -- no reliance on specific positioning of special
+characters;<LI> upto 132 columns per line;<LI> more than one statement per line;<LI> in-line comments allowed (this makes it easier to annotate code);<LI> upper and lower case letters allowed (makes code more readable);<LI> it is virtually impossible to misplace a character now;<LI> longer and more descriptive object names (upto 31 characters);<LI> names can be punctuated by underscores making then more readable.
+</UL><LI> Parallelism can now be expressed using whole array operations
+which include extensive slicing and sectioning
+facilities. Arithmetic may now be performed 
+on whole arrays and array sections. Operations in an
+array valued expression are conceptually performed in parallel.
+<P>
+To support this feaature, many parallel intrinsic  functions have 
+been introduced including
+reduction operations such as <TT>SUM</TT> (add all elements in an array and
+return one value -- the sum)  and <TT>MAXVAL</TT> (scan all elements in an
+array and
+return one value -- the biggest). This concept comes from APL.
+<P>
+The masked (parallel) assignment (<TT>WHERE</TT>) statement is also a new
+feature.<LI> The introduction of dynamic (heap) storage means that pointers and
+allocatable arrays can be implemented. 
+Temporary arrays can now be created on-the-fly, pointers can be
+used for aliasing arrays or sections of arrays 
+and implementing dynamic data structures such as
+linked lists and trees.<LI> To combat non-portability, the <TT>KIND</TT> facility has been introduced. 
+This mechanism allows the user to specify the 
+desired precision of an object in a portable way. Type specifications
+can be parameterised meaning that the precision of a particular type
+can be changed by
+altering the value of one constant. Appropriate intrinsic inquiry
+functions are defined to query the precision of given objects.<LI> User-defined types, which are constructed from existing types, can
+now be constructed. For
+example, a type can be defined to represent a 3D coordinate which has
+three components (<I>x</I>,<I>y</I>,<I>z</I>) or a different type can be used to represent
+personal details: name, age, sex address, phone number
+etc. Defining objects in this way is more intuitive and makes
+programming easier and less error prone.<LI> Explicit recursion is now available. For reasons of efficiency the
+user must declare a procedure to be recursive but it can then be used to
+call itself.<LI> Facility packaging has been introduced -- <TT>MODULE</TT> s replace many
+features of F<font size=-1><small>ORTRAN</small></font>&nbsp;77. They can be used for global definitions (of types,
+objects, operators and procedures),  and can be used to provide
+functionality whose internal details are hidden from the user (data
+hiding).
+<P>
+Reshaping and retyping functions have been added to the language which
+means that features that relied on storage association (such a
+<TT>EQUIVALENCE</TT>) do not have to be used.
+<P>
+</OL>
+<UL><LI> procedure interfaces which declare procedure  and argument  names and
+types
+ can now be specified, this means that:
+<UL><LI> programs and procedures can be separately compiled -- more efficient
+development;<LI> array bounds do not have to be passed as arguments;<LI> array shape can be inherited from the actual argument;<LI> better type checking exists across procedure boundaries;<LI> more efficient code can be generated.
+</UL><LI> new control constructs have been introduced, for example,
+<P>
+<UL><LI> <TT>DO</TT> ... <TT>END</TT><TT>DO</TT> (not part of F<font size=-1><small>ORTRAN</small></font>&nbsp;77) this will  reduce use
+of numeric labels in the program;<LI> <TT>DO</TT> ... <TT>WHILE</TT> loop;<LI> the <TT>EXIT</TT> command for gracefully exiting a loop;<LI> the <TT>CYCLE</TT> command for abandoning the current iteration of a loop
+and commencing the next one;<LI> named control constructs which are useful for code readability;<LI> <TT>SELECT</TT> <TT>CASE</TT> control block. which
+is more succinct, elegant and efficient than an <TT>IF</TT> ....
+<TT>ELSE</TT><TT>IF</TT> ... <TT>ELSE</TT><TT>IF</TT> block.
+<P>
+</UL><LI> Internal procedures are now allowed. A procedure is allowed to
+contain a further procedure with local scope -- it cannot be accessed
+from outside of the procedure within which it is defined.<LI> It is now possible to define and overload operators for derived and 
+intrinsic data types which
+mean  that so-called `semantic extension' can be performed, For example,
+an arbitrary length integer can be implemented using a linked list
+structure (one digit per cell) and then all the intrinsic operators 
+defined (overloaded) so that
+this  type can be treated in the same way as all other types. The language
+thus appears to have been extended. All intrinsic operators <TT>+, -, *,
+/</TT> and <TT>**</TT> and assignment, <TT>=</TT>, can be overloaded (defined for
+new types).<LI> <TT>MODULE</TT> s also  provide object based facilities for Fortran&nbsp;90, for example, it is
+possible to use a module to implement the abovementioned long integer
+data type -- all required facilities (for example, definitions, objects,
+operators, overloaded intrinsics
+and manipulation procedures) may be packaged together in a <TT>MODULE</TT>,
+the user simple has to <TT>USE</TT> this module to have all the features
+instantly available. The module can now be used like a library unit.<LI> An ancillary standard, `The varying strings module', has been
+defined and is implemented in a module. When using this module, the user
+can simply declare an
+object of the appropriate type (<TT>VARYING_STRING</TT>) which can be
+manipulated in exactly the same fashion as the intrinsic character type.
+All intrinsic
+operations and procedures are included in the module and are therefore
+available for all objects of this type.  All the implementation details
+are hidden from the user.<LI> useful libraries can be written  and placed in a module.<LI> <TT>BLOCK</TT> <TT>DATA</TT> subprograms are now redundant since a <TT>MODULE</TT> can
+be used for the same purpose.
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html246" HREF="HTMLNotesnode9.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html244" HREF="HTMLNotesnode5.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html240" HREF="HTMLNotesnode7.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html248" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html247" HREF="HTMLNotesnode9.html">Language Obsolescence</A>
+<B>Up:</B> <A NAME="tex2html245" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<B> Previous:</B> <A NAME="tex2html241" HREF="HTMLNotesnode7.html">Drawbacks of FORTRAN&nbsp;77</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

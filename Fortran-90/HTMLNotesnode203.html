@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Alignment</TITLE>
+<META NAME="description" CONTENT="Alignment">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2672" HREF="HTMLNotesnode204.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2670" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2664" HREF="HTMLNotesnode202.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2674" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2673" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B>Up:</B> <A NAME="tex2html2671" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2665" HREF="HTMLNotesnode202.html">More Distributions</A>
+<BR> <P>
+<A NAME="Alignment1">&#160;</A><H3><A NAME="SECTION02020200000000000000">Alignment</A></H3>
+<P>
+Arrays can be positioned relative to each other. This
+<UL><LI> enhances data locality,<LI> minimises communication,<LI> distributes workload,<LI> allows replicated or collapsed dimensions,
+</UL>
+<P>
+Alignment of two or more arrays ensures that corresponding elements
+reside on
+the same processor. The idea is to view the usage patterns of the arrays
+and `calculate' how they should be aligned with one another. The
+simplest case would be the array assignment:
+<P>
+<PRE>  A = B + C</PRE>
+<P>
+Here, <TT>A(i)</TT> is used in the same calculation as <TT>B(i)</TT> and <TT>
+C(i)</TT>. It would therefore be sensible to ensure that <TT>A(i)</TT>, <TT>
+B(i)</TT> and <TT>C(i)</TT> reside on the same processor for all <TT>i</TT>; this
+would mean that each component of the array assignment can be performed
+without any communications.
+<P>
+Alignment can also be used for other things too. It is possible to
+manually offset arrays relative to each other and it is also possible to
+specify explicit replication and collapsing of dimensions or of whole
+objects.
+<P>
+<HR><A NAME="tex2html2672" HREF="HTMLNotesnode204.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2670" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2664" HREF="HTMLNotesnode202.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2674" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2673" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B>Up:</B> <A NAME="tex2html2671" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2665" HREF="HTMLNotesnode202.html">More Distributions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

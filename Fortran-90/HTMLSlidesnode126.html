@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Module Global Data Example</TITLE>
+<META NAME="description" CONTENT="Module Global Data Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1688" HREF="HTMLSlidesnode127.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1686" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1680" HREF="HTMLSlidesnode125.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1690" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1689" HREF="HTMLSlidesnode127.html">Visualisation of Global Storage</A>
+<B>Up:</B> <A NAME="tex2html1687" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1681" HREF="HTMLSlidesnode125.html">Implementation of a Stack</A>
+<BR> <P>
+<H2><A NAME="SECTION010176000000000000000">Module Global Data Example</A></H2>
+<P>
+For example, the following defines a very simple 100 element integer
+stack
+<P>
+<PRE>   MODULE stack
+    INTEGER, PARAMETER :: stack_size = 100
+    INTEGER, SAVE :: store(stack_size), pos=0
+   END MODULE stack</PRE>
+<P>
+and two access functions,
+<PRE>    SUBROUTINE push(i)
+     USE stack
+     IMPLICIT NONE
+      ...
+    END SUBROUTINE push
+    SUBROUTINE pop(i)
+     USE stack
+     IMPLICIT NONE
+      ...
+    END SUBROUTINE pop</PRE>
+<P>
+A main program can now call <TT>push</TT> and <TT>pop</TT> which simulate a
+100 element <TT>INTEGER</TT> stack -- this is much neater than using <TT>COMMON</TT> block.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode148.html#ModulesGlobalDataExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1688" HREF="HTMLSlidesnode127.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1686" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1680" HREF="HTMLSlidesnode125.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1690" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1689" HREF="HTMLSlidesnode127.html">Visualisation of Global Storage</A>
+<B>Up:</B> <A NAME="tex2html1687" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1681" HREF="HTMLSlidesnode125.html">Implementation of a Stack</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

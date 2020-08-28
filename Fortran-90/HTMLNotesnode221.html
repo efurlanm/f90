@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Aligning to a Template Section</TITLE>
+<META NAME="description" CONTENT="Aligning to a Template Section">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2872" HREF="HTMLNotesnode222.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2870" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2864" HREF="HTMLNotesnode220.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2874" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2873" HREF="HTMLNotesnode222.html">Aligning Scalars</A>
+<B>Up:</B> <A NAME="tex2html2871" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2865" HREF="HTMLNotesnode220.html">Further Examples of Template </A>
+<BR> <P>
+<A NAME="AlignToATemplateSection1">&#160;</A><H3><A NAME="SECTION020201000000000000000">Aligning to a Template Section</A></H3>
+<P>
+Is is possible to embed an array in a template:
+<P>
+<PRE>    INTEGER :: i= 2
+    REAL, DIMENSION(4) :: X
+    REAL, DIMENSION(4,4) :: A
+ !HPF$ TEMPLATE, DIMENSION(4,4) :: T
+ !HPF$ ALIGN A(:,:) WITH T(:,:)
+ !HPF$ ALIGN X(:) WITH T(i,:) ! i used as variable</PRE>
+<P>
+The above example aligns a 1D vector, <TT>X</TT>,  with a specific row of a
+template. In this
+case the <TT>i</TT> is <EM>not</EM> used as a symbol but is used a a variable
+(with a value). Since <TT>i = 2</TT> the section is aligned with row 2. See
+Figure <A HREF="HTMLNotesnode221.html#EmbeddedAlignmentVisualisationfig">35</A>.
+<P>
+<P><A NAME="14598">&#160;</A><A NAME="EmbeddedAlignmentVisualisationfig">&#160;</A> <IMG WIDTH=212 HEIGHT=264 ALIGN=BOTTOM ALT="figure14595" SRC="HTMLNotesimg131.gif"  > <BR>
+<STRONG>Figure 35:</STRONG> Visualisation of Embedded Alignment<BR>
+<P>
+<P>
+It is easy to tell that this is what is happening
+because there is not corresponding <TT>i</TT> on the LHS of the <TT>WITH</TT> 
+clause. If <TT>i</TT> did not possess a value at the point at which it was
+used then  the program would be erroneous.
+<P>
+ <IMG WIDTH=73 HEIGHT=19 ALIGN=BOTTOM ALT="tex2html_wrap23800" SRC="HTMLNotesimg130.gif"  >  if a variable name
+is used simply as a position marker then there will be an occurrence at
+<EM>both</EM> sides of the <TT>WITH</TT> clause; if its value is to be used it
+will only appear on one side.
+<P>
+<HR><A NAME="tex2html2872" HREF="HTMLNotesnode222.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2870" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2864" HREF="HTMLNotesnode220.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2874" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2873" HREF="HTMLNotesnode222.html">Aligning Scalars</A>
+<B>Up:</B> <A NAME="tex2html2871" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2865" HREF="HTMLNotesnode220.html">Further Examples of Template </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

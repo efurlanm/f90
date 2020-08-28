@@ -1,0 +1,12 @@
+total 48
+drwxr-xr-x   2 861      15           512 Jan 27  1997 .
+drwxr-xr-x   3 861      15          2560 Jan  5  1999 ..
+-rw-r--r--   1 861      15           340 Sep  8  1997 BasicAreaOfCircleQuestion.f90
+-rw-r--r--   1 861      15           202 Sep  8  1997 BasicReformatQuestion.f90
+-rw-r--r--   1 861      15           172 Sep  8  1997 DefinedOperatorResistanceQuestion.f90
+-rw-r--r--   1 861      15           418 Sep  8  1997 IntegerComplex2zProgram.f90
+-rw-r--r--   1 861      15          1632 Sep  8  1997 IntegerComplex3aProgram.f90
+-rw-r--r--   1 861      15          1968 Sep  8  1997 IntegerComplex3bProgram.f90
+-rw-r--r--   1 861      15          2041 Sep  8  1997 IntegerComplex3cProgram.f90
+-rw-r--r--   1 861      15          3993 Sep  8  1997 IntegerComplex5Program.f90
+-rw-r--r--   1 861      15          5574 Sep  8  1997 IntegerComplex6Program.f90

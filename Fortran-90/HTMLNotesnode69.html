@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>IF Construct</TITLE>
+<META NAME="description" CONTENT="IF Construct">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1002" HREF="HTMLNotesnode70.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1000" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html994" HREF="HTMLNotesnode68.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1004" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1003" HREF="HTMLNotesnode70.html">Nested and Named IF </A>
+<B>Up:</B> <A NAME="tex2html1001" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html995" HREF="HTMLNotesnode68.html">IF Statement</A>
+<BR> <P>
+<A NAME="IfConstruct1">&#160;</A><H3><A NAME="SECTION01021200000000000000"><TT>IF</TT> Construct</A></H3>
+<P>
+The block-<TT>IF</TT> is more flexible than the single statement <TT>IF</TT> since there
+can be a number of alternative mutually exclusive branches guarded by
+(different) predicates. The control flow is a lot more structured than
+if a single statement <TT>IF</TT> plus <TT>GOTO</TT> statements were used. The
+scenario is that the predicates in the <TT>IF</TT> or <TT>ELSE</TT><TT>IF</TT>  lines are
+tested in turn, the first one which evaluates as true  transfers
+control to the appropriate inner block of code; when this has been
+completed control passes to the <TT>END</TT><TT>IF</TT> statement and thence out of the
+block. If none of the predicates are true then the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  (if
+present) is executed.
+<P>
+Syntax,
+<P>
+<PRE><TT> 
+[ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > :]<TT>IF</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;logical-expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > <TT>)</TT><TT>THEN</TT>
+<P>
+		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;then-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+[ <TT>ELSE</TT><TT>IF</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;logical-expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > <TT>)</TT><TT>THEN</TT> [ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]
+<P>
+		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;elseif-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+ ... ]
+<P>
+[ <TT>ELSE</TT> [ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]
+<P>
+		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+<TT>END</TT> <TT>IF</TT> [ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]
+<P>
+</TT></PRE>
+<P>
+The first branch to have a <TT>.TRUE.</TT> valued  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;logical-expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is
+the one that is executed.
+If none are found then the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , if present, is executed.
+<P>
+For example,
+<P>
+<PRE>    IF (x .GT. 3) THEN
+     CALL SUB1
+    ELSEIF (x .EQ. 3) THEN
+     CALL SUB2
+    ELSE
+     CALL SUB3
+    ENDIF</PRE>
+<P>
+(A further <TT>IF</TT> construct may appear in the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;then-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , the
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;elseif-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > . This is now a nested <TT>IF</TT> 
+structure.)
+<P>
+Statements in either the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;then-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or the
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;elseif-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  may be
+labelled but jumps to such labelled statements are
+permitted only from within the block containing them.  Entry into a
+block-<TT>IF</TT> construct is allowed only via the initial <TT>IF</TT> statement.  Transfer
+out of either the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;then-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or the
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;elseif-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is permitted but only to a
+statement entirely outside of the whole block defined by the
+<TT>IF</TT>...<TT>END</TT> <TT>IF</TT> 
+statements.  A transfer within the same block-<TT>IF</TT> between any of the
+blocks is not permitted.
+<P>
+Certain types of statement, eg, <TT>END</TT> <TT>SUBROUTINE</TT>, <TT>END</TT> 
+<TT>FUNCTION</TT> or <TT>END</TT> <TT>PROGRAM</TT>, statement are not allowed in the
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;then-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;else-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;elseif-block </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > .
+<P>
+<HR><A NAME="tex2html1002" HREF="HTMLNotesnode70.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1000" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html994" HREF="HTMLNotesnode68.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1004" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1003" HREF="HTMLNotesnode70.html">Nested and Named IF </A>
+<B>Up:</B> <A NAME="tex2html1001" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html995" HREF="HTMLNotesnode68.html">IF Statement</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

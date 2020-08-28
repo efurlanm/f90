@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The Ising Model</TITLE>
+<META NAME="description" CONTENT="The Ising Model">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1085" HREF="HTMLQuestionsnode89.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1083" HREF="HTMLQuestionsnode81.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1079" HREF="HTMLQuestionsnode87.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1087" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1086" HREF="HTMLQuestionsnode89.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1084" HREF="HTMLQuestionsnode81.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html1080" HREF="HTMLQuestionsnode87.html">Solution</A>
+<BR> <P>
+<A NAME="QIsingModel">&#160;</A><H2><A NAME="SECTION00064000000000000000">The Ising Model</A></H2>
+<P>
+This is an example taken from the Fortran&nbsp;90 standard, pp
+296-298; the code has been modified
+to make it a main program instead of a subroutine.
+<P>
+The code is a 3-D Monte Carlo simulation of state transition.
+Each gridpoint is a logical
+variable whose value can be interpreted as spin-up or spin-down. The
+transition between states
+is governed by a local probabilistic process where all points change
+state at the same time. Each spin
+either flips to the opposite state or not depending on the state of its
+six nearest neighbours. Gridpoints on the edge
+of the cube are defined by cubic periodicity -- in other words the grid
+is taken to be replicated in all dimensions in space.
+<P>
+The code  (which is available by clicking <A NAME="tex2html3" HREF="IsingQuestion.hpf">here</A>) given below 
+ will perform the desired transitions. Add HPF directives to allow
+the problem to be solved with <EM>minimal</EM> communications:
+<P>
+<PRE>      MODULE Funkt
+      CONTAINS
+       FUNCTION RAND (m)
+        INTEGER m
+        REAL, DIMENSION(m,m,m) :: RAND
+         CALL RANDOM_NUMBER(HARVEST = RAND)
+        RETURN
+       END FUNCTION RAND
+      END MODULE Funkt
+
+      PROGRAM TRANSITION
+      USE Funkt
+      IMPLICIT NONE
+       INTEGER, PARAMETER :: n = 16
+       INTEGER            :: iterations, i
+       LOGICAL, DIMENSION(n,n,n) :: ising,     flips
+       INTEGER, DIMENSION(n,n,n) :: ones,      count
+       REAL, DIMENSION(n,n,n)    :: threshold
+       REAL, DIMENSION(6)        :: p
+
+       p = (/ 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 /)
+
+       iterations  = 10
+       ising = RAND(n) .LE. 0.5
+
+       DO i = 1,iterations
+        ones = 0
+        WHERE (ising) ones = 1
+        count = CSHIFT(ones, -1, 1) + CSHIFT(ones, 1, 1) &amp;
+              + CSHIFT(ones, -1, 2) + CSHIFT(ones, 1, 2) &amp;
+              + CSHIFT(ones, -1, 3) + CSHIFT(ones, 1, 3)
+        WHERE (.NOT.ising) count = 6 - count
+        threshold = 1.0
+        WHERE (count == 4) threshold = p(4)
+        WHERE (count == 5) threshold = p(5)
+        WHERE (count == 6) threshold = p(6)
+        flips = RAND(n) .LE. threshold
+        WHERE (flips) ising = .NOT. ising
+       ENDDO
+      END PROGRAM TRANSITION</PRE>
+<P>
+Note that <TT>CSHIFT</TT> is used in SOR problems and
+performs a circular shift on an array, for example, if
+<P>
+<P> <IMG WIDTH=309 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath2976" SRC="HTMLQuestionsimg56.gif"  > <P>
+<P>
+then
+<P>
+<PRE>   CSHIFT(A,-1)</PRE>
+<P>
+is <TT>A</TT> shifted one place to the left with the left-most number
+wrapping around to the right,
+<P>
+<P> <IMG WIDTH=309 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath2977" SRC="HTMLQuestionsimg57.gif"  > <P>
+<P>
+and is <TT>A</TT> shifted one place to the right
+<P>
+<PRE>   CSHIFT(A,1)</PRE>
+<P>
+is
+<P>
+<P> <IMG WIDTH=309 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath2978" SRC="HTMLQuestionsimg58.gif"  > <P>
+<P>
+It is also possible to  specify a dimension for 2D and upward arrays.
+If
+<P>
+<P> <IMG WIDTH=304 HEIGHT=49 ALIGN=BOTTOM ALT="displaymath2979" SRC="HTMLQuestionsimg59.gif"  > <P>
+<P>
+then
+<P>
+<PRE>   CSHIFT(B,1,1)</PRE>
+<P>
+shifts the array one position in dimension 1 (downwards)
+<P>
+<P> <IMG WIDTH=304 HEIGHT=49 ALIGN=BOTTOM ALT="displaymath2980" SRC="HTMLQuestionsimg60.gif"  > <P>
+<P>
+and
+<P>
+<PRE>   CSHIFT(B,1,2)</PRE>
+<P>
+<P> <IMG WIDTH=304 HEIGHT=49 ALIGN=BOTTOM ALT="displaymath2981" SRC="HTMLQuestionsimg61.gif"  > <P>
+<P>
+and so on.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1088" HREF="HTMLQuestionsnode89.html#SECTION00064100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1085" HREF="HTMLQuestionsnode89.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1083" HREF="HTMLQuestionsnode81.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1079" HREF="HTMLQuestionsnode87.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1087" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1086" HREF="HTMLQuestionsnode89.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1084" HREF="HTMLQuestionsnode81.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html1080" HREF="HTMLQuestionsnode87.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

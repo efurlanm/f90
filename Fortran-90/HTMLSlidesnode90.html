@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Vector and Matrix Multiply Intrinsics</TITLE>
+<META NAME="description" CONTENT="Vector and Matrix Multiply Intrinsics">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1261" HREF="HTMLSlidesnode91.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1259" HREF="HTMLSlidesnode88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1253" HREF="HTMLSlidesnode89.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1263" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1262" HREF="HTMLSlidesnode91.html">Maximum and Minimum Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html1260" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1254" HREF="HTMLSlidesnode89.html">Random Number Intrinsic</A>
+<BR> <P>
+<H2><A NAME="SECTION010142000000000000000">Vector and Matrix Multiply Intrinsics</A></H2>
+<P>
+There are two types of intrinsic matrix multiplication:
+<P>
+<UL><LI> <TT>DOT_PRODUCT</TT><TT>(VEC1, VEC2)</TT> -- inner (dot) product of two 
+rank 1 arrays.
+<P>
+For example,
+<P>
+<PRE>    DP = DOT_PRODUCT(A,B)</PRE>
+<P>
+is equivalent to:
+<P>
+<PRE>    DP = A(1)*B(1) + A(2)*B(2) + ...</PRE>
+<P>
+For <TT>LOGICAL</TT> arrays, the corresponding operation is a logical <TT>.AND.</TT>.
+<P>
+<PRE>    DP = LA(1) .AND. LB(1) .OR. &amp;
+         LA(2) .AND. LB(2) .OR. ...</PRE><LI> <TT>MATMUL</TT><TT>(MAT1, MAT2)</TT> -- `traditional' matrix-matrix 
+multiplication:
+<P>
+<UL><LI> if <TT>MAT1</TT> has shape (<I>n</I>, <I>m</I>) and <TT>MAT2</TT> shape (<I>m</I>, <I>k</I>)
+then the result has shape (<I>n</I>, <I>k</I>);<LI> if <TT>MAT1</TT> has shape (<I>m</I>) and <TT>MAT2</TT> shape (<I>m</I>, <I>k</I>)
+then the result has shape (<I>k</I>);<LI> if <TT>MAT1</TT> has shape (<I>n</I>, <I>m</I>) and <TT>MAT2</TT> shape (<I>m</I>)
+then the result has shape (<I>n</I>);
+<P>
+</UL>
+<P>
+For <TT>LOGICAL</TT> arrays, the corresponding operation is a logical <TT>.AND.</TT>.
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode114.html#DotProductMatmul1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1261" HREF="HTMLSlidesnode91.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1259" HREF="HTMLSlidesnode88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1253" HREF="HTMLSlidesnode89.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1263" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1262" HREF="HTMLSlidesnode91.html">Maximum and Minimum Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html1260" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1254" HREF="HTMLSlidesnode89.html">Random Number Intrinsic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

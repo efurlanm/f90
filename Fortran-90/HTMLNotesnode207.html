@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Transposed Alignment Example</TITLE>
+<META NAME="description" CONTENT="Transposed Alignment Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2722" HREF="HTMLNotesnode208.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2720" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2714" HREF="HTMLNotesnode206.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2724" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2723" HREF="HTMLNotesnode208.html">Strided Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2721" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2715" HREF="HTMLNotesnode206.html">Simple 2D Alignment Example</A>
+<BR> <P>
+<A NAME="AlignmentExample3">&#160;</A><H4><A NAME="SECTION02020330000000000000">Transposed Alignment Example</A></H4>
+<P>
+Here we are aligning a row of <TT>A</TT> with a column of <TT>B</TT> and
+vice-versa. The colon syntax cannot be used to specify this, we must
+also use the symbolic syntax. The statement:
+<P>
+<PRE>    REAL, DIMENSION(10,10) :: A, B
+!HPF$ ALIGN A(i,:) WITH B(:,i)</PRE>
+<P>
+uses two symbols (a colon and <TT>i</TT>) to specify the first
+dimension of <TT>A</TT> is aligned with the second dimension of <TT>B</TT> (the
+symbol <TT>i</TT>) and
+the second dimension of <TT>A</TT> is aligned with the first dimension of
+<TT>B</TT> (the colon symbol). Again the colon implies conformance, in
+other words, the first dimension of <TT>B</TT> has the same extent as the
+second dimension of <TT>A</TT>.
+Effectively this says:  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline23732" SRC="HTMLNotesimg110.gif"  >  <TT>i, j</TT>, elements
+<TT>A(i,j)</TT> and <TT>B(j,i)</TT> are local.  This could also be written:
+<P>
+<PRE>!HPF$ ALIGN A(:,j) WITH B(j,:)</PRE>
+<P>
+this is similar to the first except that the symbol <TT>
+j</TT> is used and the conformance between dimensions is for the first
+dimension of <TT>A</TT> and the second dimension of <TT>B</TT>.
+<P>
+A further way of expressing this could be:
+<P>
+<PRE>!HPF$ ALIGN A(i,j) WITH B(j,i)</PRE>
+<P>
+Here <TT>i</TT> and <TT>j</TT> are ``symbols'' not variables and are used to
+match dimensions their value (if any) is unimportant.  The only difference is
+that there is nothing implied about the extents of the dimensions.
+<P>
+<A NAME="AlignmentExample4">&#160;</A>
+Figure <A HREF="HTMLNotesnode207.html#Transposed2DAlignmentVisualisationfig">27</A>
+ is supposed to show how elements <TT>A(1,:)</TT> (the
+first
+row of <TT>A</TT>) and <TT>B(:,1)</TT> (the first column of <TT>B</TT>) are
+aligned
+with each other and so on.  <TT>A</TT> is aligned with the transpose of
+<TT>B</TT>.
+<P>
+<P><A NAME="13741">&#160;</A><A NAME="Transposed2DAlignmentVisualisationfig">&#160;</A> <IMG WIDTH=378 HEIGHT=420 ALIGN=BOTTOM ALT="figure13737" SRC="HTMLNotesimg114.gif"  > <BR>
+<STRONG>Figure 27:</STRONG> Visualisation of Transposed 2D Alignment<BR>
+<P>
+<P>
+The two shaded blobs are also aligned and are therefore resident on the
+same processor.
+<P>
+This alignment is suitable for,
+<P>
+<PRE> A = A + TRANSPOSE(B)*A ! all local</PRE>
+<P>
+<HR><A NAME="tex2html2722" HREF="HTMLNotesnode208.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2720" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2714" HREF="HTMLNotesnode206.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2724" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2723" HREF="HTMLNotesnode208.html">Strided Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2721" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2715" HREF="HTMLNotesnode206.html">Simple 2D Alignment Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Data Abstraction</TITLE>
+<META NAME="description" CONTENT="Data Abstraction">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html530" HREF="HTMLNotesnode31.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html528" HREF="HTMLNotesnode29.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html522" HREF="HTMLNotesnode29.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html532" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html531" HREF="HTMLNotesnode31.html">Data Hiding</A>
+<B>Up:</B> <A NAME="tex2html529" HREF="HTMLNotesnode29.html">Fortran&nbsp;90 's Object Oriented </A>
+<B> Previous:</B> <A NAME="tex2html523" HREF="HTMLNotesnode29.html">Fortran&nbsp;90 's Object Oriented </A>
+<BR> <P>
+<H4><A NAME="SECTION01014110000000000000">Data Abstraction</A></H4>
+<P>
+It is convenient to use objects which mirror the structure of the
+entities which they model. In Fortran&nbsp;90 user derived types provide a 
+certain degree of abstraction and the availability of pointers 
+allows fairly complex data structures to be defined. Pointers are
+implemented in a different way to many languages and are considerably
+less flexible (but  more efficient) than, say, pointers in C.
+As Fortran&nbsp;90 pointers are strongly typed, their targets are limited but this
+leads to securer and faster code. Fortran&nbsp;90 does not support 
+enumerated types but these can be simulated in a (semantic extension) 
+module without too much trouble.
+<P>
+Two main problems are the lack of parameterised derived types and the
+lack of subtypes.
+<P>
+Parameterised derived types are
+user-defined types where the individual type components have selectable
+kinds. The idea would be to
+define a `skeleton' type which could be supplied with <TT>KIND</TT> values in
+such a way that the individual components are declared with these
+<TT>KIND</TT> s. As currently defined, derived types can have kind values for the
+components but they are fixed, for example the following two types are
+totally separate:
+<P>
+<PRE>    TYPE T1
+     INTEGER(KIND=1) :: sun_zoom
+     REAL(KIND=1)    :: spock
+    END TYPE T1
+    TYPE T2
+     INTEGER(KIND=2) :: sun_zoom
+     REAL(KIND=2)    :: spock
+    END TYPE T2</PRE>
+<P>
+If the kind selection could be deferred until object declaration then
+they could be considered to be parameterised.
+<P>
+Subtypes are, as their name suggests, a subclass of a parent type. A
+common example may be a positive integer type which has exactly the same
+properties as an intrinsic <TT>INTEGER</TT> type but with a restricted range.
+Subtypes are expensive to implement but provide range checking security.
+<P>
+<HR><A NAME="tex2html530" HREF="HTMLNotesnode31.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html528" HREF="HTMLNotesnode29.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html522" HREF="HTMLNotesnode29.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html532" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html531" HREF="HTMLNotesnode31.html">Data Hiding</A>
+<B>Up:</B> <A NAME="tex2html529" HREF="HTMLNotesnode29.html">Fortran&nbsp;90 's Object Oriented </A>
+<B> Previous:</B> <A NAME="tex2html523" HREF="HTMLNotesnode29.html">Fortran&nbsp;90 's Object Oriented </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

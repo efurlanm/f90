@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Conditional Cycle Loops</TITLE>
+<META NAME="description" CONTENT="Conditional Cycle Loops">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html762" HREF="HTMLSlidesnode48.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html760" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html754" HREF="HTMLSlidesnode46.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html764" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html763" HREF="HTMLSlidesnode48.html">Named and Nested Loops</A>
+<B>Up:</B> <A NAME="tex2html761" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html755" HREF="HTMLSlidesnode46.html">Conditional Exit Loops</A>
+<BR> <P>
+<H2><A NAME="SECTION01096000000000000000">Conditional Cycle Loops</A></H2>
+<P>
+Can set up a non-incremental <TT>DO</TT> loop which, on some iterations, only
+executes a subset of the statements  in the body of the loop,
+<P>
+<PRE>    DO
+     DO
+      ...
+      IF (a.GT.b) EXIT
+      ...
+      IF (a.EQ.b) CYCLE
+      ...
+     END DO
+     IF (c.GT.d) EXIT
+    END DO</PRE>
+<P>
+<TT>CYCLE</TT> forces control to the <B>innermost</B> active <TT>DO</TT> statement and the loop
+begins a new iteration.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode72.html#CycleStatement1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html762" HREF="HTMLSlidesnode48.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html760" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html754" HREF="HTMLSlidesnode46.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html764" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html763" HREF="HTMLSlidesnode48.html">Named and Nested Loops</A>
+<B>Up:</B> <A NAME="tex2html761" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html755" HREF="HTMLSlidesnode46.html">Conditional Exit Loops</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

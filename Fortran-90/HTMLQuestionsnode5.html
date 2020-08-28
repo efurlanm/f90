@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html147" HREF="HTMLQuestionsnode6.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html145" HREF="HTMLQuestionsnode4.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html141" HREF="HTMLQuestionsnode4.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html149" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html148" HREF="HTMLQuestionsnode6.html">Area Of a Circle</A>
+<B>Up:</B> <A NAME="tex2html146" HREF="HTMLQuestionsnode4.html">Declaration Format</A>
+<B> Previous:</B> <A NAME="tex2html142" HREF="HTMLQuestionsnode4.html">Declaration Format</A>
+<BR> <P>
+<H3><A NAME="SECTION00012100000000000000">Solution</A></H3>
+<OL><LI> <TT>INTERGER :: i</TT> -- Bad spelling of <TT>INTEGER</TT><LI> <TT>ReAl x</TT> -- OK<LI> <TT>CHARACTER name</TT> -- OK, a 1 character name!<LI> <TT>CHARACTER(LEN=10) name</TT> -- OK, an array of single characters!<LI> <TT>REAL var-1</TT> -- 
+cannot have <code>-1</code> in a declaration <code>var_1</code> would be OK.<LI> <TT>INTEGER 1a</TT> -- 
+Cannot start a variable with a number.<LI> <TT>BOOLEAN :: loji</TT> -- 
+No <code>BOOLEAN</code> type, use <TT>LOGICAL</TT>.<LI> <TT>DOUBLE :: X</TT> -- 
+No,  the correct type is <TT>DOUBLE PRECISION</TT>.<LI> <TT>CHARACTER(LEN=5) :: town = &quot;Glasgow&quot;</TT> -- 
+OK(ish), town is set to <code>Glasg</code>.<LI> <TT>CHARACTER(LEN=*) :: town = &quot;Glasgow&quot;</TT> -- 
+Cannot have <code>LEN=*</code> for non-<TT>PARAMETER</TT> s (or dummy arguments)<LI> <TT>CHARACTER(LEN=*), PARAMETER :: city = &quot;Glasgow&quot;</TT> -- 
+OK<LI> <TT>REAL :: pi = +22/7</TT> -- 
+OK, except the value of <TT>pi</TT> will be (about) 3 due to integer
+division.<LI> <TT>LOGICAL :: wibble = .TRUE.</TT> -- OK<LI> <TT>CHARACTER(LEN=*), PARAMETER :: &quot;Bognor&quot;</TT> -- Error, no variable name<LI> <TT>REAL, PARAMETER :: pye = 22.0/7.0</TT> -- OK<LI> <TT>REAL :: two_pie = pye*2</TT>  -- OK if <code>pye</code> is a <TT>PARAMETER</TT>.<LI> <TT>REAL :: a = 1., b = 2</TT> -- 
+OK, the value <TT>2</TT> is <EM>promoted</EM> to be <TT>2.0</TT><LI> <TT>LOGICAL(LEN=12) frisnet</TT> -- 
+Error cannot use <code>LEN=12</code> with <TT>LOGICAL</TT>.<LI> <TT>CHARACTER(LEN=6) :: you_know = 'y'know&quot;</TT> -- 
+Unbalanced delimiters <code>'</code> and <code>&quot;</code>, the second <code>'</code> will
+cause an error too.<LI> <TT>CHARACTER(LEN=6) :: you_know = &quot;y'know&quot;</TT> -- OK<LI> <TT>INTEGER ia ib ic id</TT> in free format source form -- 
+In FIXED FORMAT this is OK, (<code>INTEGER iaibicid</code>) in FREE FORMAT the
+spaces are erroneous<LI> <TT>DOUBLE PRECISION pattie = +1.0D0</TT> -- Need <code>:</code><code>:</code> if the object is to be initialised. <TT>DOUBLE
+PRECISION :: pattie = +1.0D0</TT> is correct.<LI> <TT>DOUBLE PRECISION :: pattie = -1.0E-0</TT> -- OK<LI> <TT>LOGICAL, DIMENSION(2) bool</TT> -- If there is an attribute (eg, <TT>DIMENSION</TT>,) then there must be the <code>:</code><code>:</code> separator.<LI> <TT>REAL :: poie = 4.*atan(1.)</TT> -- Cannot use <code>atan( )</code> in initialisation.<LI> and
+<P>
+<PRE>    INTEGER feet
+    REAL :: miles
+    CHARACTER(LEN=20) :: town
+    CHARACTER(LEN=*), PARAMETER :: home_town = 'Hull'
+    LOGICAL, PARAMETER :: in_uk = .TRUE.
+    REAL, PARAMETER :: sin_half = 0.47942554</PRE>
+<P>
+</OL><HR><A NAME="tex2html147" HREF="HTMLQuestionsnode6.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html145" HREF="HTMLQuestionsnode4.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html141" HREF="HTMLQuestionsnode4.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html149" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html148" HREF="HTMLQuestionsnode6.html">Area Of a Circle</A>
+<B>Up:</B> <A NAME="tex2html146" HREF="HTMLQuestionsnode4.html">Declaration Format</A>
+<B> Previous:</B> <A NAME="tex2html142" HREF="HTMLQuestionsnode4.html">Declaration Format</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

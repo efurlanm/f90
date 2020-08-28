@@ -1,0 +1,5 @@
+     program main
+       character char(1)
+       write (*,*) size(transfer(1,char))
+     end
+

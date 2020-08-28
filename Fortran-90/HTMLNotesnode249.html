@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Prescriptive Distribution</TITLE>
+<META NAME="description" CONTENT="Prescriptive Distribution">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3234" HREF="HTMLNotesnode250.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3232" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3226" HREF="HTMLNotesnode248.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3236" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3235" HREF="HTMLNotesnode250.html">Descriptive Distribution</A>
+<B>Up:</B> <A NAME="tex2html3233" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3227" HREF="HTMLNotesnode248.html">Procedures and Mapping</A>
+<BR> <P>
+<A NAME="PrescriptiveDistribution1">&#160;</A><H3><A NAME="SECTION02041300000000000000">Prescriptive Distribution</A></H3>
+<P>
+Can prescribe alignment and distribution,
+<P>
+<UL><LI> may cause remapping,<LI> mapping is restored on procedure exit.
+</UL>
+<P>
+For example,
+<P>
+<PRE>    SUBROUTINE Subby(A,B,RES)
+     IMPLICIT NONE
+     REAL, DIMENSION(:,:), INTENT(IN)  :: A, B
+     REAL, DIMENSION(:,:), INTENT(OUT) :: RES
+!HPF$ PROCESSORS, DIMENSION(2,2)       :: P
+!HPF$ TEMPLATE, DIMENSION(4,6)         :: T
+!HPF$ ALIGN (:,:) WITH T(:,:)          :: A, B, RES
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P  :: T
+       ...
+    END SUBROUTINE Subby</PRE>
+<P>
+In the subroutine <TT>Subby</TT>, the three dummy arguments <TT>A, B</TT> and
+<TT>RES</TT> will be mapped as specified in the HPF directives. If the
+actual arguments are not mapped like this at the call site then
+remapping
+will occur.
+<P>
+If an interface is to be given then the mapping directives which apply
+to the dummy arguments should be included.
+<P>
+<HR><A NAME="tex2html3234" HREF="HTMLNotesnode250.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3232" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3226" HREF="HTMLNotesnode248.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3236" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3235" HREF="HTMLNotesnode250.html">Descriptive Distribution</A>
+<B>Up:</B> <A NAME="tex2html3233" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3227" HREF="HTMLNotesnode248.html">Procedures and Mapping</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

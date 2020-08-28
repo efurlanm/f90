@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pure Subroutine Example</TITLE>
+<META NAME="description" CONTENT="Pure Subroutine Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2856" HREF="HTMLSlidesnode214.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2854" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2848" HREF="HTMLSlidesnode212.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2858" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2857" HREF="HTMLSlidesnode214.html">MIMD Example</A>
+<B>Up:</B> <A NAME="tex2html2855" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2849" HREF="HTMLSlidesnode212.html">Pure Function Example</A>
+<BR> <P>
+<H2><A NAME="SECTION020410000000000000000">Pure Subroutine Example</A></H2>
+<P>
+<PRE>    PURE SUBROUTINE G(x,y,z) 
+     IMPLICIT NONE
+     REAL, INTENT(OUT), DIMENSION(:) :: z
+     REAL, INTENT(IN),  DIMENSION(:) ::  x, y
+     INTEGER i
+     INTERFACE
+      REAL FUNCTION F(x,y)
+       REAL, INTENT(IN) ::  x, y
+      END FUNCTION F
+     END INTERFACE
+!      ...
+      FORALL(i=1:SIZE(z)) z(i) = F(x(i),y(i))
+    END SUBROUTINE G</PRE>
+<P>
+Note:
+<UL><LI> invokes pure procedure,<LI> interface <EM>not</EM> mandatory but <EM>is</EM> a very good idea.
+</UL>
+<P>
+Example of use,
+<P>
+<PRE>    CALL G(x,y,res)</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode234.html#PureSubroutineExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode106.html#QWhichArePure"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2856" HREF="HTMLSlidesnode214.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2854" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2848" HREF="HTMLSlidesnode212.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2858" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2857" HREF="HTMLSlidesnode214.html">MIMD Example</A>
+<B>Up:</B> <A NAME="tex2html2855" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2849" HREF="HTMLSlidesnode212.html">Pure Function Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedures</TITLE>
+<META NAME="description" CONTENT="Procedures">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1444" HREF="HTMLQuestionsnode120.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1442" HREF="HTMLQuestionsnode114.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1436" HREF="HTMLQuestionsnode118.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1446" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1445" HREF="HTMLQuestionsnode120.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1443" HREF="HTMLQuestionsnode114.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1437" HREF="HTMLQuestionsnode118.html">Solution</A>
+<BR> <P>
+<A NAME="QProcedureMistake">&#160;</A><H2><A NAME="SECTION00093000000000000000">Procedures</A></H2>
+<P>
+What is bad about the procedure in the following code and what will happen
+as control enters and leaves the procedure:
+<P>
+<PRE>   PROGRAM Bug_Day
+    REAL, DIMENSION(100,100) :: A
+    !HPF$ PROCESSORS, DIMENSION(4,4) :: P
+    !HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P :: A
+
+    INTERFACE
+     SUBROUTINE Feck(X)
+      REAL, DIMENSION(100,50) :: X
+      !HPF$ PROCESSORS, DIMENSION(4,4) :: P
+      !HPF$ DISTRIBUTE *(BLOCK,BLOCK) ONTO *P :: X
+     END SUBROUTINE Feck
+    END INTERFACE
+
+    ! ...
+
+    CALL Feck(A(1:100,51:100))
+
+    ! ...
+
+    CALL Feck(A(1:100,1:50))
+
+    ! ...
+
+   END PROGRAM Bug_Day</PRE>
+<P>
+Give two suggestions as to how the problem may be averted.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1447" HREF="HTMLQuestionsnode120.html#SECTION00093100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1444" HREF="HTMLQuestionsnode120.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1442" HREF="HTMLQuestionsnode114.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1436" HREF="HTMLQuestionsnode118.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1446" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1445" HREF="HTMLQuestionsnode120.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1443" HREF="HTMLQuestionsnode114.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1437" HREF="HTMLQuestionsnode118.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

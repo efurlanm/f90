@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Mapping Function Results</TITLE>
+<META NAME="description" CONTENT="Mapping Function Results">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3310" HREF="HTMLNotesnode257.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3308" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3302" HREF="HTMLNotesnode255.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3312" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3311" HREF="HTMLNotesnode257.html">Argument Remapping</A>
+<B>Up:</B> <A NAME="tex2html3309" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3303" HREF="HTMLNotesnode255.html">Aligning to Dummy Arguments</A>
+<BR> <P>
+<A NAME="MappingFunctionResults1">&#160;</A><H3><A NAME="SECTION02041900000000000000">Mapping Function Results</A></H3>
+<P>
+Clearly, must be able to map array-valued <TT>FUNCTION</TT> results,
+<P>
+<PRE>   MODULE Block_Dist_1D_Template_Onto_P
+     !HPF$ PROCESSORS, DIMENSION(2)  :: P
+     !HPF$ TEMPLATE, DIMENSION(4)    :: T
+     !HPF$ DISTRIBUTE (BLOCK) ONTO P :: T
+   END MODULE Block_Dist_1D_Template_Onto_p
+
+   FUNCTION ArF(A,B)
+    USE Block_Dist_1D_Template_Onto_P
+    IMPLICIT NONE
+     REAL, INTENT(IN) :: A(:), B(:)
+     REAL, DIMENSION(SIZE(A)) :: ArF
+     !HPF$ ALIGN A(:) WITH *T(:)
+     !HPF$ ALIGN B(:) WITH *T(:)
+     !HPF$ ALIGN ArF(:) WITH T(:)
+       ...
+   END FUNCTION ArF</PRE>
+<P>
+Here the result of the function is aligned to one of the dummy
+arguments.
+<P>
+An explicit interface should <EM>always</EM> be given containing all
+mapping information relating to dummy arguments and the function result.
+<P>
+<HR><A NAME="tex2html3310" HREF="HTMLNotesnode257.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3308" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3302" HREF="HTMLNotesnode255.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3312" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3311" HREF="HTMLNotesnode257.html">Argument Remapping</A>
+<B>Up:</B> <A NAME="tex2html3309" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3303" HREF="HTMLNotesnode255.html">Aligning to Dummy Arguments</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Intrinsic Logical Operations</TITLE>
+<META NAME="description" CONTENT="Intrinsic Logical Operations">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html906" HREF="HTMLNotesnode64.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html904" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html898" HREF="HTMLNotesnode62.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html908" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html907" HREF="HTMLNotesnode64.html">Operator Precedence</A>
+<B>Up:</B> <A NAME="tex2html905" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html899" HREF="HTMLNotesnode62.html">Relational Operators</A>
+<BR> <P>
+<A NAME="LogicalOperations1">&#160;</A><H3><A NAME="SECTION01018600000000000000">Intrinsic Logical Operations</A></H3>
+<P>
+A <TT>LOGICAL</TT> or boolean expression returns a <TT>.TRUE.</TT> / <TT>.FALSE.</TT> result. The
+following operators are valid with <TT>LOGICAL</TT> operands,
+<P>
+<UL><LI> <TT>.NOT.</TT> -- monadic negation operator which gives <TT>.TRUE.</TT> if operand
+is <TT>.FALSE.</TT>, for example, <TT>.NOT.(a .LT. b)</TT>.<LI>  <TT>.AND.</TT> -- logical and operator. <TT>.TRUE.</TT> if both operands are
+<TT>.TRUE.</TT>.<LI> <TT>.OR.</TT> -- logical or operator. <TT>.TRUE.</TT> if at least one operand is
+<TT>.TRUE.</TT>.<LI> <TT>.EQV.</TT> -- <TT>.TRUE.</TT> if both operands are the same.<LI> <TT>.NEQV.</TT> -- <TT>.TRUE.</TT> if both operands are different.
+</UL>
+<P>
+The following are examples of logical expressions,
+<P>
+<PRE>    REAL :: a, b, x, y
+    LOGICAL :: l1, l2
+     ...
+    l1 = (.NOT.(x.EQ.y.AND.a.EQ.b))
+    l2 = (l1.EQV.((x.GT.a.OR.y.LT.b).NEQV.a.EQ.b))</PRE>
+<P>
+<HR><A NAME="tex2html906" HREF="HTMLNotesnode64.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html904" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html898" HREF="HTMLNotesnode62.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html908" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html907" HREF="HTMLNotesnode64.html">Operator Precedence</A>
+<B>Up:</B> <A NAME="tex2html905" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html899" HREF="HTMLNotesnode62.html">Relational Operators</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

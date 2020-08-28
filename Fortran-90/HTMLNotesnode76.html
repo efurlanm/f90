@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Scope of DO Variables</TITLE>
+<META NAME="description" CONTENT="Scope of DO Variables">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1078" HREF="HTMLNotesnode77.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1076" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1070" HREF="HTMLNotesnode75.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1080" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1079" HREF="HTMLNotesnode77.html">SELECT CASE Construct</A>
+<B>Up:</B> <A NAME="tex2html1077" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1071" HREF="HTMLNotesnode75.html">Examples of Loop Counts</A>
+<BR> <P>
+<A NAME="DoVariableScope1">&#160;</A><H3><A NAME="SECTION01021800000000000000">Scope of <TT>DO</TT> Variables</A></H3>
+<P>
+Fortran&nbsp;90 is not block structured, all <TT>DO</TT> variables are visible after the
+loop and have a specific value. 
+The index variable is recalculated at the top of the loop and then
+compared with  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;expr2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , if
+the loop has finished, execution jumps to the statement after
+the corresponding <TT>END</TT> <TT>DO</TT>. The loop is executed  three times and <TT>i</TT>
+is
+assigned to 4 times, the index variable will retain the value that
+it had just been assigned. For example,
+<P>
+<PRE>    DO i = 4, 45, 17
+     PRINT*, &quot;I in loop = &quot;,i
+    END DO
+    PRINT*, &quot;I after loop = &quot;,i</PRE>
+<P>
+will produce
+<P>
+<PRE>    I in loop =  4
+    I in loop =  21
+    I in loop =  38
+    I after loop =  55</PRE>
+<P>
+Elsewhere in program the index variable may be used freely but in the
+loop it can only be referenced and must not have its value changed.
+<P>
+<HR><A NAME="tex2html1078" HREF="HTMLNotesnode77.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1076" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1070" HREF="HTMLNotesnode75.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1080" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1079" HREF="HTMLNotesnode77.html">SELECT CASE Construct</A>
+<B>Up:</B> <A NAME="tex2html1077" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1071" HREF="HTMLNotesnode75.html">Examples of Loop Counts</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

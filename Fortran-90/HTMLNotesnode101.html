@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Constructors</TITLE>
+<META NAME="description" CONTENT="Array Constructors">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1396" HREF="HTMLNotesnode102.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1394" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1388" HREF="HTMLNotesnode100.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1398" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1397" HREF="HTMLNotesnode102.html">The RESHAPE Intrinsic Function</A>
+<B>Up:</B> <A NAME="tex2html1395" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1389" HREF="HTMLNotesnode100.html">Array Inquiry Intrinsics</A>
+<BR> <P>
+<A NAME="ArrayConstructors1">&#160;</A><H3><A NAME="SECTION010311000000000000000">Array Constructors</A></H3>
+<P>
+Array constructors are 
+used to give arrays or sections of arrays specific values.
+An array constructor is a comma separated list of scalar expressions
+delimited by  <code>(/</code> and <code>/)</code>. The results of the expressions
+ are placed into the
+array in array element order with any type conversions being performed in
+the same manner as for
+regular assignment. The constructor must be of the correct length for
+the array, in other words, the section and the constructor must conform.
+<P>
+For example,
+<PRE>     IMPLICIT NONE
+     INTEGER, DIMENSION(1:10)  :: ints
+     CHARACTER(len=5), DIMENSION(1:3) :: colours
+     REAL, DIMENSION(1:4)      :: heights
+     heights = (/5.10, 5.6, 4.0, 3.6/)
+     colours = (/'RED  ','GREEN','BLUE '/)
+     ! note padding so strings are 5 chars
+     ints    = (/ 100, (i, i=1,8), 100 /)
+      ...
+    END</PRE>
+<P>
+The array and its constructor must conform.
+<P>
+Notice that all strings in the constructor for <TT>colours</TT> are
+5 characters long. This is because the string within the constructor
+<EM>must</EM> be the correct length for the variable.
+<P>
+<code>(i, i=1,8)</code> is an <EM>
+implied-<TT>DO</TT> specifier</EM> and may be used in constructors to specify a
+sequence of constructor values. There may be any number of separate
+implied <TT>DO</TT> s which may be mixed with other specification methods.
+In the above example the vector <TT>ints</TT> will contain the values 
+<TT>(/ 100, 1, 2, 3, 4, 5, 6, 7, 8, 100 /)</TT>. Note the format of the 
+implied <TT>DO</TT>: a <TT>DO</TT>-loop index specification surrounded by parentheses.
+<P>
+There is a restriction that only one dimensional constructors are permitted, 
+for higher rank arrays the <TT>RESHAPE</TT> intrinsic must be used to modify
+the shape of the result of the RHS so that it conforms to the LHS:
+<P>
+<PRE>    INTEGER, DIMENSION(1:3,1:4) :: board
+    board = RESHAPE((/11,21,31,12,22,32,13,23,33,14,24,34/), (/3,4/))</PRE>
+<P>
+The values are specified as a one dimensional constructor and then the shape is 
+modified to be a  <IMG WIDTH=30 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22834" SRC="HTMLNotesimg30.gif"  >  array which conforms with the declared shape
+of <TT>board</TT>.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode37.html#QArrayConstructor"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1396" HREF="HTMLNotesnode102.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1394" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1388" HREF="HTMLNotesnode100.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1398" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1397" HREF="HTMLNotesnode102.html">The RESHAPE Intrinsic Function</A>
+<B>Up:</B> <A NAME="tex2html1395" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1389" HREF="HTMLNotesnode100.html">Array Inquiry Intrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

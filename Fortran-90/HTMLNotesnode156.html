@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>USE ONLY Statement</TITLE>
+<META NAME="description" CONTENT="USE ONLY Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2048" HREF="HTMLNotesnode157.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2046" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2042" HREF="HTMLNotesnode155.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2050" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2049" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html2047" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html2043" HREF="HTMLNotesnode155.html">The USE Renames Facility</A>
+<BR> <P>
+<A NAME="UseStatement2">&#160;</A><H3><A NAME="SECTION01052600000000000000"><TT>USE</TT> <TT>ONLY</TT> Statement</A></H3>
+<P>
+It is possible to restrict the availability of objects declared in
+a module  made visible use association by using the <TT>ONLY</TT> clause of the
+<TT>USE</TT> statement.  In this way name clashes can be avoided  by only 
+using those objects which are necessary. It has the following form:
+<PRE><TT> 
+<TT>USE</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;module-name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  [ <TT>ONLY</TT><code>:</code> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;only</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ...]
+<P>
+</TT></PRE>
+<P>
+The  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;only</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  can also contain renames (<code>=&gt;</code>).
+<P>
+This method can  be used as an alternative to renaming module entities,
+for example,
+a situation may arise where a user wishes to use 1 or 2 objects from a
+module but discovers that if the module is accessed by use association
+there are a couple of hundred name clashes. The simplest solution to
+this is to only allow the 1 or 2 objects to be seen by his / her
+program. These 1 or 2 objects can be renamed if desired.
+<P>
+For example,
+<PRE>    USE HOUSE_DEF, ONLY:HOME =&gt; HOUSE, GET_HOME =&gt; GET_HOUSE</PRE>
+Only <TT>HOME</TT> and <TT>GET_HOME</TT> are made accessible and these are
+both renamed.
+<P>
+The <TT>USE</TT> statement, with its renaming and restrictive
+access facilities, gives great user control enabling two
+modules with similar names to be accessed by the same
+program with only minor inconvenience. In addition, 
+the <TT>ONLY</TT> clause gives the compiler the option of just
+including the object code associated with the entities specified 
+instead of the code for the whole module. This has the
+potential to  make the executable code smaller and faster.
+<P>
+<HR><A NAME="tex2html2048" HREF="HTMLNotesnode157.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2046" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2042" HREF="HTMLNotesnode155.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2050" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2049" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html2047" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html2043" HREF="HTMLNotesnode155.html">The USE Renames Facility</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Forall Statement</TITLE>
+<META NAME="description" CONTENT="Forall Statement">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2768" HREF="HTMLSlidesnode206.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2766" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2760" HREF="HTMLSlidesnode204.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2770" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2769" HREF="HTMLSlidesnode206.html">Forall Examples</A>
+<B>Up:</B> <A NAME="tex2html2767" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2761" HREF="HTMLSlidesnode204.html">Data Parallel Execution</A>
+<BR> <P>
+<H2><A NAME="SECTION02042000000000000000">Forall Statement</A></H2>
+<P>
+<TT>FORALL</TT> statement is in Fortran&nbsp;95, syntax:
+<PRE><TT> 
+<TT>FORALL</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;forall-triplet</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > [, <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;scalar-mask </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > ]<TT>)</TT><TT>&amp;</TT>
+<P>
+				  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;assignment-stmt </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  
+</TT></PRE>
+<P>
+<UL><LI> expressive and concise parallel assignment,<LI> can be masked (cf. <TT>WHERE</TT> statement),<LI> can invoke <TT>PURE</TT> functions.
+</UL>
+<P>
+For example,
+<P>
+<PRE>  
+    FORALL (i=1:n,j=1:m,A(i,j).NE.0) &amp;
+           A(i,j) = 1/A(i,j)</PRE>
+<P>
+The stated assignment is performed  <EM>in parallel</EM> for all specified
+values of <TT>i</TT> and <TT>j</TT> for which the mask expression is <TT>.TRUE.</TT>.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode227.html#ForallStatement1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode102.html#QForallStatement1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2768" HREF="HTMLSlidesnode206.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2766" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2760" HREF="HTMLSlidesnode204.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2770" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2769" HREF="HTMLSlidesnode206.html">Forall Examples</A>
+<B>Up:</B> <A NAME="tex2html2767" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2761" HREF="HTMLSlidesnode204.html">Data Parallel Execution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

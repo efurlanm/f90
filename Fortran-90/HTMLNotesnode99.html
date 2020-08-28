@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Visualising Array Sections</TITLE>
+<META NAME="description" CONTENT="Visualising Array Sections">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1374" HREF="HTMLNotesnode100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1372" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1366" HREF="HTMLNotesnode98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1376" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1375" HREF="HTMLNotesnode100.html">Array Inquiry Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html1373" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1367" HREF="HTMLNotesnode98.html">Array Sections</A>
+<BR> <P>
+<A NAME="ArraySectionsVisualisation1">&#160;</A><H3><A NAME="SECTION01031800000000000000">Visualising Array Sections</A></H3>
+<P>
+Consider the declaration
+<PRE>    REAL, DIMENSION(1:6,1:8) :: P</PRE>
+<P>
+<P><A NAME="7112">&#160;</A> <IMG WIDTH=437 HEIGHT=391 ALIGN=BOTTOM ALT="figure7110" SRC="HTMLNotesimg29.gif"  > <BR>
+<STRONG>Figure 4:</STRONG> Visualisation of Array Sections<BR>
+<P>
+<P>
+The sections:
+<UL><LI> <TT>P(1:3,1:4)</TT> is a  <IMG WIDTH=30 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22834" SRC="HTMLNotesimg30.gif"  >  section; the missing stride
+implies a value of 1,<LI> <TT>P(2::2,:7:3)</TT> is a  <IMG WIDTH=29 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22836" SRC="HTMLNotesimg31.gif"  >  section; the missing upper
+bound (in the first dimension) is the upper bound as declared, (6),
+the missing lower bound is the lower bound as declared, (1).<LI> <TT>P(2:5,7)</TT> is a 1D array with 4 elements; <TT>
+P(2:5,7:7)</TT> is a  <IMG WIDTH=29 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline22838" SRC="HTMLNotesimg32.gif"  >  2D array,<LI> <TT>P(::2,::2)</TT> is a  <IMG WIDTH=30 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22834" SRC="HTMLNotesimg30.gif"  >  section. Both upper and lower
+bounds are missing so the values are taken to be the bounds as declared,
+this is equivalent to <TT>P(1:6:2,1:8:2)</TT>.
+</UL>
+<P>
+Conformance:
+<UL><LI> <TT>P(1:3,1:4) = P(::2,::2)</TT> is a valid assignment; both LHS 
+and RHS are  <IMG WIDTH=30 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22834" SRC="HTMLNotesimg30.gif"  >  sections.<LI> <TT>P(1:3,1:4) = 1.0</TT> is a valid assignment; a scalar on the 
+RHS conforms to any array on the LHS of an assignment.<LI> <TT>P(2::2,:7:3) = P(1:3,1:4)</TT> is not a valid assignment;
+an attempt is made to equate a  <IMG WIDTH=29 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22836" SRC="HTMLNotesimg31.gif"  >  section with a  <IMG WIDTH=30 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22834" SRC="HTMLNotesimg30.gif"  >  section, the array sections do not
+conform.<LI> <TT>P(2::2,:7:3) = P(2:5,7)</TT> is not a valid assignment;
+an attempt is made to equate a  <IMG WIDTH=29 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline22836" SRC="HTMLNotesimg31.gif"  >  section with a 4 element 1D array.
+</UL>
+<P>
+It is important to recognise the difference between an <I>n</I> element 1D
+array and a  <IMG WIDTH=30 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline22870" SRC="HTMLNotesimg34.gif"  >  2D array:
+<P>
+<UL><LI> <TT>P(2:5,7)</TT> is a 1D section -- the scalar in the second
+dimension `collapses' the dimension.<LI> <TT>P(2:5,7:7)</TT> is a 2D section -- the second dimension is
+specified with a section (a range) not a scalar so the resultant
+sub-object is still two dimensional.
+</UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode33.html#QArrayDraughts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1374" HREF="HTMLNotesnode100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1372" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1366" HREF="HTMLNotesnode98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1376" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1375" HREF="HTMLNotesnode100.html">Array Inquiry Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html1373" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1367" HREF="HTMLNotesnode98.html">Array Sections</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Alignment Syntax</TITLE>
+<META NAME="description" CONTENT="Alignment Syntax">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2683" HREF="HTMLNotesnode205.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2681" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2675" HREF="HTMLNotesnode203.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2685" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2684" HREF="HTMLNotesnode205.html">Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2682" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2676" HREF="HTMLNotesnode203.html">Alignment</A>
+<BR> <P>
+<A NAME="Alignment2">&#160;</A><H3><A NAME="SECTION02020300000000000000">Alignment Syntax</A></H3>
+<P>
+There is a wealth of alignment syntax. There are a number of different
+ways of expressing the same thing. It <EM>can</EM> be confusing.
+The <TT>ALIGN</TT> statement can be written in two ways.
+<P>
+The attributed (Fortran&nbsp;90) style of declaration is recommended as it allows
+concise yet clear alignment:
+<P>
+<PRE> !HPF$ ALIGN (:,:) WITH T(:,:) :: A, B, C</PRE>
+<P>
+is equivalent to
+<P>
+<PRE> !HPF$ ALIGN A(:,:) WITH T(:,:)
+ !HPF$ ALIGN B(:,:) WITH T(:,:)
+ !HPF$ ALIGN C(:,:) WITH T(:,:)</PRE>
+<P>
+which is more long-winded. This statement 
+aligns <TT>A, B</TT> and <TT>C</TT> with <TT>T</TT>. <TT>T</TT> is known as the <EM>
+align-target</EM> and is now the only object that can be distributed. <TT>
+A, B</TT> and <TT>C</TT> can be thought of as ``hanging off'' <TT>T</TT>; if <TT>
+T</TT> is distributed then so are <TT>A, B</TT> and <TT>C</TT>. (Note in this case
+<TT>T</TT> can be an array or a <TT>TEMPLATE</TT> [see later if covered in this
+course]).
+The effect here is that <TT>A(i,j)</TT>, <TT>B(i,j)</TT> and <TT>C(i,j)</TT> will
+reside on the same processor as <TT>T(i,j)</TT>.
+<P>
+The colons <TT>:</TT> in the align statement imply shape conformance (<I>
+cf</I> Fortran&nbsp;90). If <TT>A, B, C</TT> and <TT>T</TT> are not the same size and shape
+then the program is erroneous<A NAME="tex2html52" HREF="HTMLNotesfootnode.html#13489"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.
+<P>
+Other alignment syntax will be presented later.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2686" HREF="HTMLNotesnode205.html#SECTION02020310000000000000">Alignment Example</A>
+<LI> <A NAME="tex2html2687" HREF="HTMLNotesnode206.html#SECTION02020320000000000000">Simple 2D Alignment Example</A>
+<LI> <A NAME="tex2html2688" HREF="HTMLNotesnode207.html#SECTION02020330000000000000">Transposed Alignment Example</A>
+<LI> <A NAME="tex2html2689" HREF="HTMLNotesnode208.html#SECTION02020340000000000000">Strided Alignment Example</A>
+<LI> <A NAME="tex2html2690" HREF="HTMLNotesnode209.html#SECTION02020350000000000000">Reverse Strided Alignment Example</A>
+<LI> <A NAME="tex2html2691" HREF="HTMLNotesnode210.html#SECTION02020360000000000000">Practical Example of Alignment</A>
+</UL>
+<HR><A NAME="tex2html2683" HREF="HTMLNotesnode205.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2681" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2675" HREF="HTMLNotesnode203.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2685" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2684" HREF="HTMLNotesnode205.html">Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2682" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2676" HREF="HTMLNotesnode203.html">Alignment</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

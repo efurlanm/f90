@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example of Array Sorting Functions</TITLE>
+<META NAME="description" CONTENT="Example of Array Sorting Functions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3632" HREF="HTMLNotesnode284.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3630" HREF="HTMLNotesnode282.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3626" HREF="HTMLNotesnode282.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3634" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3633" HREF="HTMLNotesnode284.html">Storage and Sequence Association</A>
+<B>Up:</B> <A NAME="tex2html3631" HREF="HTMLNotesnode282.html">Array Sorting Functions</A>
+<B> Previous:</B> <A NAME="tex2html3627" HREF="HTMLNotesnode282.html">Array Sorting Functions</A>
+<BR> <P>
+<A NAME="Sorting2">&#160;</A><H4><A NAME="SECTION02053610000000000000">Example of Array Sorting Functions</A></H4>
+<P>
+Given,
+<P>
+<PRE>  A = (/2,3,7,4,9,1,5,5,0,5,5/)</PRE>
+<P>
+then <TT>GRADE_DOWN</TT><TT>(A)</TT> is the 2D ( <IMG WIDTH=35 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline23914" SRC="HTMLNotesimg149.gif"  > ) array:
+<P>
+<PRE>  (/5,3,7,8,10,11,4,2,1,6,9/)</PRE>
+<P>
+and
+<P>
+<TT>GRADE_UP</TT><TT>(A,DIM=1)</TT> is the 1D array:
+<P>
+<PRE>  (/9,6,1,2,4,7,8,10,11,3,5/)</PRE>
+<P>
+Note how the multiple values of <TT>5</TT> are sorted.
+<P>
+If the <TT>DIM</TT><TT>=</TT> specifier is not used then the result of 
+these functions is always a 2D array (of coordinates) and
+has shape:
+<P>
+<PRE>  (/ SIZE(SHAPE(A)),PRODUCT(SHAPE(A))/)</PRE>
+<P>
+Otherwise the shape is the same as <TT>A</TT>.
+<P>
+Elements of the same value are ordered by their position in
+array element order. For the repeated value of 5 (which occurs four
+times in the source array), the result contains   element 7
+before element 8 which comes before element 10, and so on.
+<P>
+<A NAME="Sorting3">&#160;</A>
+<P>
+Consider a further example, if <TT>A</TT> is the 2D array:
+<P>
+<PRE>    1 9 2
+    4 5 2
+    1 2 4</PRE>
+<P>
+Then <TT>GRADE_DOWN</TT><TT>(A)</TT> is (the coordinates)
+<P>
+<PRE>    1 2 2 3 3 1 2 1 3
+    2 2 1 3 2 3 3 1 1</PRE>
+<P>
+Since <TT>A</TT> is a 2D array of 9 elements the
+result has 9 coordinates, ie 18 elements.
+<P>
+The <TT>DIM</TT><TT>=</TT> specifier can be used: <TT>GRADE_DOWN</TT><TT>(A,DIM=1)</TT> is
+<P>
+<PRE>    2 1 3
+    1 2 1
+    3 3 2</PRE>
+<P>
+The result <TT>GRADE_DOWN</TT><TT>(A,DIM=1)</TT> is three columns, each containing
+the indices of the sorted elements for that column.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode136.html#QSort"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html3632" HREF="HTMLNotesnode284.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3630" HREF="HTMLNotesnode282.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3626" HREF="HTMLNotesnode282.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3634" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3633" HREF="HTMLNotesnode284.html">Storage and Sequence Association</A>
+<B>Up:</B> <A NAME="tex2html3631" HREF="HTMLNotesnode282.html">Array Sorting Functions</A>
+<B> Previous:</B> <A NAME="tex2html3627" HREF="HTMLNotesnode282.html">Array Sorting Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

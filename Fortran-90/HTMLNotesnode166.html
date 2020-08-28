@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Data Parallelism</TITLE>
+<META NAME="description" CONTENT="Data Parallelism">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2194" HREF="HTMLNotesnode167.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2192" HREF="HTMLNotesnode165.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2186" HREF="HTMLNotesnode165.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2196" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2195" HREF="HTMLNotesnode167.html">Introduction to Parallel Processing</A>
+<B>Up:</B> <A NAME="tex2html2193" HREF="HTMLNotesnode165.html">High Performance Fortran</A>
+<B> Previous:</B> <A NAME="tex2html2187" HREF="HTMLNotesnode165.html">High Performance Fortran</A>
+<BR> <P>
+<H1><A NAME="SECTION02010000000000000000">Data Parallelism</A></H1>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2197" HREF="HTMLNotesnode167.html#SECTION02011000000000000000">Introduction to Parallel Processing</A>
+<UL> 
+<LI> <A NAME="tex2html2198" HREF="HTMLNotesnode168.html#SECTION02011100000000000000">Parallel Processing</A>
+<LI> <A NAME="tex2html2199" HREF="HTMLNotesnode169.html#SECTION02011200000000000000">Processor Configurations</A>
+<LI> <A NAME="tex2html2200" HREF="HTMLNotesnode170.html#SECTION02011300000000000000">Parallel Programs</A>
+</UL> 
+<LI> <A NAME="tex2html2201" HREF="HTMLNotesnode171.html#SECTION02012000000000000000">High Performance Fortran</A>
+<UL> 
+<LI> <A NAME="tex2html2202" HREF="HTMLNotesnode172.html#SECTION02012100000000000000">History of High Performance Fortran (HPF)</A>
+<LI> <A NAME="tex2html2203" HREF="HTMLNotesnode173.html#SECTION02012200000000000000">The Concept of HPF</A>
+<LI> <A NAME="tex2html2204" HREF="HTMLNotesnode174.html#SECTION02012300000000000000">SPMD Model</A>
+<LI> <A NAME="tex2html2205" HREF="HTMLNotesnode175.html#SECTION02012400000000000000">Processor Communications</A>
+</UL> 
+<LI> <A NAME="tex2html2206" HREF="HTMLNotesnode176.html#SECTION02013000000000000000">Data Distribution</A>
+<UL> 
+<LI> <A NAME="tex2html2207" HREF="HTMLNotesnode177.html#SECTION02013100000000000000">HPF and Data Parallelism</A>
+<LI> <A NAME="tex2html2208" HREF="HTMLNotesnode178.html#SECTION02013200000000000000">Subset HPF</A>
+<LI> <A NAME="tex2html2209" HREF="HTMLNotesnode179.html#SECTION02013300000000000000">HPF Directives</A>
+<LI> <A NAME="tex2html2210" HREF="HTMLNotesnode182.html#SECTION02013400000000000000"><TT>PROCESSORS</TT> Declaration</A>
+<LI> <A NAME="tex2html2211" HREF="HTMLNotesnode183.html#SECTION02013500000000000000"><TT>DISTRIBUTE</TT> Directive</A>
+<LI> <A NAME="tex2html2212" HREF="HTMLNotesnode184.html#SECTION02013600000000000000"><TT>BLOCK</TT> Distribution</A>
+<LI> <A NAME="tex2html2213" HREF="HTMLNotesnode185.html#SECTION02013700000000000000"><TT>CYCLIC</TT> Distribution</A>
+<LI> <A NAME="tex2html2214" HREF="HTMLNotesnode187.html#SECTION02013800000000000000">Visualisation of <TT>*</TT> Distribution</A>
+<LI> <A NAME="tex2html2215" HREF="HTMLNotesnode188.html#SECTION02013900000000000000">Commentary</A>
+<LI> <A NAME="tex2html2216" HREF="HTMLNotesnode189.html#SECTION020131000000000000000">Distribution of Allocatables</A>
+<LI> <A NAME="tex2html2217" HREF="HTMLNotesnode190.html#SECTION020131100000000000000">The Owner-Computes Rule</A>
+<LI> <A NAME="tex2html2218" HREF="HTMLNotesnode191.html#SECTION020131200000000000000">Scalar Variables</A>
+<LI> <A NAME="tex2html2219" HREF="HTMLNotesnode194.html#SECTION020131300000000000000">Other Mappings</A>
+<LI> <A NAME="tex2html2220" HREF="HTMLNotesnode195.html#SECTION020131400000000000000">HPF Programming Issues</A>
+<LI> <A NAME="tex2html2221" HREF="HTMLNotesnode196.html#SECTION020131500000000000000">HPFacts</A>
+</UL>
+</UL>
+<HR><A NAME="tex2html2194" HREF="HTMLNotesnode167.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2192" HREF="HTMLNotesnode165.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2186" HREF="HTMLNotesnode165.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2196" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2195" HREF="HTMLNotesnode167.html">Introduction to Parallel Processing</A>
+<B>Up:</B> <A NAME="tex2html2193" HREF="HTMLNotesnode165.html">High Performance Fortran</A>
+<B> Previous:</B> <A NAME="tex2html2187" HREF="HTMLNotesnode165.html">High Performance Fortran</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

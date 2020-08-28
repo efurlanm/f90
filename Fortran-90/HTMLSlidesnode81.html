@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Allocatable Arrays</TITLE>
+<META NAME="description" CONTENT="Allocatable Arrays">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1158" HREF="HTMLSlidesnode82.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1156" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1150" HREF="HTMLSlidesnode80.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1160" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1159" HREF="HTMLSlidesnode82.html">Deallocating Arrays</A>
+<B>Up:</B> <A NAME="tex2html1157" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1151" HREF="HTMLSlidesnode80.html">Array Constructors in Initialisation </A>
+<BR> <P>
+<H2><A NAME="SECTION0101314000000000000000">Allocatable Arrays</A></H2>
+<P>
+Fortran&nbsp;90 allows arrays to be created on-the-fly; these are known as <EM>
+deferred-shape</EM> arrays and use dynamic heap storage.
+<P>
+Deferred-shape arrays are:
+<UL><LI> declared like 
+explicit-shape arrays but without the extents and with the <TT>ALLOCATABLE</TT> 
+attribute:
+<P>
+<PRE>    INTEGER, DIMENSION(:), ALLOCATABLE :: ages
+    REAL, DIMENSION(:,:), ALLOCATABLE :: speed</PRE><LI> given a size in an <TT>ALLOCATE</TT> statement which assigns an
+area of memory to the object:
+<P>
+<PRE>    ALLOCATE(ages(1:10), STAT=ierr)
+    ALLOCATE(speed(-lwb:upb,-50:0),STAT=ierr)</PRE><LI> the optional <TT>STAT</TT><TT>=</TT> field reports on the success of the 
+storage request.  If the <TT>INTEGER</TT> variable <TT>ierr</TT> is zero the request was 
+successful otherwise it failed.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode104.html#ArrayAllocation1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1158" HREF="HTMLSlidesnode82.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1156" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1150" HREF="HTMLSlidesnode80.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1160" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1159" HREF="HTMLSlidesnode82.html">Deallocating Arrays</A>
+<B>Up:</B> <A NAME="tex2html1157" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1151" HREF="HTMLSlidesnode80.html">Array Constructors in Initialisation </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Argument Intent</TITLE>
+<META NAME="description" CONTENT="Argument Intent">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1826" HREF="HTMLNotesnode139.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1824" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1820" HREF="HTMLNotesnode137.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1828" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1827" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<B>Up:</B> <A NAME="tex2html1825" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1821" HREF="HTMLNotesnode137.html">Interface Example</A>
+<BR> <P>
+<A NAME="Intent1">&#160;</A><H3><A NAME="SECTION010411100000000000000">Argument Intent</A></H3>
+<P>
+<A NAME="ArgumentIntent">&#160;</A>
+<P>
+In order to facilitate efficient compilation and optimisation  hints, in
+the form of attributes, 
+can be given to the compiler as to whether a given dummy argument will:
+<P>
+<OL><LI> hold a value on procedure entry which remains unchanged on exit --
+<TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>)</TT>.<LI> not be used until it is assigned a value within the procedure
+-- <TT>INTENT</TT><TT>(</TT><TT>OUT</TT><TT>)</TT>.<LI> hold a value on procedure entry which may be modified and then
+passed back to the calling program -- <TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>OUT</TT><TT>)</TT>.
+<P>
+</OL>
+For example,
+<PRE>    SUBROUTINE example(arg1,arg2,arg3)
+     IMPLICIT NONE
+      REAL, INTENT(IN) :: arg1
+      INTEGER, INTENT(OUT) :: arg2
+      CHARACTER, INTENT(INOUT) :: arg3
+      REAL r
+       r = arg1*ICHAR(arg3)
+       arg2 = ANINT(r)
+       arg3 = CHAR(MOD(127,arg2))
+    END SUBROUTINE example</PRE>
+<P>
+It can be seen here that:
+<P>
+<UL><LI> <TT>arg1</TT> is unchanged within the procedure,<LI> the value of <TT>arg2</TT> is not used until it has been assigned to,<LI> <TT>arg3</TT> is used and then reassigned a value.
+<P>
+</UL>
+The use of <TT>INTENT</TT> attributes is not essential but it
+allows good compilers to check for coding errors thereby enhancing safety.
+ If an <TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>)</TT> object is assigned a value 
+or if an <TT>INTENT</TT><TT>(</TT><TT>OUT</TT><TT>)</TT> object is not assigned a value then  
+errors will be generated at compile time.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode54.html#QProcGoofIntent"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1826" HREF="HTMLNotesnode139.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1824" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1820" HREF="HTMLNotesnode137.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1828" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1827" HREF="HTMLNotesnode139.html">Array ArgumentsIntrinsics and </A>
+<B>Up:</B> <A NAME="tex2html1825" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1821" HREF="HTMLNotesnode137.html">Interface Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

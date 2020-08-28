@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The USE Renames Facility</TITLE>
+<META NAME="description" CONTENT="The USE Renames Facility">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2039" HREF="HTMLNotesnode156.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2037" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2031" HREF="HTMLNotesnode154.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2041" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2040" HREF="HTMLNotesnode156.html">USE ONLY Statement</A>
+<B>Up:</B> <A NAME="tex2html2038" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html2032" HREF="HTMLNotesnode154.html">Encapsulation - Stack example</A>
+<BR> <P>
+<A NAME="UseStatement1">&#160;</A><H3><A NAME="SECTION01052500000000000000">The <TT>USE</TT> Renames Facility</A></H3>
+<P>
+<A NAME="UseStatement">&#160;</A>
+<P>
+ The <TT>USE</TT> statement names a module whose public
+definitions are to be made accessible. It has the following form:
+<P>
+<PRE><TT> 
+<TT>USE</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;module-name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  [, <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;new-name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  <code>=&gt;</code>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;use-name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ...]
+<P>
+</TT></PRE>
+<P>
+If a local entity has the same name as an object in the module, then the
+module object can be renamed, (as many renames as desired can be made in
+one <TT>USE</TT> statement,
+they are just supplied as a comma separated list),
+<P>
+<PRE>    USE HOUSE_DEFS, GET_HOME=&gt;GET_HOUSE</PRE>
+<P>
+Here the module object <TT>GET_HOUSE</TT> is renamed to
+<TT>GET_HOME</TT> when used locally. This renaming facility is essential
+otherwise user programs would
+often require rewriting due to name clashes, in this way the renaming can
+be done by the compiler. Renaming should not be used unless absolutely
+necessary as it can add a certain amount of confusion to the program.
+It is only permissible to rename an object once in a particular scoping unit.
+<P>
+<HR><A NAME="tex2html2039" HREF="HTMLNotesnode156.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2037" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2031" HREF="HTMLNotesnode154.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2041" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2040" HREF="HTMLNotesnode156.html">USE ONLY Statement</A>
+<B>Up:</B> <A NAME="tex2html2038" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html2032" HREF="HTMLNotesnode154.html">Encapsulation - Stack example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

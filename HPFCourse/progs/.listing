@@ -1,0 +1,19 @@
+total 68
+drwxr-xr-x   2 861      15          1024 May 17  1997 .
+drwxr-xr-x   4 861      15          1536 Sep  1  1997 ..
+-rw-r--r--   1 861      15           340 Sep  2  1997 BasicAreaOfCircleQuestion.f90
+-rw-r--r--   1 861      15           202 Sep  2  1997 BasicReformatQuestion.f90
+-rw-r--r--   1 861      15           554 Sep  2  1997 BirthdayQuestion.hpf
+-rw-r--r--   1 861      15           172 Sep  2  1997 DefinedOperatorResistanceQuestion.f90
+-rw-r--r--   1 861      15          2121 Sep  2  1997 GaussNoSubQuestion.hpf
+-rw-r--r--   1 861      15          1128 Sep  2  1997 GolfQuestion.hpf
+-rw-r--r--   1 861      15           418 Sep  2  1997 IntegerComplex2zProgram.f90
+-rw-r--r--   1 861      15          1632 Sep  2  1997 IntegerComplex3aProgram.f90
+-rw-r--r--   1 861      15          1968 Sep  2  1997 IntegerComplex3bProgram.f90
+-rw-r--r--   1 861      15          2041 Sep  2  1997 IntegerComplex3cProgram.f90
+-rw-r--r--   1 861      15          3993 Sep  2  1997 IntegerComplex5Program.f90
+-rw-r--r--   1 861      15          5574 Sep  2  1997 IntegerComplex6Program.f90
+-rw-r--r--   1 861      15          1234 Sep  2  1997 IsingQuestion.hpf
+-rw-r--r--   1 861      15           868 Sep  2  1997 LifeQuestion.hpf
+-rw-r--r--   1 861      15           502 Sep  2  1997 MandelQuestion.hpf
+-rw-r--r--   1 861      15           783 Sep  2  1997 NASRemappingBottleneckQuestion.hpf

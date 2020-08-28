@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Aligning Scalars</TITLE>
+<META NAME="description" CONTENT="Aligning Scalars">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2883" HREF="HTMLNotesnode223.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2881" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2875" HREF="HTMLNotesnode221.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2885" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2884" HREF="HTMLNotesnode223.html">Explicit Replication Using Templates</A>
+<B>Up:</B> <A NAME="tex2html2882" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2876" HREF="HTMLNotesnode221.html">Aligning to a Template </A>
+<BR> <P>
+<A NAME="AligningScalars1">&#160;</A><H3><A NAME="SECTION020201100000000000000">Aligning Scalars</A></H3>
+<P>
+It is possible to align a scalar with a specific template location or
+series of template locations:
+<P>
+<PRE>     REAL, DIMENSION(6,8) :: X
+     REAL r, s
+ !HPF$ ALIGN r WITH X(3,2)
+ !HPF$ ALIGN s WITH X(*,8)</PRE>
+<P>
+See Figure <A HREF="HTMLNotesnode222.html#AlignedScalarVisualisationfig">36</A>.
+<P>
+<P><A NAME="14634">&#160;</A><A NAME="AlignedScalarVisualisationfig">&#160;</A> <IMG WIDTH=266 HEIGHT=330 ALIGN=BOTTOM ALT="figure14631" SRC="HTMLNotesimg133.gif"  > <BR>
+<STRONG>Figure 36:</STRONG> Visualisation of an Aligned Scalar<BR>
+<P>
+<P>
+HPFF are thinking of withdrawing this
+feature.
+<P>
+<HR><A NAME="tex2html2883" HREF="HTMLNotesnode223.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2881" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2875" HREF="HTMLNotesnode221.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2885" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2884" HREF="HTMLNotesnode223.html">Explicit Replication Using Templates</A>
+<B>Up:</B> <A NAME="tex2html2882" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2876" HREF="HTMLNotesnode221.html">Aligning to a Template </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

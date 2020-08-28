@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Forall Statement</TITLE>
+<META NAME="description" CONTENT="Forall Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2965" HREF="HTMLNotesnode228.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2963" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2957" HREF="HTMLNotesnode226.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2967" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2966" HREF="HTMLNotesnode228.html">Forall Examples</A>
+<B>Up:</B> <A NAME="tex2html2964" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2958" HREF="HTMLNotesnode226.html">Data Parallel Execution</A>
+<BR> <P>
+<A NAME="ForallStatement1">&#160;</A><H3><A NAME="SECTION02031200000000000000">Forall Statement</A></H3>
+<P>
+<TT>FORALL</TT> statement is included in Fortran&nbsp;95. Syntax:
+<PRE><TT> 
+<TT>FORALL</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;forall-triplet</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > [, <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;scalar-mask </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]<TT>)</TT><TT>&amp;</TT>
+<P>
+				  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;assignment-stmt </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  
+</TT></PRE>
+<P>
+It:
+<P>
+<UL><LI> has expressive and concise parallel assignment,<LI> can be masked (cf. <TT>WHERE</TT> statement),<LI> can invoke <TT>PURE</TT> functions.
+</UL>
+<P>
+For example,
+<P>
+<PRE>    FORALL (i=1:n,j=1:m,A(i,j).NE.0) &amp;
+           A(i,j) = 1/A(i,j)</PRE>
+<P>
+The stated assignment is performed  <EM>in parallel</EM> for all specified
+values of <TT>i</TT> and <TT>j</TT> for which the mask expression is <TT>.TRUE.</TT>.
+<P>
+When used without the mask, the <TT>FORALL</TT> statement simply performs
+conceptually parallel assignment -- any assignment that can be expressed
+in array syntax can also be expressed by a <TT>FORALL</TT> statement (or
+construct). The <TT>FORALL</TT> statement can also be used to express parallel
+assignments which it is impossible or very tricky to code using Fortran&nbsp;90 
+features.  Note that although the index variables look like the <TT>DO</TT> 
+loop equivalent -- the colons imply that this is array syntax.
+<P>
+If a mask is added, such as in the given example, <TT>FORALL</TT> can be made
+to resemble a <TT>WHERE</TT> statement. Indeed, the example could actually be
+expressed using a <TT>WHERE</TT> statement:
+<P>
+<PRE>  WHERE ( A.NE.0 ) A = 1/A</PRE>
+<P>
+Again, very complex masked assignments can be made syntactically simpler
+by the use of a masked <TT>FORALL</TT> statement.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode102.html#QForallStatement1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2968" HREF="HTMLNotesnode228.html#SECTION02031210000000000000">Forall Examples</A>
+</UL>
+<HR><A NAME="tex2html2965" HREF="HTMLNotesnode228.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2963" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2957" HREF="HTMLNotesnode226.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2967" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2966" HREF="HTMLNotesnode228.html">Forall Examples</A>
+<B>Up:</B> <A NAME="tex2html2964" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2958" HREF="HTMLNotesnode226.html">Data Parallel Execution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

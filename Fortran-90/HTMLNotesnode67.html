@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Control Flow</TITLE>
+<META NAME="description" CONTENT="Control Flow">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html969" HREF="HTMLNotesnode68.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html967" HREF="HTMLNotesnode66.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html961" HREF="HTMLNotesnode66.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html971" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html970" HREF="HTMLNotesnode68.html">IF Statement</A>
+<B>Up:</B> <A NAME="tex2html968" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<B> Previous:</B> <A NAME="tex2html962" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<BR> <P>
+<A NAME="ControlFlow1">&#160;</A><H2><A NAME="SECTION01021000000000000000">Control Flow</A></H2>
+<P>
+<A NAME="ControlFlow">&#160;</A>
+<P>
+All structured programming languages need constructs which provide a
+facility for conditional execution. The simplest method of achieving
+this functionality is by using a combination of <TT>IF</TT>  and <TT>GOTO</TT> which
+is exactly what F<font size=-1><small>ORTRAN</small></font>&nbsp;66 supported. Fortran has progressed since then and
+now includes a comprehensive basket of useful control constructs.
+Fortran&nbsp;90 supports:
+<P>
+<UL><LI> conditional execution statements and constructs, (<TT>IF</TT> statements,
+and <TT>IF</TT> ... <TT>THEN</TT> ... <TT>ELSE</TT><TT>IF</TT> ...  <TT>ELSE</TT> ...  <TT>END</TT> <TT>IF</TT>);
+<P>
+These are the basic conditional execution units. They are useful if a 
+section of code needs to be executed depending on a series of logical
+conditions being satisfied. If the first condition in the <TT>IF</TT> statement
+is evaluated to be true then the code between the <TT>IF</TT> and the next
+<TT>ELSE</TT>, <TT>ELSE</TT><TT>IF</TT> or <TT>END</TT><TT>IF</TT> is executed. If the
+predicate is false then the second branch of the construct is entered.
+This branch could be either null, an <TT>ELSE</TT> or an <TT>ELSE</TT><TT>IF</TT> corresponding to no
+action, the default action or another evaluation of a 
+different predicate with execution being dependent upon the result of
+the current logical expression. Each <TT>IF</TT> statement has at least one branch and
+at most one <TT>ELSE</TT> branch and may contain any number of <TT>ELSE</TT><TT>IF</TT> 
+branches. Very complex control structures can be built up using multiply
+nested <TT>IF</TT> constructs.
+<P>
+Before using an <TT>IF</TT> statement, a programmer should be convinced that a
+<TT>SELECT</TT> <TT>CASE</TT> block or a <TT>WHERE</TT> assignment block would not be more
+appropriate.<LI> loops, (<TT>DO</TT> ... <TT>END</TT> <TT>DO</TT>);
+<P>
+This is the basic form of iteration mechanism. This structure allows the 
+body of the
+loop to be executed a number of times. The number of
+iterations can be a constant, a variable (expression) or can be
+dependent on a particular condition being satisfied. <TT>DO</TT> loops can be
+nested.<LI> multi-way choice construct, (<TT>SELECT</TT> <TT>CASE</TT>);
+<P>
+A particular branch is selected depending upon the value of the 
+case expression. Due to the nature of this construct it very often works out
+(computationally) cheaper than an <TT>IF</TT> block with equivalent
+functionality. This is because in a <TT>SELECT</TT> <TT>CASE</TT> block a single
+control expression is evaluated once and then its (single) result is
+compared with each branch. With an <TT>IF</TT> .. <TT>ELSE</TT><TT>IF</TT> block a different
+control expression must be evaluated at each branch. Even if all control
+expressions in an <TT>IF</TT> construct 
+were the same and were simply compared with different
+values, the general case would dictate that the <TT>SELECT</TT> <TT>CASE</TT> block
+were more efficient.
+<P>
+</UL>
+and less importantly,
+<P>
+<UL><LI> unconditional jump statements, (<TT>GOTO</TT>);
+<P>
+Direct jump to a labelled line. This is a very powerful statement, it
+is very useful and very open
+to abuse. Unstructured jumps can make a program virtually impossible to
+follow, the <TT>GOTO</TT> must be used with care. It is particularly useful
+for handling exceptions, that is to say, when emergency action is
+needed to be taken due to the discovery of an unexpected error.<LI> I/O exception branching, (<TT>ERR</TT><TT>=</TT>, <TT>END</TT><TT>=</TT>, <TT>EOR</TT><TT>=</TT>);
+<P>
+This is a slightly oddball feature of Fortran in the sense that there is
+currently no other form of exception handling in the language. (The
+feature originated from F<font size=-1><small>ORTRAN</small></font>&nbsp;77.) It is possible to add
+qualifiers to I/O statements to specify a jump in control should
+there be an unexpected I/O data error, end of record or
+ should the end of a file be
+encountered.
+<P>
+It is always good practice to use at least the <TT>ERR</TT><TT>=</TT> qualifier in
+I/O statements. (See Section <A HREF="#InputOutput"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A> for more about I/O.)
+<P>
+</UL>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html972" HREF="HTMLNotesnode68.html#SECTION01021100000000000000"><TT>IF</TT> Statement</A>
+<LI> <A NAME="tex2html973" HREF="HTMLNotesnode69.html#SECTION01021200000000000000"><TT>IF</TT> Construct</A>
+<LI> <A NAME="tex2html974" HREF="HTMLNotesnode70.html#SECTION01021300000000000000">Nested and Named <TT>IF</TT> Constructs</A>
+<LI> <A NAME="tex2html975" HREF="HTMLNotesnode71.html#SECTION01021400000000000000">Conditional Exit Loops</A>
+<LI> <A NAME="tex2html976" HREF="HTMLNotesnode72.html#SECTION01021500000000000000">Conditional Cycle Loops</A>
+<LI> <A NAME="tex2html977" HREF="HTMLNotesnode73.html#SECTION01021600000000000000">Named and Nested Loops</A>
+<LI> <A NAME="tex2html978" HREF="HTMLNotesnode74.html#SECTION01021700000000000000">Indexed <TT>DO</TT> Loop</A>
+<UL> 
+<LI> <A NAME="tex2html979" HREF="HTMLNotesnode75.html#SECTION01021710000000000000">Examples of Loop Counts</A>
+</UL> 
+<LI> <A NAME="tex2html980" HREF="HTMLNotesnode76.html#SECTION01021800000000000000">Scope of <TT>DO</TT> Variables</A>
+<LI> <A NAME="tex2html981" HREF="HTMLNotesnode77.html#SECTION01021900000000000000"><TT>SELECT</TT> <TT>CASE</TT> Construct</A>
+<UL> 
+<LI> <A NAME="tex2html982" HREF="HTMLNotesnode78.html#SECTION01021910000000000000">Example Of <TT>SELECT</TT> <TT>CASE</TT> Construct</A>
+</UL>
+</UL>
+<HR><A NAME="tex2html969" HREF="HTMLNotesnode68.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html967" HREF="HTMLNotesnode66.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html961" HREF="HTMLNotesnode66.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html971" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html970" HREF="HTMLNotesnode68.html">IF Statement</A>
+<B>Up:</B> <A NAME="tex2html968" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<B> Previous:</B> <A NAME="tex2html962" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

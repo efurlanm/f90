@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html744" HREF="HTMLQuestionsnode58.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html742" HREF="HTMLQuestionsnode56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html738" HREF="HTMLQuestionsnode56.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html746" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html745" HREF="HTMLQuestionsnode58.html">Simple example of a </A>
+<B>Up:</B> <A NAME="tex2html743" HREF="HTMLQuestionsnode56.html">Simple example of Subroutine</A>
+<B> Previous:</B> <A NAME="tex2html739" HREF="HTMLQuestionsnode56.html">Simple example of Subroutine</A>
+<BR> <P>
+<H3><A NAME="SECTION00042100000000000000">Solution</A></H3>
+Note <TT>INTENT</TT> is not essential as it may not  have been covered in the
+course so far.
+<P>
+External procedure version:
+<P>
+<PRE>    SUBROUTINE Summy2(res,x,y)
+     IMPLICIT NONE
+     REAL, INTENT(IN) :: x, y 
+     REAL, INTENT(OUT) :: res
+      res = x+y
+    END SUBROUTINE Summy2
+
+    PROGRAM Main
+     IMPLICIT NONE
+     REAL  :: answer
+
+      CALL Summy2(answer,2.6,3.1)
+      PRINT*, answer
+      CALL Summy2(answer,6.1,9.2)
+      PRINT*, answer
+      CALL Summy2(answer,.1,.555)
+      PRINT*, answer
+
+    END PROGRAM Main</PRE>
+<P>
+Internal procedure version,
+<P>
+<PRE>    PROGRAM Main
+     IMPLICIT NONE
+     REAL  :: answer
+
+      CALL Summy2(answer,2.6,3.1)
+      PRINT*, answer
+      CALL Summy2(answer,6.1,9.2)
+      PRINT*, answer
+      CALL Summy2(answer,.1,.555)
+      PRINT*, answer
+
+    CONTAINS
+
+     SUBROUTINE Summy2(res,x,y)
+      REAL, INTENT(IN) :: x, y 
+      REAL, INTENT(OUT) :: res
+       res = x+y
+     END SUBROUTINE Summy2
+
+    END PROGRAM Main</PRE>
+<P>
+There is no need laboriously type out the interfaces if the procedures
+are internal.
+<P>
+<HR><A NAME="tex2html744" HREF="HTMLQuestionsnode58.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html742" HREF="HTMLQuestionsnode56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html738" HREF="HTMLQuestionsnode56.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html746" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html745" HREF="HTMLQuestionsnode58.html">Simple example of a </A>
+<B>Up:</B> <A NAME="tex2html743" HREF="HTMLQuestionsnode56.html">Simple example of Subroutine</A>
+<B> Previous:</B> <A NAME="tex2html739" HREF="HTMLQuestionsnode56.html">Simple example of Subroutine</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

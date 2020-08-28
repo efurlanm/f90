@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Passing Array Sections</TITLE>
+<META NAME="description" CONTENT="Passing Array Sections">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3343" HREF="HTMLNotesnode260.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3341" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3335" HREF="HTMLNotesnode258.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3345" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3344" HREF="HTMLNotesnode260.html">Array Arguments Example 1</A>
+<B>Up:</B> <A NAME="tex2html3342" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3336" HREF="HTMLNotesnode258.html">Explicit Intent</A>
+<BR> <P>
+<A NAME="PassingArraySections1">&#160;</A><H3><A NAME="SECTION020411200000000000000">Passing Array Sections</A></H3>
+<P>
+The problem with passing array sections to procedures
+ is how to describe the current
+mapping of the dummy arguments.  The example below 
+specifies an alignment
+between the actual arguments: <TT>B</TT> and <TT>Res</TT> and the
+align-target,
+<TT>A</TT>. In order to
+avoid any remapping when the subroutine <TT>Zubbie</TT> is invoked, the
+relationship (alignment) between its dummy arguments should be fully
+described. Specifying this alignment is going to be non-trivial due to
+the way in which the actual arguments are referenced (sectioned).
+<P>
+<PRE>     REAL, DIMENSION(4,6) :: A, B
+     REAL, DIMENSION(2,3) :: Res
+!HPF$ PROCESSORS, DIMENSION(2,2) :: P
+!HPF$ ALIGN B(:,:)   WITH A(:,:)
+!HPF$ ALIGN Res(:,:) WITH A(::2,::2)
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P :: A, B, Res
+      ...
+      CALL Zubbie(A(1:2,1::2),B(3:4,2::2),Res)</PRE>
+<P>
+If we require a descriptive distribution, what should interface look like?
+<P>
+<UL><LI> cannot describe the mapping using only  <TT>DISTRIBUTE</TT>,<LI> cannot simply describe relative alignment,<LI> must construct intermediate <TT>TEMPLATE</TT> in order to specify
+distribution.
+</UL>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3346" HREF="HTMLNotesnode260.html#SECTION020411210000000000000">Array Arguments Example 1</A>
+<LI> <A NAME="tex2html3347" HREF="HTMLNotesnode261.html#SECTION020411220000000000000">Array Arguments Example 2</A>
+</UL>
+<HR><A NAME="tex2html3343" HREF="HTMLNotesnode260.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3341" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3335" HREF="HTMLNotesnode258.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3345" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3344" HREF="HTMLNotesnode260.html">Array Arguments Example 1</A>
+<B>Up:</B> <A NAME="tex2html3342" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3336" HREF="HTMLNotesnode258.html">Explicit Intent</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

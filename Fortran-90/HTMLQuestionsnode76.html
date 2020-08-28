@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html954" HREF="HTMLQuestionsnode77.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html952" HREF="HTMLQuestionsnode75.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html948" HREF="HTMLQuestionsnode75.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html956" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html955" HREF="HTMLQuestionsnode77.html">Complex Arithmetic - Modules</A>
+<B>Up:</B> <A NAME="tex2html953" HREF="HTMLQuestionsnode75.html">Encapsulation</A>
+<B> Previous:</B> <A NAME="tex2html949" HREF="HTMLQuestionsnode75.html">Encapsulation</A>
+<BR> <P>
+<H3><A NAME="SECTION00054100000000000000">Solution</A></H3>
+The module:
+<P>
+<PRE>    MODULE Simple_Stats
+
+     IMPLICIT NONE
+
+     INTEGER, SAVE :: mean_use    = 0
+     INTEGER, SAVE :: std_dev_use = 0
+
+    CONTAINS
+
+
+      REAL FUNCTION mean(vec)
+       REAL, INTENT(IN), DIMENSION(:) :: vec
+
+        mean = SUM(vec)/REAL(SIZE(vec))
+        mean_use = mean_use + 1
+
+      END FUNCTION mean
+
+
+      REAL FUNCTION Std_Dev(vec)
+       REAL, INTENT(IN), DIMENSION(:) :: vec
+
+        Std_Dev = SQRT(SUM((vec-mean(vec))**2)/REAL(SIZE(vec)))
+        std_dev_use = std_dev_use + 1
+
+      END FUNCTION Std_Dev
+
+
+    END MODULE Simple_Stats</PRE>
+<P>
+The test program:
+<P>
+<PRE>    PROGRAM Test_Stats
+     USE Simple_Stats
+     IMPLICIT NONE
+     REAL, ALLOCATABLE, DIMENSION(:) :: X
+     INTEGER :: n_elts, istat
+
+     DO
+      PRINT*, &quot;How big is the array? &quot;
+      READ*, n_elts
+
+      IF (n_elts == 0) EXIT
+
+      ALLOCATE(X(n_elts),STAT=istat)
+
+      IF (istat .NE. 0) THEN
+       PRINT*, &quot;Allocation request failed&quot;
+      ELSE
+       PRINT*, &quot;Type in your &quot;,n_elts,&quot; numbers&quot;
+       READ*, X
+       PRINT*, &quot;Mean    = &quot;, Mean(X)
+       PRINT*, &quot;Std Dev = &quot;, Std_Dev(X)
+       DEALLOCATE(X)
+      END IF
+     END DO
+
+     PRINT*, &quot;Function &quot;&quot;Mean&quot;&quot; used&quot;, mean_use, &quot;times.&quot;
+     PRINT*, &quot;Function &quot;&quot;Std_Dev&quot;&quot; used&quot;, std_dev_use, &quot;times.&quot;
+
+    END PROGRAM Test_Stats</PRE>
+<P>
+<HR><A NAME="tex2html954" HREF="HTMLQuestionsnode77.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html952" HREF="HTMLQuestionsnode75.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html948" HREF="HTMLQuestionsnode75.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html956" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html955" HREF="HTMLQuestionsnode77.html">Complex Arithmetic - Modules</A>
+<B>Up:</B> <A NAME="tex2html953" HREF="HTMLQuestionsnode75.html">Encapsulation</A>
+<B> Previous:</B> <A NAME="tex2html949" HREF="HTMLQuestionsnode75.html">Encapsulation</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

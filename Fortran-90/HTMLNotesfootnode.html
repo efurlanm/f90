@@ -1,0 +1,1096 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Footnotes</TITLE>
+<META NAME="description" CONTENT="Footnotes">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+<DL> <DT><A NAME="1194">...</A><DD>HPF is intended for
+programming distributed memory machines
+and introduced ``directives'' (Fortran&nbsp;90 structured comments) to give hints
+on how to distribute data
+(arrays) amongst grids of (non-homogeneous) processors. The idea is to
+relieve the programmer of the burden of writing explicit
+message-passing code; the compilation system does this instead.
+HPF also introduced a small number of executable statements (parallel
+assignments, side effect free (<TT>PURE</TT>) procedures) which have
+been adopted by Fortran&nbsp;95.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="3359">...</A><DD>Dyadic means
+``takes two operands''.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="3364">...</A><DD>``takes one operand''.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="3365">...</A><DD>``takes two operands''.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="4768">...</A><DD>It seem
+to be a common misconception that Fortran loops always
+have to be executed once - this came from F<font size=-1><small>ORTRAN</small></font>&nbsp;66 and is now 
+totally incorrect. Zero executed
+loops are useful for programming degenerate cases.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="4826">...</A><DD>Note
+how the <TT>DO</TT> variable can be greater than 2#2<EM>&nbsp;expr2 </EM>3#3.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="5764">...manipulation</A><DD>There is no <TT>BIT</TT> data type but intrinsics 
+exist for manipulating integers as if they were
+bit  variables.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="6667">...</A><DD>F<font size=-1><small>ORTRAN</small></font>&nbsp;77 did have
+storage association. It specified that
+array elements were stored in column major form, (i.e. with the indices
+of the lowest dimension varying most rapidly).
+Thus the array <TT>B</TT> would be organised in
+memory as <TT>B(-4,0), B(-3,0), B(-2,0), B(-1,0), B(0,0) B(-4,1), B(-3,1), ...</TT>.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="6728">...</A><DD><TT>lda</TT> is either
+a <TT>PARAMETER</TT> or a dummy argument.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="6772">...</A><DD>This makes passing
+arrays to a procedure written in a different language <EM>very</EM>
+difficult indeed
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="6839">...</A><DD>The correct 
+vector equivalent to the original <TT>DO</TT>-loop can 
+be achieved by using the <TT>SUM</TT> intrinsic,
+<code>A(2:15) = (/ (SUM(1:i), i=2,15) /)</code>
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="7582">...</A><DD>This constraint will be relaxed in Fortran&nbsp;95.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="7801">...</A><DD>This constraint will be relaxed
+in Fortran&nbsp;95.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="9071">...</A><DD>The NAg library
+deals with solving numerical problems and is ideal for
+engineers and scientists. <TT>fl90</TT>, the NAg Fortran&nbsp;90 Mk I library, has just been
+released
+as a successor to the well respected and popular F<font size=-1><small>ORTRAN</small></font>&nbsp;77 library which
+contains
+at least 1140 routines.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="9072">...</A><DD>There is an auxiliary Fortran&nbsp;90 standard known as the ``Varying
+String'' module. This is to be added to the Fortran&nbsp;95 standard and will allow
+users to define and use objects of type <TT>VARYING_STRING</TT> where
+<TT>CHARACTER</TT> objects would normally be used. The Standard has already been
+realised in a module (by Lawrie Schonfelder at Liverpool University).
+All the intrinsic operations and functions for character variables have be 
+overloaded (see Section <A HREF="#OverloadingOperators"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A> 
+for operator overloading) so that <TT>VARYING_STRING</TT> 
+objects can be used in more or less the same way as other intrinsic types.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="9265">...</A><DD>F<font size=-1><small>ORTRAN</small></font>&nbsp;77 
+programs which flaunted this requirement were not standard conforming
+but there was no way for the compiler to check.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="9554">...</A><DD>The <TT>PURE</TT> specifier will be
+part of the Fortran&nbsp;95 language.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="9613">...</A><DD>Using <TT>COMMON</TT> to achieve this is <EM>strongly</EM> 
+discouraged as this
+method of global data declaration is considered to be unsafe, obtuse and
+outmoded.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="9964">...</A><DD>the <TT>INTENT</TT> attribute should also 
+be given but as this has not been covered yet it is omitted; see
+Section <A HREF="HTMLNotesnode138.html#ArgumentIntent">4.1.11</A> for details.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="10397">...</A><DD><TT>INCLUDE</TT> 
+was an extension to F<font size=-1><small>ORTRAN</small></font>&nbsp;77 and literally included a specified file at the
+appropriate place in the code.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="10548">...</A><DD>If the
+objects are not static then it must be ensured that at
+least one use of the module is always in operation - this usually means
+using it in the main program. If the objects are not static and the
+module is only used in two separate subroutines that are called directly 
+by the main program then the data will disappear after the first use
+goes out of scope and be redeclared when the second is entered. (This
+can actually be useful for declaring an identical set of local objects in a
+number of independent procedures.)
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="10554">...</A><DD>A <TT>COMMON</TT> block names a
+specific area of
+memory and splits it up into areas that
+can be referred to as scalar or array objects, for a single
+<TT>COMMON</TT> block it is possible to specify a different partition of data
+objects  each time the block is accessed, each partition can be referred
+to by any type, in other words the storage can be automatically retyped
+and repartitioned with gay abandon - this leads to all sorts of
+insecurities. Putting the block in a <TT>MODULE</TT> removes any possibility of
+the above type of misuse.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="11306">...</A><DD>the
+bits are counted from right to left
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="12261">...Data</A><DD>for example, the Cray T3D.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="12262">...Data</A><DD>for example, ICL DAP
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="13489">...erroneous</A><DD>I have not yet found a compiler
+that checks this constraint!
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="14390">...Vienna</A><DD>major players in the HPFF.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="15885">...association</A><DD>This means that for an assumed-size array
+ element <TT>A(i+1)</TT> occupies the previous memory location to <TT>
+A(i)</TT>,
+this is clearly not true for an HPF program; <TT>A(i)</TT> and <TT>A(i+1)</TT>
+may
+well be on separate processors - they could feasible even be on opposite
+sides of the world! HPF programs should not use any sequence associated
+objects.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="16417">...smart</A><DD>which, currently, most
+are not!
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="16451">...grid</A><DD>Recall that all
+processor arrangements in a single HPF program must contain the same
+number of
+processors
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="16577">...program</A><DD>Processor subsets are to be included in HPF2.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE><DT><A NAME="17885">...mapping</A><DD>A compiler is 
+at liberty to supply a default (or
+implicit) mapping for arrays without explicit mapping directives.
+<PRE>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</PRE> </DL>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

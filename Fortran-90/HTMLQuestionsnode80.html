@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html994" HREF="HTMLQuestionsnode81.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html992" HREF="HTMLQuestionsnode79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html988" HREF="HTMLQuestionsnode79.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html996" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html995" HREF="HTMLQuestionsnode81.html">Data Distribution</A>
+<B>Up:</B> <A NAME="tex2html993" HREF="HTMLQuestionsnode79.html">Binary Cut</A>
+<B> Previous:</B> <A NAME="tex2html989" HREF="HTMLQuestionsnode79.html">Binary Cut</A>
+<BR> <P>
+<H3><A NAME="SECTION00056100000000000000">Solution</A></H3>
+<PRE>  MODULE binary_cut_module
+
+   IMPLICIT NONE
+
+  CONTAINS
+
+   FUNCTION binary_cut(arr, i)
+    INTEGER :: binary_cut, i, N
+    INTEGER, DIMENSION(:) :: arr
+    INTEGER :: low, high, halfway
+     N = SIZE(arr)
+     low = 1
+     high = N
+     DO
+      PRINT*, low, high
+      IF (low &gt;= high) EXIT
+       halfway = low + (high-low)/2
+       IF (i &lt;= arr(halfway)) THEN
+         high = halfway
+       ELSE
+        low  = halfway+1
+       END IF
+     END DO
+     binary_cut = low
+   END FUNCTION
+
+  END MODULE
+
+  PROGRAM test_binary_cut
+   USE binary_cut_module
+   IMPLICIT NONE
+   INTEGER, DIMENSION(12) :: arr1 = &amp;  ! even number of elements
+      (/1, 3, 5, 5, 10, 23, 23, 34, 36, 45, 56, 65/)
+   INTEGER, DIMENSION(13) :: arr2 = &amp;  ! odd number of elements
+      (/1, 3, 5, 5, 10, 23, 23, 34, 36, 45, 56, 65, 76/)
+   INTEGER :: index1,index2,index3,index4
+
+    index1 = binary_cut(arr1, 23)
+    PRINT*, ' index = ' , index1, ' correct = 6'
+    index2 = binary_cut(arr1, 36)
+    PRINT*, ' index = ' , index2, ' correct = 9'
+    index3 = binary_cut(arr2, 23)
+    PRINT*, ' index = ' , index3, ' correct = 6'
+    index4 = binary_cut(arr1, 36)
+    PRINT*, ' index = ' , index4, ' correct = 9'
+
+! pathological cases
+    index1 = binary_cut(arr1, 1)
+    PRINT*, ' index = ' , index1, ' correct = 1'
+    index2 = binary_cut(arr1, 65)
+    PRINT*, ' index = ' , index2, ' correct = 12'
+    index3 = binary_cut(arr2, 1)
+    PRINT*, ' index = ' , index3, ' correct = 1'
+    index4 = binary_cut(arr2, 76)
+    PRINT*, ' index = ' , index4, ' correct = 13'
+
+END PROGRAM</PRE>
+<P>
+<HR><A NAME="tex2html994" HREF="HTMLQuestionsnode81.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html992" HREF="HTMLQuestionsnode79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html988" HREF="HTMLQuestionsnode79.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html996" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html995" HREF="HTMLQuestionsnode81.html">Data Distribution</A>
+<B>Up:</B> <A NAME="tex2html993" HREF="HTMLQuestionsnode79.html">Binary Cut</A>
+<B> Previous:</B> <A NAME="tex2html989" HREF="HTMLQuestionsnode79.html">Binary Cut</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

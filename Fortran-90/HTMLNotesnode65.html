@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Precedence Example</TITLE>
+<META NAME="description" CONTENT="Precedence Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html926" HREF="HTMLNotesnode66.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html924" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html920" HREF="HTMLNotesnode64.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html928" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html927" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<B>Up:</B> <A NAME="tex2html925" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html921" HREF="HTMLNotesnode64.html">Operator Precedence</A>
+<BR> <P>
+<A NAME="OperatorPrecedence2">&#160;</A><H3><A NAME="SECTION01018800000000000000">Precedence Example</A></H3>
+<P>
+The precedence is worked out as follows
+<P>
+<OL><LI>  in an expression find the operator(s) with the tightest binding.<LI> if there are more than one occurrence of this operator then the
+separate instances are evaluated left to right.<LI> place the first executed subexpression in brackets to signify
+this.<LI> continue with the second and subsequent subexpressions.<LI> move to next most tightest binding operator and follow the same
+procedure.
+</OL>
+<P>
+It is easy to make mistakes by forgetting the implications of
+precedence. The following expression,
+<P>
+<PRE>    x = a+b/5.0-c**d+1</PRE>
+<P>
+is equivalent to
+<P>
+<PRE>    x = ((a+(b/5.0))-(c**d))+1</PRE>
+<P>
+The following procedure has been followed to parenthesise the expression,
+<UL><LI> tightest binding operator is <TT>*</TT><TT>*</TT>. This means  <TT>c**d</TT> 
+is the first executed subexpression so should be surrounded by brackets.<LI> <TT>/</TT> is the second most tightly binding operator and expressions
+involving it will be evaluated next, put  <TT>b/5.0</TT> in brackets.<LI> <TT>+</TT> and <TT>-</TT> have the next highest precedence. Since they are
+of equal precedence, occurrences are evaluated from left
+to right, in other words <TT>a+(b/5.0)</TT> is evaluated first followed by
+<TT>(a+(b/5.0))-(c**d)</TT> followed by <TT>((a+(b/5.0))-(c**d))+1</TT><LI> at last the assignment is made.
+</UL>
+<P>
+Likewise, the following expression,
+<P>
+<PRE>    .NOT.A.OR.B.EQV.C.AND.D.OR..NOT.E</PRE>
+<P>
+is equivalent to
+<P>
+<PRE>    ((.NOT.A).OR.B).EQV.((C.AND.D).OR.(.NOT.E))</PRE>
+<P>
+here, 
+<UL><LI> the tightest binding operator is: <TT>.NOT.</TT> followed by <TT>.AND.</TT> 
+followed
+by <TT>.OR.</TT>.<LI> the two subexpressions containing the monadic <TT>.NOT.</TT> are evaluated
+first, as there are two of these the leftmost, <TT>.NOT.A</TT> is done
+first followed by <TT>.NOT.E</TT>.<LI> the subexpression <TT>C.AND.D</TT> is evaluated next followed by
+<TT>.OR.</TT> 
+(left to right)<LI> finally the <TT>.EQV.</TT> is executed
+<P>
+</UL>
+<P>
+Parentheses can be added to any expression to modify the order of
+evaluation.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode8.html#QBasicPrecedence"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html926" HREF="HTMLNotesnode66.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html924" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html920" HREF="HTMLNotesnode64.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html928" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html927" HREF="HTMLNotesnode66.html">Control Constructs</A>
+<B>Up:</B> <A NAME="tex2html925" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html921" HREF="HTMLNotesnode64.html">Operator Precedence</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

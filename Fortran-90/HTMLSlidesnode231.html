@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Descriptive Distribution</TITLE>
+<META NAME="description" CONTENT="Descriptive Distribution">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3072" HREF="HTMLSlidesnode232.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3070" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3064" HREF="HTMLSlidesnode230.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3074" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3073" HREF="HTMLSlidesnode232.html">Examples of Dummy Distributions</A>
+<B>Up:</B> <A NAME="tex2html3071" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3065" HREF="HTMLSlidesnode230.html">Prescriptive Distribution</A>
+<BR> <P>
+<H2><A NAME="SECTION02064000000000000000">Descriptive Distribution</A></H2>
+<P>
+Assert that alignment and distribution is as specified, minimises
+communications. For example,
+<P>
+<PRE>    SUBROUTINE Subby(A,B,RES)
+     IMPLICIT NONE
+     REAL, DIMENSION(:,:), INTENT(IN)   :: A, B
+     REAL, DIMENSION(:,:), INTENT(OUT)  :: RES
+!HPF$ PROCESSORS, DIMENSION(2,2)        :: P
+!HPF$ TEMPLATE, DIMENSION(4,6)          :: T
+!HPF$ DISTRIBUTE *(BLOCK,BLOCK) ONTO *P :: T
+!HPF$ ALIGN (:,:) WITH *T(:,:)          :: A, B, RES
+       ...
+    END SUBROUTINE Subby</PRE>
+<P>
+Asserts that <TT>A, B</TT> and <TT>RES</TT> are aligned and distributed as
+shown.
+<P>
+An <TT>INTERFACE</TT> should be given.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode250.html#DescriptiveDistribution1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3072" HREF="HTMLSlidesnode232.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3070" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3064" HREF="HTMLSlidesnode230.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3074" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3073" HREF="HTMLSlidesnode232.html">Examples of Dummy Distributions</A>
+<B>Up:</B> <A NAME="tex2html3071" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3065" HREF="HTMLSlidesnode230.html">Prescriptive Distribution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Vector-valued Subscripts</TITLE>
+<META NAME="description" CONTENT="Vector-valued Subscripts">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1222" HREF="HTMLSlidesnode88.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1220" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1216" HREF="HTMLSlidesnode86.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1224" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1223" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<B>Up:</B> <A NAME="tex2html1221" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1217" HREF="HTMLSlidesnode86.html">Where Construct</A>
+<BR> <P>
+<H2><A NAME="SECTION0101320000000000000000">Vector-valued Subscripts</A></H2>
+<P>
+A 1D array can be used to subscript an array in a
+dimension. Consider:
+<PRE>    INTEGER, DIMENSION(5) :: V = (/1,4,8,12,10/)
+    INTEGER, DIMENSION(3) :: W = (/1,2,2/)</PRE>
+<UL><LI>
+<TT>A(V)</TT> is <TT>A(1)</TT>, <TT>A(4)</TT>, <TT>A(8)</TT>, <TT>A(12)</TT>, and <TT>A(10)</TT>.
+<P>
+ <IMG WIDTH=364 HEIGHT=178 ALIGN=BOTTOM ALT="tex2html_wrap21564" SRC="HTMLSlidesimg42.gif"  > <LI>
+the following are valid assignments:
+<PRE>    A(V) = 3.5
+    C(1:3,1) = A(W)</PRE><LI> it would be invalid to assign values to <TT>
+A(W)</TT> as <TT>A(2)</TT> is referred to twice.<LI> only 1D vector subscripts are allowed, for example, 
+<PRE>    A(1) = SUM(C(V,W))</PRE>
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode111.html#VectorSubscripts1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode45.html#QArrayVectorSubscripts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1222" HREF="HTMLSlidesnode88.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1220" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1216" HREF="HTMLSlidesnode86.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1224" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1223" HREF="HTMLSlidesnode88.html">Selected Intrinsic Functions</A>
+<B>Up:</B> <A NAME="tex2html1221" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1217" HREF="HTMLSlidesnode86.html">Where Construct</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Local Index Sets</TITLE>
+<META NAME="description" CONTENT="Local Index Sets">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1209" HREF="HTMLQuestionsnode100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1207" HREF="HTMLQuestionsnode90.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1203" HREF="HTMLQuestionsnode98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1211" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1210" HREF="HTMLQuestionsnode100.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1208" HREF="HTMLQuestionsnode90.html">Alignment using Templates</A>
+<B> Previous:</B> <A NAME="tex2html1204" HREF="HTMLQuestionsnode98.html">Solution</A>
+<BR> <P>
+<A NAME="QMoreLocalIndexSetsII">&#160;</A><H2><A NAME="SECTION00075000000000000000">Local Index Sets</A></H2>
+<P>
+For the following distributions, which processors own what elements,
+<P>
+<OL><LI>
+<PRE>     REAL A(10), B(10,10), C(25)
+!HPF$ PROCESSORS P(7)
+!HPF$ TEMPLATE T(51)
+!HPF$ ALIGN A(:) WITH T(1::5)
+!HPF$ ALIGN B(:,*) WITH T(20::3)
+!HPF$ ALIGN C(:) WITH T(:)
+!HPF$ ALIGN C(:) WITH T(:)
+!HPF$ DISTRIBUTE T(CYCLIC(2)) ONTO P</PRE><LI>
+<PRE>     REAL A(100)
+!HPF$ PROCESSORS P(10,10)
+!HPF$ TEMPLATE T(100,100)
+!HPF$ ALIGN A(:) WITH T(:,*)
+!HPF$ DISTRIBUTE T(BLOCK,BLOCK) ONTO P</PRE><LI>
+<PRE>     REAL A(100), B(100)
+!HPF$ PROCESSORS P(10)
+!HPF$ TEMPLATE T(100,100)
+!HPF$ ALIGN A(:) WITH T(:,*)
+!HPF$ DISTRIBUTE T(*,BLOCK) ONTO P</PRE>
+<P>
+</OL><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1212" HREF="HTMLQuestionsnode100.html#SECTION00075100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1209" HREF="HTMLQuestionsnode100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1207" HREF="HTMLQuestionsnode90.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1203" HREF="HTMLQuestionsnode98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1211" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1210" HREF="HTMLQuestionsnode100.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1208" HREF="HTMLQuestionsnode90.html">Alignment using Templates</A>
+<B> Previous:</B> <A NAME="tex2html1204" HREF="HTMLQuestionsnode98.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

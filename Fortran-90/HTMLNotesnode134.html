@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>SAVE Statement</TITLE>
+<META NAME="description" CONTENT="SAVE Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1785" HREF="HTMLNotesnode135.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1783" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1777" HREF="HTMLNotesnode133.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1787" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1786" HREF="HTMLNotesnode135.html">Implicit SAVE Attribute</A>
+<B>Up:</B> <A NAME="tex2html1784" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1778" HREF="HTMLNotesnode133.html">Example of Scoping Issues</A>
+<BR> <P>
+<A NAME="SaveStatement1">&#160;</A><H3><A NAME="SECTION01041800000000000000"><TT>SAVE</TT> Statement</A></H3>
+<P>
+<A NAME="SaveAttribute">&#160;</A>
+ Local objects  are:
+<P>
+<UL><LI> created each time a procedure is invoked,<LI> destroyed when the procedure completes.
+</UL>
+<P>
+so they  <EM>do not</EM> retain their values between two separate procedure calls.
+<P>
+If a local variable has the <TT>SAVE</TT> attribute then it
+<EM>will</EM> retain its value and allocation status between calls, for example,
+consider,
+<P>
+<PRE>   SUBROUTINE sub1(A)
+    IMPLICIT NONE
+    REAL :: A
+    REAL, SAVE :: r
+    REAL, ALLOCATABLE, DIMENSION(:,:), SAVE :: X
+     :
+    IF (.NOT.ALLOCATED(X)) ALLOCATE(X(20,20))</PRE>
+<P>
+the value that <TT>r</TT> holds on exit from the procedure
+will persist and will be available the next time the procedure is entered.
+Likewise,  the array <TT>X</TT> will remain allocated
+and its value preserved between calls; both these objects are called <EM>
+saved-objects</EM> or <EM>static objects</EM> and belong to the corresponding 
+<EM>static storage class</EM>.
+<P>
+Clearly, the <TT>SAVE</TT> attribute has no meaning in the main program 
+since when it is exited, the program has finished executing.
+Dummy arguments or objects which depend on dummy arguments (for example, 
+automatic objects, see Section <A HREF="HTMLNotesnode142.html#AutomaticArrays">5.1.2</A>)  cannot have the <TT>SAVE</TT> attribute. This is 
+because the dummy arguments will be different on each 
+invocation of the procedure.
+<P>
+<HR><A NAME="tex2html1785" HREF="HTMLNotesnode135.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1783" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1777" HREF="HTMLNotesnode133.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1787" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1786" HREF="HTMLNotesnode135.html">Implicit SAVE Attribute</A>
+<B>Up:</B> <A NAME="tex2html1784" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1778" HREF="HTMLNotesnode133.html">Example of Scoping Issues</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>SPMD Model</TITLE>
+<META NAME="description" CONTENT="SPMD Model">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2312" HREF="HTMLNotesnode175.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2310" HREF="HTMLNotesnode171.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2304" HREF="HTMLNotesnode173.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2314" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2313" HREF="HTMLNotesnode175.html">Processor Communications</A>
+<B>Up:</B> <A NAME="tex2html2311" HREF="HTMLNotesnode171.html">High Performance Fortran</A>
+<B> Previous:</B> <A NAME="tex2html2305" HREF="HTMLNotesnode173.html">The Concept of HPF</A>
+<BR> <P>
+<A NAME="SPMD1">&#160;</A><H3><A NAME="SECTION02012300000000000000">SPMD Model</A></H3>
+<P>
+SPMD model relies on:
+<UL><LI> arrays of processors,<LI> distributed data,<LI> some global data,<LI> message passing between processors,<LI> loose synchronisation,
+</UL>
+<P>
+Each processor runs the same executable program so the message passing
+must be masked by <TT>IF</TT> statements, for example,
+<P>
+<P><A NAME="12323">&#160;</A><A NAME="MessagePassingfig">&#160;</A> <IMG WIDTH=461 HEIGHT=182 ALIGN=BOTTOM ALT="figure12320" SRC="HTMLNotesimg88.gif"  > <BR>
+<STRONG>Figure 17:</STRONG> An Example of Message Passing Between Two Processors in a SPMD
+System<BR>
+<P>
+<P>
+Loose synchronisation means that it is occasionally necessary for
+processors to synchronise. The processors do not have to operate in
+lockstep!
+<P>
+<HR><A NAME="tex2html2312" HREF="HTMLNotesnode175.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2310" HREF="HTMLNotesnode171.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2304" HREF="HTMLNotesnode173.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2314" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2313" HREF="HTMLNotesnode175.html">Processor Communications</A>
+<B>Up:</B> <A NAME="tex2html2311" HREF="HTMLNotesnode171.html">High Performance Fortran</A>
+<B> Previous:</B> <A NAME="tex2html2305" HREF="HTMLNotesnode173.html">The Concept of HPF</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

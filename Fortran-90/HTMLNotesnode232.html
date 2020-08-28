@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pure Procedures</TITLE>
+<META NAME="description" CONTENT="Pure Procedures">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3019" HREF="HTMLNotesnode233.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3017" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3011" HREF="HTMLNotesnode231.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3021" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3020" HREF="HTMLNotesnode233.html">Pure Function Example</A>
+<B>Up:</B> <A NAME="tex2html3018" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3012" HREF="HTMLNotesnode231.html">Forall Construct</A>
+<BR> <P>
+<A NAME="PureProcedures1">&#160;</A><H3><A NAME="SECTION02031600000000000000">Pure Procedures</A></H3>
+<P>
+Pure procedures, which are also included in Fortran&nbsp;95,
+ are prefixed by the <TT>PURE</TT> keyword in the same way as
+recursive procedures are prefixed by the <TT>RECURSIVE</TT> keyword.
+They must be side-effect free in the sense that they cannot change the
+global state of the program. (If they could then the order of invocation
+of the individual procedures would be significant.) Clearly, any other
+procedures that are invoked by a pure procedure must themselves be pure.
+(All Fortran&nbsp;90 intrinsics and Fortran&nbsp;95 <TT>ELEMENTAL</TT> functions are pure.)
+<P>
+For example,
+<P>
+<PRE>    PURE REAL FUNCTION F(x,y)
+    PURE SUBROUTINE G(x,y,z)</PRE>
+<P>
+They must be side effect free, this means:
+<UL><LI> no external I/O or <TT>ALLOCATE</TT>,<LI> don't change global program state (global data),<LI> have <TT>PURE</TT> attribute,<LI> intrinsic / <TT>ELEMENTAL</TT> functions are pure,<LI> allowed in <TT>FORALL</TT> and pure procedures,
+</UL>
+<P>
+The <TT>ALLOCATE</TT> statement is not allowed in case one of the processors
+that is running a copy of a procedure is unable to fulfill the allocate
+request. External I/O is disallowed in case any of the READ / WRITE
+statements lead to an error, such as writing to a full disk.
+<P>
+<TT>PURE</TT> procedures can be executed in parallel but note 
+that a pure procedure may still involve communications. If it does
+then there will be synchronisation points within the procedure.
+Describing a procedure as <TT>PURE</TT> does not mean that it does not involve
+communications.
+<P>
+<A NAME="PureProceduresRules1">&#160;</A>
+<P>
+<TT>PURE</TT> procedures must also follow additional rules. These are all
+concerned with making sure that each
+copy of the procedure does not interact with any other copy of the same
+procedure or change the global state of the program:
+<P>
+<UL><LI> <TT>FUNCTION</TT> dummy arguments must possess the <TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>)</TT> 
+attribute,
+<TT>SUBROUTINE</TT> dummys not restricted,<LI> local objects cannot be <TT>SAVE</TT> d,<LI> dummy arguments cannot be aligned to global objects,<LI> no <TT>PAUSE</TT> or <TT>STOP</TT>  statement,<LI> other procedure invocations must be <TT>PURE</TT>.
+</UL>
+<P>
+To make things simple, <TT>PURE</TT> functions must behave like mathematical
+functions in the sense that their arguments cannot be changes (must have
+<TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>)</TT>).
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3022" HREF="HTMLNotesnode233.html#SECTION02031610000000000000">Pure Function Example</A>
+<LI> <A NAME="tex2html3023" HREF="HTMLNotesnode234.html#SECTION02031620000000000000">Pure Subroutine Example</A>
+<LI> <A NAME="tex2html3024" HREF="HTMLNotesnode235.html#SECTION02031630000000000000">MIMD Example</A>
+</UL>
+<HR><A NAME="tex2html3019" HREF="HTMLNotesnode233.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3017" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3011" HREF="HTMLNotesnode231.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3021" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3020" HREF="HTMLNotesnode233.html">Pure Function Example</A>
+<B>Up:</B> <A NAME="tex2html3018" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3012" HREF="HTMLNotesnode231.html">Forall Construct</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

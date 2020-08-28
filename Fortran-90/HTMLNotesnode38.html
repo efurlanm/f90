@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example of a Fortran&nbsp;90 Program</TITLE>
+<META NAME="description" CONTENT="Example of a Fortran&nbsp;90 Program">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html613" HREF="HTMLNotesnode39.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html611" HREF="HTMLNotesnode37.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html607" HREF="HTMLNotesnode37.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html615" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html614" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B>Up:</B> <A NAME="tex2html612" HREF="HTMLNotesnode37.html">Fortran&nbsp;90 Programming</A>
+<B> Previous:</B> <A NAME="tex2html608" HREF="HTMLNotesnode37.html">Fortran&nbsp;90 Programming</A>
+<BR> <P>
+<A NAME="TriangleAreaExample1">&#160;</A><H3><A NAME="SECTION01015100000000000000">Example of a Fortran&nbsp;90 Program</A></H3>
+<P>
+Consider the following example Fortran&nbsp;90 program:
+<PRE>    PROGRAM Triangle
+     IMPLICIT NONE
+     REAL :: a, b, c, Area
+     PRINT *, 'Welcome, please enter the&amp;
+              &amp;lengths of the 3 sides.'
+     READ *, a, b, c
+     PRINT *, 'Triangle''s area:  ', Area(a,b,c)
+    END PROGRAM Triangle
+    FUNCTION Area(x,y,z)
+     IMPLICIT NONE
+     REAL :: Area            ! function type
+     REAL, INTENT( IN ) :: x, y, z
+     REAL :: theta, height
+     theta = ACOS((x**2+y**2-z**2)/(2.0*x*y))
+     height = x*SIN(theta); Area = 0.5*y*height
+    END FUNCTION Area</PRE>
+<P>
+The program highlights the following:
+<UL><LI> free format source code -- executable statements do not have to start in or
+after column 7 as they do in F<font size=-1><small>ORTRAN</small></font>&nbsp;77.<LI> <code>PROGRAM Triangle</code>
+<P>
+The <TT>PROGRAM</TT> statement is not strictly necessary but its inclusion is good
+practice. There may only be one per program.<LI> <code>IMPLICIT NONE</code>
+<P>
+An <TT>IMPLICIT</TT> <TT>NONE</TT> statement turns off implicit typing making the 
+declaration of variables compulsory.<LI> <code>REAL :: a, b, c, Area</code>
+<P>
+Declaration of real valued objects. <TT>a, b</TT> and <TT>c</TT>
+are variables and <TT>Area</TT> is a function name.   This function must
+be declared because its name contains a value.<LI> <code>PRINT *, 'Welcome, please enter the&amp; ...</code>
+<P>
+This <TT>PRINT</TT> statement writes  the string in quotes to the standard output 
+channel (the screen). The <TT>&amp;</TT> at the end of the line tells compiler
+that the line continues and the <TT>&amp;</TT> at the start of the text tells 
+the compiler to insert one space and 
+continue the previous line at the character following the <TT>&amp;</TT>. If
+the <TT>&amp;</TT> were at the start of the line, or if there were 
+no <TT>&amp;</TT> on
+the second line  then the string would have a large gap in it due to the 
+indentation being considered as part of the string.<LI> <code>READ *, a, b, c</code>
+<P>
+This <TT>READ</TT> statement waits for three things to be input from the standard
+input (keyboard). The entities should be separated by a space.
+Digits will be accepted and interpreted as real numbers; things other
+than valid numbers will cause the program to crash.<LI> <code>PRINT *, 'Triangle''s area:  ', Area(a,b,c)</code>
+<P>
+This <TT>PRINT</TT> statement contains a function reference, <TT>Area</TT>, and the
+output of a string.
+<P>
+The <TT>''</TT> is an <EM>escaped character</EM>, and is transformed, on output, 
+to a single <TT>'</TT>. A single
+quote in would generate an error because the compiler would
+think it had encountered the end of the string and would flag the 
+character <TT>s</TT> as an
+error. The whole string could be enclosed by <TT>&quot;</TT>s which would allow a
+single <TT>'</TT> to be used within the string without confusion. 
+The same delimiter must be used at each end of the string.
+<P>
+The function call invokes the <TT>FUNCTION</TT> with the values of <TT>
+a, b</TT> and <TT>c</TT> being substituted for <TT>x, y</TT> and <TT>z</TT>.
+<P>
+<UL><LI> <TT>a, b</TT> and <TT>c</TT> are  known as actual-arguments,<LI> <TT>x, y</TT> and <TT>z</TT> are  known as dummy-arguments.<LI> <TT>a, b</TT> and <TT>c</TT> and <TT>x, y</TT> and <TT>z</TT> are said to 
+be argument associated<LI> cannot refer to <TT>a, b</TT> and <TT>c</TT> in the function they are not in
+scope.
+</UL><LI> <code>END PROGRAM Triangle</code>
+<P>
+An  <TT>END</TT> <TT>PROGRAM</TT> statement terminates the main program.<LI> <code>FUNCTION Area(x,y,z)</code>
+<P>
+This declares the function name and the number and name of its dummy arguments.<LI> <code>REAL :: Area ! function type</code>
+<P>
+<TT>FUNCTION</TT> s return a result in a
+variable which has the same name as the function. The
+type of the function result must be declared in either the header or in
+the declarations.
+<P>
+The <TT>!</TT> initiates a comment, everything after this character on
+the same line is ignored by the compiler.<LI> <code>REAL, INTENT( IN ) :: x, y, z</code>
+<P>
+The type of the dummy arguments must always be declared, they must be
+of the same type as the actual arguments.
+<P>
+The <TT>INTENT</TT> attribute says how the arguments are to be used: 
+<UL><LI> <TT>IN</TT> means the arguments are used but not (re)defined;<LI> <TT>OUT</TT> says they are defined and not used;<LI> <TT>IN</TT><TT>OUT</TT> says that they are used and then redefined. 
+</UL>
+Specifying the <TT>INTENT</TT> of an argument is not compulsory but is good 
+practise as it allows the compiler to dectect argument usage errors.<LI> <code>REAL :: theta, height</code>
+<P>
+The final <TT>REAL</TT> declaration statement declares local variables for use in the
+<TT>FUNCTION</TT>. Such variables cannot be accessed in the calling program, as
+they are out of <EM>scope</EM>, (not visible to the calling program).<LI> <code>theta = ACOS((x**2+y**2-z**2)/(2.0*x*y))</code>
+<P>
+ This statement assigns a value to <TT>theta</TT> and uses some
+mathematical operators:
+<P>
+<UL><LI> <TT>*</TT> - multiplication,<LI> <TT>*</TT><TT>*</TT> - exponentiation;<LI> <TT>/</TT> - division<LI> <TT>+</TT> - addition,<LI> <TT>-</TT> - subtraction
+</UL>
+<P>
+The brackets (parenthesis) are used to group calculations (as on a
+calculator) and also to specify the argument to the <EM>intrinsic function</EM>
+reference <TT>ACOS</TT>.
+<P>
+Intrinsic functions are part of the Fortran&nbsp;90 language and cover many
+areas, the simplest and most common are mathematical functions such as
+<TT>SIN</TT> and <TT>COS</TT> or <TT>MIN</TT> and <TT>MAX</TT>. Many are designed to
+act elementally on an array argument, in other words they will perform the 
+same function to every element of an  array at the same time.<LI> <code>height = x*SIN(theta); Area = 0.5*y*height</code>
+<P>
+This highlights two statements on one line. The <TT>;</TT> indicates that a new 
+statement follows on the same line. Normally only one statement per line
+is allowed.
+<P>
+The function variable <TT>Area</TT> must be assigned a value or else the
+function will be in error.
+<P>
+</UL><HR><A NAME="tex2html613" HREF="HTMLNotesnode39.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html611" HREF="HTMLNotesnode37.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html607" HREF="HTMLNotesnode37.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html615" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html614" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B>Up:</B> <A NAME="tex2html612" HREF="HTMLNotesnode37.html">Fortran&nbsp;90 Programming</A>
+<B> Previous:</B> <A NAME="tex2html608" HREF="HTMLNotesnode37.html">Fortran&nbsp;90 Programming</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

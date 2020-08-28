@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Print and Read</TITLE>
+<META NAME="description" CONTENT="Print and Read">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3147" HREF="HTMLNotesnode245.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3145" HREF="HTMLNotesnode243.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3141" HREF="HTMLNotesnode243.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3149" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3148" HREF="HTMLNotesnode245.html">Procedures</A>
+<B>Up:</B> <A NAME="tex2html3146" HREF="HTMLNotesnode243.html">Input and Output</A>
+<B> Previous:</B> <A NAME="tex2html3142" HREF="HTMLNotesnode243.html">Input and Output</A>
+<BR> <P>
+<A NAME="InputOutput1">&#160;</A><H3><A NAME="SECTION02032100000000000000">Print and Read</A></H3>
+<P>
+Parallel input and output is a difficult area. The HPFF addressed this
+area but in the end decided not to put  anything into the specification.
+<P>
+In theory, one disk could be attached to each processor in the grid and
+the
+local sections of the arrays could be stored on the local disks. In
+practise there are a whole host of problems associated with this --
+what if the program is recompiled with the distributions of the object
+changed. Each processor will no longer own the same parts of the arrays
+as it used to but so the data stored on the local disks will not have
+changed!
+<P>
+Most HPF compilers only allow I/O via one of the processing nodes. All
+input is read by this node and the data communicated to the processor
+that actually owns it. Likewise any output must be sent to this same node
+where it is then written to disk. The amount of work needed to perform
+such a task is quite large, first of all, each processor must send its
+local set to the designated processor. This processor must then
+reconstruct the whole array in its local memory and finally output to
+disk. Whilst this is happening, the rest of the processors must
+generally
+wait for confirmation that everything has gone smoothly. A badly placed
+output
+statement in the middle of a nested loop will totally destroy
+performance.
+<P>
+<HR><A NAME="tex2html3147" HREF="HTMLNotesnode245.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3145" HREF="HTMLNotesnode243.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3141" HREF="HTMLNotesnode243.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3149" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3148" HREF="HTMLNotesnode245.html">Procedures</A>
+<B>Up:</B> <A NAME="tex2html3146" HREF="HTMLNotesnode243.html">Input and Output</A>
+<B> Previous:</B> <A NAME="tex2html3142" HREF="HTMLNotesnode243.html">Input and Output</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Independent Example 2</TITLE>
+<META NAME="description" CONTENT="Independent Example 2">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3097" HREF="HTMLNotesnode240.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3095" HREF="HTMLNotesnode237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3091" HREF="HTMLNotesnode238.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3099" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3098" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<B>Up:</B> <A NAME="tex2html3096" HREF="HTMLNotesnode237.html">Independent DO Loops - </A>
+<B> Previous:</B> <A NAME="tex2html3092" HREF="HTMLNotesnode238.html">Independent Example 1</A>
+<BR> <P>
+<A NAME="IndependentExample21">&#160;</A><H4><A NAME="SECTION02031820000000000000">Independent Example 2</A></H4>
+<P>
+Consider,
+<PRE>    !HPF$ INDEPENDENT
+    DO i = 1, n
+     a(i) = b(i-1) + b(i) + b(i+1)
+    END DO</PRE>
+<P>
+Can perform all iterations in parallel. Also,
+<P>
+<PRE>    !HPF$ INDEPENDENT
+    FORALL (i=1:n) &amp;
+     a(i) = b(i-1) + b(i) + b(i+1)</PRE>
+<P>
+don't have to calculate whole RHS before assignment.
+<P>
+The above <TT>DO</TT> loop is similar to the last loop of the
+previous examples section. The object <TT>b</TT> is not assigned to  within
+the loop body which means that assuming there is no `hidden' connection
+between <TT>a</TT> and <TT>b</TT> such as storage association, then no
+dependence can arise. The <TT>FORALL</TT> 
+statement is independent for the very same reason, here, each processor
+can perform its local calculations without having to check on the
+progress of other processors; it is able to perform all its assignments
+to <TT>a</TT> before having to synchronise.
+<P>
+Can also use <TT>INDEPENDENT</TT> with vector subscripts,
+<PRE>    !HPF$ INDEPENDENT
+    DO i = 1, n
+     a(index(i)) =  b(i-1) + b(i) + b(i+1)
+    END DO</PRE>
+<P>
+This illustrates how a <TT>DO</TT> loop which
+involves assignment to a vector subscripted (indirectly addressed)
+object can be parallelised. The <TT>INDEPENDENT</TT> directive asserts that all
+values of <TT>index(1:n)</TT> are unique. This <TT>DO</TT> loop could be rewritten
+as an array assignment:
+<P>
+<PRE> A(INDEX) = B(0:n-1) + B(1:n) + B(2:n+1)</PRE>
+<P>
+to achieve the same effect.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode108.html#QForallStatement2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode110.html#QGaussianForallConstruct"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html3097" HREF="HTMLNotesnode240.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3095" HREF="HTMLNotesnode237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3091" HREF="HTMLNotesnode238.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3099" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3098" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<B>Up:</B> <A NAME="tex2html3096" HREF="HTMLNotesnode237.html">Independent DO Loops - </A>
+<B> Previous:</B> <A NAME="tex2html3092" HREF="HTMLNotesnode238.html">Independent Example 1</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

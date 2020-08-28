@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Mixed Type Numeric Expressions</TITLE>
+<META NAME="description" CONTENT="Mixed Type Numeric Expressions">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html896" HREF="HTMLSlidesnode60.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html894" HREF="HTMLSlidesnode58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html888" HREF="HTMLSlidesnode58.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html898" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html897" HREF="HTMLSlidesnode60.html">Mixed Type Assignment</A>
+<B>Up:</B> <A NAME="tex2html895" HREF="HTMLSlidesnode58.html">Mixing Objects of Different </A>
+<B> Previous:</B> <A NAME="tex2html889" HREF="HTMLSlidesnode58.html">Mixing Objects of Different </A>
+<BR> <P>
+<H2><A NAME="SECTION010111000000000000000">Mixed Type Numeric Expressions</A></H2>
+<P>
+If an expression mixes type, the compiler must automatically convert 
+(promote) one type to another.  Default types have an implied ordering:
+<P>
+<OL><LI> <TT>INTEGER</TT> -- lowest<LI> <TT>REAL</TT><LI> <TT>DOUBLE PRECISION</TT><LI> <TT>COMPLEX</TT> -- highest
+</OL>
+<P>
+For example, if an <TT>INTEGER</TT> is mixed with a <TT>REAL</TT> the <TT>INTEGER</TT> is promoted to
+(represented as) a <TT>REAL</TT> and then the calculation performed.
+<P>
+Consider,
+<P>
+<PRE>    int*real*dp*c</PRE>
+<P>
+the types are coerced as follows: <TT>int</TT> to <TT>REAL</TT> <TT>int*real</TT> to
+<TT>DOUBLE PRECISION</TT> and <TT>(int*real)*dp</TT> to <TT>COMPLEX</TT>.  The above expression is
+<TT>COMPLEX</TT> valued.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode83.html#MixedTypeExpressions1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html896" HREF="HTMLSlidesnode60.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html894" HREF="HTMLSlidesnode58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html888" HREF="HTMLSlidesnode58.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html898" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html897" HREF="HTMLSlidesnode60.html">Mixed Type Assignment</A>
+<B>Up:</B> <A NAME="tex2html895" HREF="HTMLSlidesnode58.html">Mixing Objects of Different </A>
+<B> Previous:</B> <A NAME="tex2html889" HREF="HTMLSlidesnode58.html">Mixing Objects of Different </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

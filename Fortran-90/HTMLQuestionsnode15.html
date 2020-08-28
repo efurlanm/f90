@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html264" HREF="HTMLQuestionsnode16.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html262" HREF="HTMLQuestionsnode14.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html258" HREF="HTMLQuestionsnode14.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html266" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html265" HREF="HTMLQuestionsnode16.html">Decimal to Roman Numerals </A>
+<B>Up:</B> <A NAME="tex2html263" HREF="HTMLQuestionsnode14.html">Mathematical Magic</A>
+<B> Previous:</B> <A NAME="tex2html259" HREF="HTMLQuestionsnode14.html">Mathematical Magic</A>
+<BR> <P>
+<H3><A NAME="SECTION00022100000000000000">Solution</A></H3>
+<PRE>    PROGRAM Math_Majik
+     IMPLICIT NONE
+     INTEGER num, tnum
+      outa: DO
+       PRINT*, &quot;Type in your number (0 terminates)&quot;
+       READ*, num
+       IF (num .LE. 0) EXIT
+       inna: DO
+        tnum = num/2
+        IF (2*tnum .EQ. num) THEN ! num even
+         num = tnum
+        ELSE ! Odd
+         num = 3*num+1
+        END IF
+        PRINT*, num
+        IF (num == 1) THEN
+         PRINT*, &quot;Sequence finishes nicely&quot;
+         EXIT
+        ELSE IF (num == 13) THEN
+         PRINT*, &quot;Yoiks, Extreme bad luck encountered - Exit&quot;
+         EXIT outa
+        END IF
+       END DO inna
+      END DO outa
+    END PROGRAM Math_Majik</PRE>
+<P>
+<OL><LI> 7 gives
+<P>
+<PRE> 22 11 34 17 52 26 13</PRE><LI> 106, 46, 3, 0 gives
+<P>
+<PRE> 53 160 80 40 20 10 5 16 8 4 2 1
+ 23 70 35 106 53 160 80 40 20 10 5 16 8 4 2 1
+ 10 5 16 8 4 2 1
+ &lt;end&gt;</PRE>
+<P>
+</OL>
+<P>
+<HR><A NAME="tex2html264" HREF="HTMLQuestionsnode16.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html262" HREF="HTMLQuestionsnode14.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html258" HREF="HTMLQuestionsnode14.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html266" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html265" HREF="HTMLQuestionsnode16.html">Decimal to Roman Numerals </A>
+<B>Up:</B> <A NAME="tex2html263" HREF="HTMLQuestionsnode14.html">Mathematical Magic</A>
+<B> Previous:</B> <A NAME="tex2html259" HREF="HTMLQuestionsnode14.html">Mathematical Magic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

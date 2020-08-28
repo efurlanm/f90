@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Forall Construct</TITLE>
+<META NAME="description" CONTENT="Forall Construct">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3008" HREF="HTMLNotesnode232.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3006" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3000" HREF="HTMLNotesnode230.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3010" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3009" HREF="HTMLNotesnode232.html">Pure Procedures</A>
+<B>Up:</B> <A NAME="tex2html3007" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3001" HREF="HTMLNotesnode230.html">Do-loops and Forall Statements</A>
+<BR> <P>
+<A NAME="ForallConstruct1">&#160;</A><H3><A NAME="SECTION02031500000000000000">Forall Construct</A></H3>
+<P>
+The <TT>FORALL</TT> construct, which is also in Fortran&nbsp;95,
+ is very similar to the <TT>FORALL</TT> statement except
+that the indices and mask can be used to control more than one parallel
+assignment (a bit like the <TT>WHERE</TT> construct). As well as containing
+regular assignment statements, the body of a <TT>FORALL</TT> may also contain a
+further <TT>FORALL</TT> block or a <TT>WHERE</TT> block. This can lead to
+mind-bendingly complex assignments being expressed very concisely!
+<P>
+It has the following syntax:
+<PRE><TT> 
+<TT>FORALL</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;forall-triplet</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > [, <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;scalar-mask </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]<TT>)</TT>
+<P>
+				  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;assignment-stmt </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+				 ....
+<P>
+<TT>END</TT> <TT>FORALL</TT>
+<P>
+</TT></PRE>
+<P>
+For example,
+<P>
+<PRE>    FORALL (i=1:n:2, j=n:1:-2, A(i,j).NE.0)
+           A(i,j) = 1/A(i,j) ! s1
+           A(i,i) = B(i)     ! s2
+    END FORALL</PRE>
+<P>
+<TT>s1</TT> executed first followed by <TT>s2</TT>
+<P>
+Can also nest <TT>FORALL</TT> s,
+<P>
+<PRE>    FORALL (i=1:3, j=1:3, i&gt;j)
+     WHERE  (ABS(A(i,i,j,j)) .LT. 0.1) A(i,i,j,j) = 0.0
+     FORALL (k=1:3, l=1:j, k+l&gt;i) A(i,j,k,l) = j*k+l
+    END FORALL</PRE>
+<P>
+The two examples given here demonstrate a <TT>FORALL</TT> containing two
+assignments and a <TT>FORALL</TT> containing nested <TT>WHERE</TT> and <TT>FORALL</TT> 
+statements.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode104.html#QMandelbrot"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html3008" HREF="HTMLNotesnode232.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3006" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3000" HREF="HTMLNotesnode230.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3010" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3009" HREF="HTMLNotesnode232.html">Pure Procedures</A>
+<B>Up:</B> <A NAME="tex2html3007" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3001" HREF="HTMLNotesnode230.html">Do-loops and Forall Statements</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

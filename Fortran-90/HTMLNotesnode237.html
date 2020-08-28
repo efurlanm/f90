@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Independent DO Loops - Conditions</TITLE>
+<META NAME="description" CONTENT="Independent DO Loops - Conditions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3075" HREF="HTMLNotesnode238.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3073" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3067" HREF="HTMLNotesnode236.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3077" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3076" HREF="HTMLNotesnode238.html">Independent Example 1</A>
+<B>Up:</B> <A NAME="tex2html3074" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3068" HREF="HTMLNotesnode236.html">The INDEPENDENT Directive</A>
+<BR> <P>
+<A NAME="IndependentConditions1">&#160;</A><H3><A NAME="SECTION02031800000000000000">Independent <TT>DO</TT> Loops - Conditions</A></H3>
+<P>
+There are a number of conditions imposed on <TT>INDEPENDENT</TT> which 
+ensure that it really does
+not matter which order the iterations are performed in.
+<P>
+If an <TT>INDEPENDENT</TT> loop
+<P>
+<UL><LI> assigns to same element twice parallel integrity would be lost,<LI> contains <TT>EXIT</TT>, <TT>STOP</TT> or <TT>PAUSE</TT> then the iterations must
+progress sequentially so as to ensure that the loop is terminated on the
+correct iteration,<LI> contains jumps out of loop then, again, the iterations must
+progress sequentially so as to ensure that the loop is terminated on the
+correct iteration,<LI> performs external I/O then the iterations must
+progress sequentially so as to ensure that the file is read from or
+written
+to in the correct order,<LI> prefixes statements other than <TT>DO</TT> or <TT>FORALL</TT> then it has no
+meaning and will cause an error.
+<P>
+</UL>
+<P>
+(Hint: To decide whether a Fortran&nbsp;90 or F<font size=-1><small>ORTRAN</small></font>&nbsp;77 loop is <TT>INDEPENDENT</TT> reverse
+the
+upper and lower bounds and negate the stride. If the loop still produces
+<EM>exactly</EM> the same effect then it must be <TT>INDEPENDENT</TT>.)
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3078" HREF="HTMLNotesnode238.html#SECTION02031810000000000000">Independent Example 1</A>
+<LI> <A NAME="tex2html3079" HREF="HTMLNotesnode239.html#SECTION02031820000000000000">Independent Example 2</A>
+</UL>
+<HR><A NAME="tex2html3075" HREF="HTMLNotesnode238.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3073" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3067" HREF="HTMLNotesnode236.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3077" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3076" HREF="HTMLNotesnode238.html">Independent Example 1</A>
+<B>Up:</B> <A NAME="tex2html3074" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3068" HREF="HTMLNotesnode236.html">The INDEPENDENT Directive</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

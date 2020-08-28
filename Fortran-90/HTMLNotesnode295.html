@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New Extensions</TITLE>
+<META NAME="description" CONTENT="New Extensions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3772" HREF="HTMLNotesnode296.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3770" HREF="HTMLNotesnode292.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3766" HREF="HTMLNotesnode294.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3774" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3773" HREF="HTMLNotesnode296.html">HPF-2</A>
+<B>Up:</B> <A NAME="tex2html3771" HREF="HTMLNotesnode292.html">Executable Features</A>
+<B> Previous:</B> <A NAME="tex2html3767" HREF="HTMLNotesnode294.html">Features Demoted to be </A>
+<BR> <P>
+<H4><A NAME="SECTION02057230000000000000">New Extensions</A></H4>
+<P>
+<UL><LI> subsets of processors and <TT>ON</TT> statement:
+<P>
+It will be possible to distribute objects onto subsets of processors and
+to specify that a particular assignment is executed on a particular
+processor.<LI> <TT>ON</TT> blocks:
+<P>
+Allows the compiler to be informed of the best location to perform a
+computation, in effect, the <TT>ON</TT> directive allows the ``owner-computes
+rule'' to be overridden. The <TT>ON</TT> directive may specify a single
+processor or a subset of processors (which introduces the concept of
+``active processor set'') and may also include a <TT>HOME</TT> expresssion
+to denote that the processor(s) which owns a particular element (or set of
+elements) should perform the calculation.<LI> <TT>RESIDENT</TT> directive/clause:
+<P>
+The <TT>RESIDENT</TT> clause can be used in conjunction with the <TT>ON</TT> directive and
+identifies variables that are resident on the current active processor
+set. In other words, 
+all the objects listed in the <TT>RESIDENT</TT> clause are local to the
+processor subset specified by the surrounding <TT>ON</TT> directive; processors
+absent from this subset will not have to partake in any
+communication required by the calculations in the <TT>ON</TT> block -- they can
+perform an entirely separate task.<LI> <TT>TASK_REGION</TT> blocks:
+<P>
+The provision of <TT>TASK_REGION</TT>  blocks allows parallel sections (two
+disjoint subsets of processors performing different tasks at the same
+time), nested parallelism (nested <TT>TASK_REGION</TT> s can further subdivide
+an active processor set to form a tree of independent tasks) and data 
+parallel pipelines (the results from one processor subset can be
+piped into a different disjoint set thus forming a pipline).<LI> new library procedures:
+<P>
+<TT>SORT_UP</TT> and <TT>SORT_DOWN</TT> procedures are added to the library. Some
+procedures have been slightly modified.<LI> new intrinsic procedures
+<P>
+A generalised (ie, multi-dimensional) <TT>TRANSPOSE</TT> has been introduced
+which accepts an input array and a 1-D vector that specifies the axis
+permutation.
+<P>
+In order that the active processor set can  be determined during
+execution, two new intrinsics, <TT>ACTIVE_NUM_PROCS</TT> and <TT>ACTIVE_PROCS_SHAPE</TT>\
+have been added. Additions to the existing mapping inquiry procedures have
+also been made to take account of the new distribution methods.<LI> asynchronous I/O
+<P>
+Allow I/O to be performed whilst the program is executing. An extension
+to the <TT>OPEN</TT> statement configures a particular unit for asynchronous
+transfer and a new command, <TT>WAIT</TT>, 
+forces execution to suspend until the previously invoked I/O
+has terminated.<LI> recognised externally supported HPF  Extrinsics:
+The HPFF have recognised two interfaces to extrinsic mechanisms; these
+are <TT>HPF_CRAFT</TT> and F<font size=-1><small>ORTRAN</small></font>&nbsp;77 local library. The recognition of these
+intterfaces also highlights the mechanism whereby an extrinsic interface
+may be submitted to the HPFF for official recognition. There now exists
+a standardised method of calling <TT>HPF_CRAFT</TT> or F<font size=-1><small>ORTRAN</small></font>&nbsp;77 local library
+routines from within HPF.
+</UL>
+<P>
+<HR><A NAME="tex2html3772" HREF="HTMLNotesnode296.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3770" HREF="HTMLNotesnode292.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3766" HREF="HTMLNotesnode294.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3774" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3773" HREF="HTMLNotesnode296.html">HPF-2</A>
+<B>Up:</B> <A NAME="tex2html3771" HREF="HTMLNotesnode292.html">Executable Features</A>
+<B> Previous:</B> <A NAME="tex2html3767" HREF="HTMLNotesnode294.html">Features Demoted to be </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

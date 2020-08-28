@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Printing Arrays</TITLE>
+<META NAME="description" CONTENT="Printing Arrays">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1451" HREF="HTMLNotesnode107.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1449" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1443" HREF="HTMLNotesnode105.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1453" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1452" HREF="HTMLNotesnode107.html">Input of Arrays</A>
+<B>Up:</B> <A NAME="tex2html1450" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1444" HREF="HTMLNotesnode105.html">Deallocating Arrays</A>
+<BR> <P>
+<A NAME="SimpleArrayIO1">&#160;</A><H3><A NAME="SECTION010311500000000000000">Printing Arrays</A></H3>
+<P>
+The conceptual ordering of array elements is useful for defining the
+order in which array elements are output. If <TT>A</TT> is a 2D array then:
+<P>
+<PRE>    PRINT*, A</PRE>
+<P>
+would produce output in Array Element Order:
+<P>
+<PRE>    A(1,1), A(2,1), A(3,1), ..., A(1,2), A(2,2), ...</PRE>
+<P>
+Sections of arrays can also be output, for example,
+<P>
+<PRE>    PRINT*, A(::2,::2)</PRE>
+<P>
+would produce:
+<P>
+<PRE>    A(1,1), A(3,1), A(5,1), ..., A(1,3), A(3,3), A(5,3), ...</PRE>
+<P>
+An array of more than one dimension is not formatted neatly, if it is 
+desired that the array be printed out row-by-row (or indeed column by column) 
+then this must be programmed explicitly.
+<P>
+This order could be changed by using intrinsic functions
+such as <TT>RESHAPE</TT>, <TT>TRANSPOSE</TT> or <TT>CSHIFT</TT>.
+<P>
+<HR><A NAME="tex2html1451" HREF="HTMLNotesnode107.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1449" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1443" HREF="HTMLNotesnode105.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1453" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1452" HREF="HTMLNotesnode107.html">Input of Arrays</A>
+<B>Up:</B> <A NAME="tex2html1450" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1444" HREF="HTMLNotesnode105.html">Deallocating Arrays</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

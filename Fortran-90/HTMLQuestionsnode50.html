@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html658" HREF="HTMLQuestionsnode51.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html656" HREF="HTMLQuestionsnode49.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html652" HREF="HTMLQuestionsnode49.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html660" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html659" HREF="HTMLQuestionsnode51.html">Travelling Salesman Problem</A>
+<B>Up:</B> <A NAME="tex2html657" HREF="HTMLQuestionsnode49.html">Salaries Example</A>
+<B> Previous:</B> <A NAME="tex2html653" HREF="HTMLQuestionsnode49.html">Salaries Example</A>
+<BR> <P>
+<H3><A NAME="SECTION000313100000000000000">Solution</A></H3>
+<PRE>  PROGRAM salaries_calculation
+   IMPLICIT NONE
+   INTEGER, DIMENSION(9) :: salaries = &amp;
+       (/10500,16140,22300,15960,14150,12180,13230,15760,31000/)
+   INTEGER, DIMENSION(9) :: category = (/1,2,3,2,1,1,1,2,3/)
+   REAL, DIMENSION(3) :: increment = (/.05,.04,.02/)
+   REAL :: sumsal
+    sumsal = 0.0
+    DO I = 1, 9
+     sumsal = sumsal + salaries(I) * increment(category(I))
+    END DO
+    PRINT*, 'Cost of increase (DO loop method) = ', sumsal
+  END PROGRAM salaries_calculation</PRE>
+<P>
+or, using array notation / intrinsics,
+<P>
+<PRE>  PROGRAM salaries_calculation2
+   IMPLICIT NONE
+   INTEGER, DIMENSION(9) :: salaries = &amp;
+       (/10500,16140,22300,15960,14150,12180,13230,15760,31000/)
+   INTEGER, DIMENSION(9) :: category = (/1,2,3,2,1,1,1,2,3/)
+   REAL, DIMENSION(3) :: increment = (/.05,.04,.02/)
+   REAL :: sumsal
+    sumsal = SUM(salaries * increment(category))
+    PRINT*, 'Cost of increase = ', sumsal
+  END PROGRAM salaries_calculation2</PRE>
+<P>
+<HR><A NAME="tex2html658" HREF="HTMLQuestionsnode51.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html656" HREF="HTMLQuestionsnode49.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html652" HREF="HTMLQuestionsnode49.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html660" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html659" HREF="HTMLQuestionsnode51.html">Travelling Salesman Problem</A>
+<B>Up:</B> <A NAME="tex2html657" HREF="HTMLQuestionsnode49.html">Salaries Example</A>
+<B> Previous:</B> <A NAME="tex2html653" HREF="HTMLQuestionsnode49.html">Salaries Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

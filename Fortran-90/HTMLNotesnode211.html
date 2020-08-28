@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Aligning Allocatable Arrays</TITLE>
+<META NAME="description" CONTENT="Aligning Allocatable Arrays">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2764" HREF="HTMLNotesnode212.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2762" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2756" HREF="HTMLNotesnode210.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2766" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2765" HREF="HTMLNotesnode212.html">Collapsing Dimensions</A>
+<B>Up:</B> <A NAME="tex2html2763" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2757" HREF="HTMLNotesnode210.html">Practical Example of Alignment</A>
+<BR> <P>
+<A NAME="DistributingAllocatablesII1">&#160;</A><H3><A NAME="SECTION02020400000000000000">Aligning Allocatable Arrays</A></H3>
+<P>
+Allocatable arrays may appear in <TT>ALIGN</TT> statements but
+<P>
+<UL><LI> the alignment takes place at allocation,<LI> an existing object may not be aligned with an unallocated object,
+</UL>
+<P>
+This means the array on the RHS, the <I>align-target</I>,
+ of the <TT>WITH</TT> must be in existence before
+the array on the LHS is aligned to it.
+<P>
+<A NAME="DistributingAllocatablesII2">&#160;</A>
+<P>
+Align (and distribution) statements containing references to allocatable
+arrays appear in the declarations area of the code as normal but the
+actual alignment (or distribution) only takes place after an object has
+been brought into existence. Consider the following example,
+<P>
+<PRE>      REAL, DIMENSION(:), ALLOCATABLE :: A,B
+!HPF$ ALIGN A(:) WITH B(:)</PRE>
+<P>
+then,
+<P>
+<PRE>      ALLOCATE (B(100),stat=ierr)
+      ALLOCATE (A(100),stat=ierr)</PRE>
+<P>
+is OK
+as the align-target <TT>B</TT> is allocated before the <EM>alignee</EM> <TT>A</TT>. 
+The statement,
+<P>
+<PRE>      ALLOCATE (B(100),A(100),stat=ierr)</PRE>
+<P>
+is also OK as the statement is executed from
+left to right; this means that the <I>align-target</I>, <TT>B</TT>, is again 
+allocated before <TT>A</TT>, however,
+<P>
+<PRE>      ALLOCATE (A(100),stat=ierr)
+      ALLOCATE (B(100),stat=ierr)</PRE>
+<P>
+is not
+because the alignee, <TT>A</TT>, would be allocated and an attempt would be
+made to align it with the align-target <TT>B</TT>. Since <TT>B</TT> does not yet
+exist, an error would ensue. The same would happen if both
+allocations appear in the same statement but in the wrong order, viz:
+<P>
+<PRE>      ALLOCATE (A(100),B(100),stat=ierr)</PRE>
+<P>
+because here the allocations take places from left to right.
+<TT>B</TT> should have been allocated first.
+<P>
+<A NAME="DistributingAllocatablesII3">&#160;</A>
+<P>
+There are quite reasonable guidelines on what can and cannot be done 
+with allocatables arrays. 
+Clearly one cannot <TT>ALIGN</TT> a regular array <TT>WITH</TT> an allocatable:
+<P>
+<PRE>      REAL, DIMENSION(:)              :: X
+      REAL, DIMENSION(:), ALLOCATABLE :: A
+!HPF$ ALIGN X(:) WITH A(:)                  ! WRONG</PRE>
+<P>
+because the colon notation implies that <TT>A</TT> must be the same size
+and shape as <TT>X</TT>. Since <TT>A</TT> is allocatable this may not be the
+case. It could also be that  <TT>A</TT> is smaller that <TT>X</TT> which again
+would not make sense. [Note: there is a problem in aligning allocatables
+to <TT>TEMPLATE</TT> s (see later for templates). Templates have a fixed size, so
+how does one know whether the allocatable will be larger than the
+template in one or more dimensions?]
+<P>
+Another pitfall,
+<P>
+<PRE>      REAL, DIMENSION(:), ALLOCATABLE :: A, B
+!HPF$ ALIGN A(:) WITH B(:)                  
+     ALLOCATE(B(100),stat=ierr)
+     ALLOCATE(A(50),stat=ierr)</PRE>
+<P>
+is due to the colon notation suggesting that
+<TT>A</TT> and <TT>B</TT> are conformable but the <TT>ALLOCATE</TT> statements
+clearly stating that they are not,  however, the third example,
+<P>
+<PRE>      REAL, DIMENSION(:), ALLOCATABLE :: A, B
+!HPF$ ALIGN A(i) WITH B(i)
+     ALLOCATE(B(100),stat=ierr)
+     ALLOCATE(A(50),stat=ierr)</PRE>
+<P>
+correctly states
+what was intended by the second example, does not use the colon notation
+and therefore does not imply conformance (no `<code>:</code> 's).
+Here <TT>A</TT> cannot be larger than <TT>B</TT>.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode95.html#QMatrixVectorMult"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html2764" HREF="HTMLNotesnode212.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2762" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2756" HREF="HTMLNotesnode210.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2766" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2765" HREF="HTMLNotesnode212.html">Collapsing Dimensions</A>
+<B>Up:</B> <A NAME="tex2html2763" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2757" HREF="HTMLNotesnode210.html">Practical Example of Alignment</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

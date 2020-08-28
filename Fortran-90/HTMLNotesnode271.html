@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Extrinsic instead of INDEPENDENT</TITLE>
+<META NAME="description" CONTENT="Extrinsic instead of INDEPENDENT">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3497" HREF="HTMLNotesnode272.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3495" HREF="HTMLNotesnode266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3491" HREF="HTMLNotesnode270.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3499" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3498" HREF="HTMLNotesnode272.html">Calls to the NAG </A>
+<B>Up:</B> <A NAME="tex2html3496" HREF="HTMLNotesnode266.html">Extrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3492" HREF="HTMLNotesnode270.html">Uses of Extrinsics</A>
+<BR> <P>
+<A NAME="ExtrinsicUseExamples1">&#160;</A><H3><A NAME="SECTION02051400000000000000">Extrinsic instead of <TT>INDEPENDENT</TT></A></H3>
+<P>
+One of the problems with current HPF compilers is the lack of support
+for <TT>INDEPENDENT</TT> <TT>DO</TT> loops. In general, the <TT>INDEPENDENT</TT> prefix is
+parsed and then ignored which means that  <TT>INDEPENDENT</TT> loops are
+executed sequentially. It must be stressed that this situation is only
+temporary and will be resolved in the near future as tools mature.
+<P>
+As long as the  <TT>INDEPENDENT</TT> <TT>DO</TT> loop does not involve any
+communication it is possible to simulate independent execution via
+the use of a cunningly written extrinsic procedure. The basic idea
+is to replace an <TT>INDEPENDENT</TT> 
+<TT>DO</TT> loop with a call to a local extrinsic into which a modified version
+of the loop is placed. There is a small overhead as the extrinsic
+function will have to work out what the loop bounds should be but the
+net effect is that every extrinsic is able to execute its <TT>DO</TT> loop at
+the same time, that is, in parallel.
+<P>
+Clearly, the extrinsic must be supplied with enough information to
+work out which array elements  it owns. This is trivial for a
+<TT>F90_LOCAL</TT> but a bit more tricky for a <TT>F77_LOCAL</TT>
+extrinsic:
+<P>
+<PRE> !HPF$ DISTRIBUTE A(*,CYCLIC)
+....
+ !HPF$ INDEPENDENT, NEW(i)
+ DO j = 1, n
+  DO i = 1, m
+   ! ... stuff missing
+   A(i,j) = ...
+  END DO
+ END DO
+....</PRE>
+<P>
+the loop can be replaced by a call to the <TT>EXTRINSIC</TT> <TT>Ext_Loop</TT>:
+<P>
+<PRE>....
+ CALL Ext_Loop(A,...)
+....</PRE>
+<P>
+The <TT>EXTRINSIC</TT> contains the loop with <TT>n</TT> and <TT>m</TT> modified.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode132.html#QIndependentLoopExtrinsics"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3500" HREF="HTMLNotesnode272.html#SECTION02051410000000000000">Calls to the NAG Library</A>
+</UL>
+<HR><A NAME="tex2html3497" HREF="HTMLNotesnode272.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3495" HREF="HTMLNotesnode266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3491" HREF="HTMLNotesnode270.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3499" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3498" HREF="HTMLNotesnode272.html">Calls to the NAG </A>
+<B>Up:</B> <A NAME="tex2html3496" HREF="HTMLNotesnode266.html">Extrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3492" HREF="HTMLNotesnode270.html">Uses of Extrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

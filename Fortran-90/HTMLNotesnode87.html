@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Type Conversion Functions</TITLE>
+<META NAME="description" CONTENT="Type Conversion Functions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1198" HREF="HTMLNotesnode88.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1196" HREF="HTMLNotesnode86.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1190" HREF="HTMLNotesnode86.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1200" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1199" HREF="HTMLNotesnode88.html">Mathematical Intrinsic Functions</A>
+<B>Up:</B> <A NAME="tex2html1197" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1191" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<BR> <P>
+<A NAME="TypeConversionFunctions1">&#160;</A><H3><A NAME="SECTION01024100000000000000">Type Conversion Functions</A></H3>
+<P>
+In Fortran&nbsp;90 it is easy to explicitly transform the type of a constant or
+variable by using the in-built intrinsic functions.
+<P>
+<UL><LI> <TT>REAL</TT><TT>(i)</TT> converts the integer <TT>i</TT> to the corresponding
+real approximation, the argument to <TT>REAL</TT> can be <TT>INTEGER</TT>, <TT>DOUBLE PRECISION</TT> or
+<TT>COMPLEX</TT>.<LI> <TT>INT</TT><TT>(x)</TT> converts real <TT>x</TT> to the integer equivalent
+following the truncation rules given before. The argument to <TT>INT</TT> can
+be <TT>REAL</TT>, <TT>DOUBLE PRECISION</TT> or <TT>COMPLEX</TT>.<LI> Other functions may form integers from non-integer values:
+<UL><LI> <TT>CEILING</TT><TT>(x)</TT> -- smallest integer greater or equal to <TT>
+x</TT>,<LI> <TT>FLOOR</TT><TT>(x)</TT> -- largest integer less or equal to <TT>
+x</TT>,<LI> <TT>NINT</TT><TT>(x)</TT> -- nearest integer to <TT>x</TT>.
+</UL><LI> <TT>DBLE</TT><TT>(a)</TT> converts <TT>a</TT> to <TT>DOUBLE PRECISION</TT>, the argument to
+<TT>DBLE</TT> can be <TT>INTEGER</TT>, <TT>REAL</TT> or <TT>COMPLEX</TT>.<LI> <TT>CMPLX</TT><TT>(x)</TT> --  converts <TT>x</TT> to a complex value,  <IMG WIDTH=38 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline21872" SRC="HTMLNotesimg9.gif"  > .<LI> <TT>IACHAR</TT><TT>(c)</TT> returns the position of <TT>CHARACTER</TT> <TT>c</TT> in the
+ASCII collating sequence, the argument must be a single <TT>CHARACTER</TT>.<LI> <TT>ACHAR</TT><TT>(i)</TT> returns the  <IMG WIDTH=15 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline22640" SRC="HTMLNotesimg14.gif"  >  character in the ASCII
+collating sequence, the argument <TT>ACHAR</TT> must be a single <TT>INTEGER</TT>.
+<P>
+</UL>
+<P>
+For example,
+<P>
+<PRE>    PRINT*, REAL(1), INT(1.7), INT(-0.9999)
+    PRINT*, IACHAR('C'), ACHAR(67)</PRE>
+<P>
+would give
+<P>
+<PRE>    1.000000 1 0
+    67 C</PRE>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode18.html#QControlNamesConcat"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1198" HREF="HTMLNotesnode88.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1196" HREF="HTMLNotesnode86.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1190" HREF="HTMLNotesnode86.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1200" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1199" HREF="HTMLNotesnode88.html">Mathematical Intrinsic Functions</A>
+<B>Up:</B> <A NAME="tex2html1197" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1191" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

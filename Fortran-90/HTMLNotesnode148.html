@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Module Global Data Example</TITLE>
+<META NAME="description" CONTENT="Module Global Data Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1965" HREF="HTMLNotesnode149.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1963" HREF="HTMLNotesnode146.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1957" HREF="HTMLNotesnode147.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1967" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1966" HREF="HTMLNotesnode149.html">Visualisation of Global Storage</A>
+<B>Up:</B> <A NAME="tex2html1964" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<B> Previous:</B> <A NAME="tex2html1958" HREF="HTMLNotesnode147.html">Module Global Data Example</A>
+<BR> <P>
+<A NAME="ModulesGlobalDataExample1">&#160;</A><H4><A NAME="SECTION01052220000000000000">Module Global Data Example</A></H4>
+<P>
+For example, the following defines a very simple 100 element integer
+stack,
+<P>
+<PRE>    MODULE stack
+     INTEGER, PARAMETER :: stack_size = 100
+     INTEGER, SAVE :: store(stack_size), pos = 0
+    END MODULE stack</PRE>
+<P>
+If <TT>stack_size</TT> and <TT>pos</TT>  did not have the <TT>SAVE</TT> attribute 
+and the module was not constantly in use in at least one program 
+unit then these objects would not be persistent. It is necessary to 
+either <TT>USE</TT> the module in the main program or else give the global 
+objects the <TT>SAVE</TT> 
+attribute. The latter is the safest! The declaration of <TT>
+stack_size</TT> as a <TT>PARAMETER</TT> allows the stack
+size to be easily modified; it 
+does not need the <TT>SAVE</TT> attribute (because its a constant).
+<P>
+Two (<TT>EXTERNAL</TT>) access functions can be defined to implement the stack.
+Both use the module containing the global data,
+<PRE>    SUBROUTINE push(i)
+     USE stack
+     IMPLICIT NONE
+     INTEGER, INTENT(IN) :: i
+     IF (pos &lt; stack_size) THEN
+      pos = pos + 1; store(pos) = i
+     ELSE
+      STOP 'Stack Full error'
+     END IF
+    END SUBROUTINE push
+    SUBROUTINE pop(i)
+     USE stack
+     IMPLICIT NONE
+     INTEGER, INTENT(OUT) :: i
+     IF (pos &gt; 0) THEN
+      i = store(pos); pos = pos - 1
+     ELSE
+      STOP 'Stack Empty error'
+     END IF
+    END SUBROUTINE pop</PRE>
+<P>
+A main program can now call <TT>push</TT> and <TT>pop</TT> which simulate adding
+to and removing from a 100 element <TT>INTEGER</TT> stack. The current state of 
+the stack, that is, the number of elements on the
+sack and the values of each location, are stored `behind the scenes'
+in a module as global data -- this is much neater than using <TT>COMMON</TT> 
+block. Any program that <TT>USE</TT> s <TT>stack</TT> has access to the global
+stack with whatever data is currently stored there.
+<P>
+Actually this is <B>not</B> the ultimate way of simulating a stack but 
+demonstrates global data. (See later for an improvement.)
+<P>
+<HR><A NAME="tex2html1965" HREF="HTMLNotesnode149.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1963" HREF="HTMLNotesnode146.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1957" HREF="HTMLNotesnode147.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1967" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1966" HREF="HTMLNotesnode149.html">Visualisation of Global Storage</A>
+<B>Up:</B> <A NAME="tex2html1964" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<B> Previous:</B> <A NAME="tex2html1958" HREF="HTMLNotesnode147.html">Module Global Data Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

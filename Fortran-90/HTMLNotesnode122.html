@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Main Program Syntax</TITLE>
+<META NAME="description" CONTENT="Main Program Syntax">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1654" HREF="HTMLNotesnode123.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1652" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1646" HREF="HTMLNotesnode121.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1656" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1655" HREF="HTMLNotesnode123.html">Main Program Example</A>
+<B>Up:</B> <A NAME="tex2html1653" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1647" HREF="HTMLNotesnode121.html">Procedure Classes</A>
+<BR> <P>
+<A NAME="MainProgram1">&#160;</A><H3><A NAME="SECTION01041300000000000000">Main Program Syntax</A></H3>
+<P>
+This is the only compulsory program unit, every program must have one:
+<PRE><TT> 
+[ <TT>PROGRAM</TT> [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;main program name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ] ]
+<P>
+ 		 		 ...
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;declaration of local objects </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+ 		 		 ...
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;executable stmts </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+ 		 		 ...
+<P>
+[ <TT>CONTAINS</TT>
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;internal procedure definitions </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+ <TT>END</TT> [ <TT>PROGRAM</TT> [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;main program name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ] ]
+<P>
+</TT></PRE>
+<P>
+The <TT>PROGRAM</TT> statement and  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;main program name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >   are optional,
+ however, it is good policy to always use them.   <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;main program name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+ can be any valid
+Fortran&nbsp;90 name.
+<P>
+The main program 
+contains declarations and executable statements
+and may also contain internal procedures. These internal
+ procedures are separated
+from the surrounding program unit, the <EM>host</EM> (in this case the main
+program), by a <TT>CONTAINS</TT> statement.
+Internal procedures may only 
+be called from within the surrounding program unit and 
+automatically have access to all the host program 
+unit's declarations but may  also override them.
+<P>
+<P><A NAME="8973">&#160;</A> <IMG WIDTH=316 HEIGHT=485 ALIGN=BOTTOM ALT="figure8971" SRC="HTMLNotesimg53.gif"  > <BR>
+<STRONG>Figure 7:</STRONG> Schematic Diagram of a Main Program<BR>
+<P>
+<P>
+Internal procedures may not contain
+further internal procedures, in other words the nesting level is 
+a maximum of 1.
+The diagram shows two internal procedures, <TT>Sub1</TT> and <TT>Funkyn</TT>
+however, there may be any number of internal procedures
+(subroutines or
+functions) which are wholly contained within the main program.
+<P>
+The main program may also contain calls to external procedures.
+The diagram represents two external procedures, <TT>ExtSub1</TT> and <TT>
+ExtFunn</TT>, however, again there may be any number of external procedures
+(subroutines or functions). External procedures are totally outside of
+the main program.
+<P>
+The main program must contain an <TT>END</TT> statement as its last (non-blank) 
+line.  For neatness sake 
+this should really be suffixed by <TT>PROGRAM</TT> (so it reads <TT>END</TT> 
+<TT>PROGRAM</TT>)  and should also have the name of the program attached too.
+Using as descriptive as possible <TT>END</TT> statements helps to reduce
+confusion.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1657" HREF="HTMLNotesnode123.html#SECTION01041310000000000000">Main Program Example</A>
+</UL>
+<HR><A NAME="tex2html1654" HREF="HTMLNotesnode123.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1652" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1646" HREF="HTMLNotesnode121.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1656" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1655" HREF="HTMLNotesnode123.html">Main Program Example</A>
+<B>Up:</B> <A NAME="tex2html1653" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1647" HREF="HTMLNotesnode121.html">Procedure Classes</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

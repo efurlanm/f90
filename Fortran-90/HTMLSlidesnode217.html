@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Independent Example 1</TITLE>
+<META NAME="description" CONTENT="Independent Example 1">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2900" HREF="HTMLSlidesnode218.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2898" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2892" HREF="HTMLSlidesnode216.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2902" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2901" HREF="HTMLSlidesnode218.html">Visualisation of Independent Loop</A>
+<B>Up:</B> <A NAME="tex2html2899" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2893" HREF="HTMLSlidesnode216.html">Independent Loops - Conditions</A>
+<BR> <P>
+<H2><A NAME="SECTION020414000000000000000">Independent Example 1</A></H2>
+<P>
+This is independent,
+<P>
+<PRE>    !HPF$ INDEPENDENT
+    DO i = 1, n
+     b(i) = b(i) + b(i)
+    END DO</PRE>
+<P>
+this is not, (dependence on order of execution),
+<P>
+<PRE>    DO i = 1, n
+     b(i) = b(i+1) + b(i)
+    END DO</PRE>
+<P>
+nor is this,
+<P>
+<PRE>    DO i = 1, n
+     b(i) = b(i-1) + b(i)
+    END DO</PRE>
+<P>
+however, this is
+<P>
+<PRE>!HPF$ INDEPENDENT
+    DO i = 1, n
+     a(i) = b(i-1) + b(i)
+    END DO</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode238.html#IndependentExample11"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2900" HREF="HTMLSlidesnode218.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2898" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2892" HREF="HTMLSlidesnode216.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2902" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2901" HREF="HTMLSlidesnode218.html">Visualisation of Independent Loop</A>
+<B>Up:</B> <A NAME="tex2html2899" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2893" HREF="HTMLSlidesnode216.html">Independent Loops - Conditions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

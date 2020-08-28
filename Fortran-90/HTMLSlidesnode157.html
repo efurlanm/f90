@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>HPF Directives</TITLE>
+<META NAME="description" CONTENT="HPF Directives">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2221" HREF="HTMLSlidesnode158.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2219" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2213" HREF="HTMLSlidesnode156.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2223" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2222" HREF="HTMLSlidesnode158.html">PROCESSORS Declaration</A>
+<B>Up:</B> <A NAME="tex2html2220" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2214" HREF="HTMLSlidesnode156.html">Language Covered</A>
+<BR> <P>
+<H2><A NAME="SECTION02034000000000000000">HPF Directives</A></H2>
+<P>
+Can give `hints' to the compiler:
+<PRE><TT> 
+<TT>!HPF$ </TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;hpf-directive </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  
+</TT></PRE>
+<P>
+Examples of declarative statements:
+<P>
+<PRE> !HPF$ PROCESSORS, DIMENSION(16)  :: P
+ !HPF$ TEMPLATE, &amp;
+ !HPF$           DIMENSION(4,4)   :: T1, T2
+ !HPF$ DISTRIBUTE                 :: A
+ !HPF$ DISTRIBUTE X(BLOCK)   
+ !HPF$ DISTRIBUTE (CYCLIC)        :: Y1, Y2
+ !HPF$ DISTRIBUTE (BLOCK,*) ONTO P :: A</PRE>
+<P>
+Note: all HPF names must be different to Fortran&nbsp;90 names.
+<P>
+Examples of executable statements,
+<P>
+<PRE> !HPF$ INDEPENDENT, NEW(i)</PRE>
+<P>
+Compiler is at liberty to ignore any (or all) directives.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode179.html#Directives1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2221" HREF="HTMLSlidesnode158.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2219" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2213" HREF="HTMLSlidesnode156.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2223" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2222" HREF="HTMLSlidesnode158.html">PROCESSORS Declaration</A>
+<B>Up:</B> <A NAME="tex2html2220" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2214" HREF="HTMLSlidesnode156.html">Language Covered</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

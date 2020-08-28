@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Element Ordering</TITLE>
+<META NAME="description" CONTENT="Array Element Ordering">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1319" HREF="HTMLNotesnode95.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1317" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1311" HREF="HTMLNotesnode93.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1321" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1320" HREF="HTMLNotesnode95.html">Array Syntax</A>
+<B>Up:</B> <A NAME="tex2html1318" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1312" HREF="HTMLNotesnode93.html">Declarations</A>
+<BR> <P>
+<A NAME="ArrayElementOrdering1">&#160;</A><H3><A NAME="SECTION01031300000000000000">Array Element Ordering</A></H3>
+<P>
+Fortran&nbsp;90 does not have any storage association<A NAME="tex2html13" HREF="HTMLNotesfootnode.html#6772"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, this means that, unlike
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77, the standard does not specify how arrays are to be organised in
+memory.
+The lack of implicit storage association makes it easier to write portable
+programs and allows compiler writers more freedom to implement local
+optimisations. For example, in  distributed memory computers an array may be
+stored over 100 processors with each processor owning only a small
+section of the whole array -- the standard will allow this.
+<P>
+There are certain situations where an ordering is needed, for example,
+during input or output and in these circumstances Fortran&nbsp;90 does define ordering 
+which can be used in such contexts. It is defined in the same manner as the
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 storage
+association but it does <B>not</B> imply anything about how array
+elements are stored.
+<P>
+The array element ordering is again of column major form:
+<P>
+<PRE> C(1,1),C(2,1),..,C(5,1),C(1,2),C(2,2),..,C(5,3)</PRE>
+<P>
+<P><A NAME="6767">&#160;</A> <IMG WIDTH=292 HEIGHT=324 ALIGN=BOTTOM ALT="figure6765" SRC="HTMLNotesimg26.gif"  > <BR>
+<STRONG>Figure 2:</STRONG> Visualisation Of Array Element Ordering<BR>
+<P>
+<P>
+This ordering is used in array constructors, I/O statements, certain
+intrinsics (<TT>TRANSFER</TT>, <TT>RESHAPE</TT>, <TT>PACK</TT>, <TT>UNPACK</TT> and <TT>MERGE</TT>) and any
+other contexts where an ordering is needed.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode29.html#QArrayOrdering"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1319" HREF="HTMLNotesnode95.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1317" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1311" HREF="HTMLNotesnode93.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1321" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1320" HREF="HTMLNotesnode95.html">Array Syntax</A>
+<B>Up:</B> <A NAME="tex2html1318" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1312" HREF="HTMLNotesnode93.html">Declarations</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

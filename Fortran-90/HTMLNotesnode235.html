@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>MIMD Example</TITLE>
+<META NAME="description" CONTENT="MIMD Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3053" HREF="HTMLNotesnode236.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3051" HREF="HTMLNotesnode232.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3047" HREF="HTMLNotesnode234.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3055" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3054" HREF="HTMLNotesnode236.html">The INDEPENDENT Directive</A>
+<B>Up:</B> <A NAME="tex2html3052" HREF="HTMLNotesnode232.html">Pure Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3048" HREF="HTMLNotesnode234.html">Pure Subroutine Example</A>
+<BR> <P>
+<A NAME="MIMDExample1">&#160;</A><H4><A NAME="SECTION02031630000000000000">MIMD Example</A></H4>
+<P>
+MIMD stands for Multiple Instructions Multiple Data. The following
+example merely illustrates that if a <TT>PURE</TT> procedure contains an
+<TT>IF</TT> block then each processor could be performing a different task at
+the same time.
+<P>
+<PRE>    REAL FUNCTION F(x,i) ! PURE
+     IMPLICIT NONE
+     REAL, INTENT(IN) :: x    ! element
+     INTEGER, INTENT(IN) :: i ! index
+      IF (x &gt; 0.0) THEN
+       F = x*x
+      ELSEIF (i==1 .OR. i==n) THEN
+       F = 0.0
+      ELSE
+       F = x
+      END IF
+    END FUNCTION F</PRE>
+<P>
+If desired this approach could be used as alternative to <TT>WHERE</TT> or <TT>FORALL</TT>.
+<P>
+<HR><A NAME="tex2html3053" HREF="HTMLNotesnode236.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3051" HREF="HTMLNotesnode232.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3047" HREF="HTMLNotesnode234.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3055" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3054" HREF="HTMLNotesnode236.html">The INDEPENDENT Directive</A>
+<B>Up:</B> <A NAME="tex2html3052" HREF="HTMLNotesnode232.html">Pure Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3048" HREF="HTMLNotesnode234.html">Pure Subroutine Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

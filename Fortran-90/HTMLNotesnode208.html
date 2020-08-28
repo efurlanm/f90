@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Strided Alignment Example</TITLE>
+<META NAME="description" CONTENT="Strided Alignment Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2733" HREF="HTMLNotesnode209.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2731" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2725" HREF="HTMLNotesnode207.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2735" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2734" HREF="HTMLNotesnode209.html">Reverse Strided Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2732" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2726" HREF="HTMLNotesnode207.html">Transposed Alignment Example</A>
+<BR> <P>
+<A NAME="FurtherAlignmentExample1">&#160;</A><H4><A NAME="SECTION02020340000000000000">Strided Alignment Example</A></H4>
+<P>
+Align each element of <TT>D</TT> with every second element of <TT>E</TT>:
+<P>
+<PRE>    REAL, DIMENSION(5)  :: D
+    REAL, DIMENSION(10) :: E
+!HPF$ ALIGN D(:) WITH E(1::2)</PRE>
+<P>
+Here, <TT>D(1)</TT> is aligned with <TT>E(1)</TT>,
+<TT>D(2)</TT> is aligned with <TT>E(3)</TT>, <TT>D(3)</TT> with <TT>E(5)</TT> and so
+on. This form of strided alignment is specified using the subscript-triplet
+(or colon) notation. Effectively, this says:   <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline23732" SRC="HTMLNotesimg110.gif"  >  <TT>i</TT>, elements
+<TT>D(i)</TT> and <TT>E(i*2-1)</TT> are aligned.
+<P>
+This alignment could also be written:
+<P>
+<PRE>!HPF$ ALIGN D(i) WITH E(i*2-1)</PRE>
+<P>
+These alignments may be visualised as in Figure
+<A HREF="HTMLNotesnode208.html#StridedAlignmentVisualisationfig">28</A>.
+<P>
+<P><A NAME="13819">&#160;</A><A NAME="StridedAlignmentVisualisationfig">&#160;</A> <IMG WIDTH=267 HEIGHT=212 ALIGN=BOTTOM ALT="figure13816" SRC="HTMLNotesimg116.gif"  > <BR>
+<STRONG>Figure 28:</STRONG> Visualisation of Strided Alignment<BR>
+<P>
+<P>
+This alignment is suitable for,
+<P>
+<PRE> D = D + E(::2) ! All local</PRE>
+<P>
+<HR><A NAME="tex2html2733" HREF="HTMLNotesnode209.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2731" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2725" HREF="HTMLNotesnode207.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2735" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2734" HREF="HTMLNotesnode209.html">Reverse Strided Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2732" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2726" HREF="HTMLNotesnode207.html">Transposed Alignment Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Descriptive Distribution</TITLE>
+<META NAME="description" CONTENT="Descriptive Distribution">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3245" HREF="HTMLNotesnode251.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3243" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3237" HREF="HTMLNotesnode249.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3247" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3246" HREF="HTMLNotesnode251.html">Examples of Dummy Distributions</A>
+<B>Up:</B> <A NAME="tex2html3244" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3238" HREF="HTMLNotesnode249.html">Prescriptive Distribution</A>
+<BR> <P>
+<A NAME="DescriptiveDistribution1">&#160;</A><H3><A NAME="SECTION02041400000000000000">Descriptive Distribution</A></H3>
+<P>
+Assert that alignment and distribution is as specified, minimises
+communications. For example,
+<P>
+<PRE>    SUBROUTINE Subby(A,B,RES)
+     IMPLICIT NONE
+     REAL, DIMENSION(:,:), INTENT(IN)   :: A, B
+     REAL, DIMENSION(:,:), INTENT(OUT)  :: RES
+!HPF$ PROCESSORS, DIMENSION(2,2)        :: P
+!HPF$ TEMPLATE, DIMENSION(4,6)          :: T
+!HPF$ DISTRIBUTE *(BLOCK,BLOCK) ONTO *P :: T
+!HPF$ ALIGN (:,:) WITH *T(:,:)          :: A, B, RES
+       ...
+    END SUBROUTINE Subby</PRE>
+<P>
+Here, the directives are asserting that the distribution already is
+as specified in the directives. The <TT>*</TT>, when applied to an
+object or distribution method, says that this is how things already are.
+So
+<P>
+<PRE>  !HPF$ DISTRIBUTE *(BLOCK,BLOCK) ONTO *P :: T</PRE>
+<P>
+says ``the <TT>TEMPLATE</TT> <TT>T</TT> is already distributed <TT>(BLOCK,BLOCK)</TT>
+on to the processor grid <TT>P</TT>''. The compiler is bound to check that
+this
+is indeed the case and, if it is not, it must perform the relevant
+remapping to make it so. The HPFF have modified their language
+specification to say that if the mapping is not as asserted in the
+procedure then an explicit interface must be provided to allow remapping
+to take place.
+<P>
+Because these descriptive mapping assertions give the compiler knowledge
+about where data is located, it is recommended that this style of
+directives are used.
+<P>
+Specifying an interface is highly recommended and the mapping 
+directives which apply to the dummy arguments should be included.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3248" HREF="HTMLNotesnode251.html#SECTION02041410000000000000">Examples of Dummy Distributions</A>
+</UL>
+<HR><A NAME="tex2html3245" HREF="HTMLNotesnode251.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3243" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3237" HREF="HTMLNotesnode249.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3247" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3246" HREF="HTMLNotesnode251.html">Examples of Dummy Distributions</A>
+<B>Up:</B> <A NAME="tex2html3244" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3238" HREF="HTMLNotesnode249.html">Prescriptive Distribution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

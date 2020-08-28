@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>PRINT Statement</TITLE>
+<META NAME="description" CONTENT="PRINT Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1121" HREF="HTMLNotesnode81.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1119" HREF="HTMLNotesnode79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1113" HREF="HTMLNotesnode79.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1123" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1122" HREF="HTMLNotesnode81.html">READ Statement</A>
+<B>Up:</B> <A NAME="tex2html1120" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<B> Previous:</B> <A NAME="tex2html1114" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<BR> <P>
+<A NAME="SimpleScalarIO1">&#160;</A><H3><A NAME="SECTION01022100000000000000"><TT>PRINT</TT> Statement</A></H3>
+<P>
+This is the simplest form of directing unformatted data to the standard
+output channel, for example,
+<P>
+<PRE>    CHARACTER(LEN=*), PARAMETER :: long_name = &amp;
+              &quot;Llanphairphwyll...gogogoch&quot;
+    REAL :: x, y, z
+    LOGICAL lacigol
+    x = 1; y = 2; z = 3
+    lacigol = (y .eq. x)
+    PRINT*, long_name
+    PRINT*, &quot;Spock says &quot;&quot;illogical&amp;
+            &amp;Captain&quot;&quot; &quot;
+    PRINT*, &quot;X = &quot;,x,&quot; Y = &quot;,y,&quot; Z = &quot;,z
+    PRINT*, &quot;Logical val: &quot;,lacigol
+    END</PRE>
+<P>
+produces on the screen,
+<P>
+<PRE>    Llanphairphwyll...gogogoch
+    Spock says &quot;illogical Captain&quot;
+    X =    1.000  Y =    2.000  Z =    3.000
+    Logical val:  F</PRE>
+<P>
+<A NAME="SimpleScalarIO2">&#160;</A>
+<P>
+As can be seen from the above example, the <TT>PRINT</TT> statement takes a
+comma separated list of things to print, the list can be any printable
+object including user-defined types (as long as they don't contain
+pointers). The <TT>*</TT> indicates the output is in free (default)
+format.
+Fortran&nbsp;90 supports a great wealth of output (and input) formatting which is
+not all described here!
+<P>
+There are a couple of points to raise,
+<P>
+<UL><LI> <TT>LOGICAL</TT> variables can be printed,
+<P>
+<PRE>    lacigol = (y .eq. x)</PRE>
+<P>
+generates an <TT>F</TT> signifying <TT>.FALSE.</TT>.<LI> Strings can be split across lines,
+<P>
+<PRE>    PRINT*, &quot;Spock says &quot;&quot;illogical&amp;
+            &amp;Captain&quot;&quot; &quot;</PRE>
+<P>
+ If a <TT>CHARACTER</TT> string crosses a line indentation can still be
+used if an <TT>&amp;</TT> is appended to the end of the first line and the
+position from where the string is wanted to begin on the second - see
+the Spock line in the example;  the <TT>&amp;</TT> s act like a single
+space.<LI>  The double <TT>&quot;</TT> in the string,
+the first one <EM>escapes</EM> the second.  Strings may be delimited by the
+double or single quote symbols, <TT>&quot;</TT> and <TT>'</TT>, but these may not
+be mixed in order to delimit a string. The following
+would produce the same output as the statement in the program,
+<P>
+<PRE>    PRINT*, 'Spock says &quot;illogical&amp;
+            &amp;Captain&quot; '</PRE>
+<P>
+In this case the (unsued <TT>&quot;</TT>) delimiter does not have to be
+escaped.<LI> Notice how the output has many more spaces than the <TT>PRINT</TT> 
+statement indicates. This is because output is unformatted. The default
+formatting is likely to be different between compilers.<LI> Each <TT>PRINT</TT> statement begins a new line, non-advancing I/O is
+available but we have to specify it in a <TT>FORMAT</TT> statement.
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html1121" HREF="HTMLNotesnode81.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1119" HREF="HTMLNotesnode79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1113" HREF="HTMLNotesnode79.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1123" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1122" HREF="HTMLNotesnode81.html">READ Statement</A>
+<B>Up:</B> <A NAME="tex2html1120" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<B> Previous:</B> <A NAME="tex2html1114" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

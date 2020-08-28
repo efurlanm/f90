@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Statement Ordering</TITLE>
+<META NAME="description" CONTENT="Statement Ordering">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html706" HREF="HTMLNotesnode47.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html704" HREF="HTMLNotesnode39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html700" HREF="HTMLNotesnode45.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html708" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html707" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B>Up:</B> <A NAME="tex2html705" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B> Previous:</B> <A NAME="tex2html701" HREF="HTMLNotesnode45.html">Comments</A>
+<BR> <P>
+<A NAME="StatementOrder1">&#160;</A><H3><A NAME="SECTION01016700000000000000">Statement Ordering</A></H3>
+<P>
+  Fortran has some quite strict rules about the order of statements.
+ Basically in any program or procedure the following rules must be
+used:
+<P>
+<OL><LI>  The program heading statement must come first, (<TT>PROGRAM</TT>,
+      <TT>FUNCTION</TT> or <TT>SUBROUTINE</TT>). A <TT>PROGRAM</TT> statement is optional but
+its use is recommended.<LI>  All the specification statements must precede the first executable
+     statement. Even though <TT>DATA</TT> statements may be placed with
+executable text it is far clearer if they lie in the declaration area.
+It is also a good idea to group <TT>FORMAT</TT> statements together for
+clarity's sakes.<LI>  The executable statements must follow in the order required by the
+     logic of the program.<LI>  The program or procedure must terminate with an <TT>END</TT> statement.
+</OL>
+<P>
+ Within the set of specification statements there is relatively little
+ordering required,  however, in general if one entity is used in the
+specification of another, it is normally required that it has been 
+previously defined.
+In other words, named constants (<TT>PARAMETER</TT> s) must be declared before 
+they can be used as part of the declaration of other objects.
+<P>
+The following table  details the prescribed ordering:
+<P>
+<P> <IMG WIDTH=533 HEIGHT=486 ALIGN=BOTTOM ALT="tabular2546" SRC="HTMLNotesimg8.gif"  > <P>
+<P>
+Execution of a program begins at the first executable statement of the
+<TT>MAIN</TT> <TT>PROGRAM</TT>, when a procedure is called execution begins with
+the first executable statement after the invoked entry point. The
+non-executable statements are conceptually `executed' (!) simultaneously
+on program initiation, in other words they are referenced once and
+once only when execution of the main program begins.
+<P>
+There now follows a explanation of the table, 
+<UL><LI> There can be only 1 main <TT>PROGRAM</TT>,<LI> there may be many uniquely named  <TT>FUNCTION</TT> s and <TT>SUBROUTINE</TT> s
+program units (procedures).<LI> there may be any number of uniquely named <TT>MODULE</TT> s which are
+associated with a program through a <TT>USE</TT> statement. Modules are very
+flexible program units and are used to package a number of facilities
+(for example, procedures, type definitions, object declarations, or
+semantic extensions). Their use is very much encouraged and they replace
+a number of unsafe features of F<font size=-1><small>ORTRAN</small></font>&nbsp;77.<LI> There can be only one <TT>BLOCK</TT> <TT>DATA</TT> subprogram -- these will not
+be described as part of this course -- their purpose is to define
+global constants or global initialisation and this is best done by a
+<TT>MODULE</TT> and <TT>USE</TT> statement.<LI> <TT>USE</TT> statement:
+<P>
+This attaches a module whose entities become <EM>use-associated</EM> with
+the program unit. When a module is used its public contents are accessible as
+if they had been declared explicitly in the program unit. Modules may
+be pre-compiled (like a library) or may be written by the programmer.
+<P>
+Any global entities should be placed in  a module and then used whenever
+access is required.<LI> The <TT>IMPLICIT</TT> <TT>NONE</TT> statement should be placed after a <TT>USE</TT> statement.
+Its use is implored.<LI> <TT>FORMAT</TT> and <TT>ENTRY</TT> statements. Format statements should be grouped
+together somewhere in the code. <TT>ENTRY</TT> statements provide a mechanism
+to `drop' into a procedure halfway through the executable code. Their
+use is outmoded and strongly discouraged due it its dangerous nature.<LI>  <TT>PARAMETER</TT> statement and <TT>IMPLICIT</TT> statement:
+<P>
+<TT>IMPLICIT</TT> statements should not be used, <TT>IMPLICIT</TT> <TT>NONE</TT> should be
+the only form of implicit typing considered. (<TT>IMPLICIT</TT> statements
+allow the user to redefine the implication of an object's first letter
+in determining what its implicit type will be if it is not declared.
+ Cannot have an <TT>IMPLICIT</TT> statement if there is an
+<TT>IMPLICIT</TT> <TT>NONE</TT> line.)
+<P>
+<TT>PARAMETER</TT> statements, it is suggested that the attributed (Fortran&nbsp;90) style of
+<TT>PARAMETER</TT> declaration be used.<LI> <TT>DATA</TT> statements should (but do not have to) be placed in the
+declaration,  common practice puts them after the declarations and
+before the executables.<LI> Interface blocks are generally placed at the head of the declarations
+and are grouped together.
+<P>
+Statement functions are a form of in-line statement definition,
+internal procedures should be used instead.<LI> executable statements are things like <TT>DO</TT> statements, <TT>IF</TT> 
+constructs
+and assignment statements.<LI> <TT>CONTAINS</TT> separates the ``main'' program unit from any
+locally visible internal procedures.<LI> the internal procedures follow the same layout as a (normal)
+procedure except that they cannot contain a second level of internal
+procedure.<LI> the <TT>END</TT> statement is essential to delimit the current program
+unit.
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html706" HREF="HTMLNotesnode47.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html704" HREF="HTMLNotesnode39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html700" HREF="HTMLNotesnode45.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html708" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html707" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B>Up:</B> <A NAME="tex2html705" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B> Previous:</B> <A NAME="tex2html701" HREF="HTMLNotesnode45.html">Comments</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

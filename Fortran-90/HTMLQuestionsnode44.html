@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html595" HREF="HTMLQuestionsnode45.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html593" HREF="HTMLQuestionsnode43.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html589" HREF="HTMLQuestionsnode43.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html597" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html596" HREF="HTMLQuestionsnode45.html">Vector Subscripts / MAXLOC</A>
+<B>Up:</B> <A NAME="tex2html594" HREF="HTMLQuestionsnode43.html">Operations on arrays and </A>
+<B> Previous:</B> <A NAME="tex2html590" HREF="HTMLQuestionsnode43.html">Operations on arrays and </A>
+<BR> <P>
+<H3><A NAME="SECTION000310100000000000000">Solution</A></H3>
+Here is the program:
+<P>
+<PRE>PROGRAM A_and_X
+
+ IMPLICIT NONE
+ INTEGER, PARAMETER,            &amp;
+          DIMENSION(2,3) :: A = &amp;
+          RESHAPE((/-4,6,5,-7,9,8/),(/2,3/))
+ REAL,    PARAMETER,            &amp;
+          DIMENSION(5)   :: X = &amp;
+          (/1.5,-1.9,1.7,-1.2,0.3/)
+ INTEGER                 :: M, N
+
+  M = SIZE(A,1) ! # elts in dim 1
+  N = SIZE(A,2) ! # elts in dim 2
+
+  PRINT*, &quot;M and N are&quot;, M, N
+
+  PRINT*, A(1,:)
+  PRINT*, A(2,:)
+
+! i)
+  PRINT*, &quot;The sum of the product of the columns of A&quot;,&amp;
+           SUM(PRODUCT(A,DIM=1))
+! ii)
+  PRINT*, &quot;The product of the sum of the row elements of A&quot;, &amp;
+           PRODUCT(SUM(A,DIM=2))
+! iii)
+  PRINT*, &quot;The sum of squares of the elements of X&quot;,&amp;
+           SUM(X*X)
+! iii) ALT
+  PRINT*, &quot;The sum of squares of the elements of X&quot;,&amp;
+           DOT_PRODUCT(X,X)
+! iv)
+  PRINT*, &quot;The mean of the elements of X&quot;, &amp;
+           SUM(X)/SIZE(X)
+! v)
+  PRINT*, &quot;The sum of the positive elements of X&quot;, &amp;
+           SUM(X,MASK=X.GT.0)
+! vi)
+  PRINT*, &quot;The infinity norm of X&quot;, &amp;
+           MAXVAL(ABS(X))
+! vii)
+  PRINT*, &quot;The one norm of A&quot;, &amp;
+           MAXVAL(SUM(ABS(A),1))
+
+END PROGRAM A_and_X</PRE>
+<P>
+<HR><A NAME="tex2html595" HREF="HTMLQuestionsnode45.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html593" HREF="HTMLQuestionsnode43.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html589" HREF="HTMLQuestionsnode43.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html597" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html596" HREF="HTMLQuestionsnode45.html">Vector Subscripts / MAXLOC</A>
+<B>Up:</B> <A NAME="tex2html594" HREF="HTMLQuestionsnode43.html">Operations on arrays and </A>
+<B> Previous:</B> <A NAME="tex2html590" HREF="HTMLQuestionsnode43.html">Operations on arrays and </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

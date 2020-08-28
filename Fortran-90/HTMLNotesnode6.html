@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Brief History of FORTRAN&nbsp;77</TITLE>
+<META NAME="description" CONTENT="A Brief History of FORTRAN&nbsp;77">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html226" HREF="HTMLNotesnode7.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html224" HREF="HTMLNotesnode5.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html218" HREF="HTMLNotesnode5.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html228" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html227" HREF="HTMLNotesnode7.html">Drawbacks of FORTRAN&nbsp;77</A>
+<B>Up:</B> <A NAME="tex2html225" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<B> Previous:</B> <A NAME="tex2html219" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<BR> <P>
+<A NAME="History1">&#160;</A><H3><A NAME="SECTION01012100000000000000">A Brief History of F<font size=-1><small>ORTRAN</small></font>&nbsp;77</A></H3>
+<P>
+     Fortran, which originally stood for <I>IBM Mathematical FORmula 
+TRANslation System</I> but has been abbreviated to <I>FORmula TRANslation</I>, 
+ is the oldest of the established ``high-level'' languages, having
+ been designed by a group in IBM during the late 1950s.  The language
+ became so popular in the early 1960s that other vendors started to produce
+ their own versions and this led to a growing divergence of dialects 
+(by 1963 there were 40 different compilers).  It was
+ recognised that such divergence was not in the interests of either the
+ computer users or the computer vendors and so F<font size=-1><small>ORTRAN</small></font>&nbsp;66 became the first
+ language to be officially standardised in 1972 (it is quite common for
+the Fortran version number to be out of step with the standardisation
+year).  The publication of the standard meant that Fortran
+ became more widely implemented than any other language.  By the mid 
+ 1970s virtually every computer, mini or mainframe, was supplied with a
+ standard-conforming F<font size=-1><small>ORTRAN</small></font>&nbsp;66  language processing system.  It was
+ therefore possible to write programs in Fortran on any one system and be
+ reasonably confident that these could be moved fairly easily to work on any
+ other system.  This, and the fact
+ that Fortran programs could be processed very efficiently, led to Fortran
+ being the most heavily-used programming language for non-commercial
+ applications.
+<P>
+      The standard definition of Fortran was updated in the late 1970's and
+ a new standard, ANSI X3.9-1978, was published by the American National
+ Standards Institute.  This standard was subsequently (in 1980) adopted by
+ the International Standards Organisation (ISO) as an International Standard
+ (IS 1539 : 1980). The language is commonly known as F<font size=-1><small>ORTRAN</small></font>&nbsp;77 (since the final draft
+ was actually completed in 1977) and is the version of the language now in
+ widespread use. Compilers, which
+usually support a small number of extensions have, over the years,
+become <EM>very</EM> efficient. The technology which as been developed
+during the implementation of these compilers will not be wasted as it can still 
+be applied to Fortran&nbsp;90 programs.
+<P>
+The venerable nature of Fortran and the rather conservative character
+of the 1977 standard revision left F<font size=-1><small>ORTRAN</small></font>&nbsp;77 with a number of old-fashioned
+ facilities that might be termed deficiencies, or at least
+infelicities. Many desirable features were
+not available, for example, in F<font size=-1><small>ORTRAN</small></font>&nbsp;77 it is very difficult to represent data
+structures succinctly and the lack of any dynamic storage means that all
+arrays must have a fixed size which can not be exceeded; it was
+clear from a very early stage that a new, more modern, language needed to
+be developed. Work began in early 80's on a language known as `Fortran 8x'.
+(`x' was expected to be 8 in keeping with the previous names for Fortran.) 
+The work took 12 years partly due to the desire to keep F<font size=-1><small>ORTRAN</small></font>&nbsp;77 a strict subset
+and also to ensure that efficiency (one of the bonus's of a simple language)
+was not compromised. Languages such as Pascal, ADA and Algol are a treat
+to use but cannot match Fortran for efficiency.
+<P>
+Fortran&nbsp;90 is a major development of the language but nevertheless it
+includes all of F<font size=-1><small>ORTRAN</small></font>&nbsp;77 as a strict subset and so any standard conforming
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 program will continue to be a valid Fortran&nbsp;90 program.
+The main reason for this is due 
+to the vast amount of so-called  `dusty deck' programs that litter Scientific
+installations all over the world. Many man-years have been put
+into writing these programs which, after so many years of use (that is 
+in-the-field testing), are very reliable. Most of the dusty deck
+codes will be F<font size=-1><small>ORTRAN</small></font>&nbsp;77 but there are doubtless many lines of F<font size=-1><small>ORTRAN</small></font>&nbsp;66 too.
+<P>
+In addition to the old F<font size=-1><small>ORTRAN</small></font>&nbsp;77 constructs, 
+ Fortran&nbsp;90 allows programs to be expressed in ways that are more
+ suited to a modern computing environment and has rendered obsolete many
+of the mechanisms that were appropriate in F<font size=-1><small>ORTRAN</small></font>&nbsp;77.  Here, we 
+ have tried to present an approach to programming which uses the new
+ features of Fortran&nbsp;90 to good effect and which will result in portable,
+ efficient, safe and maintainable code.  We do not intended to present a
+ complete description of every possible feature of the language.
+<P>
+In Fortran&nbsp;90 some features of F<font size=-1><small>ORTRAN</small></font>&nbsp;77 have been replaced by better, safer and
+more efficient features, many of these are to be removed from the next
+interim revision of the language -- 
+Fortran&nbsp;95 although it is expected that many compilers will still support
+them as `extensions'. Tools exist to effect automatic removal of such
+obsolescent features, examples of these are (Pacific Sierra
+Research's) VAST90 and (NA Software's) LOFT90 In addition, these
+tools perform differing amounts of vectorisation (transliteration of
+serial structures to equivalent parallel structures).
+<P>
+As the Fortran&nbsp;90 standard is very large and complex there are (inevitably) 
+a small  number of
+ambiguities / conflicts / grey areas.  Such anomalies often only come to
+light when compliers are developed. Since standardisation many 
+compilers have been under development and a number of these anomalies 
+have been identified. A new standard, Fortran&nbsp;95, 
+will recitify these faults and extend the language in the appropriate
+areas. In the last couple of years the Fortran&nbsp;90 based language known as
+High Performance Fortran (HPF) has been developed. This language contains the
+whole of Fortran&nbsp;90 and also includes other desirable extensions. Fortran&nbsp;95 will
+include many of the new features from HPF<A NAME="tex2html1" HREF="HTMLNotesfootnode.html#1194"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, [<A HREF="HTMLNotesnode306.html#HPF93">5</A>].
+<P>
+<HR><A NAME="tex2html226" HREF="HTMLNotesnode7.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html224" HREF="HTMLNotesnode5.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html218" HREF="HTMLNotesnode5.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html228" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html227" HREF="HTMLNotesnode7.html">Drawbacks of FORTRAN&nbsp;77</A>
+<B>Up:</B> <A NAME="tex2html225" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<B> Previous:</B> <A NAME="tex2html219" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

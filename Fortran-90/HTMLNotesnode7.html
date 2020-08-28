@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Drawbacks of FORTRAN&nbsp;77</TITLE>
+<META NAME="description" CONTENT="Drawbacks of FORTRAN&nbsp;77">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html237" HREF="HTMLNotesnode8.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html235" HREF="HTMLNotesnode5.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html229" HREF="HTMLNotesnode6.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html239" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html238" HREF="HTMLNotesnode8.html">New Fortran&nbsp;90 Features</A>
+<B>Up:</B> <A NAME="tex2html236" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<B> Previous:</B> <A NAME="tex2html230" HREF="HTMLNotesnode6.html">A Brief History of </A>
+<BR> <P>
+<A NAME="Fortran77and901">&#160;</A><H3><A NAME="SECTION01012200000000000000">Drawbacks of F<font size=-1><small>ORTRAN</small></font>&nbsp;77</A></H3>
+<P>
+By todays standards F<font size=-1><small>ORTRAN</small></font>&nbsp;77 is outmoded -- many other languages have been
+developed which allow
+greater expressiveness and ease of programming. The main drawbacks have
+been identified as:
+<P>
+<OL><LI> F<font size=-1><small>ORTRAN</small></font>&nbsp;77 awkward `punched card' or `fixed form' source format.
+<P>
+Each line in a F<font size=-1><small>ORTRAN</small></font>&nbsp;77 program corresponds to
+a single punched card with 72 columns meaning that each line can only 
+be 72 characters long. This can cause problems and 
+in this day and age is totally unnecessary.
+<P>
+Other restrictions of F<font size=-1><small>ORTRAN</small></font>&nbsp;77:
+<P>
+<UL><LI> the first 5 columns are reserved for line numbers;<LI> the 6th column can only be used to indicate a continuation line;<LI> comments can only be initiated by marking the first column with a
+special character;<LI> only upper case letters are allowed anywhere in the program;<LI> variable names can only be 6 characters long meaning that mnemonic
+and cryptic names must be used all the time -- maintenance unfriendly!<LI> no in-line comments are allowed, comments must be on a line of
+their own;
+</UL><LI> Lack of inherent parallelism.
+<P>
+Fortran is supposed to be a performance language -- today High
+Performance Computing is implemented on Parallel machines -- F<font size=-1><small>ORTRAN</small></font>&nbsp;77 has no
+in-built
+way of expressing parallelism. In the past  calls to specially written
+vector subroutines have been used or reliance has been made
+on the compiler to vectorise (parallelise)
+the sequential (seriel) code. It is much more efficient to give the user control
+of parallelism. This has been done, to a certain extent, by the
+introduction of parallel `array syntax'.<LI> Lack of dynamic storage.
+<P>
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 only allows static storage for example, this means temporary
+short-lived arrays cannot be created on-the-fly nor can pointers, which
+are
+useful for implementing intuitive data structures, be used.
+All F<font size=-1><small>ORTRAN</small></font>&nbsp;77 programs  must declare arrays `big enough' for any future
+problem
+size which is an awkward and very unattractive restriction absent
+in virtually all of the current popular high-level languages.<LI> Lack of numeric portability.
+<P>
+Problems arise with precision when porting F<font size=-1><small>ORTRAN</small></font>&nbsp;77 code from one
+machine to another. Many F<font size=-1><small>ORTRAN</small></font>&nbsp;77 systems
+implement their own extensions to give greater precision, this means
+that the code becomes non-portable. Fortran&nbsp;90 has taken ideas for the various
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 extensions and improved them so that the new language is much more
+portable that before.<LI> Lack of user-defined data structures.
+<P>
+In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 intuitive (user-defined) data types not available as
+they are in ADA, Algol, C, Pascal etc.. Their presence would make
+programming more robust and simpler. In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 there is no way of defining
+compound objects.<LI> Lack of explicit recursion.
+<P>
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 does not support recursion which is  a very useful and succinct
+mathematical technique. In the past this
+had to be simulated using a user defined stack and access routines to
+manipulate stack entries. Recursion is a fairly simple and a code
+efficient concept and was, to all intents and purposes, unavailable.<LI> Relience on unsafe storage and sequence association features.
+<P>
+In F<font size=-1><small>ORTRAN</small></font>&nbsp;77, global data is only accessible via the notoriously
+open-to-abuse
+<TT>COMMON</TT> block. The rules which applied to <TT>COMMON</TT> blocks are very lax
+and the user could inadvertently do quite horrendous things! Fortran&nbsp;90 
+presents a new method of obtaining global data.  Another technique which is
+equally as open to abuse as <TT>COMMON</TT> blocks is that   a user is allowed to
+ alias an array using an <TT>EQUIVALENCE</TT> statement.  A great deal of errors stem
+for mistakes in these two areas which are  generally regarded as unsafe,
+however, there is no real alternative in F<font size=-1><small>ORTRAN</small></font>&nbsp;77.
+<P>
+</OL>
+<P>
+<HR><A NAME="tex2html237" HREF="HTMLNotesnode8.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html235" HREF="HTMLNotesnode5.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html229" HREF="HTMLNotesnode6.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html239" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html238" HREF="HTMLNotesnode8.html">New Fortran&nbsp;90 Features</A>
+<B>Up:</B> <A NAME="tex2html236" HREF="HTMLNotesnode5.html">Fortran Evolution</A>
+<B> Previous:</B> <A NAME="tex2html230" HREF="HTMLNotesnode6.html">A Brief History of </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

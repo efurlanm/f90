@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Sections</TITLE>
+<META NAME="description" CONTENT="Array Sections">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1363" HREF="HTMLNotesnode99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1361" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1355" HREF="HTMLNotesnode97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1365" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1364" HREF="HTMLNotesnode99.html">Visualising Array Sections</A>
+<B>Up:</B> <A NAME="tex2html1362" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1356" HREF="HTMLNotesnode97.html">Array Conformance</A>
+<BR> <P>
+<A NAME="ArraySections1">&#160;</A><H3><A NAME="SECTION01031700000000000000">Array Sections</A></H3>
+<P>
+The general form of a subscript-triplet specifier is::
+<PRE><TT> 
+[ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound1 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]:[ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ][: <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;stride </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]
+<P>
+</TT></PRE>
+<P>
+The section starts at  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound1 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  and ends at or before  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > .
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;stride </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is the increment by which the locations are selected.
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound1 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ,  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  and  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;stride </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  must all be scalar integer
+expressions. Thus
+<PRE>   A(m:m) = 0     ! m to m 1 elt array
+   A(m:n:k) = 0   ! m to n step k
+   A(8:3:-1) = 0  ! 8 to 3 backwards
+   A(8:3) = 2     ! step 1 =&gt; Zero size
+   A(M::4) = 1    ! default UPB, step 4
+   A(::2) = 1.0   ! default LWB and UPB
+   A(m**2:n*k/3) = 1.0</PRE>
+are all valid.
+<P>
+If the upper bound ( <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ) is not a combination of the lower
+bound plus multiples of the stride then the actual upper bound is
+different to  that stated; this is the same principle that is applied to
+<TT>DO</TT>-loops.
+<P>
+Another similarity with the <TT>DO</TT>-loops is that 
+when the stride is not specified it is assumed to have a value
+of <TT>1</TT>. In the above example, this means that <code>A(3:8)</code> is the
+same as <code>A(3:8:1)</code> but <code>A(8:3)</code> is a
+zero sized section and <code>A(8:3:-1)</code> is a section that runs
+backwards. Zero strides are <B>not</B> allowed.
+Other bound specifiers can be absent too, if  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound1 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;bound2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is absent then the lower or upper bound of the dimension (as
+declared) is implied, if both are missing then the whole dimension is
+assumed.
+<P>
+Let us examine the above sections in detail,
+<P>
+<UL><LI> <code>A(m:m) = 0</code>
+<P>
+This is a one element array and is distrinct from <TT>A(m)</TT> which is a
+scalar reference.<LI>     <code>A(m:n:k) = 0</code>
+<P>
+The section runs from <TT>m</TT> to <TT>n</TT> in strides of <TT>k</TT>.<LI>   <code>A(8:3:-1) = 0</code>
+<P>
+This section runs from 8 to 3 in steps of -1.<LI> <code>A(8:3) = 2</code>
+<P>
+This section runs from 8 to 3 in steps of 1, ie, this is a
+zero sized section.<LI>   <code>A(M::4) = 1</code>
+<P>
+This section runs from <TT>M</TT> to the declared upper bound in steps of <TT>4</TT>.<LI>     <code>A(::2) = 1.0</code>
+<P>
+This section runs from the declared lower bound to the upper bound in
+strides of <TT>2</TT>.<LI>    <code>A(m**2:n*k/3:2*k) = 1.0</code>
+<P>
+Here the expressions are evaluated in an unspecified order, if any of
+the expressions included 
+function calls then it must be ensured that the order of evaluation of
+the calls is unimportant (see later).
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html1363" HREF="HTMLNotesnode99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1361" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1355" HREF="HTMLNotesnode97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1365" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1364" HREF="HTMLNotesnode99.html">Visualising Array Sections</A>
+<B>Up:</B> <A NAME="tex2html1362" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1356" HREF="HTMLNotesnode97.html">Array Conformance</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

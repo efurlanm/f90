@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Replicating Dimensions</TITLE>
+<META NAME="description" CONTENT="Replicating Dimensions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2786" HREF="HTMLNotesnode214.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2784" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2778" HREF="HTMLNotesnode212.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2788" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2787" HREF="HTMLNotesnode214.html">Example:  2D Gaussian Elimination</A>
+<B>Up:</B> <A NAME="tex2html2785" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2779" HREF="HTMLNotesnode212.html">Collapsing Dimensions</A>
+<BR> <P>
+<A NAME="ReplicatingAlignment1">&#160;</A><H3><A NAME="SECTION02020600000000000000">Replicating Dimensions</A></H3>
+<P>
+Replication is also useful for specific reference patterns. A good
+example
+would be if the same section of an array is used in a calculation on
+every processor.  We can align elements with one or more dimensions:
+<P>
+<PRE>!HPF$ ALIGN Y(:) WITH X(*,:)</PRE>
+<P>
+The general rule is: <I>if a <TT>*</TT> appears in the
+<EM>align-subscript-list</EM> (the parenthesised list on the RHS of the
+<TT>WITH</TT> clause associated with the <EM>align-target</EM>) then the
+corresponding dimension is collapsed.</I> In the quoted
+example, the <TT>*</TT> is in the first dimension meaning that <TT>Y</TT> is
+replicated along every row of <TT>X</TT>. (I like to think of it as
+aligning all dimensions that contain a colon; the <TT>*</TT> dimensions are
+left over so it is in this dimension that the alignee is replicated.)
+<P>
+A copy of the first <EM>element</EM>
+of <TT>Y</TT> is aligned with the first <EM>element</EM> in every row of <TT>
+X</TT>,
+a copy of the second element of <TT>Y</TT> is aligned with the second
+element of every row of <TT>X</TT>, and so on. The compiler make sure that
+all the copies have the same value. See Figure
+<A HREF="HTMLNotesnode213.html#ReplicatedAlignmentVisualisationfig">31</A>.
+<P>
+<P><A NAME="14185">&#160;</A><A NAME="ReplicatedAlignmentVisualisationfig">&#160;</A> <IMG WIDTH=243 HEIGHT=312 ALIGN=BOTTOM ALT="figure14182" SRC="HTMLNotesimg122.gif"  > <BR>
+<STRONG>Figure 31:</STRONG> Visualisation of Replicating Dimensions<BR>
+<P>
+<P>
+Every  processor which receives any element of <TT>X(:,i)</TT> will also
+receive a copy of <TT>Y(i)</TT>.
+<P>
+There must be the same number of non-<TT>*</TT> dimensions on either side of
+the <TT>WITH</TT> clause.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2789" HREF="HTMLNotesnode214.html#SECTION02020610000000000000">Example:  2D Gaussian Elimination</A>
+</UL>
+<HR><A NAME="tex2html2786" HREF="HTMLNotesnode214.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2784" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2778" HREF="HTMLNotesnode212.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2788" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2787" HREF="HTMLNotesnode214.html">Example:  2D Gaussian Elimination</A>
+<B>Up:</B> <A NAME="tex2html2785" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2779" HREF="HTMLNotesnode212.html">Collapsing Dimensions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Interface Example</TITLE>
+<META NAME="description" CONTENT="Interface Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1817" HREF="HTMLNotesnode138.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1815" HREF="HTMLNotesnode136.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1811" HREF="HTMLNotesnode136.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1819" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1818" HREF="HTMLNotesnode138.html">Argument Intent</A>
+<B>Up:</B> <A NAME="tex2html1816" HREF="HTMLNotesnode136.html">Procedure Interfaces</A>
+<B> Previous:</B> <A NAME="tex2html1812" HREF="HTMLNotesnode136.html">Procedure Interfaces</A>
+<BR> <P>
+<A NAME="Interfaces3">&#160;</A><H4><A NAME="SECTION010411010000000000000">Interface Example</A></H4>
+<P>
+The following program includes an explicit interface,
+<P>
+<PRE>    PROGRAM interface_example
+     IMPLICIT NONE
+     INTERFACE
+      SUBROUTINE expsum(N,K,X,sum)
+       INTEGER, INTENT(IN) :: N
+       REAL, INTENT(IN)  :: K,X
+       REAL, INTENT(OUT)  :: sum
+      END SUBROUTINE expsum
+     END INTERFACE
+     REAL :: sum
+      ...
+     CALL expsum(10,0.5,0.1,sum)
+      ...
+    END PROGRAM interface_example</PRE>
+<P>
+The above interface includes information about the number, type, 
+kind and rank of the dummy arguments of the procedure <TT>expsum</TT>.
+<P>
+Using an <TT>INTERFACE</TT> provides for better optimisation and type
+checking, and allows separate compilation to be performed.
+<P>
+<HR><A NAME="tex2html1817" HREF="HTMLNotesnode138.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1815" HREF="HTMLNotesnode136.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1811" HREF="HTMLNotesnode136.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1819" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1818" HREF="HTMLNotesnode138.html">Argument Intent</A>
+<B>Up:</B> <A NAME="tex2html1816" HREF="HTMLNotesnode136.html">Procedure Interfaces</A>
+<B> Previous:</B> <A NAME="tex2html1812" HREF="HTMLNotesnode136.html">Procedure Interfaces</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

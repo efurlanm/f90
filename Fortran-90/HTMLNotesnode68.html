@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>IF Statement</TITLE>
+<META NAME="description" CONTENT="IF Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html991" HREF="HTMLNotesnode69.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html989" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html983" HREF="HTMLNotesnode67.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html993" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html992" HREF="HTMLNotesnode69.html">IF Construct</A>
+<B>Up:</B> <A NAME="tex2html990" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html984" HREF="HTMLNotesnode67.html">Control Flow</A>
+<BR> <P>
+<A NAME="IfStatement1">&#160;</A><H3><A NAME="SECTION01021100000000000000"><TT>IF</TT> Statement</A></H3>
+<P>
+<A NAME="IfStatement">&#160;</A>
+<P>
+This is the most basic
+form of conditional execution in that there is only an option to execute one
+statement or not -- the general <TT>IF</TT> construct allows a block of code to
+be executed.  The basic form is,
+<P>
+<PRE><TT> 
+<TT>IF</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;logical-expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > <TT>)</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;exec-stmt </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+</TT></PRE>
+<P>
+If the boolean expression,  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;logical-expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , evaluates to
+<TT>.TRUE.</TT> 
+then the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;exec-stmt </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is executed otherwise control of the program
+passes to the next line. This type of <TT>IF</TT> statement still has its use
+as it is a lot less verbose than a block-<TT>IF</TT> with a single  executable 
+statement.
+<P>
+For example,
+<PRE>    IF (bool_val) A = 3</PRE>
+<P>
+A logical expression  is often expressed as:
+<P>
+<PRE><TT> 
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;relational-operator </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;expression </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  
+</TT></PRE>
+<P>
+For example,
+<PRE>    IF (bool_val) A = 3
+    IF (x .GT. y) GOTO 56
+    IF (i .NE. 0 .AND. j .EQ. 0) k = 1/(k*j)
+    IF (i /= 0 .AND. j == 0) k = 1/(k*j) ! same</PRE>
+As <TT>REAL</TT> numbers are represented approximately, it
+makes little sense to use the <TT>.EQ.</TT> and <TT>.NE.</TT> relational operators between
+real-valued expressions. For
+example there is no guarantee that <TT>3.0</TT> and <TT>1.5 * 2.0</TT> are
+equal. If two <TT>REAL</TT> numbers / expressions are to be tested for equality
+then one should look at the size of the difference between the numbers
+and see if this is less than some sort of tolerance.
+<P>
+<PRE>    IF (ABS(a-b) .LT. Tol) same = .TRUE.</PRE>
+<P>
+<HR><A NAME="tex2html991" HREF="HTMLNotesnode69.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html989" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html983" HREF="HTMLNotesnode67.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html993" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html992" HREF="HTMLNotesnode69.html">IF Construct</A>
+<B>Up:</B> <A NAME="tex2html990" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html984" HREF="HTMLNotesnode67.html">Control Flow</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

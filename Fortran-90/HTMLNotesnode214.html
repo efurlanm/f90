@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example:  2D Gaussian Elimination</TITLE>
+<META NAME="description" CONTENT="Example:  2D Gaussian Elimination">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2796" HREF="HTMLNotesnode215.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2794" HREF="HTMLNotesnode213.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2790" HREF="HTMLNotesnode213.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2798" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2797" HREF="HTMLNotesnode215.html">New HPF System Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html2795" HREF="HTMLNotesnode213.html">Replicating Dimensions</A>
+<B> Previous:</B> <A NAME="tex2html2791" HREF="HTMLNotesnode213.html">Replicating Dimensions</A>
+<BR> <P>
+<A NAME="GaussianExample1">&#160;</A><H4><A NAME="SECTION02020610000000000000">Example:  2D Gaussian Elimination</A></H4>
+<P>
+Consider the Gaussian Elimination  kernel:
+<PRE>     ...
+    DO j = i+1, n
+     A(j,i) = A(j,i)/Swap(i)
+     A(j,i+1:n) = A(j,i+1:n) - A(j,i)*Swap(i+1:n)
+     Y(j) = Y(j) - A(j,i)*Temp
+    END DO</PRE>
+<P>
+Want to minimise communications in loop.
+<P>
+<TT>Y(k)</TT> is always used in the same statement as <TT>A(k,i)</TT>. This
+implies that <TT>Y</TT>
+should be aligned with the first dimension of <TT>A</TT>. In order that the
+value
+of <TT>i</TT> is unimportant <TT>Y(k)</TT> should be local to  <TT>A(k,:)</TT> 
+in other words a
+copy of <TT>Y</TT> should be aligned to every column of <TT>A</TT>.
+<P>
+<PRE>!HPF$ ALIGN Y(:) WITH A(:,*)
+      ! Y aligned with each col of A</PRE>
+<P>
+A similar argument to above except that <TT>SWAP(k)</TT> should be local to
+<TT>A(i,k)</TT>, ie <TT>SWAP</TT> should be aligned with the second dimension
+of <TT>
+A</TT>. In
+order that the value of <TT>i</TT> is unimportant  <TT>SWAP(k)</TT> should be
+local to
+<TT>A(:,k)</TT>, in other words a copy of <TT>Y</TT> should be aligned to
+every row of <TT>A</TT>.
+<P>
+<PRE>!HPF$ ALIGN Swap(:) WITH A(*,:)
+      ! Swap aligned with each row of A</PRE>
+<P>
+There is no advantage in using <TT>BLOCK</TT> distribution, calculation of a
+particular element does not use that elements neighbours in the
+calculation, it is therefore safe to balance the load by using <TT>CYCLIC</TT> 
+distribution.
+<P>
+<PRE>!HPF$ DISTRIBUTE A(CYCLIC,CYCLIC) ! onto default grid</PRE>
+<P>
+<A NAME="GaussianExample2">&#160;</A>
+<P>
+See Figure <A HREF="HTMLNotesnode214.html#2DGaussianEliminationVisualisation">32</A> for a visualisation
+of the relative alignments.
+<P>
+<P><A NAME="14289">&#160;</A><A NAME="2DGaussianEliminationVisualisation">&#160;</A> <IMG WIDTH=582 HEIGHT=588 ALIGN=BOTTOM ALT="figure14286" SRC="HTMLNotesimg124.gif"  > <BR>
+<STRONG>Figure 32:</STRONG> Visualisation of 2D Gaussian Elimination<BR>
+<P>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode97.html#QGaussianElimination2D"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html2796" HREF="HTMLNotesnode215.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2794" HREF="HTMLNotesnode213.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2790" HREF="HTMLNotesnode213.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2798" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2797" HREF="HTMLNotesnode215.html">New HPF System Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html2795" HREF="HTMLNotesnode213.html">Replicating Dimensions</A>
+<B> Previous:</B> <A NAME="tex2html2791" HREF="HTMLNotesnode213.html">Replicating Dimensions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Indexed DO Loops</TITLE>
+<META NAME="description" CONTENT="Indexed DO Loops">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html784" HREF="HTMLSlidesnode50.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html782" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html776" HREF="HTMLSlidesnode48.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html786" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html785" HREF="HTMLSlidesnode50.html">Examples of Loop Counts</A>
+<B>Up:</B> <A NAME="tex2html783" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html777" HREF="HTMLSlidesnode48.html">Named and Nested Loops</A>
+<BR> <P>
+<H2><A NAME="SECTION01098000000000000000">Indexed <TT>DO</TT> Loops</A></H2>
+<P>
+Loops can be written which cycle a fixed number of times.
+<P>
+The syntax is as follows,
+<P>
+<PRE><TT> 
+<TT>DO</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;<TT>DO</TT>-var </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > <TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr1 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > <code>,</code> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  [ <code>,</code> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr3 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  ]
+  
+		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;exec-stmts </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+<TT>END</TT> <TT>DO</TT>
+<P>
+</TT></PRE>
+<P>
+For example,
+<P>
+<PRE>    DO i1 = 1, 100, 1
+      ...
+    END DO</PRE>
+<P>
+The number of iterations, which is evaluated <B>before</B> execution of
+the loop begins, is calculated as
+<P>
+<PRE><TT> 
+<TT>MAX</TT><TT>(</TT><TT>INT</TT><TT>(</TT><TT>(</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr2 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > - <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr1 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > + <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr3 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > <TT>)</TT><TT>/</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr3 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > <TT>)</TT>,<TT>0</TT><TT>)</TT>
+<P>
+</TT></PRE>
+If this is
+zero or negative then the loop is not executed.
+<P>
+If  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;expr3 </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  is absent it is assumed to be equal to <TT>1</TT>.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode74.html#IndexedLoop1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html784" HREF="HTMLSlidesnode50.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html782" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html776" HREF="HTMLSlidesnode48.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html786" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html785" HREF="HTMLSlidesnode50.html">Examples of Loop Counts</A>
+<B>Up:</B> <A NAME="tex2html783" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html777" HREF="HTMLSlidesnode48.html">Named and Nested Loops</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

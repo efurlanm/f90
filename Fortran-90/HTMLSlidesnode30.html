@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Initialisation</TITLE>
+<META NAME="description" CONTENT="Initialisation">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html556" HREF="HTMLSlidesnode31.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html554" HREF="HTMLSlidesnode23.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html550" HREF="HTMLSlidesnode29.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html558" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html557" HREF="HTMLSlidesnode31.html">Expressions and Assignment</A>
+<B>Up:</B> <A NAME="tex2html555" HREF="HTMLSlidesnode23.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html551" HREF="HTMLSlidesnode29.html">Constants (Parameters)</A>
+<BR> <P>
+<H2><A NAME="SECTION01077000000000000000">Initialisation</A></H2>
+<P>
+Variables can be given initial values:
+<P>
+<UL><LI> can use <EM>initialisation expressions</EM>,<LI> may only  contain <TT>PARAMETER</TT> s  or literals.
+</UL>
+<P>
+<PRE>    REAL             :: x, y =1.0D5
+    INTEGER          :: i = 5, j = 100
+    CHARACTER(LEN=5) :: light = 'Amber' 
+    CHARACTER(LEN=9) :: gumboot = 'Wellie' 
+    LOGICAL  :: on = .TRUE., off = .FALSE.
+    REAL, PARAMETER :: pi = 3.141592
+    REAL, PARAMETER :: radius = 3.5 
+    REAL :: circum = 2 * pi * radius</PRE>
+<P>
+<TT>gumboot</TT> will be padded, to the right, with blanks.
+<P>
+In general, intrinsic functions <EM>cannot</EM> be used in initialisation
+expressions, the following can be: 
+ <TT>REPEAT</TT>, <TT>RESHAPE</TT>, <TT>SELECTED_INT_KIND</TT>, <TT>SELECTED_REAL_KIND</TT>, <TT>TRANSFER</TT>, <TT>TRIM</TT>, <TT>LBOUND</TT>, <TT>UBOUND</TT>,
+ <TT>SHAPE</TT>, <TT>SIZE</TT>, <TT>KIND</TT>, <TT>LEN</TT>, <TT>BIT_SIZE</TT> and 
+ numeric inquiry intrinsics, for, example, <TT>HUGE</TT>, <TT>TINY</TT>, <TT>EPSILON</TT>.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode54.html#ScalarInitialisation1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode4.html#QBasicDeclarations"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html556" HREF="HTMLSlidesnode31.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html554" HREF="HTMLSlidesnode23.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html550" HREF="HTMLSlidesnode29.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html558" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html557" HREF="HTMLSlidesnode31.html">Expressions and Assignment</A>
+<B>Up:</B> <A NAME="tex2html555" HREF="HTMLSlidesnode23.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html551" HREF="HTMLSlidesnode29.html">Constants (Parameters)</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

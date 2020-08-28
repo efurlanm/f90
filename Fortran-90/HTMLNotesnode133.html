@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example of Scoping Issues</TITLE>
+<META NAME="description" CONTENT="Example of Scoping Issues">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1774" HREF="HTMLNotesnode134.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1772" HREF="HTMLNotesnode130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1768" HREF="HTMLNotesnode132.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1776" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1775" HREF="HTMLNotesnode134.html">SAVE Statement</A>
+<B>Up:</B> <A NAME="tex2html1773" HREF="HTMLNotesnode130.html">Scope</A>
+<B> Previous:</B> <A NAME="tex2html1769" HREF="HTMLNotesnode132.html">Host Association</A>
+<BR> <P>
+<A NAME="HostAssociation2">&#160;</A><H4><A NAME="SECTION01041730000000000000">Example of Scoping Issues</A></H4>
+<P>
+Consider the following example,
+<PRE>    SUBROUTINE sub1         ! scope sub1
+      IMPLICIT NONE         ! scope sub1
+      REAL A, B, C          ! scope sub1
+       ...                  ! scope sub1
+      CALL sub2             ! scope sub1
+      CALL sub3(A)          ! scope sub1
+      CALL sub4(A)          ! scope sub1
+       ...                  ! scope sub1
+    CONTAINS
+      SUBROUTINE sub2       ! scope sub2
+        REAL B              ! scope sub2
+         ...                ! scope sub2
+        B = ...             ! scope sub2
+        A = B               ! B from sub2; A from sub1
+      END SUBROUTINE sub2
+      SUBROUTINE sub3(D)    ! scope sub3
+        REAL C, D           ! local C, D
+         ...                ! scope sub3
+        C = A**3   ! A cannot be changed
+        D = D**3 + C        ! D is A
+        B = C               ! B from sub1; C from sub3 
+         ...                ! scope sub3
+      END SUBROUTINE sub3
+    END SUBROUTINE sub1
+
+    SUBROUTINE sub4       ! scope sub4
+     IMPLICIT NONE        ! scope sub4
+      REAL B, C           ! scope sub4
+       ...                ! scope sub4
+      B = C               ! scope sub4
+       ...                ! scope sub4
+    END SUBROUTINE sub4</PRE>
+<P>
+This demonstrates most of the issues concerning the scope of names in 
+procedures.
+<P>
+If an internal procedure declares an object with the same name as one 
+in the host (containing) procedure then this new variable supersedes the 
+one from the outer scope for the duration of the procedure, for example, 
+<TT>sub2</TT> accesses <TT>A</TT> from <TT>sub1</TT> but supersedes <TT>B</TT> by
+declaring its own local object called <TT>B</TT>. This <TT>B</TT> (in <TT>sub2</TT>)
+is <B>totally unrelated</B> to the <TT>B</TT> of <TT>sub1</TT>.
+<P>
+Internal procedures may have dummy arguments, however, any object used as an
+actual argument  to an internal procedure cannot be changed by referring
+to it by its 
+original name in that procedure; it must be assigned to using its dummy 
+name. For example,  <TT>sub3</TT> accesses <TT>A</TT>, known locally as 
+<TT>D</TT>, by argument association and is forbidden to assign a value to
+ or modify the 
+availability of <TT>A</TT>; it  must be altered through  its 
+corresponding dummy argument (see P180 of Fortran&nbsp;90 standard, [<A HREF="HTMLNotesnode306.html#F91">1</A>]). The 
+variable <TT>
+A</TT> can still be referenced in <TT>sub3</TT> as if it possessed the
+<TT>INTENT</TT><TT>(</TT><TT>IN</TT><TT>)</TT> attribute (see Section <A HREF="HTMLNotesnode138.html#ArgumentIntent">4.1.11</A> for the
+implications of the <TT>INTENT</TT> attribute).
+<P>
+A local variable called <TT>A</TT> could be declared in <TT>sub3</TT> which 
+would clearly bear no relation to the <TT>A</TT> which is argument associated 
+with <TT>d</TT>.  <TT>sub3</TT> also accesses <TT>B</TT>  from <TT>sub1</TT>, but <TT>C</TT>
+is entirely local and supersedes <TT>C</TT> from <TT>sub1</TT> for the
+duration of the call. When  <TT>sub3</TT> is exited and control is
+returned to <TT>sub1</TT>, the value that <TT>C</TT> had before the call to
+<TT>sub3</TT> is restored.
+<P>
+<TT>sub4</TT> does not access any objects from <TT>sub1</TT>, 
+<TT>sub2</TT> or <TT>sub3</TT> -- it is an external procedure and
+consequently is totally separate.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode62.html#QProcScope"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1774" HREF="HTMLNotesnode134.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1772" HREF="HTMLNotesnode130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1768" HREF="HTMLNotesnode132.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1776" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1775" HREF="HTMLNotesnode134.html">SAVE Statement</A>
+<B>Up:</B> <A NAME="tex2html1773" HREF="HTMLNotesnode130.html">Scope</A>
+<B> Previous:</B> <A NAME="tex2html1769" HREF="HTMLNotesnode132.html">Host Association</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

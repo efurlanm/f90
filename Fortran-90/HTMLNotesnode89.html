@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Numeric Intrinsic Functions</TITLE>
+<META NAME="description" CONTENT="Numeric Intrinsic Functions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1218" HREF="HTMLNotesnode90.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1216" HREF="HTMLNotesnode86.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1212" HREF="HTMLNotesnode88.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1220" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1219" HREF="HTMLNotesnode90.html">Arrays</A>
+<B>Up:</B> <A NAME="tex2html1217" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1213" HREF="HTMLNotesnode88.html">Mathematical Intrinsic Functions</A>
+<BR> <P>
+<A NAME="NumericIntrinsics1">&#160;</A><H3><A NAME="SECTION01024300000000000000">Numeric Intrinsic Functions</A></H3>
+<P>
+Summary,
+<P>
+<P> <IMG WIDTH=492 HEIGHT=258 ALIGN=BOTTOM ALT="tabular6467" SRC="HTMLNotesimg19.gif"  > <P>
+<P>
+As all are elemental they can accept array arguments, the result is the
+same shape as the argument(s) and is the same as if the intrinsic had
+been called separately for each array element of the argument.
+<P>
+<UL><LI> <TT>ABS</TT> -- absolute value.
+<P>
+The argument can be <TT>INTEGER</TT>, <TT>REAL</TT> or <TT>COMPLEX</TT>, the result is of
+the same type as the argument except for complex where the result is
+real valued,  for example, <TT>ABS</TT><TT>(-1)</TT> is <TT>1</TT>, <TT>ABS</TT><TT>(-.2)</TT> is
+<TT>0.2</TT> and <TT>ABS</TT><TT>(CMPLX(-3.0,4.0))</TT> is <TT>5.0</TT>.<LI> <TT>AINT</TT>  -- truncates to a whole number.
+<P>
+The argument and result are real valued, for example, <TT>AINT</TT><TT>(1.7)</TT>
+is <TT>1.0</TT> and <TT>AINT</TT><TT>(-1.7)</TT> is <TT>-1.0</TT>.<LI>  <TT>ANINT</TT> -- nearest whole number.
+<P>
+The argument and result are real valued, for example, <TT>AINT</TT><TT>(1.7)</TT>
+is <TT>2.0</TT> and <TT>AINT</TT><TT>(-1.7)</TT> is <TT>-2.0</TT>.<LI> <TT>CEILING</TT>, <TT>FLOOR</TT> -- smallest <TT>INTEGER</TT> greater than (or equal
+to), or biggest <TT>INTEGER</TT> less than (or equal to) the argument.
+<P>
+The argument must be <TT>REAL</TT>, for
+example, <TT>CEILING</TT><TT>(1.7)</TT> is <TT>2</TT> <TT>CEILING</TT><TT>(-1.7)</TT> is <TT>1</TT>.<LI> <TT>CMPLX</TT> -- converts to complex value.
+<P>
+The argument must be two real numbers, for example, <TT>CMPLX</TT><TT>
+(3.6,4.5)</TT> is a complex number.<LI> <TT>DBLE</TT> -- coerce to <TT>DOUBLE PRECISION</TT> data type.
+<P>
+Arguments must be <TT>REAL</TT>, <TT>INTEGER</TT> or <TT>COMPLEX</TT>. The result is the
+actual argument converted to a <TT>DOUBLE PRECISION</TT> number.<LI>  <TT>DIM</TT> -- positive difference.
+<P>
+Arguments must be <TT>REAL</TT> or <TT>INTEGER</TT>.
+If <TT>X</TT> bigger than <TT>Y</TT> then <TT>DIM</TT><TT>(X,Y) = X-Y</TT>,
+if <I>Y</I>&gt;<I>X</I> and result of <TT>X-Y</TT> is negative then <TT>DIM</TT><TT>(X,Y)</TT> is
+zero,
+ for example, <TT>DIM</TT><TT>(2,7)</TT> is 0 and <TT>DIM</TT><TT>(7,2)</TT> is 5.<LI> <TT>INT</TT> truncates to an <TT>INTEGER</TT> (as in integer division)
+<P>
+Actual argument must be numeric, for example <TT>INT</TT><TT>(8.6)</TT> is 8 and
+<TT>INT</TT><TT>CMPLX(2.6,4.0)</TT> is <TT>2</TT>.<LI> <TT>MAX</TT> and <TT>MIN</TT>  -- maximum and minimum functions.
+<P>
+These must have at least two arguments which must be <TT>INTEGER</TT> or
+<TT>REAL</TT>. <TT>MAX</TT><TT>(1.0,2.0)</TT> is <TT>2.0</TT>.<LI> <TT>MOD</TT> -- remainder function.
+<P>
+Arguments must be <TT>REAL</TT> or <TT>INTEGER</TT>. <TT>MOD</TT><TT>(a,p)</TT> is the remainder when
+evaluating <TT>a/p</TT>, for example, <TT>MOD</TT><TT>(9,5)</TT> is <TT>4</TT>, <TT>MOD</TT><TT>
+(-9.0,5.0)</TT> is <TT>-4.0</TT>.<LI> <TT>MODULO</TT> -- modulo function.
+<P>
+Arguments must be <TT>REAL</TT> or <TT>INTEGER</TT>. <TT>MODULO</TT><TT>(a,b)</TT> is  <IMG WIDTH=39 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline22716" SRC="HTMLNotesimg20.gif"  > ,
+for example, <TT>MOD</TT><TT>(9,5)</TT> is <TT>4</TT>, <TT>MOD</TT><TT>(-9.0,5.0)</TT> is <TT>1.0</TT>.<LI> <TT>REAL</TT> -- coverts to <TT>REAL</TT> value.
+<P>
+For example,  <TT>REAL</TT><TT>(5)</TT> is <TT>5.0</TT><LI> <TT>SIGN</TT> -- transfers the sign of the second argument to the first.
+<P>
+The arguments are real or integer and the result is of the same type and
+is equal to <TT>ABS</TT><TT>(a)*(b/</TT> <TT>ABS</TT><TT>(b))</TT>, for example,
+<TT>SIGN</TT><TT>(6,-7)</TT> is <TT>-6</TT>, <TT>SIGN</TT><TT>(-6,7)</TT> is <TT>6</TT>.
+<P>
+</UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode22.html#QControlQuadratic"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1218" HREF="HTMLNotesnode90.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1216" HREF="HTMLNotesnode86.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1212" HREF="HTMLNotesnode88.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1220" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1219" HREF="HTMLNotesnode90.html">Arrays</A>
+<B>Up:</B> <A NAME="tex2html1217" HREF="HTMLNotesnode86.html">Intrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1213" HREF="HTMLNotesnode88.html">Mathematical Intrinsic Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

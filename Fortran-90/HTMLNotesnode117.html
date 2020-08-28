@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Reduction Intrinsics</TITLE>
+<META NAME="description" CONTENT="Array Reduction Intrinsics">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1570" HREF="HTMLNotesnode118.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1568" HREF="HTMLNotesnode112.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1564" HREF="HTMLNotesnode116.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1572" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1571" HREF="HTMLNotesnode118.html">Program Units and Interfaces</A>
+<B>Up:</B> <A NAME="tex2html1569" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1565" HREF="HTMLNotesnode116.html">Array Location Intrinsics</A>
+<BR> <P>
+<A NAME="ArrayReductionIntrinsics1">&#160;</A><H3><A NAME="SECTION01032500000000000000">Array Reduction Intrinsics</A></H3>
+<P>
+<A NAME="ArrayReductionIntrinsics">&#160;</A>
+<P>
+Reduction functions are aptly named because an array is operated upon
+and a result obtained which has a smaller rank than the original source
+array.
+For a rank <I>n</I> array, if <TT>DIM</TT> is absent or <I>n</I> = 1 then the result is 
+scalar, otherwise the result is of rank <I>n</I>-1.
+<P>
+<UL><LI> <TT>ALL</TT><TT>(</TT><TT>MASK</TT>[,<TT>DIM</TT>]<TT>)</TT>
+<P>
+<UL><LI>  <TT>ALL</TT> returns <TT>.TRUE.</TT> if <EM>all</EM> values of the mask 
+are <TT>.TRUE.</TT> (along an optionally specified) dimension <TT>DIM</TT>.
+If <TT>DIM</TT> is specified then 
+the result is an array of rank <I>n</I>-1, otherwise a scalar is returned.
+ For example, consider a  2D array, if
+<TT>DIM=2</TT> then the function returns a 1D vector with the result being
+as if the <TT>ALL</TT> function has been  applied to each column  in turn. If
+<TT>DIM=1</TT> the result is as if the <TT>ALL</TT> function had been applied to
+each row in turn.
+<P>
+If
+<P>
+<P> <IMG WIDTH=302 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath22998" SRC="HTMLNotesimg50.gif"  > <P>
+<P>
+and
+<P>
+<P> <IMG WIDTH=303 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath23023" SRC="HTMLNotesimg51.gif"  > <P>
+<P>
+then the following
+<P>
+<PRE>   PRINT*, ALL(A.NE.B,DIM=1)</PRE>
+<P>
+gives
+<P>
+<PRE>    T F F</PRE>
+<P>
+recall that dimension 1 runs up and down the page.
+<P>
+Similarly
+<PRE>   PRINT*, ALL(A.NE.B,DIM=2)</PRE>
+<P>
+gives,
+<P>
+<PRE>    F F</PRE>
+<P>
+where dimension 2 run across the page.<LI> if <TT>DIM</TT> is absent then the whole array is considered,  for example,
+<P>
+<PRE>   PRINT*, ALL(A.NE.B)</PRE>
+<P>
+gives the scalar value,
+<P>
+<PRE>    F</PRE><LI>  if the array is zero sized then <TT>ALL</TT> returns <TT>.TRUE.</TT>,
+<P>
+</UL><LI> <TT>ANY</TT><TT>(</TT><TT>MASK</TT>[,<TT>DIM</TT>]<TT>)</TT>
+<P>
+<UL><LI>  <TT>ANY</TT> returns <TT>.TRUE.</TT> if <EM>any</EM> values of the mask are 
+<TT>.TRUE.</TT> (along an optionally specified dimension <TT>DIM</TT>).  If <TT>DIM</TT> is
+given then the result is an array of rank <I>n</I>-1, for example,
+<P>
+<PRE>   PRINT*, ANY(A.NE.B,DIM=1)
+   PRINT*, ANY(A.NE.B,DIM=2)</PRE>
+<P>
+gives
+<P>
+<PRE>  T F T
+  T T</PRE><LI> if <TT>DIM</TT> is absent then the whole array is considered, for
+example,
+<P>
+<PRE>   PRINT*, ANY(A.NE.B)</PRE>
+<P>
+gives the scalar value,
+<P>
+<PRE>    T</PRE><LI>  if the array is zero sized then <TT>ANY</TT> returns <TT>.FALSE.</TT>.
+</UL><LI> <TT>COUNT</TT><TT>(</TT><TT>MASK</TT>[,<TT>DIM</TT>]<TT>)</TT>
+<P>
+<UL><LI> <TT>COUNT</TT> returns the number of <TT>.TRUE.</TT> elements in a  specified
+<TT>LOGICAL</TT> array along 
+dimension <TT>DIM</TT>. The result is an array of rank <I>n</I>-1, for example, 
+<PRE>   PRINT*, COUNT(A.NE.B,DIM=1)
+   PRINT*, COUNT(A.NE.B,DIM=2)</PRE>
+<P>
+gives
+<P>
+<PRE>    2 0 1
+    1 2</PRE><LI> if <TT>DIM</TT> is absent then the whole array is considered, for
+example,
+<P>
+<PRE>   PRINT*, COUNT(A.NE.B)</PRE>
+<P>
+gives the scalar,
+<P>
+<PRE>    3</PRE><LI> if the array is zero sized then <TT>COUNT</TT> returns zero. 
+</UL><LI> <TT>MAXVAL</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>][,<TT>MASK</TT>]<TT>)</TT>
+<P>
+<UL><LI> <TT>MAXVAL</TT> returns the maximum values in an array along an
+optionally  specified dimension under an optionally specified mask,<LI> if <TT>DIM</TT> is specified the
+result is an array of rank <I>n</I>-1 of maximum values in other dimensions,
+for example,
+<P>
+<PRE> 
+   PRINT*, MAXVAL(A,DIM=1)
+   PRINT*, MAXVAL(A,DIM=2)</PRE>
+<P>
+gives
+<P>
+<PRE>    2 4 6
+    5 6</PRE><LI> if <TT>DIM</TT> is absent the whole array is considered and the result is
+a scalar.<LI> if <TT>MASK</TT> is present then the survey is only performed on elements
+of <TT>SOURCE</TT> which correspond to <TT>.TRUE.</TT> elements of <TT>MASK</TT>, for example,
+<P>
+<PRE>   PRINT*, MAXVAL(A,MASK=A.LT.4)</PRE>
+<P>
+only considers elements of <TT>A</TT> that are less than 4 and gives
+<P>
+<PRE>   3</PRE><LI> the largest negative number of the appropriate kind is returned if
+the array is zero sized.
+<P>
+</UL><LI> <TT>MINVAL</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>][,<TT>MASK</TT>]<TT>)</TT>
+<P>
+<UL><LI> <TT>MINVAL</TT> returns the minimum value in an array along an
+optionally  specified dimension under an optionally specified mask,<LI> if <TT>DIM</TT> is specified the
+result is an array of rank <I>n</I>-1 of minimum values in other dimensions,
+for example,
+<P>
+<PRE>   PRINT*, MINVAL(A,DIM=1)
+   PRINT*, MINVAL(A,DIM=2)</PRE>
+<P>
+gives
+<P>
+<PRE>    1 3 5
+    1 2</PRE><LI> if <TT>DIM</TT> is absent the whole array is considered and the result is
+a scalar.<LI> if <TT>MASK</TT> is present then the survey is only performed on elements
+of <TT>SOURCE</TT> which correspond to <TT>.TRUE.</TT> elements of <TT>MASK</TT>, for example,
+<P>
+<PRE>   PRINT*, MINVAL(A,MASK=A.GT.4)</PRE>
+<P>
+gives
+<P>
+<PRE>   5</PRE><LI> the smallest positive number of the appropriate kind is returned if
+the array is zero sized.
+<P>
+</UL><LI> <TT>PRODUCT</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>][,<TT>MASK</TT>]<TT>)</TT>
+<P>
+<UL><LI> <TT>PRODUCT</TT> returns the product of all array elements, along an
+optionally  specified dimension under an optionally specified mask,<LI> if <TT>DIM</TT> is specified the
+result is an array of rank <I>n</I>-1 of products, for example,
+<P>
+<PRE>   PRINT*, PRODUCT(A,DIM=1)
+   PRINT*, PRODUCT(A,DIM=2)</PRE>
+<P>
+gives
+<P>
+<PRE>   2 12 30
+  15 48</PRE><LI> if <TT>DIM</TT> is absent the whole array is considered and the result is
+a scalar.<LI> if <TT>MASK</TT> is present then the product only involves elements
+of <TT>SOURCE</TT> which correspond to <TT>.TRUE.</TT> elements of <TT>MASK</TT>, for example,
+<P>
+<PRE>   PRINT*, PRODUCT(A,MASK=A.LT.4)</PRE>
+<P>
+gives
+<P>
+<PRE>   6</PRE><LI> if the array is zero sized then the product is 1.
+<P>
+</UL><LI> <TT>SUM</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>][,<TT>MASK</TT>]<TT>)</TT>
+<P>
+<UL><LI> <TT>SUM</TT> returns  the sum of array elements, along an
+optionally  specified dimension under an optionally specified mask,<LI> if <TT>DIM</TT> is specified the
+result is an array of rank <I>n</I>-1 of sums, for example,
+<P>
+<PRE>   PRINT*, SUM(A,DIM=1)
+   PRINT*, SUM(A,DIM=2)</PRE>
+<P>
+gives
+<P>
+<PRE>   3  7 11
+   9 12</PRE><LI> if <TT>DIM</TT> is absent the whole array is considered and the result is
+a scalar.<LI> if <TT>MASK</TT> is present then the sum only involves elements
+of <TT>SOURCE</TT> which correspond to <TT>.TRUE.</TT> elements of <TT>MASK</TT>, for example,
+<P>
+<PRE>   PRINT*, SUM(A,MASK=A.LT.4)</PRE>
+<P>
+gives
+<P>
+<PRE>   6</PRE><LI> if the array is zero sized then the sum is 0
+<P>
+</UL></UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode47.html#QArraySummation"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode43.html#QArrayManipulation"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode49.html#QArraySalaries"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1570" HREF="HTMLNotesnode118.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1568" HREF="HTMLNotesnode112.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1564" HREF="HTMLNotesnode116.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1572" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1571" HREF="HTMLNotesnode118.html">Program Units and Interfaces</A>
+<B>Up:</B> <A NAME="tex2html1569" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1565" HREF="HTMLNotesnode116.html">Array Location Intrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

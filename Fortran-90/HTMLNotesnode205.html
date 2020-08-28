@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Alignment Example</TITLE>
+<META NAME="description" CONTENT="Alignment Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2700" HREF="HTMLNotesnode206.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2698" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2692" HREF="HTMLNotesnode204.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2702" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2701" HREF="HTMLNotesnode206.html">Simple 2D Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2699" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2693" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<BR> <P>
+<A NAME="Alignment3">&#160;</A><H4><A NAME="SECTION02020310000000000000">Alignment Example</A></H4>
+<P>
+Consider the following simple example,
+<P>
+<PRE>      REAL, DIMENSION(10) :: A, B, C
+!HPF$ ALIGN (:) WITH C(:) :: A, B</PRE>
+<P>
+This is similar to the previous example. <TT>A, B</TT> and <TT>C</TT>
+are aligned so <TT>A(i)</TT> and <TT>B(i)</TT> reside on same
+processor as <TT>C(i)</TT>. Because of the `<code>:</code> 's, <TT>
+A, B</TT> and <TT>C</TT> must conform.
+<P>
+<P><A NAME="13546">&#160;</A><A NAME="AlignmentVisualisationfig">&#160;</A> <IMG WIDTH=439 HEIGHT=270 ALIGN=BOTTOM ALT="figure13543" SRC="HTMLNotesimg107.gif"  > <BR>
+<STRONG>Figure 25:</STRONG> Visualisation of Alignment<BR>
+<P>
+<P>
+In Figure <A HREF="HTMLNotesnode205.html#AlignmentVisualisationfig">25</A>, the arrowed lines show 
+alignment of elements and the shaded blobs reiterated this.
+The processor that receives one of the shaded blobs will also receive
+the others. Since <TT>C</TT> is the <EM>align-target</EM> it is the only
+object that may be distributed.
+<P>
+The alternative alignment syntax
+<P>
+<PRE>!HPF$ ALIGN (j) WITH C(j) :: A, B</PRE>
+<P>
+implies the same alignment, (ie, that <TT>A(j)</TT> and <TT>B(j)</TT> will
+reside on same
+processor as <TT>C(j)</TT>), but does not imply that all arrays are the
+same size and shape. It does, however,  imply that <TT>C</TT> is the same size or
+larger than <TT>A</TT> and <TT>B</TT> in each dimension.  (If this was the
+case then <TT>A(1)</TT> and <TT>B(1)</TT> are aligned with <TT>C(1)</TT>
+and so on until the extents of <TT>A</TT> and <TT>B</TT> are reached. The <TT>
+j</TT> is best thought of as a `symbol' and not as a variable. <TT>j</TT> does
+not need a value at this point in the program. It is like saying
+<P>
+<P> <IMG WIDTH=344 HEIGHT=13 ALIGN=BOTTOM ALT="displaymath23726" SRC="HTMLNotesimg108.gif"  > <P>
+<P>
+Colon notation makes a slightly stronger statement than symbol
+notation.
+<P>
+<HR><A NAME="tex2html2700" HREF="HTMLNotesnode206.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2698" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2692" HREF="HTMLNotesnode204.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2702" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2701" HREF="HTMLNotesnode206.html">Simple 2D Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2699" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2693" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

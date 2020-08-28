@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules - Procedure Encapsulation</TITLE>
+<META NAME="description" CONTENT="Modules - Procedure Encapsulation">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1743" HREF="HTMLSlidesnode132.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1741" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1735" HREF="HTMLSlidesnode130.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1745" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1744" HREF="HTMLSlidesnode132.html">Encapsulation - Stack example</A>
+<B>Up:</B> <A NAME="tex2html1742" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1736" HREF="HTMLSlidesnode130.html">Modules - Procedure Declaration</A>
+<BR> <P>
+<H2><A NAME="SECTION0101711000000000000000">Modules - Procedure Encapsulation</A></H2>
+<P>
+Module procedures are specified after the <TT>CONTAINS</TT> separator,
+<PRE>    MODULE related_procedures
+     IMPLICIT NONE
+     ! INTERFACEs of MODULE PROCEDURES do 
+     ! not need to be specified they are 
+     ! 'already present'
+    CONTAINS
+     SUBROUTINE sub1(A,B,C)
+      ! Can see Sub2's INTERFACE
+      ...
+     END SUBROUTINE sub1
+     SUBROUTINE sub2(time,dist)
+      ! Can see Sub1's INTERFACE
+      ...
+     END SUBROUTINE sub2
+    END MODULE related_procedures</PRE>
+<P>
+The main program attaches the procedures by <EM>use-association</EM>
+<PRE>    PROGRAM use_of_module
+     USE related_procedures ! includes INTERFACES
+     CALL sub1((/1.0,3.14,0.57/),2,'Yobot')
+     CALL sub2(t,d)
+    END PROGRAM use_of_module</PRE>
+<TT>sub1</TT> can call <TT>sub2</TT> or vice versa.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode153.html#ModulesProcedureDeclaration1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode75.html#QModEncapsulation"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode77.html#QIntegerComplex1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode79.html#QProcBinaryCut"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1743" HREF="HTMLSlidesnode132.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1741" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1735" HREF="HTMLSlidesnode130.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1745" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1744" HREF="HTMLSlidesnode132.html">Encapsulation - Stack example</A>
+<B>Up:</B> <A NAME="tex2html1742" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1736" HREF="HTMLSlidesnode130.html">Modules - Procedure Declaration</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

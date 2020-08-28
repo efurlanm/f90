@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Expressions</TITLE>
+<META NAME="description" CONTENT="Expressions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html829" HREF="HTMLNotesnode57.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html827" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html821" HREF="HTMLNotesnode55.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html831" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html830" HREF="HTMLNotesnode57.html">Assignment</A>
+<B>Up:</B> <A NAME="tex2html828" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html822" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<BR> <P>
+<A NAME="ScalarExpressions1">&#160;</A><H3><A NAME="SECTION01018100000000000000">Expressions</A></H3>
+<P>
+<A NAME="Expressions">&#160;</A>
+<P>
+Each of the three broad type classes
+has its own set of intrinsic (in-built) operators, 
+these are combined with operands to form
+expressions. Expressions are made from one operator (eg, <TT>+</TT>, <TT>-</TT>,
+<TT>*</TT>,
+<TT>/</TT>, <TT>/</TT><TT>/</TT> and <TT>*</TT><TT>*</TT>) and at least one operand. Operands
+are also expressions.
+<P>
+Expressions have types derived from their operands;
+they are either of intrinsic type or a user defined type.  For example,
+<P>
+<PRE>    a+6*g(i)/5.0-(a**2) ! numeric
+    name//&quot; is a wally&quot; ! character
+    lhs .GT. rhs        ! logical</PRE>
+<P>
+In addition to the intrinsic operations:
+<P>
+<UL><LI> operators may be defined by the user, for example, <TT>
+.INVERSE.</TT>. These defined operators (with 1 or 2 operands)  are specified
+in a procedure and can be applied to any type or combination of types.
+The operator functionality is given in a procedure which must then be
+mentioned in an interface block (see Section <A HREF="#DefiningNewOperators"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A>).
+Such operators  are very powerful when used in conjunction with
+derived types and modules as a package of objects and operators.<LI> intrinsic operators may be overloaded; when using a derived
+type the user can specify exactly what each existing operator means in
+the context of this new type.
+</UL>
+<P>
+<HR><A NAME="tex2html829" HREF="HTMLNotesnode57.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html827" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html821" HREF="HTMLNotesnode55.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html831" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html830" HREF="HTMLNotesnode57.html">Assignment</A>
+<B>Up:</B> <A NAME="tex2html828" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html822" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

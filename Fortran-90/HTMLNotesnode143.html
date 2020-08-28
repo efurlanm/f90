@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array-valued Functions</TITLE>
+<META NAME="description" CONTENT="Array-valued Functions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1895" HREF="HTMLNotesnode144.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1893" HREF="HTMLNotesnode140.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1889" HREF="HTMLNotesnode142.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1897" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1896" HREF="HTMLNotesnode144.html">Modules</A>
+<B>Up:</B> <A NAME="tex2html1894" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1890" HREF="HTMLNotesnode142.html">Automatic Arrays</A>
+<BR> <P>
+<H3><A NAME="SECTION01051300000000000000">Array-valued Functions</A></H3>
+<P>
+As well as returning `conventional' scalar results, functions can return
+pointers, arrays or derived types. For array valued functions 
+the size of the result can be determined in a fashion
+which is similar to the way that automatic arrays are declared.
+<P>
+Consider the following example of an array valued function:
+<PRE>    PROGRAM proggie
+     IMPLICIT NONE
+     INTERFACE ! mandatory
+      FUNCTION funnie(ima,scal)
+       INTEGER, INTENT(IN) :: ima(:,:)
+       INTEGER, INTENT(IN) :: scal
+       INTEGER, DIMENSION(SIZE(ima,1),SIZE(ima,2)) :: funnie
+      END FUNCTION funnie
+     END INTERFACE
+     INTEGER, PARAMETER      :: m = 6
+     INTEGER, DIMENSION(M,M) :: im1, im2
+      ...
+     IM2 = funnie(IM1,1) ! invoke
+      ...
+    END PROGRAM proggie
+
+    FUNCTION funnie(ima,scal)
+     IMPLICIT NONE
+     INTEGER, INTENT(IN) :: ima(:,:)
+     INTEGER, INTENT(IN) :: scal
+     INTEGER :: funnie(SIZE(ima,1),SIZE(ima,2))
+     funnie(:,:) = ima(:,:)*scal
+    END FUNCTION funnie</PRE>
+<P>
+here the bounds of <TT>funnie</TT> are inherited from the 
+actual argument and used to determine the size of the result array;
+a fixed sized result could have been returned by declaring the result to
+be an explicit-shape array but this approach is less flexible.
+<P>
+Note: by default, functions are assumed to return a scalar result so if 
+the result is a pointer, array or derived type then an explicit
+interface must be provided.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode71.html#QProcArrayValuedFunction"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode73.html#QProcOuterProduct"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1895" HREF="HTMLNotesnode144.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1893" HREF="HTMLNotesnode140.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1889" HREF="HTMLNotesnode142.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1897" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1896" HREF="HTMLNotesnode144.html">Modules</A>
+<B>Up:</B> <A NAME="tex2html1894" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1890" HREF="HTMLNotesnode142.html">Automatic Arrays</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>HPF Procedure Interfaces</TITLE>
+<META NAME="description" CONTENT="HPF Procedure Interfaces">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3212" HREF="HTMLNotesnode248.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3210" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3204" HREF="HTMLNotesnode246.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3214" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3213" HREF="HTMLNotesnode248.html">Procedures and Mapping</A>
+<B>Up:</B> <A NAME="tex2html3211" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3205" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<BR> <P>
+<A NAME="ProcedureInterfaces1">&#160;</A><H3><A NAME="SECTION02041100000000000000">HPF Procedure Interfaces</A></H3>
+<P>
+In Fortran&nbsp;90, information is communicated into a procedure either via the
+argument list or else via global data stored in a <TT>MODULE</TT> (or a
+<TT>COMMON</TT> block).
+<P>
+Due to the nature of HPF, it is not permitted to supply HPF objects, for
+example,
+<TT>TEMPLATE</TT> or <TT>PROCESSORS</TT> grids, as actual arguments -- a different
+method must be employed. It is possible (and, indeed, desirable) to use
+<TT>MODULE</TT> s to allow global mapping objects to be visible to all
+subprograms. This will be discussed later.
+<P>
+HPF supports a number of mechanisms for informing a procedure of the
+mapping of its dummy arguments. Every object that appears as a dummy
+argument must have some sort of mapping. HPF allows the programmer to
+say one of the following things about each argument:
+<P>
+<UL><LI> ``align the data as follows''. This is called <B>prescriptive</B>
+distribution,<LI> ``the data is aligned as follows''. This is called <B>
+descriptive</B> distribution,<LI> ``inherit the distribution from the dummy arguments''. This is
+called <B>transcriptive</B> distribution.
+<P>
+</UL>
+<P>
+During the development of HPF compilers it has become clear that it will
+<EM>never</EM> be easy to implement transcriptive (or <TT>INHERIT</TT> ed)
+distribution efficiently. The problems arise with array sections being
+used as actual arguments; in Fortran&nbsp;90 (and of course HPF) it is possible to
+collapse one or more dimensions of an actual argument by using a scalar
+index, for example,
+<P>
+<PRE>  CALL Subby(A(i,:,:,:))
+  CALL Subby(A(:,j,:,:))
+  CALL Subby(A(:,:,k,:))
+  CALL Subby(A(:,:,:,l))</PRE>
+<P>
+In each of the invocations above, the dummy argument will be mapped 
+to a different
+subset of processors so, upon compilation, the compiler will have to
+generate
+four different strains of <TT>Subby</TT> (one for each different dimension
+that is collapsed). For each of these strains, there will have to be one
+version of the procedure for each of the different distribution methods
+present in the
+program (could be five). This could lead to 20 different versions being
+needed for one single argument.
+<P>
+If our subroutine had more than one argument then a version of
+<TT>Subby</TT> would have to be generated for each possible combination of
+arguments, with two 4D array arguments this would mean  <IMG WIDTH=43 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline23882" SRC="HTMLNotesimg141.gif"  >  or
+400 instances of <TT>Subby</TT> must be generated. It can be seen that
+things can very soon get out of hand!
+<P>
+The only way to get around this problem is to generate a general
+version of the <TT>Subby</TT>
+subroutine to cater for all possible mappings and combination of
+mappings. This routine would effectively have to resolve mappings at
+run-time which would slow down execution to an unacceptable level (LPF -
+Low Performance Fortran!)
+<P>
+In this course we only discuss prescriptive and descriptive
+distributions.
+<P>
+<HR><A NAME="tex2html3212" HREF="HTMLNotesnode248.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3210" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3204" HREF="HTMLNotesnode246.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3214" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3213" HREF="HTMLNotesnode248.html">Procedures and Mapping</A>
+<B>Up:</B> <A NAME="tex2html3211" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3205" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

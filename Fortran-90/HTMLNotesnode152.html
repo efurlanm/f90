@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules - Procedure Declaration</TITLE>
+<META NAME="description" CONTENT="Modules - Procedure Declaration">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2006" HREF="HTMLNotesnode153.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2004" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1998" HREF="HTMLNotesnode151.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2008" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2007" HREF="HTMLNotesnode153.html">Encapsulation Example</A>
+<B>Up:</B> <A NAME="tex2html2005" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1999" HREF="HTMLNotesnode151.html">Modules Interface Declaration Example</A>
+<BR> <P>
+<A NAME="ModulesInterfaceProblem1">&#160;</A><H3><A NAME="SECTION01052400000000000000">Modules - Procedure Declaration</A></H3>
+<P>
+<A NAME="ModuleProcedures">&#160;</A>
+<P>
+Placing interfaces in modules for visibility purposes has the following
+problems,
+<P>
+<UL><LI>   procedures may be inter-related and hence call one
+another.<LI>   the procedure interfaces need to be explicit to one
+another.<LI>   each procedure is unable to contain the <TT>USE</TT> statement as
+it would contain a declaration of its own interface. This is not
+allowed.
+<P>
+</UL>
+<P>
+In the previous example, if <TT>sub1</TT> is to call <TT>sub2</TT> then 
+an explicit interface for the latter must be visible to the former.
+Inserting the statement <TT>USE</TT> <TT>my_interfaces</TT> into <TT>sub1</TT> would
+suffice, however, this causes a
+problem as <TT>sub1</TT> will have its own interface contained within its
+body which is illegal due to there being duplicate declarations. 
+A <TT>USE</TT> <TT>ONLY</TT> clause (see Section <A HREF="HTMLNotesnode155.html#UseStatement">5.2.5</A>) 
+could be used to skirt around this problem but in the general 
+case this solution is too messy.
+<P>
+If we <EM>encapsulate</EM> the procedures into the module then the need
+for <TT>INTERFACE</TT> blocks is removed. The fact that the procedures are
+defined <EM>in</EM> the module means that their interfaces (and hence
+declarations) can be seen by
+all procedures at the same level in that module and any program unit 
+that uses the module. These procedures are now called
+<EM>module procedures</EM>, and  this approach should be adopted whenever possible.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2009" HREF="HTMLNotesnode153.html#SECTION01052410000000000000">Encapsulation Example</A>
+<LI> <A NAME="tex2html2010" HREF="HTMLNotesnode154.html#SECTION01052420000000000000">Encapsulation - Stack example</A>
+</UL>
+<HR><A NAME="tex2html2006" HREF="HTMLNotesnode153.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2004" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1998" HREF="HTMLNotesnode151.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2008" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2007" HREF="HTMLNotesnode153.html">Encapsulation Example</A>
+<B>Up:</B> <A NAME="tex2html2005" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1999" HREF="HTMLNotesnode151.html">Modules Interface Declaration Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

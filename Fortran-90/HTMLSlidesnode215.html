@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The INDEPENDENT Directive</TITLE>
+<META NAME="description" CONTENT="The INDEPENDENT Directive">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2878" HREF="HTMLSlidesnode216.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2876" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2870" HREF="HTMLSlidesnode214.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2880" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2879" HREF="HTMLSlidesnode216.html">Independent Loops - Conditions</A>
+<B>Up:</B> <A NAME="tex2html2877" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2871" HREF="HTMLSlidesnode214.html">MIMD Example</A>
+<BR> <P>
+<H2><A NAME="SECTION020412000000000000000">The <TT>INDEPENDENT</TT> Directive</A></H2>
+<P>
+The <TT>INDEPENDENT</TT> directive:
+<P>
+<UL><LI>  can be applied to <TT>DO</TT> loops and <TT>FORALL</TT> 
+assignments.<LI>  asserts that no iteration affects any other iteration either 
+directly or indirectly.
+<P>
+</UL>
+<P>
+For <TT>DO</TT>-loops  <TT>INDEPENDENT</TT> means the iterations or assignments 
+can be performed <EM>in any order</EM>:
+<P>
+<PRE> !HPF$ INDEPENDENT
+ DO i = 1,n
+   x(i) = i**2
+ END DO</PRE>
+<P>
+For <TT>FORALL</TT> statements <TT>INDEPENDENT</TT> means the whole RHS does 
+not have to be evaluated before assignment to the LHS can begin,
+<P>
+<PRE> !HPF$ INDEPENDENT
+ FORALL (i = 1:n) x(i) = i**2</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode236.html#Independent1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2878" HREF="HTMLSlidesnode216.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2876" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2870" HREF="HTMLSlidesnode214.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2880" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2879" HREF="HTMLSlidesnode216.html">Independent Loops - Conditions</A>
+<B>Up:</B> <A NAME="tex2html2877" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2871" HREF="HTMLSlidesnode214.html">MIMD Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

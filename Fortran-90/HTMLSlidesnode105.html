@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>External Function Example</TITLE>
+<META NAME="description" CONTENT="External Function Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1443" HREF="HTMLSlidesnode106.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1441" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1435" HREF="HTMLSlidesnode104.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1445" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1444" HREF="HTMLSlidesnode106.html">Scoping Rules</A>
+<B>Up:</B> <A NAME="tex2html1442" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1436" HREF="HTMLSlidesnode104.html">Function Syntax</A>
+<BR> <P>
+<H2><A NAME="SECTION0101510000000000000000">External Function Example</A></H2>
+<P>
+<UL><LI>
+A function is invoked by its appearance in an expression
+at the place where its result value is needed,
+<P>
+<PRE>    total = total + largest(a,b,c)</PRE><LI> external functions should be declared,
+<PRE>    INTEGER, EXTERNAL :: largest</PRE><LI> The function is defined as follows,
+<PRE>    INTEGER FUNCTION largest(i,j,k)
+     IMPLICIT NONE
+     INTEGER :: i, j, k
+     largest = i
+     IF (j .GT. largest) largest = j
+     IF (k .GT. largest) largest = k
+    END FUNCTION largest</PRE>
+<P>
+or equivalently as,
+<PRE>    FUNCTION largest(i,j,k)
+     IMPLICIT NONE
+     INTEGER :: i, j, k
+     INTEGER :: largest
+      ...
+    END FUNCTION largest</PRE>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode129.html#Function2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode58.html#QProcSimpleFunction"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode66.html#QProcRandomNumber"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1443" HREF="HTMLSlidesnode106.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1441" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1435" HREF="HTMLSlidesnode104.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1445" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1444" HREF="HTMLSlidesnode106.html">Scoping Rules</A>
+<B>Up:</B> <A NAME="tex2html1442" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1436" HREF="HTMLSlidesnode104.html">Function Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

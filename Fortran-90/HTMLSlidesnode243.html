@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Arguments Example 2</TITLE>
+<META NAME="description" CONTENT="Array Arguments Example 2">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3204" HREF="HTMLSlidesnode244.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3202" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3196" HREF="HTMLSlidesnode242.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3206" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3205" HREF="HTMLSlidesnode244.html">Collapsing Dimensions</A>
+<B>Up:</B> <A NAME="tex2html3203" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3197" HREF="HTMLSlidesnode242.html">Array Arguments Example 1</A>
+<BR> <P>
+<H2><A NAME="SECTION020616000000000000000">Array Arguments Example 2</A></H2>
+<P>
+It is much simpler but less efficient to use prescriptive distributions.
+<P>
+<PRE>     SUBROUTINE Zubbie(x,y,z)    
+!HPF$ TEMPLATE, DIMENSION(4,6)            :: T
+!HPF$ PROCESSORS, DIMENSION(2,2)          :: P
+      REAL, INTENT(INOUT), DIMENSION(:,:) :: x, y
+      REAL, INTENT(INOUT), DIMENSION(:,:) :: z
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P     :: x, y, z
+      ...</PRE>
+may generate,
+<UL><LI> two remappings,
+<UL><LI> on entry,<LI> on exit.
+</UL><LI> (probably) communications due to non-specific alignment.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode261.html#PassingArraySections3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3204" HREF="HTMLSlidesnode244.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3202" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3196" HREF="HTMLSlidesnode242.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3206" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3205" HREF="HTMLSlidesnode244.html">Collapsing Dimensions</A>
+<B>Up:</B> <A NAME="tex2html3203" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3197" HREF="HTMLSlidesnode242.html">Array Arguments Example 1</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

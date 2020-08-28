@@ -1,0 +1,96 @@
+This is a readme for the directory 
+
+		"/pub/f90courses" 
+
+on the machine
+
+		"ftp.liv.ac.uk"
+
+The courses contained within in this directory have been developed by the 
+Liverpool University Computer Services Department under a grant supplied
+by JISC/NTI. Materials for four Fortran 90 courses can be found here:
+
+	75 minute seminar,	
+	1 day course,
+	3 day course, (2 varients)
+	5 day course.
+
+There is also a nice World Wide Web gateway which allows the course to
+be retrieved / studied:
+
+	http://www.liv.ac.uk/HPC/F90page.html
+
+---------------------------------------------------------------------------
+
+This directory contains the following files:
+
+Permish                  Size   Date'n'that  Filename
+~~~~~~~                  ~~~~   ~~~~~~~~~~~  ~~~~~~~~
+
+-rw-------  1 adamm      123405 Nov  9 14:59 Answers3Day.ps.Z
+-rw-------  1 adamm       92484 Nov  9 15:02 Answers3Day.ps.gz
+-rw-------  1 adamm      146483 Nov  9 15:03 Answers5Day.ps.Z
+-rw-------  1 adamm      106389 Nov  9 15:03 Answers5Day.ps.gz
+-rw-r--r--  1 adamm       14785 Apr 13  1995 BoxContents1Day.ps.Z
+-rw-r--r--  1 adamm       12202 Apr 13  1995 BoxContents1Day.ps.gz
+-rw-r--r--  1 adamm       20254 Apr 13  1995 BoxContents1Hour.ps.Z
+-rw-r--r--  1 adamm       17273 Apr 13  1995 BoxContents1Hour.ps.gz
+-rw-r--r--  1 adamm       15025 Apr 13  1995 BoxContents5Day.ps.Z
+-rw-r--r--  1 adamm       12359 Apr 13  1995 BoxContents5Day.ps.gz
+-rw-r--r--  1 adamm      341469 Apr 13  1995 CourseGuide1Day.ps.Z
+-rw-r--r--  1 adamm      263443 Apr 13  1995 CourseGuide1Day.ps.gz
+-rw-r--r--  1 adamm      495612 Nov  9 14:48 CourseGuide5Day.ps.Z
+-rw-r--r--  1 adamm      381999 Nov  9 14:45 CourseGuide5Day.ps.gz
+-rw-r--r--  1 adamm      425022 Jun 27 14:18 CourseNotes1Day.ps.Z
+-rw-r--r--  1 adamm      334440 Jun 27 14:19 CourseNotes1Day.ps.gz
+-rw-r--r--  1 adamm      454431 Nov  9 15:07 CourseNotes3Day.ps.Z
+-rw-r--r--  1 adamm      359549 Nov  9 15:06 CourseNotes3Day.ps.gz
+-rw-r--r--  1 adamm      521276 Nov  9 14:40 CourseNotes5Day.ps.Z
+-rw-r--r--  1 adamm      413553 Nov  9 14:39 CourseNotes5Day.ps.gz
+-rw-r--r--  1 adamm      239465 Jul 11 17:30 CourseSlides1Day.ps.Z
+-rw-r--r--  1 adamm      186795 Jun 12 17:09 CourseSlides1Day.ps.gz
+-rw-------  1 adamm      276651 Nov  9 15:16 CourseSlides3Day.ps.Z
+-rw-------  1 adamm      218567 Nov  9 15:09 CourseSlides3Day.ps.gz
+-rw-r--r--  1 adamm      316748 Nov  9 14:41 CourseSlides5Day.ps.Z
+-rw-r--r--  1 adamm      248071 Nov  9 14:40 CourseSlides5Day.ps.gz
+-rw-r--r--  1 adamm      391057 Oct 18 16:51 EasyNotes3Day.ps.Z
+-rw-r--r--  1 adamm      309767 Oct 18 16:52 EasyNotes3Day.ps.gz
+-rw-r--r--  1 adamm      259334 Oct 18 16:51 EasySlides3Day.ps.Z
+-rw-r--r--  1 adamm      204729 Oct 18 16:52 EasySlides3Day.ps.gz
+-rw-r--r--  1 adamm       65645 Nov  9 15:01 Exercises3Day.ps.Z
+-rw-r--r--  1 adamm       52230 Nov  9 15:01 Exercises3Day.ps.gz
+-rw-r--r--  1 adamm       72865 Nov  9 14:54 Exercises5Day.ps.Z
+-rw-r--r--  1 adamm       57687 Nov  9 14:53 Exercises5Day.ps.gz
+-rw-r--r--  1 adamm        5256 Jun  1 17:02 README
+-rw-r--r--  1 adamm       39647 Oct 18 16:01 ResourceList.ps.Z
+-rw-r--r--  1 adamm       32966 Oct 18 16:01 ResourceList.ps.gz
+-rw-r--r--  1 adamm      173609 Jul  3 17:25 SeminarSlides1Hour.ps.Z
+-rw-r--r--  1 adamm      131811 Jul  3 17:26 SeminarSlides1Hour.ps.gz
+-rw-r--r--  1 adamm       32400 Apr 13  1995 Syllabus1Day.ps.Z
+-rw-r--r--  1 adamm       26911 Apr 13  1995 Syllabus1Day.ps.gz
+-rw-r--r--  1 adamm       44040 Apr 13  1995 Syllabus5Day.ps.Z
+-rw-r--r--  1 adamm       36139 Apr 13  1995 Syllabus5Day.ps.gz
+
+I suspect that the filenames are descriptive enough! Any apparently
+'missing' files, for example, Syllabus3Day.ps, will eventually appear here 
+as will updated versions of the above documents.
+
+As an example, the files you would need for the five day course would be:
+
+	the instructions:	BoxContents5Day
+	the OHP slides: 	CourseSlides5Day
+	the student notes:	CourseNotes5Day
+	the lecturers guide:	CourseGuide5Day
+	the resource list:	ResourceList
+	the syllabus:		Syllabus5Day
+	the student exercises:	Exercises5Day
+	the solutions:		Answers5Day - obtained via Email request
+
+Note that:
+
+	the .ps.gz files have been compressed using "gzip",
+	the .ps.Z files have been compressed using the unix utility "compress".
+
+This file was last updated on 9 Nov 1995 by AC Marshall
+
+Email: adamm@liv.ac.uk

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Execution Process</TITLE>
+<META NAME="description" CONTENT="Execution Process">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2986" HREF="HTMLNotesnode230.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2984" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2978" HREF="HTMLNotesnode228.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2988" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2987" HREF="HTMLNotesnode230.html">Do-loops and Forall Statements</A>
+<B>Up:</B> <A NAME="tex2html2985" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2979" HREF="HTMLNotesnode228.html">Forall Examples</A>
+<BR> <P>
+<A NAME="ForallExecutionProcess1">&#160;</A><H3><A NAME="SECTION02031300000000000000">Execution Process</A></H3>
+<P>
+It is important to be aware of the order of execution of a <TT>FORALL</TT> 
+statement which is as follows,
+<OL><LI> evaluate subscript expressions ( <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;forall-triplet</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ),<LI> evaluate mask for all indices,<LI> for all <TT>.TRUE.</TT> mask elements, evaluate whole of RHS of assignment,<LI> assign RHSs to corresponding LHSs
+</OL>
+<P>
+Since <TT>FORALL</TT> is executed in parallel over a number of
+processors and since there is a distinct and rigid ordering implied in
+its execution, each processor must be sure that all other processors
+have completed the current step before any processor is allowed to
+continue. This means that there are synchronisations
+between every step in the execution process. In other words, <EM>every</EM>
+processor must have finished evaluating the subscript expressions
+before <EM>any</EM> processor begins to work out the mask. Likewise the
+mask calculation must been completed by every processor before
+calculation of the RHS may begin, and so on.
+<P>
+As always in Fortran, it is not permissible to perform
+assignment to the same element more than once in the body of a
+parallel assignment statement (such as <TT>FORALL</TT>).
+Compare this with parallel assignments to vector subscripted LHS's.
+<P>
+<HR><A NAME="tex2html2986" HREF="HTMLNotesnode230.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2984" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2978" HREF="HTMLNotesnode228.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2988" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2987" HREF="HTMLNotesnode230.html">Do-loops and Forall Statements</A>
+<B>Up:</B> <A NAME="tex2html2985" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2979" HREF="HTMLNotesnode228.html">Forall Examples</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

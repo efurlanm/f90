@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Character Declarations</TITLE>
+<META NAME="description" CONTENT="Character Declarations">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html779" HREF="HTMLNotesnode53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html777" HREF="HTMLNotesnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html771" HREF="HTMLNotesnode51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html781" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html780" HREF="HTMLNotesnode53.html">Constants (Parameters)</A>
+<B>Up:</B> <A NAME="tex2html778" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html772" HREF="HTMLNotesnode51.html">Numeric and Logical Declarations</A>
+<BR> <P>
+<A NAME="CharacterDeclarations1">&#160;</A><H3><A NAME="SECTION01017500000000000000">Character Declarations</A></H3>
+<P>
+Character variables can be declared in a similar way to numeric types
+using a <TT>CHARACTER</TT> statement. <TT>CHARACTER</TT> variables can
+<UL><LI> refer  to one character;<LI> refer to  a string of characters which is achieved by 
+adding a length specifier to the object declaration.
+<P>
+</UL>
+<P>
+A simplified syntax follows,
+<P>
+<PRE><TT> 
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;type </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > [<TT>(</TT><TT>LEN</TT><TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;length-spec </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > <TT>)</TT>] [<code>,</code>
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;attribute</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ] [<code>:</code><code>:</code> ]
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;variable</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  [ <TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;value </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+</TT></PRE>
+<P>
+If  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;attribute</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or <TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;value </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  are present then so must 
+be <code>:</code><code>:</code>.
+<P>
+The following are all valid declarations,
+<PRE>    CHARACTER(LEN=10)  :: name
+    CHARACTER          :: sex
+    CHARACTER(LEN=32)  :: str</PRE>
+<P>
+In the same way as the <TT>DIMENSION</TT> attribute was overridden in the
+example of Section <A HREF="HTMLNotesnode51.html#NumericAndLogicalDeclarations">1.7.4</A> so can the 
+string length declaration (specified by <TT>LEN</TT><TT>=</TT>); this is achieved
+using the <TT>*</TT> notation.  If a <TT>DIMENSION</TT> specifier is
+present it can also be overridden. The length specifier must come
+after the dimension if both are being overridden.
+<P>
+<PRE>    CHARACTER(LEN=10) :: name, sex*1, str*32
+    CHARACTER(LEN=10), DIMENSION(10,10) :: tom(10)*2, dick, harry(10,10,10)*20
+    CHARACTER, POINTER :: P2ch</PRE>
+<P>
+The first line is exactly the same as the previous declaration.
+<P>
+There is a substantial  difference between a character
+variable of 10 characters (<TT>CHARACTER</TT><TT>(LEN=10)</TT> or
+<TT>CHARACTER</TT><TT>*</TT><TT>10</TT>) and an array of 10 elements; the first is
+scalar  and the second is non-scalar.
+<P>
+Other attributes  can be added in the same way as for 
+numeric types (see Section <A HREF="HTMLNotesnode51.html#NumericAndLogicalDeclarations">1.7.4</A>).
+<P>
+<HR><A NAME="tex2html779" HREF="HTMLNotesnode53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html777" HREF="HTMLNotesnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html771" HREF="HTMLNotesnode51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html781" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html780" HREF="HTMLNotesnode53.html">Constants (Parameters)</A>
+<B>Up:</B> <A NAME="tex2html778" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html772" HREF="HTMLNotesnode51.html">Numeric and Logical Declarations</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

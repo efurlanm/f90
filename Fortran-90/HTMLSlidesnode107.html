@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Host Association</TITLE>
+<META NAME="description" CONTENT="Host Association">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1465" HREF="HTMLSlidesnode108.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1463" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1457" HREF="HTMLSlidesnode106.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1467" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1466" HREF="HTMLSlidesnode108.html">Scope of Names</A>
+<B>Up:</B> <A NAME="tex2html1464" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1458" HREF="HTMLSlidesnode106.html">Scoping Rules</A>
+<BR> <P>
+<H2><A NAME="SECTION0101512000000000000000">Host Association</A></H2>
+<P>
+Consider
+<PRE>    SUBROUTINE calculate_pay
+     IMPLICIT NONE
+     EXTERNAL hex
+     REAL :: pay, tax
+     pay = ...;  tax = ...
+     CALL print_pay
+    CONTAINS
+     SUBROUTINE print_pay
+      REAL :: tax_paid
+       tax_paid = pay*tax; PRINT*, tax_paid
+       CALL change_pay;    PRINT*, pay*tax
+       CALL hex
+     END SUBROUTINE print_pay
+     SUBROUTINE change_pay
+      pay = ...; tax = ...
+     END SUBROUTINE change_pay
+    END SUBROUTINE calculate_pay
+
+    SUBROUTINE hex
+     REAL :: pay, tax
+      ...
+    END SUBROUTINE hex</PRE>
+<P>
+<UL><LI>
+<TT>pay</TT> and <TT>tax</TT> in <TT>print_pay</TT> are 
+the same variables as
+in the host subroutine, they are accessible by 
+<EM>host association</EM>.<LI> <TT>pay</TT> and <TT>tax</TT> in <TT>hex</TT> is unrelated.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode132.html#HostAssociation1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode60.html#QProcStdDev"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1465" HREF="HTMLSlidesnode108.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1463" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1457" HREF="HTMLSlidesnode106.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1467" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1466" HREF="HTMLSlidesnode108.html">Scope of Names</A>
+<B>Up:</B> <A NAME="tex2html1464" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1458" HREF="HTMLSlidesnode106.html">Scoping Rules</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Implicit SAVE Attribute</TITLE>
+<META NAME="description" CONTENT="Implicit SAVE Attribute">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1796" HREF="HTMLNotesnode136.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1794" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1788" HREF="HTMLNotesnode134.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1798" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1797" HREF="HTMLNotesnode136.html">Procedure Interfaces</A>
+<B>Up:</B> <A NAME="tex2html1795" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1789" HREF="HTMLNotesnode134.html">SAVE Statement</A>
+<BR> <P>
+<A NAME="SaveStatement2">&#160;</A><H3><A NAME="SECTION01041900000000000000">Implicit <TT>SAVE</TT> Attribute</A></H3>
+<P>
+The <TT>SAVE</TT> attribute is given implicitly if:
+<P>
+<UL><LI> an object, which is not a dummy argument or 
+a <TT>PARAMETER</TT>, appears in an initialising declaration in a procedure:
+<P>
+<PRE>    REAL :: s = 3.5 ! set initially to 3.5</PRE>
+<P>
+The equals sign implicitly places the object in the static storage class.<LI> an object or part of an object is initialised in a <TT>DATA</TT> statement,
+<PRE>    REAL, DIMENSION(50) :: Y
+    DATA Y(21:25) /1,2,3,4,5/</PRE>
+<P>
+Appearance in a <TT>DATA</TT> statement implicitly places the object in the 
+static storage class.<LI> an object is in <TT>COMMON</TT>.
+<P>
+<PRE>    COMMON /saved/ Y</PRE>
+<P>
+Appearance in a <TT>COMMON</TT> statement implicitly places the object in the
+static storage class.<LI> the procedure (as a whole) has the <TT>SAVE</TT> attribute. (A <TT>SAVE</TT> 
+statement on a line on its own means all of the declarations in the
+procedure have the <TT>SAVE</TT> attribute.)
+<P>
+<PRE>    SUBROUTINE polo
+     IMPLICIT NONE
+     INTEGER mint, neck_jumper
+     SAVE
+     REAL stick, car
+      ...</PRE>
+<P>
+In the above example <TT>mint</TT>, <TT>neck_jumper</TT>,  
+<TT>stick</TT> and <TT>car</TT> all have the <TT>SAVE</TT> 
+attribute.
+<P>
+</UL>
+In a procedure, objects  are conceptually  initialised on the <EM>first</EM>
+call only; on all subsequent executions 
+they retain the values that they were assigned during the previous
+invocation of the procedure.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode64.html#QProcSave"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1796" HREF="HTMLNotesnode136.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1794" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1788" HREF="HTMLNotesnode134.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1798" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1797" HREF="HTMLNotesnode136.html">Procedure Interfaces</A>
+<B>Up:</B> <A NAME="tex2html1795" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1789" HREF="HTMLNotesnode134.html">SAVE Statement</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

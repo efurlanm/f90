@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Operator Precedence</TITLE>
+<META NAME="description" CONTENT="Operator Precedence">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html917" HREF="HTMLNotesnode65.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html915" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html909" HREF="HTMLNotesnode63.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html919" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html918" HREF="HTMLNotesnode65.html">Precedence Example</A>
+<B>Up:</B> <A NAME="tex2html916" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html910" HREF="HTMLNotesnode63.html">Intrinsic Logical Operations</A>
+<BR> <P>
+<A NAME="OperatorPrecedence1">&#160;</A><H3><A NAME="SECTION01018700000000000000">Operator Precedence</A></H3>
+<P>
+<A NAME="OperatorPrecedence">&#160;</A>
+<P>
+The following table depicts the order in which operators are evaluated:
+<P>
+<P> <IMG WIDTH=387 HEIGHT=302 ALIGN=BOTTOM ALT="tabular3744" SRC="HTMLNotesimg13.gif"  > <P>
+<P>
+In an expression with no parentheses,
+ the highest precedence operator is combined with its operands first;
+In contexts of equal precedence left to right evaluation
+is performed except for <TT>*</TT><TT>*</TT>.
+<P>
+Other relevant points are that the intrinsically defined order cannot be 
+changed which means that user defined operators have a fixed precedence (at
+the top and bottom of the table) and  never be changed.
+The operator with the highest precedence has the <EM>
+tightest binding</EM>; from the table user-defined monadic operators
+can be seen to be the most tightly binding.
+<P>
+The ordering of the operators is fairly intuitive and is comparable to
+the ordering of other languages. 
+The evaluation order can be altered by using parenthesis; expressions in 
+parenthesis is evaluated first.  In contexts of equal precedence left to 
+right evaluation is performed except for <TT>*</TT><TT>*</TT> where its is right to 
+left. This is important when teetering around the limits of the machines
+representation.  Consider <TT>A-B+C</TT> and <TT>A+C-B</TT>, if <TT>A</TT> were
+the largest representable number and <TT>C</TT> is positive and smaller
+than <TT>B</TT>; the first expression is OK but the second will crash the
+program with an overflow error.
+<P>
+One of the most common pitfalls occurs with the division operator
+-- it is good
+practice to put numerator and denominator in parentheses. Note:
+<P>
+<PRE>    (A+B)/C</PRE>
+is not the same as
+<P>
+<PRE>    A+B/C</PRE>
+<P>
+but
+<P>
+<PRE>    (A*B)/C</PRE>
+is equivalent to
+<P>
+<PRE>    A*B/C</PRE>
+<P>
+This is because the multiplication operator is more tightly binding than
+the addition operator, however,
+<PRE>    A/B*C</PRE>
+is not equivalent to
+<P>
+<PRE>    A/(B*C)</PRE>
+<P>
+due to left to right evaluation.
+<P>
+The syntax is such that two operators cannot be adjacent; one times minus 
+one is written <TT>1*(-1)</TT> and not <TT>1*-1</TT>. (This is the same as
+most languages.)
+<P>
+<HR><A NAME="tex2html917" HREF="HTMLNotesnode65.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html915" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html909" HREF="HTMLNotesnode63.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html919" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html918" HREF="HTMLNotesnode65.html">Precedence Example</A>
+<B>Up:</B> <A NAME="tex2html916" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html910" HREF="HTMLNotesnode63.html">Intrinsic Logical Operations</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

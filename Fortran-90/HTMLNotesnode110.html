@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Masked Assignment - Where Construct</TITLE>
+<META NAME="description" CONTENT="Masked Assignment - Where Construct">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1494" HREF="HTMLNotesnode111.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1492" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1486" HREF="HTMLNotesnode109.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1496" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1495" HREF="HTMLNotesnode111.html">Vector-valued Subscripts</A>
+<B>Up:</B> <A NAME="tex2html1493" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1487" HREF="HTMLNotesnode109.html">Masked Assignment - Where </A>
+<BR> <P>
+<A NAME="MaskedAssignment2">&#160;</A><H3><A NAME="SECTION010311800000000000000">Masked Assignment - Where Construct</A></H3>
+<P>
+Masked assignment may also be performed by a <TT>WHERE</TT>  construct:
+<PRE>    WHERE(A &gt; 0.0)
+      B = LOG(A)
+      C = SQRT(A)
+    ELSEWHERE
+      B = 0.0
+    ENDWHERE</PRE>
+<P>
+the effect of this code block is to perform the assignments 
+<code>B(j,k)</code> <TT>=</TT> <code>LOG(A(j,k))</code> and
+<code>C(j,k)</code> <TT>=</TT> <code>SQRT(A(j,k)</code> wherever <code>(A(j,k)</code> <code>&gt;</code> <code>0.0)</code>
+is <TT>.TRUE.</TT>.  For the cases where the mask is <TT>.FALSE.</TT>  the assignments in
+the <TT>ELSE</TT><TT>WHERE</TT> block are made instead. Note that the <TT>WHERE</TT> ...
+<TT>END</TT> <TT>WHERE</TT> is <EM>not</EM>  a control construct
+and cannot currently be nested<A NAME="tex2html19" HREF="HTMLNotesfootnode.html#7801"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.
+<P>
+In all the above examples the mask, (the logical expression,) 
+must conform to the implied
+shape of each assignment in the body, in other words, in the above
+example all arrays must all conform.
+<P>
+The execution sequence is as follows: evaluate the mask, execute
+the <TT>WHERE</TT> block (in full) then execute the <TT>ELSEWHERE</TT> block.
+The separate assignment statements are executed sequentially but
+the individual elemental assignments within each statement are
+(conceptually) executed in parallel. It is not possible to have a scalar
+on the LHS in a <TT>WHERE</TT> and all statements must be array assignments.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode39.html#QArrayMaskedAssignment"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1494" HREF="HTMLNotesnode111.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1492" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1486" HREF="HTMLNotesnode109.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1496" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1495" HREF="HTMLNotesnode111.html">Vector-valued Subscripts</A>
+<B>Up:</B> <A NAME="tex2html1493" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1487" HREF="HTMLNotesnode109.html">Masked Assignment - Where </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

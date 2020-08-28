@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Subset HPF</TITLE>
+<META NAME="description" CONTENT="Subset HPF">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2376" HREF="HTMLNotesnode179.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2374" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2368" HREF="HTMLNotesnode177.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2378" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2377" HREF="HTMLNotesnode179.html">HPF Directives</A>
+<B>Up:</B> <A NAME="tex2html2375" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2369" HREF="HTMLNotesnode177.html">HPF and Data Parallelism</A>
+<BR> <P>
+<A NAME="SubsetF90Features1">&#160;</A><H3><A NAME="SECTION02013200000000000000">Subset HPF</A></H3>
+<P>
+The Fortran&nbsp;90 features that we shall study are:
+<P>
+<UL><LI> F<font size=-1><small>ORTRAN</small></font>&nbsp;77,<LI> array syntax (including <TT>WHERE</TT>),<LI> allocatable arrays,<LI> most Fortran&nbsp;90 intrinsics,<LI> take care with storage and sequence association and pointers!
+</UL>
+<P>
+Initially a Subset language  was defined to provide a `fast-track' 
+for useful, yet basic,
+implementations; the Full HPF language was recognised as being tricky to
+implement. Some of the Full HPF features have yet to be implemented by
+<EM>any</EM> of the vendors.
+<P>
+The subset was designed to cover most of the common and useful Fortran&nbsp;90 
+features. <TT>MODULE</TT> s were not deemed that important by HPFF but most
+vendors implemented them very early in the development cycles as users
+find them very powerful. Examples of Fortran&nbsp;90 features absent from subset
+HPF are derived types, parameterised types and pointers. All but the
+latter are implemented by most compilers now.
+<P>
+<A NAME="SubsetHPFFeatures1">&#160;</A>
+<P>
+We shall study the following HPF features:
+<UL><LI> processor arrangements,<LI> static alignment,<LI> static distribution,<LI> <TT>FORALL</TT> statement,<LI> <TT>INDEPENDENT</TT> loops,<LI> <TT>PURE</TT> and <TT>EXTRINSIC</TT> procedures,
+</UL>
+<P>
+The Full HPF (v1) specification includes some features that are much harder
+to implement and less useful than other simpler features.
+<P>
+Here, we concentrate on the most useful HPF
+features and omits some of the more complex. Full HPF allows dynamic
+objects -- ie, objets that can be remapped part-way thorough execution
+of
+a program unit --
+and inherited mappings (in a procedure). Both these features are <EM>
+very</EM> difficult to implement efficiently!
+<P>
+Many HPF features are now in Fortran&nbsp;95.
+<P>
+<HR><A NAME="tex2html2376" HREF="HTMLNotesnode179.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2374" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2368" HREF="HTMLNotesnode177.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2378" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2377" HREF="HTMLNotesnode179.html">HPF Directives</A>
+<B>Up:</B> <A NAME="tex2html2375" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2369" HREF="HTMLNotesnode177.html">HPF and Data Parallelism</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

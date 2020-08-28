@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Data Parallel Execution</TITLE>
+<META NAME="description" CONTENT="Data Parallel Execution">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2954" HREF="HTMLNotesnode227.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2952" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2946" HREF="HTMLNotesnode225.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2956" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2955" HREF="HTMLNotesnode227.html">Forall Statement</A>
+<B>Up:</B> <A NAME="tex2html2953" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2947" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<BR> <P>
+<A NAME="DataParallelExecution1">&#160;</A><H3><A NAME="SECTION02031100000000000000">Data Parallel Execution</A></H3>
+<P>
+The HPF data distribution directives merely tell the compiler how to
+distribute arrays amongst the available processors, they do not express
+parallelism.
+<P>
+Parallelism is expressed through the use of special (often Fortran&nbsp;90)
+statements such as array assignments, intrinsic calls with array
+arguments or any of the new HPF features:
+<P>
+<UL><LI> <TT>FORALL</TT> statement -- flexible data parallel assignment
+statement.<LI> <TT>PURE</TT> procedures -- `side-effect free' user procedures for
+parallel execution.<LI> <TT>INDEPENDENT</TT> directive -- perform loop iterations in parallel.<LI> <TT>NEW</TT> variables -- achieve independence using new variables.
+</UL>
+<P>
+<TT>FORALL</TT> and <TT>INDEPENDENT</TT> / <TT>INDEPENDENT</TT> <TT>NEW</TT> 
+ <TT>DO</TT> loops allow parallel assignment to
+arrays without actually using an array assignment statement. They are
+very expressive language features and often replace the need for
+contorted and multiply nested calls to array valued Fortran&nbsp;90 intrinsics.
+<TT>PURE</TT> procedures are simply procedures that can be invoked from within
+a <TT>FORALL</TT> statement or construct. They are side-effect free. All
+Fortran&nbsp;90 intrinsic procedures are <TT>PURE</TT>.
+<P>
+Both <TT>FORALL</TT> and <TT>PURE</TT> are included in the new Fortran standard,
+informally known as Fortran&nbsp;95.
+<P>
+<HR><A NAME="tex2html2954" HREF="HTMLNotesnode227.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2952" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2946" HREF="HTMLNotesnode225.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2956" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2955" HREF="HTMLNotesnode227.html">Forall Statement</A>
+<B>Up:</B> <A NAME="tex2html2953" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2947" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

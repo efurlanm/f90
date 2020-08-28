@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Processors Problem</TITLE>
+<META NAME="description" CONTENT="Processors Problem">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3396" HREF="HTMLNotesnode265.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3394" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3390" HREF="HTMLNotesnode263.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3398" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3397" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B>Up:</B> <A NAME="tex2html3395" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3391" HREF="HTMLNotesnode263.html">Scalar Arguments</A>
+<BR> <P>
+<A NAME="ProcessorsProblem1">&#160;</A><H3><A NAME="SECTION020411500000000000000">Processors Problem</A></H3>
+<P>
+HPF contains the following text:
+<P>
+<I>``An HPF compiler is required to accept any <TT>PROCESSORS</TT> 
+declaration
+in which the product of the extents of each declared dimension is equal
+to the number of physical processors that would be returned by
+<TT>NUMBER_OF_PROCESSORS</TT><TT>(</TT><TT>)</TT>.''</I>
+<P>
+This  gives handle on available resources and aids portability as all
+processor arrangements have same size but gives rise to problems with
+procedure interfaces when passing array sections.
+<P>
+The standard contains a fudge:
+<I>``Other cases may be handled as well.''</I>
+<P>
+which gives a potential portability problem.
+<P>
+<A NAME="ProcessorsProblem2">&#160;</A>
+<P>
+This approach could be one solution. Here, the HPF compiler has an
+extension which allows processor <EM>subsets</EM> to be used in 
+a program<A NAME="tex2html73" HREF="HTMLNotesfootnode.html#16577"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.
+The problem is that the subsections <TT>A(i,:)</TT> and <TT>b(i,:)</TT> are only 
+distributed over a (10 element)  slice of the processor array but HPF
+will not allow this to be specified. We could reconstruct the original
+template and so on but this is too complex. A simpler approach may be to
+allow processor subsets, however, as we will see later, this
+can lead to more problems. For example,
+<P>
+<PRE>    REAL, DIMENSION(100,100) :: A, B
+!HPF$ PROCESSORS, DIMENSION(10,10) :: P
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) :: A, B
+    INTERFACE
+     SUBROUTINE KerXubbie(x,y)
+      REAL, DIMENSION(:) :: x, y
+      !HPF$ PROCESSORS,DIMENSION(10) :: P ! non-HPF
+      !HPF$ ALIGN y WITH *x
+      !HPF$ DISTRIBUTE *(BLOCK) ONTO *P :: x
+     END SUBROUTINE KerXubbie
+    END INTERFACE
+     ...
+    CALL KerXubbie(A(i,:),b(i,:))</PRE>
+<P>
+Asserts that <TT>x</TT> and <TT>y</TT> are co-mapped and distributed blockwise
+over 10 processor subset! Not portable but semantics work!
+<P>
+<A NAME="ProcessorsProblem3">&#160;</A>
+<P>
+HPF also specifies <I>``If two processor arrangements have the same
+shape, then corresponding elements of the two arrangements are
+understood to refer to the same abstract processor.''</I> (HPF Spec v1.1,
+section 3.7, P40.) Given,
+<P>
+<PRE>!HPF$ PROCESSORS, DIMENSION(4) :: P1
+!HPF$ PROCESSORS, DIMENSION(4) :: P2</PRE>
+<P>
+This means that the two processor arrays <TT>P1</TT> and <TT>P2</TT> refer to
+the same set of four processors. If we allow the previous extension 
+ then the HPF semantics says that the dummy arguments
+<TT>x</TT> and <TT>y</TT> are mapped to the <EM>same</EM> 4-element processor
+array but in reality <TT>P1</TT> and <TT>P2</TT> are quite clearly <EM>not</EM>
+the same array:
+<P>
+<PRE>     REAL, DIMENSION(100,100) :: A
+!HPF$ PROCESSORS, DIMENSION(4,4) :: P
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P :: A
+      ...
+      CALL Grubbie(A(1,:),A(100,:))
+       ...
+      SUBROUTINE Grubbie(x,y)
+       REAL, DIMENSION(:) :: x, y
+!HPF$ PROCESSORS, DIMENSION(4) :: P1, P2
+!HPF$ DISTRIBUTE *(BLOCK) ONTO *P1 :: x
+!HPF$ DISTRIBUTE *(BLOCK) ONTO *P2 :: y
+       ...</PRE>
+<P>
+<B>Motto:</B>  <IMG WIDTH=165 HEIGHT=21 ALIGN=BOTTOM ALT="tex2html_wrap23902" SRC="HTMLNotesimg147.gif"  > <HR><A NAME="tex2html3396" HREF="HTMLNotesnode265.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3394" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3390" HREF="HTMLNotesnode263.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3398" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3397" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B>Up:</B> <A NAME="tex2html3395" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3391" HREF="HTMLNotesnode263.html">Scalar Arguments</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

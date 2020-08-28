@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Declarations</TITLE>
+<META NAME="description" CONTENT="Declarations">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1308" HREF="HTMLNotesnode94.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1306" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1300" HREF="HTMLNotesnode92.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1310" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1309" HREF="HTMLNotesnode94.html">Array Element Ordering</A>
+<B>Up:</B> <A NAME="tex2html1307" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1301" HREF="HTMLNotesnode92.html">Array Terminology</A>
+<BR> <P>
+<A NAME="ArrayDeclarations1">&#160;</A><H3><A NAME="SECTION01031200000000000000">Declarations</A></H3>
+<P>
+So long as the value of <TT>lda</TT> is known<A NAME="tex2html11" HREF="HTMLNotesfootnode.html#6728"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, 
+the following are valid:
+<PRE>    REAL, DIMENSION(100)       :: A
+    REAL, DIMENSION(10,10)     :: B
+    REAL, DIMENSION(-10:-1)    :: X
+    INTEGER, PARAMETER :: lda = 5
+    REAL, DIMENSION(0:lda-1)   :: Y
+    REAL, DIMENSION(1+lda*lda,10) :: Z</PRE>
+<P>
+The above example demonstrates:
+<UL><LI> bounds can begin and end anywhere, (the array <TT>X</TT>),<LI> default lower bound is 1, (the second dimension of <TT>Z</TT>),<LI> arrays can be zero-sized. If <TT>lda</TT> were set to be zero,
+<P>
+<PRE>    INTEGER, PARAMETER :: lda = 0</PRE>
+<P>
+then the array <TT>Y</TT> would be zero sized.
+<P>
+Zero-sized arrays are useful when
+programming degenerate
+cases especially when invoking procedures (in this case we would
+expect <TT>lda</TT> to be a dummy argument which determines the size of
+some local (or automatic) array); no extra code has to be added
+to test for zero extents in any of the dimensions -- statements including
+references to zero sized arrays are simply ignored.
+<P>
+</UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode27.html#QArrayHotel"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1308" HREF="HTMLNotesnode94.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1306" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1300" HREF="HTMLNotesnode92.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1310" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1309" HREF="HTMLNotesnode94.html">Array Element Ordering</A>
+<B>Up:</B> <A NAME="tex2html1307" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1301" HREF="HTMLNotesnode92.html">Array Terminology</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

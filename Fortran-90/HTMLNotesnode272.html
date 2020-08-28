@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Calls to the NAG Library</TITLE>
+<META NAME="description" CONTENT="Calls to the NAG Library">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3507" HREF="HTMLNotesnode273.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3505" HREF="HTMLNotesnode271.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3501" HREF="HTMLNotesnode271.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3509" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3508" HREF="HTMLNotesnode273.html">New HPF Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html3506" HREF="HTMLNotesnode271.html">Extrinsic instead of INDEPENDENT</A>
+<B> Previous:</B> <A NAME="tex2html3502" HREF="HTMLNotesnode271.html">Extrinsic instead of INDEPENDENT</A>
+<BR> <P>
+<A NAME="ExtrinsicUseExamples2">&#160;</A><H4><A NAME="SECTION02051410000000000000">Calls to the NAG Library</A></H4>
+<P>
+This example demonstrates the use of the NAg F<font size=-1><small>ORTRAN</small></font>&nbsp;77 library from within an
+HPF program. The cited example calls one of the simplest NAg library
+routines, <TT>X01AAF</TT> which returns the value of  <IMG WIDTH=8 HEIGHT=6 ALIGN=BOTTOM ALT="tex2html_wrap_inline21966" SRC="HTMLNotesimg11.gif"  > . Clearly, a far
+more
+substantial routine could have been called from within the extrinsic
+instead.
+<P>
+<PRE>      DOUBLE PRECISION FUNCTION Pi()
+       DOUBLE PRECISION X01AAF, x
+        Pi = X01AAF(x)
+      END</PRE>
+<P>
+The extrinsic does not need any mapping information because
+it does not reference any mapped objects.
+<P>
+The calling program could be:
+<P>
+<PRE>PROGRAM Using_NAG_4_Pi
+  !HPF$ PROCESSORS, DIMENSION(4)   :: P
+  DOUBLE PRECISION, DIMENSION(100) :: A
+  !HPF$ DISTRIBUTE (BLOCK) ONTO P  :: A
+  INTERFACE
+   EXTRINSIC(F77_LOCAL) DOUBLE PRECISION FUNCTION Pi()
+   END FUNCTION Pi
+  END INTERFACE
+  A   = Pi()
+END PROGRAM Using_NAG_4_Pi</PRE>
+<P>
+All scalars in a program <EM>must</EM> have the same value. As <TT>Pi</TT> is
+a scalar routine each version of it must return the same value (which
+they do).
+<P>
+It must be ensured that the correct libraries are linked at compile
+time. Use the link editors' <TT>-l</TT> switch:
+<P>
+<PRE>  $ pghpf -Mnohpfc NagLib_Calc_u_like.f
+  $ pghpf Extrinsic.hpf NagLib_Calc_u_like.o -lnag</PRE>
+<P>
+<HR><A NAME="tex2html3507" HREF="HTMLNotesnode273.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3505" HREF="HTMLNotesnode271.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3501" HREF="HTMLNotesnode271.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3509" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3508" HREF="HTMLNotesnode273.html">New HPF Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html3506" HREF="HTMLNotesnode271.html">Extrinsic instead of INDEPENDENT</A>
+<B> Previous:</B> <A NAME="tex2html3502" HREF="HTMLNotesnode271.html">Extrinsic instead of INDEPENDENT</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

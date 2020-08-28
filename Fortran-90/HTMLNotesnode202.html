@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>More Distributions</TITLE>
+<META NAME="description" CONTENT="More Distributions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2661" HREF="HTMLNotesnode203.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2659" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2653" HREF="HTMLNotesnode201.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2663" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2662" HREF="HTMLNotesnode203.html">Alignment</A>
+<B>Up:</B> <A NAME="tex2html2660" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2654" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<BR> <P>
+<A NAME="MoreDataDistribution1">&#160;</A><H3><A NAME="SECTION02020100000000000000">More Distributions</A></H3>
+<P>
+There are two further distribution methods:
+<UL><LI> <TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> -- give processors <I>m</I> elements,<LI> <TT>CYCLIC</TT><TT>(</TT><I>m</I><TT>)</TT> -- distribute <I>m</I> elements in a
+round-robin fashion, will be inefficient.
+</UL>
+<P>
+These are similar to one another. In both cases a block of
+elements of
+a specific size is given to each processor in turn. The size of block,
+<I>m</I>, is specified in parentheses after the distribution method. The only
+real difference between the two methods is that <TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> 
+implies
+that each processor <EM>must</EM> get <EM>at most one</EM> block of elements
+whereas
+<TT>CYCLIC</TT><TT>(</TT><I>m</I><TT>)</TT> implies that each
+processor <EM>may</EM> get <EM>more than one</EM> block of elements.
+<P>
+<TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> implies that after giving each processor <I>m</I>
+elements, all the array should have been distributed; if there are any
+elements left over an error will have occurred. <TT>CYCLIC</TT><TT>(</TT><I>m</I><TT>)</TT> 
+distribution assigns a block of <I>m</I> elements to each processor and then
+returns to the first and gives a second block to each processor and so
+on, until all the array elements have been used up.
+<P>
+<TT>CYCLIC</TT><TT>(</TT><I>m</I><TT>)</TT> retains characteristics of both <TT>BLOCK</TT> and
+<TT>CYCLIC</TT> distributions: in theory,
+ blocks of <I>m</I> elements are grouped together which
+is useful for neighbourhood calculations and the cyclic distribution
+policy should promote a reasonable degree of load balancing.
+Unfortunately,
+possible benefits are often outweighed by the extra work involved in
+keeping track of where each array element is resident. The elements
+owned by a specific processor when using regular <TT>BLOCK</TT>, <TT>CYCLIC</TT> or
+<TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> 
+distributions can be represented internally be the compiler as
+  a single subscript-triplet, however,
+<TT>CYCLIC</TT><TT>(</TT><I>m</I><TT>)</TT> requires that a <EM>union</EM> of subscript-triplets be
+used. This factor will add extra complexity to the compiled program as
+the executable code will contain
+an extra level of loop nesting compared to other distributions.
+<P>
+<TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> is useful if <TT>BLOCK</TT> distribution is desired but only
+over a subset of processors.
+<P>
+For example,
+<P>
+<PRE>     REAL, DIMENSION(20) :: A, B
+!HPF$ PROCESSORS, DIMENSION(4) :: P
+!HPF$ DISTRIBUTE A(BLOCK(9)) ONTO P
+!HPF$ DISTRIBUTE B(CYCLIC(2)) ONTO P</PRE>
+<P>
+The examples demonstrates how <TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> has
+ensured that the first two processors get the majority of the array <TT>
+A</TT>, and how <TT>CYCLIC</TT><TT>(</TT><I>m</I><TT>)</TT>  distribution has assigned a number of
+discrete blocks of elements of <TT>B</TT> to each processor (see Figure
+<A HREF="HTMLNotesnode202.html#BLOCKmCYCLICmDistributionfig">23</A>).
+<P>
+<P><A NAME="13274">&#160;</A><A NAME="BLOCKmCYCLICmDistributionfig">&#160;</A> <IMG WIDTH=597 HEIGHT=297 ALIGN=BOTTOM ALT="figure13201" SRC="HTMLNotesimg104.gif"  > <BR>
+<STRONG>Figure 23:</STRONG> Visualisation of <TT>BLOCK</TT><TT>(m)</TT> and <TT>CYCLIC</TT><TT>(m)</TT> Distribution<BR>
+<P>
+<P>
+<A NAME="MoreDataDistribution2">&#160;</A>
+<P>
+Consider the following 2D array <TT>A</TT>,
+<P>
+<PRE>     REAL, DIMENSION(4,9)                    :: A
+!HPF$ PROCESSORS, DIMENSION(2)               :: P
+!HPF$ DISTRIBUTE (BLOCK(3),CYCLIC(2)) ONTO P :: A</PRE>
+<P>
+This demonstrates 2D distribution. The principal is exactly the
+same as before. Dimension one (going down the columns) is distributed
+<TT>BLOCK(3)</TT> and the second dimension is <TT>CYCLIC(2)</TT>.
+<P>
+Ownership,
+<UL><LI> <TT>P(1,1)</TT>: <TT>A(1:3,1:2)</TT>, <TT>A(1:3,5:6)</TT>, <TT>
+A(1:3,9:9)</TT>.<LI> <TT>P(2,1)</TT>: <TT>A(4:4,1:2)</TT>, <TT>A(4:4,5:6)</TT>, <TT>
+A(4:4,9:9)</TT>.<LI> <TT>P(1,2)</TT>: <TT>A(1:3,3:4)</TT>, <TT>A(1:3,7:8)</TT>.<LI> <TT>P(2,2)</TT>: <TT>A(4:4,3:4)</TT>, <TT>A(4:4,7:8)</TT>.
+</UL>
+<P>
+It can be seen that the <TT>CYCLIC(2)</TT> distribution in the second
+dimension
+means that the ``local set'' (the set of elements local to a specific
+processor) has to be stored as a union of subscript-triplets. This can
+be visualised as in Figure <A HREF="HTMLNotesnode202.html#2DBlockMCyclicMDistribution">24</A>.
+<P>
+<P><A NAME="13275">&#160;</A><A NAME="2DBlockMCyclicMDistribution">&#160;</A> <IMG WIDTH=351 HEIGHT=421 ALIGN=BOTTOM ALT="figure13262" SRC="HTMLNotesimg106.gif"  > <BR>
+<STRONG>Figure 24:</STRONG> Visualisation of 2D <TT>BLOCK</TT><TT>(m)</TT> and <TT>CYCLIC</TT><TT>(m)</TT>
+Distribution<BR>
+<P>
+<P>
+Note that <TT>BLOCK</TT><TT>(</TT><I>m</I><TT>)</TT> must `use up' all the elements.
+<P>
+<HR><A NAME="tex2html2661" HREF="HTMLNotesnode203.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2659" HREF="HTMLNotesnode201.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2653" HREF="HTMLNotesnode201.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2663" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2662" HREF="HTMLNotesnode203.html">Alignment</A>
+<B>Up:</B> <A NAME="tex2html2660" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2654" HREF="HTMLNotesnode201.html">Alignment and Distribution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

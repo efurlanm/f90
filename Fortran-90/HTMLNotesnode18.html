@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Shared DO-loop Termination</TITLE>
+<META NAME="description" CONTENT="Shared DO-loop Termination">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html384" HREF="HTMLNotesnode19.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html382" HREF="HTMLNotesnode10.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html376" HREF="HTMLNotesnode17.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html386" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html385" HREF="HTMLNotesnode19.html">Alternate RETURN</A>
+<B>Up:</B> <A NAME="tex2html383" HREF="HTMLNotesnode10.html">Obsolescent Features</A>
+<B> Previous:</B> <A NAME="tex2html377" HREF="HTMLNotesnode17.html">REAL and DOUBLE PRECISION </A>
+<BR> <P>
+<H4><A NAME="SECTION01013180000000000000">Shared <TT>DO</TT>-loop Termination</A></H4>
+<P>
+A number of <TT>DO</TT> loops can currently be terminated on the same
+(possibly executable) statement -- this causes all sorts of confusion,
+when programs are
+changed so that the loops do not logically end on a single statement any
+more.
+<PRE>       DO 100 K=1,N
+       DO 100 J=1,N
+       DO 100 I=1,N
+       ...
+   100 A(I,J,K)=A(I,J,K)/2.0</PRE>
+<P>
+The simple solution is to use <TT>END</TT> <TT>DO</TT> instead.
+<P>
+<HR><A NAME="tex2html384" HREF="HTMLNotesnode19.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html382" HREF="HTMLNotesnode10.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html376" HREF="HTMLNotesnode17.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html386" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html385" HREF="HTMLNotesnode19.html">Alternate RETURN</A>
+<B>Up:</B> <A NAME="tex2html383" HREF="HTMLNotesnode10.html">Obsolescent Features</A>
+<B> Previous:</B> <A NAME="tex2html377" HREF="HTMLNotesnode17.html">REAL and DOUBLE PRECISION </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

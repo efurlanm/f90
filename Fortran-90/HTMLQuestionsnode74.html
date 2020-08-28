@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html933" HREF="HTMLQuestionsnode75.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html931" HREF="HTMLQuestionsnode73.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html927" HREF="HTMLQuestionsnode73.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html935" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html934" HREF="HTMLQuestionsnode75.html">Encapsulation</A>
+<B>Up:</B> <A NAME="tex2html932" HREF="HTMLQuestionsnode73.html">Vector Multiplication - Array </A>
+<B> Previous:</B> <A NAME="tex2html928" HREF="HTMLQuestionsnode73.html">Vector Multiplication - Array </A>
+<BR> <P>
+<H3><A NAME="SECTION00053100000000000000">Solution</A></H3>
+<PRE>    PROGRAM Test_Outer
+     IMPLICIT NONE
+     INTERFACE
+      FUNCTION Outer(A,B)
+       REAL, INTENT(IN), DIMENSION(:) :: A, B
+       REAL, DIMENSION(SIZE(A),SIZE(B)) :: Outer
+      END FUNCTION Outer
+     END INTERFACE
+     REAL, ALLOCATABLE, DIMENSION(:) :: A
+     REAL, ALLOCATABLE, DIMENSION(:) :: B
+     INTEGER N_elts, istat
+    
+      PRINT*, &quot;Type in size of A vector&quot;
+      READ*, N_elts
+      ALLOCATE(A(N_elts), STAT=istat)
+      IF (istat .NE. 0) THEN
+       PRINT*, &quot;Allocation Error&quot;
+       STOP
+      END IF
+    
+      PRINT*, &quot;Type in size of B vector&quot;
+      READ*, N_elts
+      ALLOCATE(B(N_elts), STAT=istat)
+      IF (istat .NE. 0) THEN
+       PRINT*, &quot;Allocation Error&quot;
+       STOP
+      END IF
+    
+      CALL RANDOM_NUMBER(A)
+      CALL RANDOM_NUMBER(B)
+     
+      PRINT*, &quot;Outer product of A and B is:&quot;
+      PRINT*, Outer(A,B)
+     
+      DEALLOCATE(A)
+      DEALLOCATE(B)
+    
+    END PROGRAM Test_Outer
+    
+    FUNCTION Outer(A,B)
+     IMPLICIT NONE
+     REAL, INTENT(IN), DIMENSION(:) :: A, B
+     REAL, DIMENSION(SIZE(A),SIZE(B)) :: Outer
+     INTEGER i,j
+    
+      DO i = 1, SIZE(A)
+       DO j = 1, SIZE(B)
+        Outer(i,j) = A(i) * B(j)
+       END DO
+      END DO
+    END FUNCTION Outer</PRE>
+<P>
+<HR><A NAME="tex2html933" HREF="HTMLQuestionsnode75.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html931" HREF="HTMLQuestionsnode73.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html927" HREF="HTMLQuestionsnode73.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html935" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html934" HREF="HTMLQuestionsnode75.html">Encapsulation</A>
+<B>Up:</B> <A NAME="tex2html932" HREF="HTMLQuestionsnode73.html">Vector Multiplication - Array </A>
+<B> Previous:</B> <A NAME="tex2html928" HREF="HTMLQuestionsnode73.html">Vector Multiplication - Array </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

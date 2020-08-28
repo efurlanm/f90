@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>INDEPENDENT NEW Loops</TITLE>
+<META NAME="description" CONTENT="INDEPENDENT NEW Loops">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3106" HREF="HTMLNotesnode241.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3104" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3100" HREF="HTMLNotesnode239.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3108" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3107" HREF="HTMLNotesnode241.html">New Variables Example 1</A>
+<B>Up:</B> <A NAME="tex2html3105" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3101" HREF="HTMLNotesnode239.html">Independent Example 2</A>
+<BR> <P>
+<A NAME="New1">&#160;</A><H3><A NAME="SECTION02031900000000000000"><TT>INDEPENDENT</TT> <TT>NEW</TT> Loops</A></H3>
+<P>
+The <TT>NEW</TT> clause tells the compiler that in order to parallelise the
+following loop, each iteration (in practise, each processor,) should
+make its own (local) version of the listed scalar variables. In the cited
+example, the iterations may be performed in parallel if and only if
+each iteration uses it own version of <TT>s1</TT> and <TT>s2</TT>.
+<P>
+Figure <A HREF="HTMLNotesnode240.html#INDEPENDENTNEWVisualisationfig">38</A> illustrates that the iterations can be performed in
+parallel -- each individual iteration includes references to its own <TT>
+s1</TT> and <TT>s2</TT>.
+<P>
+<P><A NAME="15569">&#160;</A><A NAME="INDEPENDENTNEWVisualisationfig">&#160;</A> <IMG WIDTH=461 HEIGHT=213 ALIGN=BOTTOM ALT="figure15565" SRC="HTMLNotesimg137.gif"  > <BR>
+<STRONG>Figure 38:</STRONG> Visualisation of an <TT>INDEPENDENT</TT> <TT>NEW</TT> Loop<BR>
+<P>
+<P>
+Iteration 1 has its own versions of <TT>s1</TT> and <TT>s2</TT>, as does
+iteration 2 and so on up to iteration n.
+<P>
+<A NAME="NewConditions1">&#160;</A>
+<P>
+There are rules associated with <TT>NEW</TT> variables. They cannot:
+<P>
+<UL><LI> be used outside of the loop before being redefined,<LI> be used with <TT>FORALL</TT>,<LI> be dummy arguments or pointers,<LI> have <TT>SAVE</TT> attribute.
+</UL>
+<P>
+Referring
+back to  the previous example, at the
+end of the <TT>INDEPENDENT</TT> loop <TT>s1</TT> and <TT>s2</TT> do not have well
+defined values. (There have been <TT>n</TT> copies of these variables --
+which copies hold their true value?) It is therefore forbidden to
+attempt to use a <TT>NEW</TT> variable after its appearance in a <TT>NEW</TT> clause
+without first assigning a fresh value to it. This means:
+<P>
+<PRE> !HPF$ INDEPENDENT, NEW(s1,s2)
+ DO i = 1,n
+  s1 = SIN(a(i))
+  s2 = COS(a(i))
+  a(i) = s1*s1-s2*s2
+ END DO
+ k = s1+s2</PRE>
+<P>
+is forbidden due to the last-line referencing of  <TT>s1</TT> and <TT>s2</TT>.
+<P>
+<TT>NEW</TT> is not valid with <TT>FORALL</TT> s because it is not needed. The only
+entities that <TT>NEW</TT> would make any sense being applied to
+are index variables of nested <TT>FORALL</TT> s, however, due to the fact that
+it is not valid to refer to these index variables outside of the
+<TT>FORALL</TT>, the compiler is able to create and destroy temporary versions
+of these indices at will with no modification of the semantics of the
+program.
+<P>
+It has been pointed out that using a storage associated (<TT>EQUIVALENCE</TT> d)
+variable in a <TT>NEW</TT> clause can lead to problems:
+<P>
+<PRE>            INTEGER eq1, eq2(2), a(10)
+            EQUIVALENCE (eq1, eq2)
+            eq2(2) = 99
+      !hpf$ INDEPENDENT, NEW(eq1)
+            DO idx = 1, 2
+              eq1 = idx
+              a(idx) = eq2(1) + eq2(2)
+            END DO
+            END</PRE>
+<P>
+What do we do with <TT>eq2</TT> -- part of it <TT>eq2(1)</TT> (which is
+storage associated with <TT>eq1</TT>) could be considered
+to be <TT>NEW</TT> and the other part, <TT>eq2(2)</TT>, is not. In order to 
+avoid this taxing
+problem, a variable which appears in <TT>NEW</TT> should not be specified in an
+<TT>EQUIVALENCE</TT> statement.
+<P>
+New variables cannot  be <TT>SAVE</TT> d or be dummy arguments or pointers
+because this would compromise the compilers ability to create  instances
+of the <TT>NEW</TT> variables on each processor in the grid.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3109" HREF="HTMLNotesnode241.html#SECTION02031910000000000000">New Variables Example 1</A>
+<LI> <A NAME="tex2html3110" HREF="HTMLNotesnode242.html#SECTION02031920000000000000">New Variables Example 2</A>
+</UL>
+<HR><A NAME="tex2html3106" HREF="HTMLNotesnode241.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3104" HREF="HTMLNotesnode225.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3100" HREF="HTMLNotesnode239.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3108" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3107" HREF="HTMLNotesnode241.html">New Variables Example 1</A>
+<B>Up:</B> <A NAME="tex2html3105" HREF="HTMLNotesnode225.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html3101" HREF="HTMLNotesnode239.html">Independent Example 2</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

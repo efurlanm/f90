@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Names</TITLE>
+<META NAME="description" CONTENT="Names">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html686" HREF="HTMLNotesnode45.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html684" HREF="HTMLNotesnode39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html678" HREF="HTMLNotesnode43.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html688" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html687" HREF="HTMLNotesnode45.html">Comments</A>
+<B>Up:</B> <A NAME="tex2html685" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B> Previous:</B> <A NAME="tex2html679" HREF="HTMLNotesnode43.html">Significant Blanks</A>
+<BR> <P>
+<A NAME="Names1">&#160;</A><H3><A NAME="SECTION01016500000000000000">Names</A></H3>
+<P>
+The Fortran language defines a number of names, or keywords, such as
+<TT>PRINT</TT>, <TT>INTEGER</TT>, <TT>MAX</TT>, etc.  The spelling of these names is defined by the
+language.  There are a number of entities that must be named by the
+programmer, such as variables, procedures, etc.  These names must be
+chosen to obey a few simple rules.  A name can consist of up to 31
+alphanumeric characters (letters or digits) plus underscore.  The first
+character in any name must be a letter.  In names, upper and lower case
+letters are equivalent.  The following are valid Fortran names,
+<P>
+<PRE>   A, aAa, INCOME, Num1, N12O5, under_score</PRE>
+<P>
+The following declarations are incorrect statements due to invalid names,
+<P>
+<PRE>INTEGER 1A      ! does not begin with a letter
+INTEGER A_name_made_up_of_more_than_31_letters ! too long, 38 characters 
+INTEGER Depth:0 ! contains an illegal character &quot;:&quot; 
+INTEGER A-3     ! would be interpreted as subtract 3 from A</PRE>
+<P>
+The underscore should be used to separate words in long names
+<P>
+<PRE>    user_name ! valid name
+    username  ! different valid name</PRE>
+<P>
+With this and the new long names facility in Fortran&nbsp;90 symbolic names should
+be readable, significant and descriptive. It is worth spending a minute or so
+choosing a good name which other programmers will be able to understand.
+<P>
+<HR><A NAME="tex2html686" HREF="HTMLNotesnode45.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html684" HREF="HTMLNotesnode39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html678" HREF="HTMLNotesnode43.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html688" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html687" HREF="HTMLNotesnode45.html">Comments</A>
+<B>Up:</B> <A NAME="tex2html685" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B> Previous:</B> <A NAME="tex2html679" HREF="HTMLNotesnode43.html">Significant Blanks</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedure Interfaces</TITLE>
+<META NAME="description" CONTENT="Procedure Interfaces">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1807" HREF="HTMLNotesnode137.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1805" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1799" HREF="HTMLNotesnode135.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1809" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1808" HREF="HTMLNotesnode137.html">Interface Example</A>
+<B>Up:</B> <A NAME="tex2html1806" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1800" HREF="HTMLNotesnode135.html">Implicit SAVE Attribute</A>
+<BR> <P>
+<A NAME="Interfaces1">&#160;</A><H3><A NAME="SECTION010411000000000000000">Procedure Interfaces</A></H3>
+<P>
+Fortran&nbsp;90 has introduced a new feature whereby it is 
+possible, often essential and wholly desirable to provide an <EM>explicit
+interface</EM> for an external procedure. Such an interface provides the compiler
+with all the information it needs to allow it to 
+it make consistency checks and ensure that enough information is communicated
+to procedures at run-time.
+<P>
+Consider the following procedure,
+<PRE>    SUBROUTINE expsum( n, k, x, sum )    ! in interface
+     IMPLICIT NONE
+     INTEGER, INTENT(IN) :: n            ! in interface
+     REAL, INTENT(IN)  :: k,x            ! in interface
+     REAL, INTENT(OUT)  :: sum           ! in interface
+     REAL :: cool_time
+     sum = 0.0
+     DO i = 1, n
+      sum = sum + exp(-i*k*x)
+     END DO
+    END SUBROUTINE expsum                 ! in interface</PRE>
+<P>
+The explicit  <TT>INTERFACE</TT> for this routine is,
+<P>
+<PRE>    INTERFACE
+     SUBROUTINE expsum( n, k, x, sum )
+      INTEGER :: n
+      REAL    :: k,x
+      REAL    :: sum
+     END SUBROUTINE expsum
+    END INTERFACE</PRE>
+<P>
+An interface declaration, which is initiated with the <TT>INTERFACE</TT> statement
+and terminated by <TT>END</TT> <TT>INTERFACE</TT>, gives the characteristics (attributes) 
+of both  the dummy arguments (for example, the 
+ name, type, kind and rank<A NAME="tex2html29" HREF="HTMLNotesfootnode.html#9964"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>) and 
+the procedure (for example, name, class and type for functions). An
+interface cannot be used for a procedure specified in an
+<TT>EXTERNAL</TT> statement (and vice-versa).
+<P>
+The declaration can
+be thought of as being the whole procedure without the local 
+declarations (for example, <TT>cool_time</TT>,) and executable code! If 
+this interface is included in the declarations part of a program
+unit which calls <TT>expsum</TT>, then the interface is said to be <EM>
+explicit</EM>. Clearly, an interface declaration must match the procedure that  
+it refers to.
+<P>
+It is is generally a  good idea to make all interfaces explicit.
+<P>
+An interface is only relevant for external procedures; the interface to an
+internal procedure is always visible as it is already contained within
+the host. Interfaces to intrinsic 
+procedures are also explicit within the language.
+<P>
+<A NAME="Interfaces2">&#160;</A>An interface only contains:
+<P>
+<UL><LI> the <TT>SUBROUTINE</TT> or <TT>FUNCTION</TT> header,<LI> (if not included in the header) the <TT>FUNCTION</TT> type,<LI> declarations of the dummy arguments (including attributes),<LI> the <TT>END</TT>  <TT>SUBROUTINE</TT> or <TT>END</TT> <TT>FUNCTION</TT> statement
+</UL>
+<P>
+Interfaces are only ever needed for <TT>EXTERNAL</TT> procedures.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1810" HREF="HTMLNotesnode137.html#SECTION010411010000000000000">Interface Example</A>
+</UL>
+<HR><A NAME="tex2html1807" HREF="HTMLNotesnode137.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1805" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1799" HREF="HTMLNotesnode135.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1809" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1808" HREF="HTMLNotesnode137.html">Interface Example</A>
+<B>Up:</B> <A NAME="tex2html1806" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1800" HREF="HTMLNotesnode135.html">Implicit SAVE Attribute</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

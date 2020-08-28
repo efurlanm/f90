@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Relational Operators</TITLE>
+<META NAME="description" CONTENT="Relational Operators">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html895" HREF="HTMLNotesnode63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html893" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html887" HREF="HTMLNotesnode61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html897" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html896" HREF="HTMLNotesnode63.html">Intrinsic Logical Operations</A>
+<B>Up:</B> <A NAME="tex2html894" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html888" HREF="HTMLNotesnode61.html">Concatenation</A>
+<BR> <P>
+<A NAME="RelationalOperators1">&#160;</A><H3><A NAME="SECTION01018500000000000000">Relational Operators</A></H3>
+<P>
+The following relational operators deliver a logical result:
+<P>
+<UL><LI> <TT>.GT.</TT> -- greater than.<LI> <TT>.GE.</TT> -- greater than or equal to.<LI> <TT>.LE.</TT> -- less  than or equal to.<LI> <TT>.LT.</TT> -- less than.<LI> <TT>.NE.</TT> -- not equal to.<LI> <TT>.EQ.</TT> -- equal to.
+</UL>
+<P>
+for example,
+<P>
+<PRE>     i .GT. 12</PRE>
+<P>
+is an expression delivering a <TT>.TRUE.</TT> or <TT>.FALSE.</TT> result.
+<P>
+These above operators are equivalent to the following:
+<UL><LI> &gt; -- greater than.<LI> &gt;= -- greater than or equal to.<LI> &lt;= -- less  than or equal to.<LI> &lt; -- less than.<LI> /= -- not equal to.<LI> = -- equal to.
+</UL>
+<P>
+for example,
+<P>
+<PRE>     i &gt; 12</PRE>
+<P>
+Both sets of symbols may be used in a single statement.
+<P>
+Relational operators:
+<P>
+<UL><LI> compare the values of two operands.<LI> deliver a logical result.<LI> can be applied to numeric operands (restrictions on <TT>COMPLEX</TT> which
+can only use <TT>.EQ.</TT> and <TT>.NE.</TT>).<LI> can be applied to default <TT>CHARACTER</TT> objects -- both objects are
+made to be
+the same length by padding the shorter with blanks. Operators refer
+to ASCII order (see Appendix <A HREF="#AppCollating"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A>).<LI> cannot be applied to <TT>LOGICAL</TT> objects, for example,
+<P>
+<PRE>    (bool .NE. .TRUE.)</PRE>
+<P>
+is not a valid expression but,
+<PRE>    (.NOT.bool)</PRE>
+is.<LI>  are used (in scalar) form in <TT>IF</TT> statements (see Section 
+<A HREF="HTMLNotesnode68.html#IfStatement">2.1.1</A>) and elementally  in the <TT>WHERE</TT> statement (see 
+Section <A HREF="HTMLNotesnode109.html#MaskedAssignment">3.1.17</A>).
+</UL>
+<P>
+Consider,
+<P>
+<PRE>    bool = i.GT.j
+    IF (i.EQ.j) c = D
+    WHERE (a.NE.0) a = 1/a</PRE>
+<P>
+The example demonstrates,
+<P>
+<UL><LI> simple logical assignment using a relational operator,<LI> an <TT>IF</TT> statement using a relational operator,<LI> a <TT>WHERE</TT> statement using a relational operator (in an array
+context).
+</UL>
+<P>
+<HR><A NAME="tex2html895" HREF="HTMLNotesnode63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html893" HREF="HTMLNotesnode55.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html887" HREF="HTMLNotesnode61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html897" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html896" HREF="HTMLNotesnode63.html">Intrinsic Logical Operations</A>
+<B>Up:</B> <A NAME="tex2html894" HREF="HTMLNotesnode55.html">Expressions and Assignment</A>
+<B> Previous:</B> <A NAME="tex2html888" HREF="HTMLNotesnode61.html">Concatenation</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

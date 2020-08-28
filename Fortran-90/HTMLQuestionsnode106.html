@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>PURE Procedures</TITLE>
+<META NAME="description" CONTENT="PURE Procedures">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1295" HREF="HTMLQuestionsnode107.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1293" HREF="HTMLQuestionsnode101.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1287" HREF="HTMLQuestionsnode105.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1297" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1296" HREF="HTMLQuestionsnode107.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1294" HREF="HTMLQuestionsnode101.html">Parallel Loops</A>
+<B> Previous:</B> <A NAME="tex2html1288" HREF="HTMLQuestionsnode105.html">Solution</A>
+<BR> <P>
+<A NAME="QWhichArePure">&#160;</A><H2><A NAME="SECTION00083000000000000000"><TT>PURE</TT> Procedures</A></H2>
+<P>
+For each of the following examples state if the procedure <TT>
+Well_Izzit</TT> is <TT>PURE</TT> or not. In each case explain how you came to 
+your decisions.
+<P>
+<OL><LI> <PRE>FUNCTION Well_Izzit(A,B)
+ REAL, DIMENSION(:,:), INTENT(IN) :: A, B
+ REAL, DIMENSION(SIZE(A,1),SIZE(A,2)) :: Well_Izzit
+  Well_Izzit = A + B
+END FUNCTION</PRE><LI> <PRE>SUBROUTINE Well_Izzit(A,B,Rez)
+ REAL, DIMENSION(:,:), INTENT(IN) :: A, B
+ REAL, DIMENSION(:,:), INTENT(INOUT) :: Rez
+  Rez = A + B + Rez
+END SUBROUTINE</PRE><LI> <PRE>MODULE Moddie
+ INTEGER, DIMENSION(2), SAVE :: x,y
+END MODULE
+FUNCTION Well_Izzit(A,B)
+ USE Moddie
+ REAL, DIMENSION(:,:), INTENT(IN) :: A, B
+ REAL, DIMENSION(SIZE(A,1),SIZE(A,2)) :: Well_Izzit
+ x = MAXLOC(A)
+ y = MAXLOC(B)
+ Well_Izzit = (A + B)*(A(x(1),x(2))+B(y(1),y(2)))
+END FUNCTION</PRE><LI> <PRE>SUBROUTINE Well_Izzit(A,B,Rez)
+ REAL, DIMENSION(:,:), INTENT(IN) :: A, B
+ REAL, DIMENSION(:,:), ALLOCATABLE :: C
+ REAL, DIMENSION(:,:), INTENT(INOUT) :: Rez
+  ALLOCATE(C(SIZE(A,1),SIZE(A,2)))
+  C = A + B 
+  Rez = Transpose(C)*A*B
+  DEALLOCATE(C)
+END SUBROUTINE</PRE><LI> <PRE>FUNCTION Well_Izzit(A,B)
+ REAL, DIMENSION(:,:) :: A, B
+ REAL, DIMENSION(SIZE(A,1),SIZE(A,2)) :: Well_Izzit
+  Well_Izzit = A + B
+END FUNCTION</PRE>
+<P>
+</OL><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1298" HREF="HTMLQuestionsnode107.html#SECTION00083100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1295" HREF="HTMLQuestionsnode107.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1293" HREF="HTMLQuestionsnode101.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1287" HREF="HTMLQuestionsnode105.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1297" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1296" HREF="HTMLQuestionsnode107.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1294" HREF="HTMLQuestionsnode101.html">Parallel Loops</A>
+<B> Previous:</B> <A NAME="tex2html1288" HREF="HTMLQuestionsnode105.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

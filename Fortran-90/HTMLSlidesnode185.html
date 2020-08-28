@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Practical Example of Alignment</TITLE>
+<META NAME="description" CONTENT="Practical Example of Alignment">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2529" HREF="HTMLSlidesnode186.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2527" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2521" HREF="HTMLSlidesnode184.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2531" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2530" HREF="HTMLSlidesnode186.html">Aligning Allocatable Arrays</A>
+<B>Up:</B> <A NAME="tex2html2528" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2522" HREF="HTMLSlidesnode184.html">Reverse Strided Alignment Example</A>
+<BR> <P>
+<H2><A NAME="SECTION020332000000000000000">Practical Example of Alignment</A></H2>
+<P>
+The following Fortran&nbsp;90 program:
+<P>
+<PRE>    PROGRAM Warty
+     IMPLICIT NONE
+     REAL, DIMENSION(4) :: C
+     REAL, DIMENSION(8) :: D   
+     REAL, DIMENSION(2) :: E   
+      C = 1; D = 2
+      E = D(::4) + C(::2)
+    END PROGRAM Warty</PRE>
+<P>
+should be given these HPF directives to ensure minimal (zero) communications:
+<P>
+<PRE>!HPF$ ALIGN C(:) WITH D(::2)
+!HPF$ ALIGN E(:) WITH D(::4)
+!HPF$ DISTRIBUTE (BLOCK) :: D</PRE>
+<P>
+Note, cannot distribute <TT>C</TT> or <TT>E</TT>. Only distribute align 
+targets.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode210.html#PracticalAlignmentExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2529" HREF="HTMLSlidesnode186.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2527" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2521" HREF="HTMLSlidesnode184.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2531" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2530" HREF="HTMLSlidesnode186.html">Aligning Allocatable Arrays</A>
+<B>Up:</B> <A NAME="tex2html2528" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2522" HREF="HTMLSlidesnode184.html">Reverse Strided Alignment Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

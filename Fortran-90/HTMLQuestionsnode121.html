@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>LU Decomposition</TITLE>
+<META NAME="description" CONTENT="LU Decomposition">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1465" HREF="HTMLQuestionsnode122.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1463" HREF="HTMLQuestionsnode114.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1457" HREF="HTMLQuestionsnode120.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1467" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1466" HREF="HTMLQuestionsnode122.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1464" HREF="HTMLQuestionsnode114.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1458" HREF="HTMLQuestionsnode120.html">Solution</A>
+<BR> <P>
+<A NAME="QNonPivotalLUDecomposition">&#160;</A><H2><A NAME="SECTION00094000000000000000">LU Decomposition</A></H2>
+<P>
+Matrices are used widely in Numerical Computing, many alogirithms
+inolve decomposing a matrix, <TT>A</TT> into an equivalent pair <TT>L</TT> and <TT>
+U</TT>, where <TT>L</TT> and <TT>U</TT> are <EM>lower</EM> and <EM>upper triangular</EM> 
+matrices respectively and  <IMG WIDTH=57 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline3050" SRC="HTMLQuestionsimg69.gif"  > .
+<P>
+Consider the following system of equations,
+<P>
+<P> <IMG WIDTH=500 HEIGHT=51 ALIGN=BOTTOM ALT="eqnarray2563" SRC="HTMLQuestionsimg70.gif"  > <P>
+<P>
+here
+<P>
+<P> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation2565" SRC="HTMLQuestionsimg71.gif"  > <P>
+<P>
+so
+<P>
+<P> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation2570" SRC="HTMLQuestionsimg72.gif"  > <P>
+<P>
+and
+<P>
+<P> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation2575" SRC="HTMLQuestionsimg73.gif"  > <P>
+<P>
+Both <I>L</I> and <I>U</I> can be stored in the same matrix; since the diagonal of
+<I>L</I> is <EM>always</EM> unity it does not have to be store, the combined
+<I>LU</I> matrix can be stored as
+<P>
+<P> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation2581" SRC="HTMLQuestionsimg74.gif"  > <P>
+<P>
+Now, given that
+<P>
+<P> <IMG WIDTH=500 HEIGHT=13 ALIGN=BOTTOM ALT="equation2586" SRC="HTMLQuestionsimg75.gif"  > <P>
+<P>
+ then we solve for  <IMG WIDTH=8 HEIGHT=12 ALIGN=MIDDLE ALT="tex2html_wrap_inline3060" SRC="HTMLQuestionsimg76.gif"  >  where
+<P>
+<P> <IMG WIDTH=500 HEIGHT=15 ALIGN=BOTTOM ALT="equation2593" SRC="HTMLQuestionsimg77.gif"  > <P>
+<P>
+(recall that the diagonal of <I>L</I> will be all 1s) and then solve
+<P>
+<P> <IMG WIDTH=500 HEIGHT=15 ALIGN=BOTTOM ALT="equation2597" SRC="HTMLQuestionsimg78.gif"  > <P>
+<P>
+The advantage of this method is that the triangular system of equations
+is very easy to slove.
+ <IMG WIDTH=50 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline3066" SRC="HTMLQuestionsimg79.gif"  >  can be sloved by <EM>forward
+substitution</EM> and  <IMG WIDTH=53 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline3068" SRC="HTMLQuestionsimg80.gif"  >  by <EM>
+backward substitution</EM>.  <IMG WIDTH=8 HEIGHT=12 ALIGN=MIDDLE ALT="tex2html_wrap_inline3060" SRC="HTMLQuestionsimg76.gif"  >  is calculated by forward
+substitution as follows :
+<P>
+<P> <IMG WIDTH=500 HEIGHT=85 ALIGN=BOTTOM ALT="eqnarray2608" SRC="HTMLQuestionsimg81.gif"  > <P>
+<P>
+Once   <IMG WIDTH=8 HEIGHT=12 ALIGN=MIDDLE ALT="tex2html_wrap_inline3060" SRC="HTMLQuestionsimg76.gif"  >  is known  <IMG WIDTH=8 HEIGHT=11 ALIGN=MIDDLE ALT="tex2html_wrap_inline3074" SRC="HTMLQuestionsimg82.gif"  >  can easily be obtained by
+backwards substitution:
+<P>
+<P> <IMG WIDTH=500 HEIGHT=80 ALIGN=BOTTOM ALT="eqnarray2623" SRC="HTMLQuestionsimg83.gif"  > <P>
+<P>
+The LU decomposition algorithm is as follows:
+<P>
+For each row <I>k</I> from 1 to <I>n</I>-1 in order,
+<P>
+<UL><LI> column normlisation -- The elements in the colum below the diagonal
+element <code>A(k,k)</code> are divided by the diagonal element.<LI> submatrix modification -- The value of each element <code>A(i,j)</code>
+in the submatrix of <code>A</code> below and to the right of the diagonal
+element <code>A(k,k)</code>, ie, <code>A(k+1:n,k+1:n)</code> is modified by
+subtracting <code>A(i,k)*A(k,j)</code>
+<P>
+</UL>
+<P>
+The algorithm will not work if the <code>A</code> matrix is singular, that is,
+if any of the rows of <code>A</code> are all zero.
+<P>
+This algorithm omits the issue of pivoting so can be unstable - your
+program will work for the 3 by 3 matrix givenm here.
+<P>
+The an HPF program with subroutines to perform LU decomposition and foward and 
+backwards substitution.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1468" HREF="HTMLQuestionsnode122.html#SECTION00094100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1465" HREF="HTMLQuestionsnode122.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1463" HREF="HTMLQuestionsnode114.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1457" HREF="HTMLQuestionsnode120.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1467" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1466" HREF="HTMLQuestionsnode122.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1464" HREF="HTMLQuestionsnode114.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1458" HREF="HTMLQuestionsnode120.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New Variables Example 2</TITLE>
+<META NAME="description" CONTENT="New Variables Example 2">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3128" HREF="HTMLNotesnode243.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3126" HREF="HTMLNotesnode240.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3122" HREF="HTMLNotesnode241.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3130" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3129" HREF="HTMLNotesnode243.html">Input and Output</A>
+<B>Up:</B> <A NAME="tex2html3127" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<B> Previous:</B> <A NAME="tex2html3123" HREF="HTMLNotesnode241.html">New Variables Example 1</A>
+<BR> <P>
+<A NAME="NewExample21">&#160;</A><H4><A NAME="SECTION02031920000000000000">New Variables Example 2</A></H4>
+<P>
+This example illustrates a situation when only the
+outermost loops can be executed independently.
+<P>
+<PRE>    !HPF$ INDEPENDENT, NEW (i2)
+    DO i1 = 1, n1
+     !HPF$ INDEPENDENT, NEW (i3)
+     DO i2 = 1, n2
+      !HPF$ INDEPENDENT, NEW (i4)
+      DO i3 = 1, n3
+       DO i4 = 1, n4
+        a(i1,i2,i3) = a(i1,i2,i3) &amp;
+          + b(i1,i2,i4)*c(i2,i3,i4)
+       END DO
+      END DO
+     END DO
+    END DO</PRE>
+<P>
+Beginning at the innermost loop it is clear that <TT>a(i1,i2,i3)</TT> is
+assigned to <TT>n4</TT> times during execution of the <TT>i4</TT> loop. The
+value set on one iteration is used in the next. Clearly, due to the
+multiple assignments to <TT>a(i1,i2,i3)</TT>, all iterations of the <TT>
+i4</TT> loop <EM>cannot</EM> be performed at the same time! This innermost loop
+is
+therefore not independent. The next loop, however, is <TT>INDEPENDENT</TT>.
+There is no problem with <TT>a(i1,i2,i3)</TT>  being assigned to on more
+than one iteration since now <TT>i3</TT> is the index variable. The <TT>
+i3</TT> loop is independent because we can perform all <TT>n3</TT> instances of
+the <TT>i4</TT> loop at the same time.
+<P>
+The <TT>i2</TT> and <TT>i1</TT> loops are clearly independent because again
+<TT>a(i1,i2,i3)</TT> is not assigned to on more than one iteration.
+<P>
+<HR><A NAME="tex2html3128" HREF="HTMLNotesnode243.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3126" HREF="HTMLNotesnode240.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3122" HREF="HTMLNotesnode241.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3130" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3129" HREF="HTMLNotesnode243.html">Input and Output</A>
+<B>Up:</B> <A NAME="tex2html3127" HREF="HTMLNotesnode240.html">INDEPENDENT NEW Loops</A>
+<B> Previous:</B> <A NAME="tex2html3123" HREF="HTMLNotesnode241.html">New Variables Example 1</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

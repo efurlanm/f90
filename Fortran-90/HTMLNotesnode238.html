@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Independent Example 1</TITLE>
+<META NAME="description" CONTENT="Independent Example 1">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3088" HREF="HTMLNotesnode239.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3086" HREF="HTMLNotesnode237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3080" HREF="HTMLNotesnode237.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3090" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3089" HREF="HTMLNotesnode239.html">Independent Example 2</A>
+<B>Up:</B> <A NAME="tex2html3087" HREF="HTMLNotesnode237.html">Independent DO Loops - </A>
+<B> Previous:</B> <A NAME="tex2html3081" HREF="HTMLNotesnode237.html">Independent DO Loops - </A>
+<BR> <P>
+<A NAME="IndependentExample11">&#160;</A><H4><A NAME="SECTION02031810000000000000">Independent Example 1</A></H4>
+<P>
+This is independent,
+<P>
+<PRE>    !HPF$ INDEPENDENT
+    DO i = 1, n
+     b(i) = b(i) + b(i)
+    END DO</PRE>
+<P>
+this is not, (dependence on order of execution),
+<P>
+<PRE>    DO i = 1, n
+     b(i) = b(i+1) + b(i)
+    END DO</PRE>
+<P>
+nor is this,
+<P>
+<PRE>    DO i = 1, n
+     b(i) = b(i-1) + b(i)
+    END DO</PRE>
+<P>
+however, this is
+<P>
+<PRE>!HPF$ INDEPENDENT
+    DO i = 1, n
+     a(i) = b(i-1) + b(i)
+    END DO</PRE>
+<P>
+The concept of data dependency is relevant here. We must ask the
+question: <I>does a later iteration depend on the result of an earlier
+one?</I> (This is very similar to  asking the
+question: <I>can we perform the iterations in the reverse order?</I>)
+<P>
+The first example clearly has no dependency, the array item <TT>b(i)</TT>
+read and written on the same iteration and is not accessed again. This
+loop is ripe for being denoted as <TT>INDEPENDENT</TT>.
+<P>
+The second and third loops contain a forward and backward dependency
+respectively. For the first of these, if the iteration <TT>i+1</TT> were
+performed before iteration <TT>i</TT> then the value of <TT>b(i+1)</TT> used
+to calculate <TT>b(i)</TT> would be incorrect. The third loop contains a
+backward reference. If iteration <TT>i</TT> were performed before iteration
+<TT>i-1</TT> then the value of <TT>b(i-1)</TT> used to calculate <TT>b(i)</TT>
+would be incorrect.
+<P>
+The forth and final loop is <TT>INDEPENDENT</TT>. None of the values of the
+array
+<TT>b</TT> are updated, so, assuming that <TT>b</TT>  is not storage
+associated
+ with <TT>a</TT> or that <TT>b</TT> and <TT>a</TT> are not pointers to the same
+area of memory, the order that the iterations performed in  are
+unimportant.
+<P>
+The value of <TT>i</TT> will be set at the end of the loop so that it has
+the same value as it would in an ordinary Fortran&nbsp;90 program.
+<P>
+<A NAME="IndependentExample12">&#160;</A>
+<P>
+Figure <A HREF="HTMLNotesnode238.html#IndependentExample1Visualisationfig">37</A> illustrates how the compiler views an
+<TT>INDEPENDENT</TT> <TT>DO</TT> 
+loop. The compiler is able to arrange that <EM>every</EM> iteration of the
+loop is (conceptually) executed at the same time. The diagram
+illustrates this by enumerating each iteration and then placing them
+side by side to denote potential parallelism.
+<P>
+<P><A NAME="15455">&#160;</A><A NAME="IndependentExample1Visualisationfig">&#160;</A> <IMG WIDTH=523 HEIGHT=164 ALIGN=BOTTOM ALT="figure15451" SRC="HTMLNotesimg135.gif"  > <BR>
+<STRONG>Figure 37:</STRONG> Visualisation of Independent Example 1<BR>
+<P>
+<P>
+<HR><A NAME="tex2html3088" HREF="HTMLNotesnode239.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3086" HREF="HTMLNotesnode237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3080" HREF="HTMLNotesnode237.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3090" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3089" HREF="HTMLNotesnode239.html">Independent Example 2</A>
+<B>Up:</B> <A NAME="tex2html3087" HREF="HTMLNotesnode237.html">Independent DO Loops - </A>
+<B> Previous:</B> <A NAME="tex2html3081" HREF="HTMLNotesnode237.html">Independent DO Loops - </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

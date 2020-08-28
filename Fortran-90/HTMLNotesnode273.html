@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New HPF Intrinsics</TITLE>
+<META NAME="description" CONTENT="New HPF Intrinsics">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3518" HREF="HTMLNotesnode274.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3516" HREF="HTMLNotesnode265.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3510" HREF="HTMLNotesnode272.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3520" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3519" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<B>Up:</B> <A NAME="tex2html3517" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B> Previous:</B> <A NAME="tex2html3511" HREF="HTMLNotesnode272.html">Calls to the NAG </A>
+<BR> <P>
+<A NAME="HPFIntrinsics1">&#160;</A><H2><A NAME="SECTION02052000000000000000">New HPF Intrinsics</A></H2>
+<P>
+HPF alters two classes of Fortran&nbsp;90 intrinsics:
+<P>
+<UL><LI> system inquiry intrinsics: adds <TT>NUMBER_OF_PROCESSORS</TT> and <TT>PROCESSORS_SHAPE</TT>,<LI> computational intrinsics: adds <TT>ILEN</TT> and extends <TT>MINLOC</TT> and
+<TT>MAXLOC</TT>.
+</UL>
+<P>
+The first category of intrinsics adds two system inquiry procedures,
+<TT>NUMBER_OF_PROCESSORS</TT> and <TT>PROCESSORS_SHAPE</TT>, which have been met before. They can be used in
+declarations but
+<B>cannot</B> be used to initialise varaibles, for example,
+<P>
+<PRE>  INTEGER, DIMENSION(NUMBER_OF_PROCESSORS()) :: A</PRE>
+<P>
+is OK but
+<P>
+<PRE>  INTEGER, PARAMETER :: NOP = NUMBER_OF_PROCESSORS()
+  INTEGER, DIMENSION(NOP) :: A</PRE>
+<P>
+is not (either with or without the <TT>PARAMETER</TT> attribute). This is
+because, even though the two intrinsics return a value that is constant
+for one run of a program, the value may differ during other runs.
+<P>
+The second category adds one new computational intrinsic and extends two
+others.  The first procedures is <TT>ILEN</TT> which is an elemental function
+which returns the number of bits needed to store its <TT>INTEGER</TT> valued
+argument.
+<P>
+The <TT>DIM</TT><TT>=</TT> specifier in the location intrinsics behaves exactly as
+it does with other intrinsics.
+<P>
+<HR><A NAME="tex2html3518" HREF="HTMLNotesnode274.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3516" HREF="HTMLNotesnode265.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3510" HREF="HTMLNotesnode272.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3520" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3519" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<B>Up:</B> <A NAME="tex2html3517" HREF="HTMLNotesnode265.html">ExtrinsicsHPF Library and </A>
+<B> Previous:</B> <A NAME="tex2html3511" HREF="HTMLNotesnode272.html">Calls to the NAG </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

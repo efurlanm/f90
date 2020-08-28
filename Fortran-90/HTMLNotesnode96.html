@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Whole Array Expressions</TITLE>
+<META NAME="description" CONTENT="Whole Array Expressions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1341" HREF="HTMLNotesnode97.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1339" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1333" HREF="HTMLNotesnode95.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1343" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1342" HREF="HTMLNotesnode97.html">Array Conformance</A>
+<B>Up:</B> <A NAME="tex2html1340" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1334" HREF="HTMLNotesnode95.html">Array Syntax</A>
+<BR> <P>
+<A NAME="WholeArrayExpressions1">&#160;</A><H3><A NAME="SECTION01031500000000000000">Whole Array Expressions</A></H3>
+<P>
+A whole (or section of an) array can be treated like a single variable
+in that all intrinsic operators which apply to intrinsic types have their
+meaning extended to apply to conformable arrays, for example, 
+<PRE>    B = C * D - B**2</PRE>
+as long as <TT>B, C</TT> and <TT>D</TT> conform then the above assignment is valid.
+(Recall that the RHS of the <TT>*</TT><TT>*</TT> operator must be scalar.)  Note
+that in the above example,  <TT>C*D</TT>
+is <B>not</B> matrix multiplication, <TT>MATMUL</TT><TT>(C,D)</TT>
+should be used if this is the desired operation.
+<P>
+The above assignment is equivalent to:
+<P>
+<PRE>!PARALLEL
+    B(-4,0) = C(1,1)*D(0,0)-B(-4,0)**2 ! in ||
+    B(-3,0) = C(2,1)*D(1,0)-B(-3,0)**2 ! in ||
+     ...
+    B(-4,1) = C(1,2)*D(0,1)-B(-4,1)**2 ! in ||
+     ...
+    B(0,2)  = C(5,3)*D(4,2)-B(0,2)**2  ! in ||
+!END PARALLEL</PRE>
+<P>
+With array assignment
+ there is no implied order of the individual assignments, they are 
+performed, conceptually, in parallel.
+<P>
+In addition to the above operators, the subset of intrinsic functions termed 
+elemental can also be applied, for example, 
+<PRE>    B = SIN(C)+COS(D)</PRE>
+The functions are also applied element by element, thus the above is 
+equivalent to the parallel execution of,
+<PRE>!PARALLEL
+    B(-4,0) = SIN(C(1,1))+COS(D(0,0))
+     ...
+    B(0,2)  = SIN(C(5,3))+COS(D(4,2))
+!END PARALLEL</PRE>
+<P>
+Many of Fortran&nbsp;90 's intrinsics are elemental including all numeric,
+mathematical, bit, character  and logical intrinsics.
+<P>
+Again it must be stressed that 
+conceptually there is no order implied in the array statement
+form -- each individual assignment can be thought of as being executed
+in parallel between corresponding elements of the arrays -- this is 
+very different to the <TT>DO</TT>-loop.
+<P>
+<HR><A NAME="tex2html1341" HREF="HTMLNotesnode97.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1339" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1333" HREF="HTMLNotesnode95.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1343" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1342" HREF="HTMLNotesnode97.html">Array Conformance</A>
+<B>Up:</B> <A NAME="tex2html1340" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1334" HREF="HTMLNotesnode95.html">Array Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

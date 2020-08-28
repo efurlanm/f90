@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Vector Subscripts / MAXLOC</TITLE>
+<META NAME="description" CONTENT="Vector Subscripts / MAXLOC">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html606" HREF="HTMLQuestionsnode46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html604" HREF="HTMLQuestionsnode24.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html598" HREF="HTMLQuestionsnode44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html608" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html607" HREF="HTMLQuestionsnode46.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html605" HREF="HTMLQuestionsnode24.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html599" HREF="HTMLQuestionsnode44.html">Solution</A>
+<BR> <P>
+<A NAME="QArrayVectorSubscripts">&#160;</A><H2><A NAME="SECTION000311000000000000000">Vector Subscripts / <TT>MAXLOC</TT></A></H2>
+<P>
+Generate an arbitrary 1D array, <TT>vector</TT>, filled with random
+numbers between 0 and 1. By usingthe <TT>MAXLOC</TT> intrinsic with a suitable
+mask  set up an integer
+array, <TT>VSubs</TT>, which contains a permuted index set of <TT>vector</TT>
+such that <TT>Vector(VSubs(i)) &gt; Vector(VSubs(i+1))</TT> for all valid <TT>
+i</TT>.
+<P>
+You may find it useful to use the <TT>MAXLOC</TT> intrinsic. For example,
+<P>
+<PRE>    MAXLOC(VSubs)</PRE>
+<P>
+returns an array containing the index of the largest element of the 
+array <TT>VSubs</TT>, and,
+<P>
+<PRE>    MAXLOC(VSubs,MASK=VSubs.LT.VSubs(i))</PRE>
+<P>
+returns the position of the largest element that is less than the value
+of <TT>VSubs(i)</TT>.  In both cases the result is a one element 1D array. 
+(The array contains one element because <TT>VSub</TT> only has one
+dimension.)
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html609" HREF="HTMLQuestionsnode46.html#SECTION000311100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html606" HREF="HTMLQuestionsnode46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html604" HREF="HTMLQuestionsnode24.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html598" HREF="HTMLQuestionsnode44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html608" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html607" HREF="HTMLQuestionsnode46.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html605" HREF="HTMLQuestionsnode24.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html599" HREF="HTMLQuestionsnode44.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

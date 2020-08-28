@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Arguments Example 2</TITLE>
+<META NAME="description" CONTENT="Array Arguments Example 2">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3365" HREF="HTMLNotesnode262.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3363" HREF="HTMLNotesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3359" HREF="HTMLNotesnode260.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3367" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3366" HREF="HTMLNotesnode262.html">Collapsing Dimensions</A>
+<B>Up:</B> <A NAME="tex2html3364" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<B> Previous:</B> <A NAME="tex2html3360" HREF="HTMLNotesnode260.html">Array Arguments Example 1</A>
+<BR> <P>
+<A NAME="PassingArraySections3">&#160;</A><H4><A NAME="SECTION020411220000000000000">Array Arguments Example 2</A></H4>
+<P>
+It is much simpler but less efficient to use prescriptive distributions.
+<P>
+Unless the HPF compiler is really smart<A NAME="tex2html71" HREF="HTMLNotesfootnode.html#16417"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, the following rewrite of <TT>Zubbie</TT>, using
+prescriptive distribution directives, will generate two
+remappings. What
+will probably happen is that the compiler will remap the dummy
+arguments so that they are distributed <TT>(BLOCK,BLOCK)</TT>.
+<P>
+<PRE>     SUBROUTINE Zubbie(x,y,z)
+!HPF$ TEMPLATE, DIMENSION(4,6)            :: T
+!HPF$ PROCESSORS, DIMENSION(2,2)          :: P
+      REAL, INTENT(INOUT), DIMENSION(:,:) :: x, y
+      REAL, INTENT(INOUT), DIMENSION(:,:) :: z
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P     :: x, y, z
+      ...</PRE>
+<P>
+This will
+give the following distribution:
+<P>
+<UL><LI> <TT>P(1,1)</TT> owns <TT>X(1:2,1:2)</TT> and so on,<LI> <TT>P(2,1)</TT> owns <TT>X(3,1:2)</TT> and so on,<LI> <TT>P(1,2)</TT> owns <TT>X(1:2,3)</TT> and so on,<LI> <TT>P(2,2)</TT> owns <TT>X(3,3)</TT> and so on,
+</UL>
+<P>
+This means that  all three arguments are remapped on entry and on exit
+which will be very inefficient.
+<P>
+<HR><A NAME="tex2html3365" HREF="HTMLNotesnode262.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3363" HREF="HTMLNotesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3359" HREF="HTMLNotesnode260.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3367" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3366" HREF="HTMLNotesnode262.html">Collapsing Dimensions</A>
+<B>Up:</B> <A NAME="tex2html3364" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<B> Previous:</B> <A NAME="tex2html3360" HREF="HTMLNotesnode260.html">Array Arguments Example 1</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

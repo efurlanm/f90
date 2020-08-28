@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Other Mappings</TITLE>
+<META NAME="description" CONTENT="Other Mappings">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2551" HREF="HTMLNotesnode195.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2549" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2543" HREF="HTMLNotesnode193.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2553" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2552" HREF="HTMLNotesnode195.html">HPF Programming Issues</A>
+<B>Up:</B> <A NAME="tex2html2550" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2544" HREF="HTMLNotesnode193.html">Successive Over Relaxation Example</A>
+<BR> <P>
+<A NAME="DefaultDistributions1">&#160;</A><H3><A NAME="SECTION020131300000000000000">Other Mappings</A></H3>
+<P>
+Variations of mapping directives can also be used:
+<P>
+<PRE>!HPF$ DISTRIBUTE ONTO P        :: A
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) :: B</PRE>
+<P>
+<UL><LI> distribution method missing -- compiler dependent
+distribution, usually <TT>BLOCK</TT>,<LI> processor array missing - compiler dependent grid (determined at
+runtime),
+<P>
+This style of distribution  is
+useful during development work when the number of processors may differ
+between runs.<LI> all directives missing -- compiler dependent mapping, could be
+replicated.
+<P>
+Care must be taken here. Many compilers assume that if an
+array is not mentioned in any distribution directive then it should be
+replicated, a copy of the <EM>whole</EM> array is given to each processor.
+If this is not what is required then performance will suffer greatly.
+</UL>
+<P>
+<HR><A NAME="tex2html2551" HREF="HTMLNotesnode195.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2549" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2543" HREF="HTMLNotesnode193.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2553" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2552" HREF="HTMLNotesnode195.html">HPF Programming Issues</A>
+<B>Up:</B> <A NAME="tex2html2550" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2544" HREF="HTMLNotesnode193.html">Successive Over Relaxation Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

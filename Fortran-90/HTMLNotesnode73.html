@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Named and Nested Loops</TITLE>
+<META NAME="description" CONTENT="Named and Nested Loops">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1046" HREF="HTMLNotesnode74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1044" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1038" HREF="HTMLNotesnode72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1048" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1047" HREF="HTMLNotesnode74.html">Indexed DO Loop</A>
+<B>Up:</B> <A NAME="tex2html1045" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1039" HREF="HTMLNotesnode72.html">Conditional Cycle Loops</A>
+<BR> <P>
+<A NAME="NestedLoops1">&#160;</A><H3><A NAME="SECTION01021600000000000000">Named and Nested Loops</A></H3>
+<P>
+Sometimes it is necessary to jump out of more than the innermost <TT>DO</TT> 
+loop. To allow this, loops can be given names and then the <TT>EXIT</TT> 
+statement can be made to refer to a particular loop. An analogous
+situation also exists for <TT>CYCLE</TT>,
+<P>
+<PRE>    outa: DO
+     inna: DO
+      ...
+      IF (a.GT.b) EXIT outa
+      ...
+      IF (a.EQ.b) CYCLE outa
+      ...
+      IF (c.GT.d) EXIT inna
+      ...
+     END DO inna
+     ...
+    END DO outa</PRE>
+<P>
+The (optional) name following the <TT>EXIT</TT> or <TT>CYCLE</TT> highlights which
+loop the statement refers to.
+<P>
+For example,
+<PRE>   IF (a.EQ.b) CYCLE outa</PRE>
+<P>
+causes a jump to the first <TT>DO</TT> loop named <TT>outa</TT>.
+<P>
+Likewise,
+<P>
+<PRE>   IF (c.GT.d) EXIT inna</PRE>
+<P>
+jumps to the statement after
+<P>
+<PRE>    END DO inna</PRE>
+If the name is missing then the directive is applied, as usual, to
+the next outermost  loop.
+<P>
+The scope of a loop name is the same as that of any construct name.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode14.html#QControlMathMagic"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1046" HREF="HTMLNotesnode74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1044" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1038" HREF="HTMLNotesnode72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1048" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1047" HREF="HTMLNotesnode74.html">Indexed DO Loop</A>
+<B>Up:</B> <A NAME="tex2html1045" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1039" HREF="HTMLNotesnode72.html">Conditional Cycle Loops</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

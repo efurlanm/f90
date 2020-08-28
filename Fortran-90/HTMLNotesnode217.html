@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Simple Template Example</TITLE>
+<META NAME="description" CONTENT="Simple Template Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2828" HREF="HTMLNotesnode218.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2826" HREF="HTMLNotesnode216.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2822" HREF="HTMLNotesnode216.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2830" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2829" HREF="HTMLNotesnode218.html">Combined Directive</A>
+<B>Up:</B> <A NAME="tex2html2827" HREF="HTMLNotesnode216.html">Template Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2823" HREF="HTMLNotesnode216.html">Template Syntax</A>
+<BR> <P>
+<A NAME="Templates3">&#160;</A><H4><A NAME="SECTION02020810000000000000">Simple Template Example</A></H4>
+<P>
+The alignment between an array and a template works in exactly the same
+way as between two arrays. For example,
+<P>
+<PRE>      REAL, DIMENSION(10)     :: A, B
+!HPF$ TEMPLATE, DIMENSION(10) :: T
+!HPF$ DISTRIBUTE (BLOCK)      :: T
+!HPF$ ALIGN (:) WITH T(:)     :: A, B</PRE>
+<P>
+In this example, a 10 element <TT>TEMPLATE</TT>, <TT>T</TT> is declared. Its
+distribution method is <TT>BLOCK</TT> and there are two arrays aligned to it,
+<TT>A</TT> and <TT>B</TT>. Since <TT>T</TT> is used as the <EM>align-target</EM> it
+is the only entity that may be distributed. (<TT>A</TT> and <TT>B</TT> are
+alignees so may not be.) See Figure
+<A HREF="HTMLNotesnode217.html#TemplateAlignmentVisualisationfig">33</A> for a visualisation.
+<P>
+<P><A NAME="14422">&#160;</A><A NAME="TemplateAlignmentVisualisationfig">&#160;</A> <IMG WIDTH=374 HEIGHT=270 ALIGN=BOTTOM ALT="figure14419" SRC="HTMLNotesimg125.gif"  > <BR>
+<STRONG>Figure 33:</STRONG> Visualisation of Alignment to a Template<BR>
+<P>
+<P>
+<HR><A NAME="tex2html2828" HREF="HTMLNotesnode218.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2826" HREF="HTMLNotesnode216.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2822" HREF="HTMLNotesnode216.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2830" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2829" HREF="HTMLNotesnode218.html">Combined Directive</A>
+<B>Up:</B> <A NAME="tex2html2827" HREF="HTMLNotesnode216.html">Template Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2823" HREF="HTMLNotesnode216.html">Template Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Allocatable Arrays</TITLE>
+<META NAME="description" CONTENT="Allocatable Arrays">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1429" HREF="HTMLNotesnode105.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1427" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1421" HREF="HTMLNotesnode103.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1431" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1430" HREF="HTMLNotesnode105.html">Deallocating Arrays</A>
+<B>Up:</B> <A NAME="tex2html1428" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1422" HREF="HTMLNotesnode103.html">Array Constructors in Initialisation </A>
+<BR> <P>
+<A NAME="ArrayAllocation1">&#160;</A><H3><A NAME="SECTION010311300000000000000">Allocatable Arrays</A></H3>
+<P>
+Fortran&nbsp;90 allows arrays to be created on-the-fly; these are known as <EM>
+deferred-shape</EM> arrays and use dynamic heap storage (this means memory
+can be grabbed, used and then put back at any point in the program). This 
+facility
+allows the creation of ``temporary'' arrays which can be created used and 
+discarded at will.
+<P>
+Deferred-shape arrays are:
+<UL><LI> declared like explicit-shape arrays but without the extents and with the
+<TT>ALLOCATABLE</TT> attribute:
+<P>
+<PRE>    INTEGER, DIMENSION(:), ALLOCATABLE :: ages
+    REAL, DIMENSION(:,:), ALLOCATABLE :: speed</PRE><LI> given a size in an <TT>ALLOCATE</TT> statement which  reserves an
+area of memory for the object:
+<P>
+<PRE>    ALLOCATE(ages(1:10), STAT=ierr)
+    IF (ierr .NE. 0) THEN
+     PRINT*, &quot;ages: Allocation request denied&quot;
+    END IF
+    ALLOCATE(speed(-lwb:upb,-50:0),STAT=ierr)
+    IF (ierr .NE. 0) THEN
+     PRINT*, &quot;speed: Allocation request denied&quot;
+    END IF</PRE>
+<P>
+In the <TT>ALLOCATE</TT> statement
+ we could specify a list of objects to create but in general one
+should only specify one array statement; if there is
+more than one object and the allocation fails it is not immediately 
+possible to tell which allocation was responsible.
+The optional <TT>STAT</TT><TT>=</TT> field reports on the success of the
+storage request, if it is supplied then the keyword must be used to
+distinguish it from
+an array that needs allocating.  If the result, (<TT>ierr</TT>,)
+ is zero the request was
+successful otherwise it failed. This specifier should be used as a
+matter of course.
+</UL>
+<P>
+There is a certain overhead in managing dynamic or <TT>ALLOCATABLE</TT> 
+arrays -- explicit-shape arrays are cheaper and should be used if the size is
+known and the arrays are persistent (are used for most of the life
+of the program).  The dynamic or heap storage is also used with pointers and
+obviously only has a finite size -- there may be a time when this storage
+runs out. If this happens there may be an option of 
+the compiler to specify / increase the size of heap storage.
+<P>
+<HR><A NAME="tex2html1429" HREF="HTMLNotesnode105.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1427" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1421" HREF="HTMLNotesnode103.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1431" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1430" HREF="HTMLNotesnode105.html">Deallocating Arrays</A>
+<B>Up:</B> <A NAME="tex2html1428" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1422" HREF="HTMLNotesnode103.html">Array Constructors in Initialisation </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

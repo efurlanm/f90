@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Combining Scatter Functions</TITLE>
+<META NAME="description" CONTENT="Array Combining Scatter Functions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3602" HREF="HTMLNotesnode281.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3600" HREF="HTMLNotesnode274.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3594" HREF="HTMLNotesnode279.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3604" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3603" HREF="HTMLNotesnode281.html">Prefix and Suffix Functions</A>
+<B>Up:</B> <A NAME="tex2html3601" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<B> Previous:</B> <A NAME="tex2html3595" HREF="HTMLNotesnode279.html">Bit Manipulation Functions</A>
+<BR> <P>
+<A NAME="CombiningScatter1">&#160;</A><H3><A NAME="SECTION02053400000000000000">Array Combining Scatter Functions</A></H3>
+<P>
+Fortran&nbsp;90 allows indirect addressing, however if,
+<P>
+<PRE>    INTEGER, DIMENSION(4) :: A = 1, B = 2
+    INTEGER, DIMENSION(3) :: W = (/1,2,2/)</PRE>
+<P>
+then writing
+<P>
+<PRE> A(W) = A(W) + 2*B(1:3)</PRE>
+<P>
+is incorrect due to the multiple assignments to <TT>A(2)</TT>. 
+The statement is asking for the two assignments:
+<P>
+<PRE> A(2) = A(2) + 2*B(2)
+ A(2) = A(2) + 2*B(3)</PRE>
+<P>
+to be made in parallel which is clearly impossible.
+<P>
+The combining scatter functions allow parallel assignments to the same
+array element to be performed in a structured (defined) way; these
+functions state how two or more expressions that
+are supposed to be assigned to the same result element should be
+combined.  The example below here adds the two expressions together <EM>
+before</EM> making the assignment:
+<P>
+<PRE> A = SUM_SCATTER(2*B(1:3),A,W)</PRE>
+<P>
+now <TT>A</TT> equals <TT>(/5,9,1,1/)</TT>. This performs
+<P>
+<PRE> A(1) = A(1) + 2*B(1)
+ A(2) = A(2) + 2*B(2) + 2*B(3)</PRE>
+<P>
+<A NAME="CombiningScatter2">&#160;</A>
+<P>
+These functions allow combined assignments to vector subscripted
+arrays with repeated values. Consider,
+<P>
+<PRE> A = PRODUCT_SCATTER(2*B(1:3),A,W)</PRE>
+<P>
+<TT>A</TT> is now equal to <TT>(/4,16,1,1/)</TT>. The above call is equivalent
+to:
+<P>
+<PRE> A(1) = A(1)*2*B(1)
+ A(2) = A(2)*2*B(2)*B(2)</PRE>
+<P>
+in parallel.
+<P>
+Consider  a further example,
+<P>
+<PRE> MINVAL_SCATTER((/10,-2,4,2/),(/1,1,1/),(/2,2,1,1/))</PRE>
+<P>
+this gives the result  <TT>(/1,-2,1/)</TT>. Here, the index vector is now
+<TT>
+(/2,2,1,1/)</TT>, the vector being assigned to is <TT>(/1,1,1/)</TT> and the
+vector that is being indexed is <TT>(/10,-2,4,2/)</TT>.
+<P>
+Working along the index vector, the result of <TT>MINVAL((/10,-2,1/))</TT>
+is assigned to position 2 (<TT>10</TT> and <TT>-2</TT> are the first two
+elements of <TT>(/10,-2,4,2/)</TT> and the <TT>1</TT> is from the original the
+array being assigned to).
+<P>
+Likewise, <TT>MINVAL((/4,2,1/))</TT> is placed in position 1; position 3
+is unaltered as it is not indexed.
+<P>
+<PRE>values to be assigned       10  -2  4  2
+indices to be assigned to    2   2  1  1</PRE>
+<P>
+The following prefixes are allowed for scatter functions: <TT>ALL</TT>, <TT>ANY</TT>,
+<TT>COUNT</TT>, <TT>IALL</TT>, <TT>IANY</TT>, <TT>IPARITY</TT>, <TT>MAXVAL</TT>, <TT>MINVAL</TT>, <TT>PARITY</TT>,
+<TT>PRODUCT</TT> and <TT>SUM</TT>.
+<P>
+<HR><A NAME="tex2html3602" HREF="HTMLNotesnode281.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3600" HREF="HTMLNotesnode274.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3594" HREF="HTMLNotesnode279.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3604" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3603" HREF="HTMLNotesnode281.html">Prefix and Suffix Functions</A>
+<B>Up:</B> <A NAME="tex2html3601" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<B> Previous:</B> <A NAME="tex2html3595" HREF="HTMLNotesnode279.html">Bit Manipulation Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

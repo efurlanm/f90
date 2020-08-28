@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>High Performance Fortran</TITLE>
+<META NAME="description" CONTENT="High Performance Fortran">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1874" HREF="HTMLSlidesnode144.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1872" HREF="HTMLSlides.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1868" HREF="HTMLSlidesnode142.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1876" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1875" HREF="HTMLSlidesnode144.html">Introduction to Parallel Processing</A>
+<B>Up:</B> <A NAME="tex2html1873" HREF="HTMLSlides.html">High Performance Fortran HTML </A>
+<B> Previous:</B> <A NAME="tex2html1869" HREF="HTMLSlidesnode142.html">TRANSFER Intrinsic</A>
+<BR> <P>
+<H1><A NAME="SECTION02000000000000000000">High Performance Fortran</A></H1>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1877" HREF="HTMLSlidesnode144.html#SECTION02010000000000000000">Introduction to Parallel Processing</A>
+<UL> 
+<LI> <A NAME="tex2html1878" HREF="HTMLSlidesnode145.html#SECTION02011000000000000000">Parallel Processing</A>
+<LI> <A NAME="tex2html1879" HREF="HTMLSlidesnode146.html#SECTION02012000000000000000">Processor Configurations</A>
+<LI> <A NAME="tex2html1880" HREF="HTMLSlidesnode147.html#SECTION02013000000000000000">Parallel Programs</A>
+</UL> 
+<LI> <A NAME="tex2html1881" HREF="HTMLSlidesnode148.html#SECTION02020000000000000000">Introduction to High Performance Fortran</A>
+<UL> 
+<LI> <A NAME="tex2html1882" HREF="HTMLSlidesnode149.html#SECTION02021000000000000000">History of High Performance Fortran (HPF)</A>
+<LI> <A NAME="tex2html1883" HREF="HTMLSlidesnode150.html#SECTION02022000000000000000">The Concept of HPF</A>
+<LI> <A NAME="tex2html1884" HREF="HTMLSlidesnode151.html#SECTION02023000000000000000">SPMD Model</A>
+<LI> <A NAME="tex2html1885" HREF="HTMLSlidesnode152.html#SECTION02024000000000000000">Processor Communications</A>
+</UL> 
+<LI> <A NAME="tex2html1886" HREF="HTMLSlidesnode153.html#SECTION02030000000000000000">Data Distribution</A>
+<UL> 
+<LI> <A NAME="tex2html1887" HREF="HTMLSlidesnode154.html#SECTION02031000000000000000">HPF and Data Parallelism</A>
+<LI> <A NAME="tex2html1888" HREF="HTMLSlidesnode155.html#SECTION02032000000000000000">Fortran&nbsp;90 features in High Performance Fortran</A>
+<LI> <A NAME="tex2html1889" HREF="HTMLSlidesnode156.html#SECTION02033000000000000000">Language Covered</A>
+<LI> <A NAME="tex2html1890" HREF="HTMLSlidesnode157.html#SECTION02034000000000000000">HPF Directives</A>
+<LI> <A NAME="tex2html1891" HREF="HTMLSlidesnode158.html#SECTION02035000000000000000"><TT>PROCESSORS</TT> Declaration</A>
+<LI> <A NAME="tex2html1892" HREF="HTMLSlidesnode159.html#SECTION02036000000000000000"><TT>DISTRIBUTE</TT> Directive</A>
+<LI> <A NAME="tex2html1893" HREF="HTMLSlidesnode160.html#SECTION02037000000000000000">Block Distribution</A>
+<LI> <A NAME="tex2html1894" HREF="HTMLSlidesnode161.html#SECTION02038000000000000000">Cyclic Distribution</A>
+<LI> <A NAME="tex2html1895" HREF="HTMLSlidesnode162.html#SECTION02039000000000000000">2D Distribution Example</A>
+<LI> <A NAME="tex2html1896" HREF="HTMLSlidesnode163.html#SECTION020310000000000000000">Visualisation of <TT>*</TT> Distribution</A>
+<LI> <A NAME="tex2html1897" HREF="HTMLSlidesnode164.html#SECTION020311000000000000000">Commentary</A>
+<LI> <A NAME="tex2html1898" HREF="HTMLSlidesnode165.html#SECTION020312000000000000000">Distribution of Allocatables</A>
+<LI> <A NAME="tex2html1899" HREF="HTMLSlidesnode166.html#SECTION020313000000000000000">The Owner-Computes Rule</A>
+<LI> <A NAME="tex2html1900" HREF="HTMLSlidesnode167.html#SECTION020314000000000000000">Scalar Variables</A>
+<LI> <A NAME="tex2html1901" HREF="HTMLSlidesnode168.html#SECTION020315000000000000000">Examples of Good Distributions</A>
+<LI> <A NAME="tex2html1902" HREF="HTMLSlidesnode169.html#SECTION020316000000000000000">Successive Over Relaxation Example</A>
+<LI> <A NAME="tex2html1903" HREF="HTMLSlidesnode170.html#SECTION020317000000000000000">Other Mappings</A>
+<LI> <A NAME="tex2html1904" HREF="HTMLSlidesnode171.html#SECTION020318000000000000000">HPF Programming Issues</A>
+<LI> <A NAME="tex2html1905" HREF="HTMLSlidesnode172.html#SECTION020319000000000000000">HPF Programming Issues II</A>
+<LI> <A NAME="tex2html1906" HREF="HTMLSlidesnode173.html#SECTION020320000000000000000">HPFacts</A>
+<LI> <A NAME="tex2html1907" HREF="HTMLSlidesnode174.html#SECTION020321000000000000000">More Distributions</A>
+<LI> <A NAME="tex2html1908" HREF="HTMLSlidesnode175.html#SECTION020322000000000000000">2D Example</A>
+<LI> <A NAME="tex2html1909" HREF="HTMLSlidesnode176.html#SECTION020323000000000000000">Alignment</A>
+<LI> <A NAME="tex2html1910" HREF="HTMLSlidesnode177.html#SECTION020324000000000000000">Alignment Syntax</A>
+<LI> <A NAME="tex2html1911" HREF="HTMLSlidesnode178.html#SECTION020325000000000000000">Example and Visualisation</A>
+<LI> <A NAME="tex2html1912" HREF="HTMLSlidesnode179.html#SECTION020326000000000000000">Simple 2D Alignment Example</A>
+<LI> <A NAME="tex2html1913" HREF="HTMLSlidesnode180.html#SECTION020327000000000000000">Visualisation of Simple Alignment Example</A>
+<LI> <A NAME="tex2html1914" HREF="HTMLSlidesnode181.html#SECTION020328000000000000000">Transposed Alignment Example</A>
+<LI> <A NAME="tex2html1915" HREF="HTMLSlidesnode182.html#SECTION020329000000000000000">Visualisation of Transposed Alignment Example</A>
+<LI> <A NAME="tex2html1916" HREF="HTMLSlidesnode183.html#SECTION020330000000000000000">Strided Alignment Example</A>
+<LI> <A NAME="tex2html1917" HREF="HTMLSlidesnode184.html#SECTION020331000000000000000">Reverse Strided Alignment Example</A>
+<LI> <A NAME="tex2html1918" HREF="HTMLSlidesnode185.html#SECTION020332000000000000000">Practical Example of Alignment</A>
+<LI> <A NAME="tex2html1919" HREF="HTMLSlidesnode186.html#SECTION020333000000000000000">Aligning Allocatable Arrays</A>
+<LI> <A NAME="tex2html1920" HREF="HTMLSlidesnode187.html#SECTION020334000000000000000">Example</A>
+<LI> <A NAME="tex2html1921" HREF="HTMLSlidesnode188.html#SECTION020335000000000000000">Other Pitfalls</A>
+<LI> <A NAME="tex2html1922" HREF="HTMLSlidesnode189.html#SECTION020336000000000000000">Collapsing Dimensions</A>
+<LI> <A NAME="tex2html1923" HREF="HTMLSlidesnode190.html#SECTION020337000000000000000">Replicating Dimensions</A>
+<LI> <A NAME="tex2html1924" HREF="HTMLSlidesnode191.html#SECTION020338000000000000000">Gaussian Elimination - 2D Grid</A>
+<LI> <A NAME="tex2html1925" HREF="HTMLSlidesnode192.html#SECTION020339000000000000000">Visualisation of 2D Gaussian Elimination</A>
+<LI> <A NAME="tex2html1926" HREF="HTMLSlidesnode193.html#SECTION020340000000000000000">New HPF Intrinsics</A>
+<LI> <A NAME="tex2html1927" HREF="HTMLSlidesnode194.html#SECTION020341000000000000000">Template Syntax</A>
+<LI> <A NAME="tex2html1928" HREF="HTMLSlidesnode195.html#SECTION020342000000000000000">Simple Template Example</A>
+<LI> <A NAME="tex2html1929" HREF="HTMLSlidesnode196.html#SECTION020343000000000000000">Alternative Template Syntax</A>
+<LI> <A NAME="tex2html1930" HREF="HTMLSlidesnode197.html#SECTION020344000000000000000">Another Template Example</A>
+<LI> <A NAME="tex2html1931" HREF="HTMLSlidesnode198.html#SECTION020345000000000000000">Visualisation</A>
+<LI> <A NAME="tex2html1932" HREF="HTMLSlidesnode199.html#SECTION020346000000000000000">Alignment and Distribution of Templates</A>
+<LI> <A NAME="tex2html1933" HREF="HTMLSlidesnode200.html#SECTION020347000000000000000">Aligning to a Template Section</A>
+<LI> <A NAME="tex2html1934" HREF="HTMLSlidesnode201.html#SECTION020348000000000000000">Aligning Scalars</A>
+<LI> <A NAME="tex2html1935" HREF="HTMLSlidesnode202.html#SECTION020349000000000000000">Explicit Replication Using Templates</A>
+</UL> 
+<LI> <A NAME="tex2html1936" HREF="HTMLSlidesnode203.html#SECTION02040000000000000000">Data Parallel Execution</A>
+<UL> 
+<LI> <A NAME="tex2html1937" HREF="HTMLSlidesnode204.html#SECTION02041000000000000000">Data Parallel Execution</A>
+<LI> <A NAME="tex2html1938" HREF="HTMLSlidesnode205.html#SECTION02042000000000000000">Forall Statement</A>
+<LI> <A NAME="tex2html1939" HREF="HTMLSlidesnode206.html#SECTION02043000000000000000">Forall Examples</A>
+<LI> <A NAME="tex2html1940" HREF="HTMLSlidesnode207.html#SECTION02044000000000000000">Execution Process</A>
+<LI> <A NAME="tex2html1941" HREF="HTMLSlidesnode208.html#SECTION02045000000000000000">Do-loops and Forall Statements</A>
+<LI> <A NAME="tex2html1942" HREF="HTMLSlidesnode209.html#SECTION02046000000000000000">Forall Construct</A>
+<LI> <A NAME="tex2html1943" HREF="HTMLSlidesnode210.html#SECTION02047000000000000000">Pure Procedures</A>
+<LI> <A NAME="tex2html1944" HREF="HTMLSlidesnode211.html#SECTION02048000000000000000">Pure Procedures</A>
+<LI> <A NAME="tex2html1945" HREF="HTMLSlidesnode212.html#SECTION02049000000000000000">Pure Function Example</A>
+<LI> <A NAME="tex2html1946" HREF="HTMLSlidesnode213.html#SECTION020410000000000000000">Pure Subroutine Example</A>
+<LI> <A NAME="tex2html1947" HREF="HTMLSlidesnode214.html#SECTION020411000000000000000">MIMD Example</A>
+<LI> <A NAME="tex2html1948" HREF="HTMLSlidesnode215.html#SECTION020412000000000000000">The <TT>INDEPENDENT</TT> Directive</A>
+<LI> <A NAME="tex2html1949" HREF="HTMLSlidesnode216.html#SECTION020413000000000000000">Independent Loops - Conditions</A>
+<LI> <A NAME="tex2html1950" HREF="HTMLSlidesnode217.html#SECTION020414000000000000000">Independent Example 1</A>
+<LI> <A NAME="tex2html1951" HREF="HTMLSlidesnode218.html#SECTION020415000000000000000">Visualisation of Independent Loop</A>
+<LI> <A NAME="tex2html1952" HREF="HTMLSlidesnode219.html#SECTION020416000000000000000">Independent Example 2</A>
+<LI> <A NAME="tex2html1953" HREF="HTMLSlidesnode220.html#SECTION020417000000000000000"><TT>INDEPENDENT</TT> <TT>NEW</TT> Loops</A>
+<LI> <A NAME="tex2html1954" HREF="HTMLSlidesnode221.html#SECTION020418000000000000000">New Variables - Conditions</A>
+<LI> <A NAME="tex2html1955" HREF="HTMLSlidesnode222.html#SECTION020419000000000000000">New Variables Example 1</A>
+<LI> <A NAME="tex2html1956" HREF="HTMLSlidesnode223.html#SECTION020420000000000000000">Visualisation of New Variables Example 1</A>
+<LI> <A NAME="tex2html1957" HREF="HTMLSlidesnode224.html#SECTION020421000000000000000">New Variables Example 2</A>
+</UL> 
+<LI> <A NAME="tex2html1958" HREF="HTMLSlidesnode225.html#SECTION02050000000000000000">Input and Output</A>
+<UL> 
+<LI> <A NAME="tex2html1959" HREF="HTMLSlidesnode226.html#SECTION02051000000000000000">Input and Output</A>
+</UL> 
+<LI> <A NAME="tex2html1960" HREF="HTMLSlidesnode227.html#SECTION02060000000000000000">HPF and Procedures</A>
+<UL> 
+<LI> <A NAME="tex2html1961" HREF="HTMLSlidesnode228.html#SECTION02061000000000000000">HPF Procedure Interfaces</A>
+<LI> <A NAME="tex2html1962" HREF="HTMLSlidesnode229.html#SECTION02062000000000000000">Mapping and Procedures</A>
+<LI> <A NAME="tex2html1963" HREF="HTMLSlidesnode230.html#SECTION02063000000000000000">Prescriptive Distribution</A>
+<LI> <A NAME="tex2html1964" HREF="HTMLSlidesnode231.html#SECTION02064000000000000000">Descriptive Distribution</A>
+<LI> <A NAME="tex2html1965" HREF="HTMLSlidesnode232.html#SECTION02065000000000000000">Examples of Dummy Distributions</A>
+<LI> <A NAME="tex2html1966" HREF="HTMLSlidesnode233.html#SECTION02066000000000000000">Consequences</A>
+<LI> <A NAME="tex2html1967" HREF="HTMLSlidesnode234.html#SECTION02067000000000000000">Templates and Modules</A>
+<LI> <A NAME="tex2html1968" HREF="HTMLSlidesnode235.html#SECTION02068000000000000000">Problems with Modules</A>
+<LI> <A NAME="tex2html1969" HREF="HTMLSlidesnode236.html#SECTION02069000000000000000">Interfaces</A>
+<LI> <A NAME="tex2html1970" HREF="HTMLSlidesnode237.html#SECTION020610000000000000000">Aligning to Dummy Arguments</A>
+<LI> <A NAME="tex2html1971" HREF="HTMLSlidesnode238.html#SECTION020611000000000000000">Mapping Function Results</A>
+<LI> <A NAME="tex2html1972" HREF="HTMLSlidesnode239.html#SECTION020612000000000000000">Argument Remapping</A>
+<LI> <A NAME="tex2html1973" HREF="HTMLSlidesnode240.html#SECTION020613000000000000000">Explicit Intent</A>
+<LI> <A NAME="tex2html1974" HREF="HTMLSlidesnode241.html#SECTION020614000000000000000">Passing Array Sections</A>
+<LI> <A NAME="tex2html1975" HREF="HTMLSlidesnode242.html#SECTION020615000000000000000">Array Arguments Example 1</A>
+<LI> <A NAME="tex2html1976" HREF="HTMLSlidesnode243.html#SECTION020616000000000000000">Array Arguments Example 2</A>
+<LI> <A NAME="tex2html1977" HREF="HTMLSlidesnode244.html#SECTION020617000000000000000">Collapsing Dimensions</A>
+<LI> <A NAME="tex2html1978" HREF="HTMLSlidesnode245.html#SECTION020618000000000000000">Scalar Arguments</A>
+<LI> <A NAME="tex2html1979" HREF="HTMLSlidesnode246.html#SECTION020619000000000000000">Processors Problem</A>
+<LI> <A NAME="tex2html1980" HREF="HTMLSlidesnode247.html#SECTION020620000000000000000">A Possible Solution</A>
+<LI> <A NAME="tex2html1981" HREF="HTMLSlidesnode248.html#SECTION020621000000000000000">The Next Problem</A>
+</UL> 
+<LI> <A NAME="tex2html1982" HREF="HTMLSlidesnode249.html#SECTION02070000000000000000">Extrinsics</A>
+<UL> 
+<LI> <A NAME="tex2html1983" HREF="HTMLSlidesnode250.html#SECTION02071000000000000000">Extrinsic Procedures</A>
+<LI> <A NAME="tex2html1984" HREF="HTMLSlidesnode251.html#SECTION02072000000000000000">Extrinsic Procedure Example</A>
+<LI> <A NAME="tex2html1985" HREF="HTMLSlidesnode252.html#SECTION02073000000000000000">Extrinsic Example Continued</A>
+<LI> <A NAME="tex2html1986" HREF="HTMLSlidesnode253.html#SECTION02074000000000000000">Extrinsic Example Continued</A>
+<LI> <A NAME="tex2html1987" HREF="HTMLSlidesnode254.html#SECTION02075000000000000000">Extrinsic Example Continued</A>
+<LI> <A NAME="tex2html1988" HREF="HTMLSlidesnode255.html#SECTION02076000000000000000">Rules for Extrinsic Procedures</A>
+<LI> <A NAME="tex2html1989" HREF="HTMLSlidesnode256.html#SECTION02077000000000000000">Uses of Extrinsics</A>
+<LI> <A NAME="tex2html1990" HREF="HTMLSlidesnode257.html#SECTION02078000000000000000">Extrinsic instead of <TT>INDEPENDENT</TT></A>
+<LI> <A NAME="tex2html1991" HREF="HTMLSlidesnode258.html#SECTION02079000000000000000">Calls to the NAG Library</A>
+</UL> 
+<LI> <A NAME="tex2html1992" HREF="HTMLSlidesnode259.html#SECTION02080000000000000000">HPF Intrinsics and Library</A>
+<UL> 
+<LI> <A NAME="tex2html1993" HREF="HTMLSlidesnode260.html#SECTION02081000000000000000">New Intrinsics in HPF</A>
+<LI> <A NAME="tex2html1994" HREF="HTMLSlidesnode261.html#SECTION02082000000000000000">HPF Library Module</A>
+<LI> <A NAME="tex2html1995" HREF="HTMLSlidesnode262.html#SECTION02083000000000000000">Mapping Inquiry Subroutines</A>
+<LI> <A NAME="tex2html1996" HREF="HTMLSlidesnode263.html#SECTION02084000000000000000">Example of Mapping Inquiry Procedures</A>
+<LI> <A NAME="tex2html1997" HREF="HTMLSlidesnode264.html#SECTION02085000000000000000">New HPF Reduction Functions</A>
+<LI> <A NAME="tex2html1998" HREF="HTMLSlidesnode265.html#SECTION02086000000000000000">Example of New Reduction Functions</A>
+<LI> <A NAME="tex2html1999" HREF="HTMLSlidesnode266.html#SECTION02087000000000000000">Bit Manipulation Functions</A>
+<LI> <A NAME="tex2html2000" HREF="HTMLSlidesnode267.html#SECTION02088000000000000000">Array Combining Scatter Functions</A>
+<LI> <A NAME="tex2html2001" HREF="HTMLSlidesnode268.html#SECTION02089000000000000000">Array Combining Scatter Functions II</A>
+<LI> <A NAME="tex2html2002" HREF="HTMLSlidesnode269.html#SECTION020810000000000000000">Prefix and Suffix Functions</A>
+<LI> <A NAME="tex2html2003" HREF="HTMLSlidesnode270.html#SECTION020811000000000000000">Prefix and Suffix Functions II</A>
+<LI> <A NAME="tex2html2004" HREF="HTMLSlidesnode271.html#SECTION020812000000000000000">Prefix and Suffix Functions III</A>
+<LI> <A NAME="tex2html2005" HREF="HTMLSlidesnode272.html#SECTION020813000000000000000"><TT>SEGMENT</TT> and <TT>EXCLUSIVE</TT></A>
+<LI> <A NAME="tex2html2006" HREF="HTMLSlidesnode273.html#SECTION020814000000000000000">Array Sorting Functions</A>
+<LI> <A NAME="tex2html2007" HREF="HTMLSlidesnode274.html#SECTION020815000000000000000">Example of Array Sorting Functions</A>
+<LI> <A NAME="tex2html2008" HREF="HTMLSlidesnode275.html#SECTION020816000000000000000">Further Example of Array Sorting Functions</A>
+</UL> 
+<LI> <A NAME="tex2html2009" HREF="HTMLSlidesnode276.html#SECTION02090000000000000000">Miscellaneous</A>
+<UL> 
+<LI> <A NAME="tex2html2010" HREF="HTMLSlidesnode277.html#SECTION02091000000000000000">Storage and Sequence Association</A>
+<LI> <A NAME="tex2html2011" HREF="HTMLSlidesnode278.html#SECTION02092000000000000000">Dual Fortran&nbsp;90 and HPF Codes</A>
+<LI> <A NAME="tex2html2012" HREF="HTMLSlidesnode279.html#SECTION02093000000000000000">Full HPF</A>
+</UL> 
+<LI> <A NAME="tex2html2013" HREF="HTMLSlidesnode280.html#SECTION020100000000000000000">Does HPF Work?</A>
+<UL> 
+<LI> <A NAME="tex2html2014" HREF="HTMLSlidesnode281.html#SECTION020101000000000000000">Performance of HPF Systems</A>
+</UL> 
+<LI> <A NAME="tex2html2015" HREF="HTMLSlidesnode282.html#SECTION020110000000000000000">High Performance Fortran in the Future</A>
+<UL> 
+<LI> <A NAME="tex2html2016" HREF="HTMLSlidesnode283.html#SECTION020111000000000000000">HPF 2</A>
+<LI> <A NAME="tex2html2017" HREF="HTMLSlidesnode284.html#SECTION020112000000000000000">HPF Kernel</A>
+</UL>
+</UL>
+<HR><A NAME="tex2html1874" HREF="HTMLSlidesnode144.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1872" HREF="HTMLSlides.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1868" HREF="HTMLSlidesnode142.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1876" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1875" HREF="HTMLSlidesnode144.html">Introduction to Parallel Processing</A>
+<B>Up:</B> <A NAME="tex2html1873" HREF="HTMLSlides.html">High Performance Fortran HTML </A>
+<B> Previous:</B> <A NAME="tex2html1869" HREF="HTMLSlidesnode142.html">TRANSFER Intrinsic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

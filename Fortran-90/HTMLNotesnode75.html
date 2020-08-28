@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Examples of Loop Counts</TITLE>
+<META NAME="description" CONTENT="Examples of Loop Counts">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1067" HREF="HTMLNotesnode76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1065" HREF="HTMLNotesnode74.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1061" HREF="HTMLNotesnode74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1069" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1068" HREF="HTMLNotesnode76.html">Scope of DO Variables</A>
+<B>Up:</B> <A NAME="tex2html1066" HREF="HTMLNotesnode74.html">Indexed DO Loop</A>
+<B> Previous:</B> <A NAME="tex2html1062" HREF="HTMLNotesnode74.html">Indexed DO Loop</A>
+<BR> <P>
+<A NAME="IndexedLoop2">&#160;</A><H4><A NAME="SECTION01021710000000000000">Examples of Loop Counts</A></H4>
+<P>
+There now follows a few examples of different loops,
+<P>
+<OL><LI> upper bound not exact,
+<PRE>    loopy: DO i = 1, 30, 2
+     ... ! 15 iterations
+    END DO loopy</PRE>
+<P>
+According to the rules (given earlier)  the fact that
+the upper bound is not exact is not relevant. The iteration count is
+<TT>INT</TT>(29/2) = 14, so <TT>i</TT> will take the values 1,3,..,27,29 and
+finally 31 although the loop is not executed when <TT>i</TT> holds this
+value, this is its final value.<LI> negative stride,
+<PRE>    DO j = 30, 1, -2
+     ... ! 15 iterations
+    END DO</PRE>
+<P>
+similar to above except
+the loop runs the other way (high to low). <TT>j</TT> will begin
+with the value <TT>30</TT> and will end up being equal to 0.<LI> a zero-trip loop,
+<PRE>    DO k = 30, 1, 2
+     ... ! 0 iterations
+     ... ! loop skipped
+    END DO</PRE>
+<P>
+This is a false example in the sense that the loop bounds are literals
+and there would be no point in coding a loop of this
+fashion as it would never ever be executed! 
+The execution is as follows,
+firstly, <TT>k</TT> is set to <TT>30</TT> and then
+the iteration count would be evaluated and set to <TT>0</TT>.  This would
+mean that the loop were skipped, the only consequence of its existence
+being that <TT>k</TT> holds the value <TT>30</TT>.<LI> missing stride,
+<PRE>    DO l = 30,1
+     ... ! zero-trip 
+    END DO</PRE>
+<P>
+As the stride is missing it must take its default value which is 1
+This loop runs from high to low
+(<TT>30</TT> to <TT>1</TT>) so the implied stride means that the loop is not
+executed. The final value of <TT>l</TT> will be 30.
+<P>
+</OL>
+<P>
+<HR><A NAME="tex2html1067" HREF="HTMLNotesnode76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1065" HREF="HTMLNotesnode74.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1061" HREF="HTMLNotesnode74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1069" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1068" HREF="HTMLNotesnode76.html">Scope of DO Variables</A>
+<B>Up:</B> <A NAME="tex2html1066" HREF="HTMLNotesnode74.html">Indexed DO Loop</A>
+<B> Previous:</B> <A NAME="tex2html1062" HREF="HTMLNotesnode74.html">Indexed DO Loop</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

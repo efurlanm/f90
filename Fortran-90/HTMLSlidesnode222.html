@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New Variables Example 1</TITLE>
+<META NAME="description" CONTENT="New Variables Example 1">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2955" HREF="HTMLSlidesnode223.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2953" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2947" HREF="HTMLSlidesnode221.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2957" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2956" HREF="HTMLSlidesnode223.html">Visualisation of New Variables </A>
+<B>Up:</B> <A NAME="tex2html2954" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2948" HREF="HTMLSlidesnode221.html">New Variables - Conditions</A>
+<BR> <P>
+<H2><A NAME="SECTION020419000000000000000">New Variables Example 1</A></H2>
+<P>
+<TT>INDEPENDENT</TT> loops can be formed by
+creating copies of <TT>x</TT> and <TT>y</TT> for each inner
+iteration.
+<P>
+Copies of <TT>j</TT> can be made for further independence.
+<P>
+<PRE>    !HPF$ INDEPENDENT, NEW (j)
+    DO i = 1, n
+     !HPF$ INDEPENDENT, NEW (x,y)
+     DO j = 1, m
+      x = A(j)
+      y = B(j)
+      C(i,j) = x+y
+     END DO
+    END DO</PRE>
+<P>
+After the loop <TT>x, y, i</TT> and <TT>j</TT> 
+will have an undetermined value so <B>cannot</B> be used before being
+assigned a new value. (In regular Fortran they could be.)
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode241.html#NewExample11"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2955" HREF="HTMLSlidesnode223.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2953" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2947" HREF="HTMLSlidesnode221.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2957" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2956" HREF="HTMLSlidesnode223.html">Visualisation of New Variables </A>
+<B>Up:</B> <A NAME="tex2html2954" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2948" HREF="HTMLSlidesnode221.html">New Variables - Conditions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

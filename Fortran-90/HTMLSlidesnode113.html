@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Interface Example</TITLE>
+<META NAME="description" CONTENT="Interface Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1531" HREF="HTMLSlidesnode114.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1529" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1523" HREF="HTMLSlidesnode112.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1533" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1532" HREF="HTMLSlidesnode114.html">Argument Intent</A>
+<B>Up:</B> <A NAME="tex2html1530" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1524" HREF="HTMLSlidesnode112.html">What Appears in an </A>
+<BR> <P>
+<H2><A NAME="SECTION0101518000000000000000">Interface Example</A></H2>
+<P>
+The following program includes an explicit interface,
+<PRE>    PROGRAM interface_example
+     IMPLICIT NONE
+
+     INTERFACE
+      SUBROUTINE expsum(N,K,X,sum)
+       INTEGER, INTENT(IN) :: N
+       REAL, INTENT(IN) :: K,X
+       REAL, INTENT(OUT) :: sum
+      END SUBROUTINE expsum
+     END INTERFACE
+
+     REAL :: sum
+      ...
+     CALL expsum(10,0.5,0.1,sum)
+      ...
+    END PROGRAM interface_example</PRE>
+<P>
+Explicit interfaces permit separate compilation, optimisation and 
+type checking.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode137.html#Interfaces3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1531" HREF="HTMLSlidesnode114.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1529" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1523" HREF="HTMLSlidesnode112.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1533" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1532" HREF="HTMLSlidesnode114.html">Argument Intent</A>
+<B>Up:</B> <A NAME="tex2html1530" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1524" HREF="HTMLSlidesnode112.html">What Appears in an </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Optimised Life</TITLE>
+<META NAME="description" CONTENT="Optimised Life">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1518" HREF="HTMLQuestionsnode127.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1516" HREF="HTMLQuestionsnode114.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1510" HREF="HTMLQuestionsnode125.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1520" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1519" HREF="HTMLQuestionsnode127.html">Body Count!</A>
+<B>Up:</B> <A NAME="tex2html1517" HREF="HTMLQuestionsnode114.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1511" HREF="HTMLQuestionsnode125.html">Solution</A>
+<BR> <P>
+<A NAME="QLifeXtra1">&#160;</A><H2><A NAME="SECTION00097000000000000000">Optimised Life</A></H2>
+<P>
+<TT>CSHIFT</TT> was used to count the number of neighbouring live cells. You
+can optimise the code to do the count with only four <TT>CSHIFT</TT> operations
+instead of eight. This requires the use of a temporary array the same
+size as board. For each array element,
+<P>
+<UL><LI>       create the temporary by adding the current value of board  to
+the value of the left and right partners (two <TT>CSHIFT</TT> s)<LI>       find the upper and lower partners for this temporary array  (two
+more <TT>CSHIFT</TT> s) and add these to the temporary array<LI>       each element now contains the number of neighbours, plus the
+original value of the cell. Subtract the original state to obtain the
+number of neighbours with four <TT>CSHIFT</TT> s.
+<P>
+</UL><HR><A NAME="tex2html1518" HREF="HTMLQuestionsnode127.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1516" HREF="HTMLQuestionsnode114.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1510" HREF="HTMLQuestionsnode125.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1520" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1519" HREF="HTMLQuestionsnode127.html">Body Count!</A>
+<B>Up:</B> <A NAME="tex2html1517" HREF="HTMLQuestionsnode114.html">Procedures</A>
+<B> Previous:</B> <A NAME="tex2html1511" HREF="HTMLQuestionsnode125.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

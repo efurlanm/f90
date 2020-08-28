@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Dummy Array Arguments</TITLE>
+<META NAME="description" CONTENT="Dummy Array Arguments">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1566" HREF="HTMLSlidesnode117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1564" HREF="HTMLSlidesnode115.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1558" HREF="HTMLSlidesnode115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1568" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1567" HREF="HTMLSlidesnode117.html">Assumed-shape Arrays</A>
+<B>Up:</B> <A NAME="tex2html1565" HREF="HTMLSlidesnode115.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1559" HREF="HTMLSlidesnode115.html">Procedures and Array Arguments</A>
+<BR> <P>
+<H2><A NAME="SECTION010161000000000000000">Dummy Array Arguments</A></H2>
+<P>
+There are two main types of dummy array argument:
+<P>
+<UL><LI> <EM>explicit-shape</EM> -- all bounds specified;
+<PRE>  REAL, DIMENSION(8,8), INTENT(IN) :: expl_shape</PRE>
+<P>
+The actual argument that becomes associated with an explicit-shape dummy
+must conform in size and shape.<LI> <EM>assumed-shape</EM> -- no bounds specified, all inherited from
+the actual argument;
+<PRE>  REAL, DIMENSION(:,:), INTENT(IN) :: ass_shape</PRE>
+An explicit interface <EM>must</EM> be provided.<LI> dummy arguments cannot be (unallocated) <TT>ALLOCATABLE</TT> arrays.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode140.html#ArrayArguments1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1566" HREF="HTMLSlidesnode117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1564" HREF="HTMLSlidesnode115.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1558" HREF="HTMLSlidesnode115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1568" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1567" HREF="HTMLSlidesnode117.html">Assumed-shape Arrays</A>
+<B>Up:</B> <A NAME="tex2html1565" HREF="HTMLSlidesnode115.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1559" HREF="HTMLSlidesnode115.html">Procedures and Array Arguments</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

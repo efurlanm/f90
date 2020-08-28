@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Vector and Matrix Multiply Intrinsics</TITLE>
+<META NAME="description" CONTENT="Vector and Matrix Multiply Intrinsics">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1539" HREF="HTMLNotesnode115.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1537" HREF="HTMLNotesnode112.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1531" HREF="HTMLNotesnode113.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1541" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1540" HREF="HTMLNotesnode115.html">Maximum and Minimum Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html1538" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1532" HREF="HTMLNotesnode113.html">Random Number Intrinsic</A>
+<BR> <P>
+<A NAME="DotProductMatmul1">&#160;</A><H3><A NAME="SECTION01032200000000000000">Vector and Matrix Multiply Intrinsics</A></H3>
+<P>
+There are two types of intrinsic matrix multiplication these should <EM>
+always</EM> be used when appropriate as they will be the most
+efficient method of calculation:
+<P>
+<UL><LI> <TT>DOT_PRODUCT</TT><TT>(VEC1, VEC2)</TT>
+<P>
+This is the inner (dot) product of two
+rank 1 arrays. Clearly, <TT>VEC1</TT>, <TT>VEC2</TT> must conform in size and
+must be one dimensional. Care must be taken not confuse this intrinsic
+with <TT>DPROD</TT> the <TT>DOUBLE PRECISION</TT> 
+product function or <TT>PRODUCT</TT> the intra-matrix product (see Section
+<A HREF="HTMLNotesnode117.html#ArrayReductionIntrinsics">3.2.5</A>).
+<P>
+An example of use is,
+<P>
+<PRE>    DP = DOT_PRODUCT(A,B)</PRE>
+<P>
+which is equivalent to:
+<P>
+<PRE>    DP = A(1)*B(1) + A(2)*B(2) + ...</PRE>
+<P>
+or
+<P>
+<PRE>    DP = SUM(A*B)</PRE>
+<P>
+The result is also defined for <TT>COMPLEX</TT> and <TT>LOGICAL</TT> array arguments. For
+<TT>COMPLEX</TT> the result is,
+<P>
+<PRE>    DP = SUM(CONJG(A)*B)</PRE>
+<P>
+and for <TT>LOGICAL</TT>,
+<P>
+<PRE>    DP = LA(1).AND.LB(1) .OR. LA(2).AND.LB(2) .OR. ...</PRE><LI> <TT>MATMUL</TT><TT>(MAT1, MAT2)</TT>
+<P>
+This is the `traditional' matrix-matrix multiplication and is <B>not</B>
+equivalent to <TT>MAT1*MAT2</TT>. There are certain restrictions placed 
+on the function 
+arguments which say that the arrays must match in  specific
+dimensions, they do not have to be conformable:
+<P>
+<UL><LI> if <TT>MAT1</TT> has shape (<I>n</I>, <I>m</I>) and <TT>MAT2</TT> shape (<I>m</I>, <I>k</I>)
+then the result has shape (<I>n</I>, <I>k</I>);<LI> if <TT>MAT1</TT> has shape (<I>m</I>) and <TT>MAT2</TT> shape (<I>m</I>, <I>k</I>)
+then the result has shape (<I>k</I>);<LI> if <TT>MAT1</TT> has shape (<I>n</I>, <I>m</I>) and <TT>MAT2</TT> shape (<I>m</I>)
+then the result has shape (<I>n</I>);
+<P>
+</UL>
+<P>
+Element <TT>(i,j)</TT> of the result is,
+<P>
+<PRE>    SUM(MAT1(i,:)*MAT2(:,j))</PRE>
+<P>
+The result is also defined for <TT>LOGICAL</TT> arguments,
+<P>
+<PRE>    ANY(MAT1(i,:).AND.MAT2(:,j))</PRE>
+<P>
+</UL>
+<P>
+If <TT>A</TT> and <TT>B</TT> are set up as follows,
+<P>
+<P> <IMG WIDTH=312 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath22972" SRC="HTMLNotesimg46.gif"  > <P>
+<P>
+and
+<P>
+<P> <IMG WIDTH=294 HEIGHT=65 ALIGN=BOTTOM ALT="displaymath22973" SRC="HTMLNotesimg47.gif"  > <P>
+<P>
+then the following program
+<P>
+<PRE>    PROGRAM DEMO
+     INTEGER :: A(2,4)
+     INTEGER :: B(4,2)
+     A(1,:) = (/1,2,3,4/)
+     A(2,:) = (/5,6,7,8/)
+     B(:,1) = (/4,3,2,1/)
+     B(:,2) = (/8,7,6,5/)
+     PRINT*, &quot;DOT_PRODUCT(A(1,:),A(2,:)) = &quot;, DOT_PRODUCT(A(1,:),A(2,:))
+     PRINT*, &quot;MATMUL(A,B) = &quot;,MATMUL(A,B)
+    END PROGRAM DEMO</PRE>
+<P>
+gives
+<P>
+<PRE>    DOT_PRODUCT(A(1,:),A(2,:)) =  70
+    MATMUL(A,B) = 20 60 60 164</PRE>
+<P>
+<HR><A NAME="tex2html1539" HREF="HTMLNotesnode115.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1537" HREF="HTMLNotesnode112.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1531" HREF="HTMLNotesnode113.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1541" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1540" HREF="HTMLNotesnode115.html">Maximum and Minimum Intrinsics</A>
+<B>Up:</B> <A NAME="tex2html1538" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1532" HREF="HTMLNotesnode113.html">Random Number Intrinsic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

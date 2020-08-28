@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Successive Over Relaxation Example</TITLE>
+<META NAME="description" CONTENT="Successive Over Relaxation Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2353" HREF="HTMLSlidesnode170.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2351" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2345" HREF="HTMLSlidesnode168.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2355" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2354" HREF="HTMLSlidesnode170.html">Other Mappings</A>
+<B>Up:</B> <A NAME="tex2html2352" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2346" HREF="HTMLSlidesnode168.html">Examples of Good Distributions</A>
+<BR> <P>
+<H2><A NAME="SECTION020316000000000000000">Successive Over Relaxation Example</A></H2>
+<P>
+Successive over relaxation is used in many HPF kernels:
+<P>
+<PRE> DO j = 2,n-1
+   DO i = 2,n-1
+      a(i,j)=(omega/4)*(a(i,j-1)+a(i,j+1)+ &amp;
+              a(i-1,j)+a(i+1,j))+(1-omega)*a(i,j)
+   END DO
+ END DO</PRE>
+<P>
+The calculation of <TT>a(i,j)</TT> uses its 4 neighbours.
+<P>
+ <IMG WIDTH=217 HEIGHT=200 ALIGN=BOTTOM ALT="tex2html_wrap22290" SRC="HTMLSlidesimg99.gif"  > 
+<P>
+<TT>BLOCK</TT> distribution in both dimensions
+ will be the most effective distribution here.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode193.html#GoodDistributions2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode88.html#QIsingModel"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2353" HREF="HTMLSlidesnode170.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2351" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2345" HREF="HTMLSlidesnode168.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2355" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2354" HREF="HTMLSlidesnode170.html">Other Mappings</A>
+<B>Up:</B> <A NAME="tex2html2352" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2346" HREF="HTMLSlidesnode168.html">Examples of Good Distributions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

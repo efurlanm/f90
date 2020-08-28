@@ -1,0 +1,2793 @@
+\batchmode
+%
+
+
+\hyphenation{add-ing}
+\hyphenation{con-form-able}
+\hyphenation{data-type}
+\hyphenation{data-types}
+\hyphenation{dist-ribut-ed}
+\hyphenation{dum-my}
+\hyphenation{Hi-gh-er}
+\hyphenation{op-er-ands}
+\hyphenation{rep-re-sent-ation}
+\hyphenation{val-ue}
+\hyphenation{SP-MD}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\documentclass{article}
+\makeatletter
+\usepackage{float} \usepackage{epsfig}
+\usepackage{graphics}
+\usepackage{html}
+
+\newcommand {\heading}   {\noindent\sl}
+
+\newcommand {\bc}        {\begin{center}}
+
+\newcommand {\ec}        {\end{center}}
+
+\newcommand {\be}        {\begin{enumerate}}
+
+\newcommand {\ee}        {\end{enumerate}}
+
+\newcommand {\bi}        {\begin{itemize}}
+
+\newcommand {\ei}        {\end{itemize}}
+
+\newcommand {\btr}       {\begin{tabular}}
+
+\newcommand {\etr}       {\end{tabular}}
+
+\newcommand {\btH}       {\begin{table}[H]\begin{center}}
+
+\newcommand {\etH}       {\end{center}\end{table}}
+
+\newcommand {\bsyntax}   {\begin{center}\begin{tabbing} XXXX \= XXXX \= XXXX \= XXXX \kill}
+
+\newcommand {\esyntax}   {\end{tabbing}\end{center}}
+
+\newcommand {\anglist}[1]{$<\!${\em~#1}-list\ $\!>$}
+
+\newcommand {\ang}[1]{$<\!${\em~#1\ }$\!>$}
+
+\newcommand {\Par}	{$\parallel$}
+
+\newcommand {\vi}	{\tt vi}
+
+\newcommand {\ra}	{$\rightarrow$}
+
+\newcommand {\WWW}	{World Wide Web}
+
+\newcommand {\URL}	{$<$ URL $>$}
+
+\newcommand {\Fn}	{Fortran~90}
+
+\newcommand {\Fnf}	{Fortran~95}
+
+\newcommand {\Fns}	{Fortran~95}
+
+\newcommand {\Ftk}	{Fortran~2000}
+
+\newcommand {\Ft}	{Fortran~2000}
+
+\newcommand {\Fs}	{{\sc Fortran~77}}
+
+\newcommand {\Fx}	{{\sc Fortran~66}}
+
+\newcommand {\FHPF}	{Full HPF}
+
+\newcommand {\SHPF}	{Subset HPF}
+
+\newcommand {\HPF}	{High Performance Fortran}
+
+\newcommand {\HPFF}	{High Performace Fortran Forum}
+
+\newcommand {\NAG}{NAg}
+
+\newcommand {\CurrentComplier}{NAg 2.0}
+
+\newcommand {\CompilationCommand}{{\tt f90}}
+
+\newcommand {\FortranMarket}{{\verb~http://www.fortran.com/fortran/market.html~}}
+
+\newcommand {\EMail}{{\verb~adamm@liv.ac.uk~}}
+
+\newcommand {\VS} 	 {{\tt VARYING\_STRING}}
+
+\newcommand {\LBR}	 {{\tt (}}
+
+\newcommand {\RBR}	 {{\tt )}}
+
+\newcommand {\LSB}	 {[}
+
+\newcommand {\RSB}	 {]}
+
+\newcommand {\AMPERSAND}	 {{\tt \&}}
+
+\newcommand {\COMMA}	 {{\verb~,~}}
+
+\newcommand {\COLON}	 {{\verb~:~}}
+
+\newcommand {\DOLLARS}	{{\tt \$}}
+
+\newcommand {\EQUALS}	 {{\tt =}}
+
+\newcommand {\MINUS}      {{\tt -}}
+
+\newcommand {\PERCENT}    {{\tt \%}}
+
+\newcommand {\PLUS}       {{\tt +}}
+
+\newcommand {\POINTSTO}   {{\verb~=>~}}
+
+\newcommand {\DQUOTE}	 {{\tt "}}
+
+\newcommand {\SEMICOLON}	 {{\verb~;~}}
+
+\newcommand {\SLASH}	 {{\tt /}}
+
+\newcommand {\SQUOTE}	 {{\tt '}}
+
+\newcommand {\SHREIK}	 {{\tt !}}
+
+\newcommand {\SHRIEK}	 {{\tt !}}
+
+\newcommand {\STAR}	 {{\tt *}}
+
+\newcommand {\UND}	 {{\tt \_}}
+
+\newcommand {\LLEl}	 {{\tt .LLE.}}
+
+\newcommand {\LLTl}	 {{\tt .LLT.}}
+
+\newcommand {\LGEl}	 {{\tt .LGE.}}
+
+\newcommand {\LGTl}	 {{\tt .LGT.}}
+
+\newcommand {\GT}	 {{\tt .GT.}}
+
+\newcommand {\GE}	 {{\tt .GE.}}
+
+\newcommand {\LT}	 {{\tt .LT.}}
+
+\newcommand {\LE}	 {{\tt .LE.}}
+
+\newcommand {\EQ}	 {{\tt .EQ.}}
+
+\newcommand {\NE}	 {{\tt .NE.}}
+
+\newcommand {\Gt}	 {{\verb~>~}}
+
+\newcommand {\Ge}	 {{\verb~>=~}}
+
+\newcommand {\Lt}	 {{\verb~<~}}
+
+\newcommand {\Le}	 {{\verb~<=~}}
+
+\newcommand {\Eq}	 {{\verb~==~}}
+
+\newcommand {\Ne}	 {{\verb~/=~}}
+
+\newcommand {\FALSE}	 {{\tt .FALSE.}}
+
+\newcommand {\TRUE}	 {{\tt .TRUE.}}
+
+\newcommand {\AND}	 {{\tt .AND.}}
+
+\newcommand {\NOTl}	 {{\tt .NOT.}}
+
+\newcommand {\OR}	 {{\tt .OR.}}
+
+\newcommand {\EQV}	 {{\tt .EQV.}}
+
+\newcommand {\NEQV}	 {{\tt .NEQV.}}
+
+\newcommand {\ABS}	 {{\tt ABS}}
+
+\newcommand {\ACCESS}	 {{\tt ACCESS}}
+
+\newcommand {\ACOS}	 {{\tt ACOS}}
+
+\newcommand {\ACHAR}	 {{\tt ACHAR}}
+
+\newcommand {\ACTION}	 {{\tt ACTION}}
+
+\newcommand {\ACTIVENUMPROCS}	 {{\tt ACTIVE\_NUM\_PROCS}}
+
+\newcommand {\ACTIVEPROCSSHAPE}	 {{\tt ACTIVE\_PROCS\_SHAPE}}
+
+\newcommand {\ADJUSTL}	 {{\tt ADJUSTL}}
+
+\newcommand {\ADJUSTR}	 {{\tt ADJUSTR}}
+
+\newcommand {\ADVANCE}	 {{\tt ADVANCE}}
+
+\newcommand {\AIMAG}	 {{\tt AIMAG}}
+
+\newcommand {\AINT}	 {{\tt AINT}}
+
+\newcommand {\ALIGN}	 {{\tt ALIGN}}
+
+\newcommand {\ANINT}	 {{\tt ANINT}}
+
+\newcommand {\ANY}	 {{\tt ANY}}
+
+\newcommand {\ALL}	 {{\tt ALL}}
+
+\newcommand {\ALLOCATABLE}{{\tt ALLOCAT\-ABLE}}
+
+\newcommand {\ALLOCATE}   {{\tt ALLOCATE}}
+
+\newcommand {\ALLOCATED}  {{\tt ALLOCATED}}
+
+\newcommand {\ARRAY}	 {{\tt ARRAY}}
+
+\newcommand {\ASIN}	 {{\tt ASIN}}
+
+\newcommand {\ASSIGN}	 {{\tt ASSIGN}}
+
+\newcommand {\ASSIGNMENT} {{\tt ASSIGN\-MENT}}
+
+\newcommand {\ASSOCIATED} {{\tt ASSOCIATED}}
+
+\newcommand {\ATAN} 	 {{\tt ATAN}}
+
+\newcommand {\BACKSPACE}	 {{\tt BACKSPACE}}
+
+\newcommand {\BITSIZE}	 {{\tt BIT\_SIZE}}
+
+\newcommand {\BOUNDARY}	 {{\tt BOUNDARY}}
+
+\newcommand {\BLOCK}	 {{\tt BLOCK}}
+
+\newcommand {\BTEST}	 {{\tt BTEST}}
+
+\newcommand {\CABS}	 {{\tt CABS}}
+
+\newcommand {\CALL}	 {{\tt CALL}}
+
+\newcommand {\CASE}	 {{\tt CASE}}
+
+\newcommand {\CEILING}	 {{\tt CEILING}}
+
+\newcommand {\CHAR}	 {{\tt CHAR}}
+
+\newcommand {\CHARACTER}	 {{\tt CHARACTER}}
+
+\newcommand {\CLOSE}	 {{\tt CLOSE}}
+
+\newcommand {\CMPLX}	 {{\tt CMPLX}}
+
+\newcommand {\COMMON}	 {{\tt COMMON}}
+
+\newcommand {\COMPLEX}	 {{\tt COMPLEX}}
+
+\newcommand {\CONDITION}	 {{\tt CONDITION}}
+
+\newcommand {\CONJG}	 {{\tt CONJG}}
+
+\newcommand {\CONTAINS}	 {{\tt CONT\-AINS}}
+
+\newcommand {\CONTINUE}	 {{\tt CONT\-INUE}}
+
+\newcommand {\COPY}	 {{\tt COPY}}
+
+\newcommand {\COS}	 {{\tt COS}}
+
+\newcommand {\COSH}	 {{\tt COSH}}
+
+\newcommand {\COUNT}	 {{\tt COUNT}}
+
+\newcommand {\CPUTIME}	 {{\tt CPU\_TIME}}
+
+\newcommand {\CSHIFT}	 {{\tt CSHIFT}}
+
+\newcommand {\CYCLE}	 {{\tt CYCLE}}
+
+\newcommand {\CYCLIC}	 {{\tt CYCLIC}}
+
+\newcommand {\DABS}	 {{\tt DABS}}
+
+\newcommand {\DATA}	 {{\tt DATA}}
+
+\newcommand {\DATE}	 {{\tt DATE\_\-AND\_\-TIME}}
+
+\newcommand {\DBLE}	 {{\tt DBLE}}
+
+\newcommand {\DEALLOCATE} {{\tt DE\-ALLOCATE}}
+
+\newcommand {\DEFAULT}	 {{\tt DEFAULT}}
+
+\newcommand {\DIGITS}	 {{\tt DIGITS}}
+
+\newcommand {\DIM}	 {{\tt DIM}}
+
+\newcommand {\DIMENSION}	 {{\tt DIMEN\-SION}}
+
+\newcommand {\DISTRIBUTE} {{\tt DIST\-RIBUTE}}
+
+\newcommand {\DO}	 {{\tt DO}}
+
+\newcommand {\DOTPRODUCT} {{\tt DOT\_PRODUCT}}
+
+\newcommand {\DOUBLE} 	 {{\tt DOUBLE PRECISION}}
+
+\newcommand {\DPROD} 	 {{\tt DPROD}}
+
+\newcommand {\DYNAMIC}	 {{\tt DYNAMIC}}
+
+\newcommand {\ELEMENTAL}	 {{\tt ELEMENTAL}}
+
+\newcommand {\ELSE}	 {{\tt ELSE}}
+
+\newcommand {\ELSEWHERE}	 {{\tt ELSE\-WHERE}}
+
+\newcommand {\ENABLE}	 {{\tt ENABLE}}
+
+\newcommand {\END}	 {{\tt END}}
+
+\newcommand {\ENDDO}	 {{\tt END DO}}
+
+\newcommand {\ENDFILE}	 {{\tt ENDFILE}}
+
+\newcommand {\ENDIF}	 {{\tt END IF}}
+
+\newcommand {\ENDWHERE}	 {{\tt END WHERE}}
+
+\newcommand {\ENTRY} 	 {{\tt ENTRY}}
+
+\newcommand {\EOF} 	 {{\tt EOF}}
+
+\newcommand {\EOR} 	 {{\tt EOR}}
+
+\newcommand {\EOSHIFT} 	 {{\tt EOSHIFT}}
+
+\newcommand {\EPSILON}	 {{\tt EPSILON}}
+
+\newcommand {\EQUIVALENCE}{{\tt EQUI\-VALENCE}}
+
+\newcommand {\ERR}	 {{\tt ERR}}
+
+\newcommand {\EXCLUSIVE}	 {{\tt EXCLUSIVE}}
+
+\newcommand {\EXIT}	 {{\tt EXIT}}
+
+\newcommand {\EXP}	 {{\tt EXP}}
+
+\newcommand {\EXPONENT}	 {{\tt EXPONENT}}
+
+\newcommand {\EXTERNAL}	 {{\tt EXTERNAL}}
+
+\newcommand {\EXTRINSIC}  {{\tt EXTRINSIC}}
+
+\newcommand {\FIELD}	 {{\tt FIELD}}
+
+\newcommand {\FILE}	 {{\tt FILE}}
+
+\newcommand {\FLOOR}	 {{\tt FLOOR}}
+
+\newcommand {\FMT}	 {{\tt FMT}}
+
+\newcommand {\FORALL}	 {{\tt FORALL}}
+
+\newcommand {\FORMAT}	 {{\tt FORMAT}}
+
+\newcommand {\FSOURCE}	 {{\tt FSOURCE}}
+
+\newcommand {\FUNCTION}	 {{\tt FUNCTION}}
+
+\newcommand {\GENBLOCK}	 {{\tt GEN\_BLOCK}}
+
+\newcommand {\GOTO}	 {{\tt GOTO}}
+
+\newcommand {\GRADEUP}	 {{\tt GRADE\_UP}}
+
+\newcommand {\GRADEDOWN}	 {{\tt GRADE\_DOWN}}
+
+\newcommand {\HANDLE}	 {{\tt HANDLE}}
+
+\newcommand {\HARVEST}	 {{\tt HARVEST}}
+
+\newcommand {\HOME}	 {{\tt HOME}}
+
+\newcommand {\HPFALIGNMENT}{{\tt HPF\_ALIGNMENT}}
+
+\newcommand {\HPFDISTRIBUTION}{{\tt HPF\_DISTRIBUTION}}
+
+\newcommand {\HPFTEMPLATE}{{\tt HPF\_TEMPLATE}}
+
+\newcommand {\HUGE}	 {{\tt HUGE}}
+
+\newcommand {\IABS}	 {{\tt IABS}}
+
+\newcommand {\IACHAR}	 {{\tt IACHAR}}
+
+\newcommand {\IALL}	 {{\tt IALL}}
+
+\newcommand {\IAND}	 {{\tt IAND}}
+
+\newcommand {\IANY}	 {{\tt IANY}}
+
+\newcommand {\IBCLR}	 {{\tt IBCLR}}
+
+\newcommand {\IBITS}	 {{\tt IBITS}}
+
+\newcommand {\IBSET}	 {{\tt IBSET}}
+
+\newcommand {\IBTEST}	 {{\tt IBTEST}}
+
+\newcommand {\ICHAR}	 {{\tt ICHAR}}
+
+\newcommand {\IEOR}	 {{\tt IEOR}}
+
+\newcommand {\IF}	 {{\tt IF}}
+
+\newcommand {\ILEN}	 {{\tt ILEN}}
+
+\newcommand {\IMPLICIT}	 {{\tt IMPLICIT}}
+
+\newcommand {\IN}	 {{\tt IN}}
+
+\newcommand {\INCLUDE}	 {{\tt INCLUDE}}
+
+\newcommand {\INDEPENDENT}{{\tt INDEPENDENT}}
+
+\newcommand {\INDIRECT}	 {{\tt INDIRECT}}
+
+\newcommand {\INDEX}	 {{\tt INDEX}}
+
+\newcommand {\INHERIT}	 {{\tt INHERIT}}
+
+\newcommand {\INT}	 {{\tt INT}}
+
+\newcommand {\INOUT}	 {{\tt INOUT}}
+
+\newcommand {\INQUIRE}	 {{\tt INQUIRE}}
+
+\newcommand {\INTEGER}	 {{\tt INTEGER}}
+
+\newcommand {\INTENT}	 {{\tt INTENT}}
+
+\newcommand {\INTERFACE}	 {{\tt INTER\-FACE}}
+
+\newcommand {\INTRINSIC}	 {{\tt INTRIN\-SIC}}
+
+\newcommand {\IOR}	 {{\tt IOR}}
+
+\newcommand {\IOSTAT}	 {{\tt IOSTAT}}
+
+\newcommand {\IPARITY}	 {{\tt IPARITY}}
+
+\newcommand {\ISHFT}	 {{\tt ISHFT}}
+
+\newcommand {\ISHFTC}	 {{\tt ISHFTC}}
+
+\newcommand {\ISTAT}	 {{\tt ISTAT}}
+
+\newcommand {\KIND}	 {{\tt KIND}}
+
+\newcommand {\LBOUND}	 {{\tt LBOUND}}
+
+\newcommand {\LEADZ}	 {{\tt LEADZ}}
+
+\newcommand {\LEN}	 {{\tt LEN}}
+
+\newcommand {\LENTRIM}	 {{\tt LEN\_\-TRIM}}
+
+\newcommand {\LGE}	 {{\tt LGE}}
+
+\newcommand {\LGT}	 {{\tt LGT}}
+
+\newcommand {\LLE}	 {{\tt LLE}}
+
+\newcommand {\LLT}	 {{\tt LLT}}
+
+\newcommand {\LOG}	 {{\tt LOG}}
+
+\newcommand {\LOGICAL}	 {{\tt LOGICAL}}
+
+\newcommand {\MAIN}	 {{\tt MAIN}}
+
+\newcommand {\MASK}	 {{\tt MASK}}
+
+\newcommand {\MATMUL}	 {{\tt MATMUL}}
+
+\newcommand {\MAX}	 {{\tt MAX}}
+
+\newcommand {\MAXEXPONENT}{{\tt MAX\-EXPONENT}}
+
+\newcommand {\MAXLOC}	 {{\tt MAX\-LOC}}
+
+\newcommand {\MAXVAL}	 {{\tt MAX\-VAL}}
+
+\newcommand {\MERGE}	 {{\tt MERGE}}
+
+\newcommand {\MIN}	 {{\tt MIN}}
+
+\newcommand {\MINEXPONENT}{{\tt MIN\-EXPONENT}}
+
+\newcommand {\MINLOC}	 {{\tt MIN\-LOC}}
+
+\newcommand {\MINVAL}	 {{\tt MIN\-VAL}}
+
+\newcommand {\MOD}	 {{\tt MOD}}
+
+\newcommand {\MODULE}	 {{\tt MODULE}}
+
+\newcommand {\MODULO}	 {{\tt MODULO}}
+
+\newcommand {\MOLD}	 {{\tt MOLD}}
+
+\newcommand {\MVBITS}	 {{\tt MVBITS}}
+
+\newcommand {\NAMELIST}	 {{\tt NAMELIST}}
+
+\newcommand {\NEW}	 {{\tt NEW}}
+
+\newcommand {\NCOPIES}	 {{\tt NCOPIES}}
+
+\newcommand {\NEAREST}	 {{\tt NEAREST}}
+
+\newcommand {\NINT}	 {{\tt NINT}}
+
+\newcommand {\NONE}	 {{\tt NONE}}
+
+\newcommand {\NOP}	 {{\tt NUM\-BER\_\-OF\_\-PRO\-CESS\-ORS}}
+
+\newcommand {\NOT}	 {{\tt NOT}}
+
+\newcommand {\NULL}	 {{\tt NULL}}
+
+\newcommand {\NULLIFY}	 {{\tt NULLIFY}}
+
+\newcommand {\ON}	 {{\tt ON}}
+
+\newcommand {\ONLY}	 {{\tt ONLY}}
+
+\newcommand {\ONTO}	 {{\tt ONTO}}
+
+\newcommand {\OPEN}	 {{\tt OPEN}}
+
+\newcommand {\OPERATOR}	 {{\tt OPERATOR}}
+
+\newcommand {\OPTIONAL}	 {{\tt OPTIONAL}}
+
+\newcommand {\OUT}	 {{\tt OUT}}
+
+\newcommand {\ORDER}	 {{\tt ORDER}}
+
+\newcommand {\PACK}	 {{\tt PACK}}
+
+\newcommand {\PAD}	 {{\tt PAD}}
+
+\newcommand {\PARAMETER}	 {{\tt PARA\-METER}}
+
+\newcommand {\PARITY}	 {{\tt PARITY}}
+
+\newcommand {\PAUSE}	 {{\tt PAUSE}}
+
+\newcommand {\POINTER}	 {{\tt POINT\-ER}}
+
+\newcommand {\POPCNT}	 {{\tt POPCNT}}
+
+\newcommand {\POPPAR}	 {{\tt POPPAR}}
+
+\newcommand {\PRECISION}	 {{\tt PRE\-CISION}}
+
+\newcommand {\PREFIX}	 {{\tt PREFIX}}
+
+\newcommand {\PRESENT}	 {{\tt PRESENT}}
+
+\newcommand {\PRINT}	 {{\tt PRINT}}
+
+\newcommand {\PRIVATE}	 {{\tt PRIVATE}}
+
+\newcommand {\PROCEDURE}	 {{\tt PROC\-EDURE}}
+
+\newcommand {\PROCESSORS} {{\tt PROCESSORS}}
+
+\newcommand {\PRODUCT}	 {{\tt PRODUCT}}
+
+\newcommand {\PROGRAM}	 {{\tt PROGRAM}}
+
+\newcommand {\PS}	 {{\tt PRO\-CESS\-ORS\_\-SHAPE}}
+
+\newcommand {\PUBLIC}	 {{\tt PUBLIC}}
+
+\newcommand {\PURE}	 {{\tt PURE}}
+
+\newcommand {\PUT}	 {{\tt PUT}}
+
+\newcommand {\RANDOMNUMBER} {{\tt RANDOM\_\-NUMBER}}
+
+\newcommand {\RANDOMSEED} {{\tt RANDOM\_\-SEED}}
+
+\newcommand {\RANGE}	 {{\tt RANGE}}
+
+\newcommand {\READ}	 {{\tt READ}}
+
+\newcommand {\REC}	 {{\tt REC}}
+
+\newcommand {\RECL}	 {{\tt RECL}}
+
+\newcommand {\REAL}	 {{\tt REAL}}
+
+\newcommand {\REALIGN}	 {{\tt REALIGN}}
+
+\newcommand {\REALIGNABLE}{{\tt REALIGNABLE}}
+
+\newcommand {\RECURSIVE}	 {{\tt RECURSIVE}}
+
+\newcommand {\REDISTRIBUTE}{{\tt RE\-DIST\-RIBUTE}}
+
+\newcommand {\RETURN}	 {{\tt RETURN}}
+
+\newcommand {\REPEAT}	 {{\tt REPEAT}}
+
+\newcommand {\REWIND}	 {{\tt REWIND}}
+
+\newcommand {\RESIDENT}	 {{\tt RE\-SIDENT}}
+
+\newcommand {\RESIGNAL}	 {{\tt RE\-SIGNAL}}
+
+\newcommand {\RESHAPE}	 {{\tt RE\-SHAPE}}
+
+\newcommand {\RESULT}	 {{\tt RE\-SULT}}
+
+\newcommand {\SAVE}	 {{\tt SAVE}}
+
+\newcommand {\SCAN}	 {{\tt SCAN}}
+
+\newcommand {\SEGMENT}	 {{\tt SEGMENT}}
+
+\newcommand {\SELECT}	 {{\tt SELECT}}
+
+\newcommand {\SEQUENCE}	 {{\tt SEQUENCE}}
+
+\newcommand {\SHADOW}	 {{\tt SHADOW}}
+
+\newcommand {\SIGN}	 {{\tt SIGN}}
+
+\newcommand {\SIGNAL}	 {{\tt SIGNAL}}
+
+\newcommand {\SIK}	 {{\tt SELECT\-ED\_\-INT\_\-KIND}}
+
+\newcommand {\SIN}	 {{\tt SIN}}
+
+\newcommand {\SINH}	 {{\tt SINH}}
+
+\newcommand {\SIZE}	 {{\tt SIZE}}
+
+\newcommand {\SHAPE}	 {{\tt SHAPE}}
+
+\newcommand {\SOURCE} 	 {{\tt SOURCE}}
+
+\newcommand {\SORTUP} 	 {{\tt SORT\_UP}}
+
+\newcommand {\SORTDOWN} 	 {{\tt SORT\_DOWN}}
+
+\newcommand {\SPREAD} 	 {{\tt SPREAD}}
+
+\newcommand {\SQRT} 	 {{\tt SQRT}}
+
+\newcommand {\SRK}	 {{\tt SELECT\-ED\_\-REAL\_\-KIND}}
+
+\newcommand {\STAT} 	 {{\tt STAT}}
+
+\newcommand {\STATUS} 	 {{\tt STATUS}}
+
+\newcommand {\STOP} 	 {{\tt STOP}}
+
+\newcommand {\SUBROUTINE} {{\tt SUB\-ROUTINE}}
+
+\newcommand {\SUFFIX}	 {{\tt SUFFIX}}
+
+\newcommand {\SUM}	 {{\tt SUM}}
+
+\newcommand {\SYSTEMCLOCK}{{\tt SYSTEM\_\-CLOCK}}
+
+\newcommand {\TAN}	 {{\tt TAN}}
+
+\newcommand {\TANH}	 {{\tt TANH}}
+
+\newcommand {\TARGET}	 {{\tt TARGET}}
+
+\newcommand {\TASKREGION}	 {{\tt TASK\_REGION}}
+
+\newcommand {\TEMPLATE}	 {{\tt TEMPLATE}}
+
+\newcommand {\THEN}	 {{\tt THEN}}
+
+\newcommand {\TINY}	 {{\tt TINY}}
+
+\newcommand {\TO}	 {{\tt TO}}
+
+\newcommand {\TRANSFER}	 {{\tt TRANS\-FER}}
+
+\newcommand {\TRANSPOSE}	 {{\tt TRANS\-POSE}}
+
+\newcommand {\TRIM}	 {{\tt TRIM}}
+
+\newcommand {\TSOURCE}	 {{\tt TSOURCE}}
+
+\newcommand {\TYPE}	 {{\tt TYPE}}
+
+\newcommand {\UBOUND}	 {{\tt UBOUND}}
+
+\newcommand {\UNIT}	 {{\tt UNIT}}
+
+\newcommand {\UNPACK}	 {{\tt UNPACK}}
+
+\newcommand {\USE}	 {{\tt USE}}
+
+\newcommand {\VECTOR}	 {{\tt VECTOR}}
+
+\newcommand {\VERIFY}	 {{\tt VERIFY}}
+
+\newcommand {\WAIT}	 {{\tt WAIT}}
+
+\newcommand {\WHERE}	 {{\tt WHERE}}
+
+\newcommand {\WHILE}	 {{\tt WHILE}}
+
+\newcommand {\WITH}	 {{\tt WITH}}
+
+\newcommand {\WRITE}	 {{\tt WRITE}}
+
+\newenvironment {SLIDES}{}{}
+
+\newenvironment {GUIDE}{\begin{ignoredenvironment}}{\end{ignoredenvironment}}
+
+\newenvironment {NOTES}{\begin{ignoredenvironment}}{\end{ignoredenvironment}}
+
+\newcommand {\Subsubsection}[1]{}
+
+\newcommand {\Subsection}   [1]{}
+
+\newcommand {\Section}      [1]{}
+
+\newcommand {\Chapter}      [1]{\section{#1}}
+
+\newcommand {\Part}         [1]{\part{#1}}
+
+\newcommand {\codesize}{}
+
+\newcommand {\module}[1]{}
+
+\newcommand {\topic}[1]{}
+
+\newcommand {\subtopic}[1]{}
+
+\newcommand {\slidetitle}[1]{\subsection{#1}}
+
+\newcommand {\see}[1]{{\em For more information, click here
+\externalref{#1}}}
+
+\newcommand {\exercise}[1]{{\em Now try this question
+\externalref{Q:#1}}}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{part}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$<\!$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20398: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\!>$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20400: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$10^{158}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20498: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$10^{33}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20500: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$10^4$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20502: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{cl|cl}
+     Symbol  &  Description       &  Symbol  & Description \\ \hline
+             &   space            & {\tt =}  &  equal           \\  
+   \verb~+~  &   plus             & \verb~-~ &  minus           \\  
+   \verb~*~  &   asterisk         & {\tt /}   &  slash           \\  
+   {\tt (}{}    &   left paren       & {\tt )}{}   &  right paren     \\  
+   \verb~,~  &   comma            & \verb~.~ &  period          \\  
+   \verb~'~  &   single quote     & \verb~"~ &  double quote    \\  
+   \verb~:~  &   colon            & {\verb~;~} &  semicolon     \\  
+   {\tt !}   &   shriek           & {\tt \&} &  ampersand     \\  
+   \verb~%~  &   percent          & \verb~<~ &  less than       \\  
+   \verb~>~  &   greater than     & \verb~$~ &  dollar          \\  
+   \verb~?~  &   question mark &&  
+\end{tabular}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|p{1in}|p{1.5in}|p{2.5in}|}\hline
+\multicolumn{3}{|c|}{}\\  
+\multicolumn{3}{|c|}{ {\tt PROGRAM}, {\tt FUNCTION}, {\tt SUB\-ROUTINE}, {\tt MODULE}\ or
+{\tt BLOCK}\ {\tt DATA}\ statement} \\  
+\multicolumn{3}{|c|}{}\\ \hline
+\multicolumn{3}{|c|}{}\\  
+\multicolumn{3}{|c|}{{\tt USE}\ statement}\\  
+\multicolumn{3}{|c|}{}\\ \hline
+ & \multicolumn{2}{c|}{} \\  
+ & \multicolumn{2}{c|}{ {\tt IMPLICIT}\ {\tt NONE}} \\  
+ & \multicolumn{2}{c|}{} \\ \cline{2-3}
+ & &  \\  
+ & {\tt PARA\-METER}\ statement & {\tt IMPLICIT}\ statements \\  
+ & &  \\ \cline{2-3}
+ & &  \\  
+{\tt FORMAT}\ and {\tt ENTRY}\  statements &  {\tt PARA\-METER}\ and
+{\tt DATA}\ statements & Derived-Type Definition, Interface blocks, Type
+declaration statements, Statement function statements and specification
+statements \\  
+ & &  \\ \cline{2-3}
+ & &  \\  
+ & {\tt DATA}\ statements & Executable constructs \\  
+ & &  \\ \hline
+\multicolumn{3}{|c|}{}\\  
+\multicolumn{3}{|c|}{{\tt CONT\-AINS}\ statement}\\  
+\multicolumn{3}{|c|}{}\\ \hline
+\multicolumn{3}{|c|}{}\\  
+\multicolumn{3}{|c|}{Internal or module procedures}\\  
+\multicolumn{3}{|c|}{}\\ \hline
+\multicolumn{3}{|c|}{}\\  
+\multicolumn{3}{|c|}{{\tt END}{}\ statement}\\  
+\multicolumn{3}{|c|}{}\\ \hline
+\end{tabular}
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$10
+\times 10$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20550: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\pi$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline20618: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|cc|l|}\hline
+{\tt .GT.}\ & \verb~>~ & greater than\\  
+{\tt .GE.}\ & \verb~>=~ & greater than or equal to\\  
+{\tt .LE.}\ & \verb~<=~ & less than or equal to\\  
+{\tt .LT.}\ & \verb~<~ & less than\\  
+{\tt .NE.}\ & \verb~/=~ & not equal to\\  
+{\tt .EQ.}\ & \verb~==~ & equal to\\ \hline
+\end{tabular}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{ccc}\vspace{2mm}
+{\bf Category} 	& {\bf Operator}		& {\bf Precedence}\\ \vspace{2mm}
+Extension	& user-defined monadic  	&  Highest\\ \vspace{2mm}
+Numeric		& {\tt *}{}{\tt *}{}\			& $\cdot$\\ \vspace{2mm}
+Numeric		& {\tt *}{}\ or {\tt /}{}\		& $\cdot$\\ \vspace{3mm}
+Numeric		& monadic {\tt +}\ or {\tt -}\ 	& $\cdot$\\ \vspace{2mm}
+Numeric		& dyadic {\tt +}\ or {\tt -}\	& $\cdot$\\ \vspace{2mm}
+Character	& {\tt /}{}{\tt /}{}\			& $\cdot$\\ \vspace{2mm}
+Relational	& {\tt .GT.}, {\tt .GE.},{\tt .LE.}, {\tt .LT.}, {\tt .EQ.}\ or {\tt .NE.}& $\cdot$\\ \vspace{2mm}
+Logical		& {\tt .NOT.}\			& $\cdot$\\ \vspace{2mm}
+Logical		& {\tt .AND.}\				& $\cdot$\\ \vspace{2mm}
+Logical		& {\tt .OR.}\				& $\cdot$\\ \vspace{2mm}
+Logical		& {\tt .EQV.}\ or {\tt .NEQV.}\		& $\cdot$\\ \vspace{2mm}
+Extension	& user-defined dyadic		& Lowest\\ \vspace{2mm}
+\end{tabular}
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$i^{th}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21292: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\bf x}
++ i{\bf y}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21294: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|l|p{3.5in}|}\hline
+{\tt ACOS}{\tt (x)}		& arccosine \\  
+{\tt ASIN}{\tt (x)}		& arcsine \\  
+{\tt ATAN}{\tt (x)}		& arctangent \\  
+{\tt ATAN}{}2{\tt (y,x)}	& arctangent of complex number $(x,y)$	\\  
+{\tt COS}{\tt (x)}		& cosine where $x$ is in radians \\  
+{\tt COSH}{\tt (x)}		& hyperbolic cosine where $x$ is in radians \\  
+{\tt EXP}{\tt (x)}		& $e$ raised to the power $x$	\\  
+{\tt LOG}{\tt (x)}		& natural logarithm of $x$	\\  
+{\tt LOG}{}10{\tt (x)}		& logarithm base 10 of $x$	\\  
+{\tt SIN}{\tt (x)}		& sine where $x$ is in radians	\\  
+{\tt SINH}{\tt (x)} 		& hyperbolic sine where $x$ is in radians	\\  
+{\tt SQRT}{\tt (x)}		& the square root of $x$ 	\\  
+{\tt TAN}{\tt (x)}		& tangent where $x$ is in radians	\\  
+{\tt TANH}{\tt (x)}		& tangent where $x$ is in radians	\\ \hline
+\end{tabular}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\leq |1|$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21322: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\frac{\pi}{4}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21324: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$e^x$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21326: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|l|p{3.5in}|}\hline
+{\tt ABS}{\tt (a)}          	& absolute value \\  
+{\tt AINT}{\tt (a)}		& truncates {\tt a} to  whole {\tt REAL}\ number \\  
+{\tt ANINT}{\tt (a)}       	& nearest whole  {\tt REAL}\ number \\  
+{\tt CEILING}{\tt (a)}	& smallest {\tt INTEGER}\ greater than or equal to {\tt REAL}\ number\\  
+{\tt CMPLX}{\tt (x,y)}	& convert to {\tt COMPLEX} \\  
+{\tt DBLE}{\tt (x)}		& convert to {\tt DOUBLE PRECISION} \\  
+{\tt DIM}{\tt (x,y)}		& positive difference \\  
+{\tt FLOOR}{\tt (a)}		& biggest {\tt INTEGER}\ less than or equal to real number \\  
+{\tt INT}{\tt (a)}          	& truncates $a$ into an {\tt INTEGER}\\  
+{\tt MAX}{\tt (a1,a2,a3,...)} & the maximum value of the arguments\\  
+{\tt MIN}{\tt (a1,a2,a3,...)} & the minimum value of the arguments\\  
+{\tt MOD}{\tt (a,p)}		& remainder function \\  
+{\tt MODULO}{\tt (a,p)}	& modulo function \\  
+{\tt NINT}{\tt (x)}         	& nearest {\tt INTEGER}\ to a {\tt REAL}\ number\\  
+{\tt REAL}{\tt (a)}         	& converts to the equivalent {\tt REAL}\ value \\  
+{\tt SIGN}{\tt (a,b)}	& transfer of sign ---  {\tt ABS}{}{\tt (}{}{\tt a}{\tt )}{}{\tt *}{}{\tt (}{}{\tt b}{\tt /}{}{\tt ABS}{}{\tt (}{}{\tt b}{\tt )}{}{\tt )}{}\\ \hline
+\end{tabular}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$a \mbox{mod} b$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21362: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$7^{th}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21370: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArrayFigures}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$5 \times 3$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21372: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArrayFigures}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArrayElementOrderingFigure}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArrayElementOrderingFigure}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArrayConformanceDiagram}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArrayConformanceDiagram}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArraySectionsFigure}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$3 \times 4$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21486: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$3 \times 3$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21488: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$4 \times 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21490: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ArraySectionsFigure}
+
+\end{center}
+\end{figure}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$1 \times n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21520: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/ReshapeIntrinsicDiagram}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$2 \times 2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21528: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ReshapeIntrinsicDiagram}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{{\tt B}} = \left(
+\begin{array}{cc}
+1.0 & 2.0 \\  
+3.0 & 4.0
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{{\tt I}} = \left(
+\begin{array}{cc}
+\fbox{2} & 0 \\  
+0 & \fbox{2}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{{\tt A}} = \left(
+\begin{array}{cc}
+\fbox{0.5} & \cdot \\  
+\cdot & \fbox{2.0}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{{\tt B}} = \left(
+\begin{array}{cc}
+{\sf 1.0} & {\sf 2.0} \\  
+{\sf 3.0} & {\sf 4.0}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{{\tt I}} = \left(
+\begin{array}{cc}
+\fbox{2} & {\sf 0} \\  
+{\sf 0} & \fbox{2}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/VectorSubscriptsDiagram}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/VectorSubscriptsDiagram}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$0 \leq x < 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline21568: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}A = \left(\begin{array}{cccc}
+ 1 & 2 & 3 & 4   \\  
+ 5 & 6 & 7 & 8 
+\end{array}\right)\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}B = \left( \begin{array}{cc}
+           4 & 8   \\  
+           3 & 7   \\  
+           2 & 6   \\  
+           1 & 5 
+\end{array}\right)\end{displaymath}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{\tt Array} =  
+         \left(
+\begin{array}{ccccc}
+         0 &  -1 &  1 &  6 &  -4 \\  
+         1 &  -2 &  5 &  4 &  -3 \\  
+         3 &   8 &  3 & -7 &   0
+\end{array}
+         \right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\mbox{\tt Array} =
+         \left(
+\begin{array}{ccccc}
+         0 &  -1 &  1 &  \fbox{6} &  -4 \\  
+         1 &  -2 &  5 &  4 &  -3 \\  
+         3 &     &  3 & -7 &   0
+\end{array}
+         \right)
+\end{displaymath}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}A = \left(\begin{array}{ccc}
+ 1 & 3 & 5 \\  
+ 2 & 4 & 6
+\end{array}\right)\end{displaymath}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}B = \left( \begin{array}{ccc}
+ 0 & 3 & 5 \\  
+ 7 & 4 & 8 
+\end{array}\right)\end{displaymath}
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/MainProgramDiagram}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/SubroutineDiagram}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \scalebox{0.9}{\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ModuleDiagram}}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ModuleDiagram}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/HowAStackWorks}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H] 
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/HowAStackWorks}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/ImplementationOfAStack}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/ImplementationOfAStack}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \scalebox{0.9}{\epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/StackExampleVisualisation}}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+{\scalebox{0.9}{\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/StackExampleVisualisation}}}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|p{2.5in}|p{2.5in}|}\hline
+{\tt BTEST}{\tt (i,pos)}	& bit testing \\  
+{\tt IAND}{\tt (i,j)}	& AND \\  
+{\tt IBCLR}{\tt (i,pos)}	& clear bit \\  
+{\tt IBITS}{\tt (i,pos,len)}& bit extraction\\  
+{\tt IBSET}{\tt (i,pos)}	& set bit \\  
+{\tt IEOR}{\tt (i,j)}	& exclusive OR \\  
+{\tt IOR}{\tt (i,j)}	& inclusive OR \\  
+{\tt ISHFT}{\tt (i,shft)}	& logical shift \\  
+{\tt ISHFTC}{\tt (i,shft)}	& circular shift \\  
+{\tt NOT}{\tt (i)}		& complement \\ \hline
+{\tt MVBITS}{\tt (ifr,ifrpos, len,ito,itopos)}& move bits ({\tt SUB\-ROUTINE}) \\ \hline
+\end{tabular}
+}
+
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/BitVariablesDiagram2}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt MASK}{}\ =
+\left(
+\begin{array}{ccc}
+T &  T &  F \\  
+F &  F &  T
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt TSOURCE} = 
+\left(
+\begin{array}{ccc}
+1 & 5 & 9 \\  
+3 & 7 & 11
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt FSOURCE} =
+\left(
+\begin{array}{ccc}
+0 & 4 & 8 \\  
+2 & 6 & 10
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt MERGE}{}{\tt (}{}{\tt TSOURCE},{\tt FSOURCE},{\tt MASK}{}{\tt )} =
+\left(
+\begin{array}{ccc}
+\fbox{1} & \fbox{5} &  8 \\  
+2 & 6 & \fbox{11}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt TSOURCE}\ = 
+\left(
+\begin{array}{ccc}
+\fbox{1} & \fbox{5} & 9 \\  
+3 & 7 & \fbox{11}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt FSOURCE}\ =
+\left(
+\begin{array}{ccc}
+0 &  4 &  \fbox{8} \\  
+\fbox{2} &  \fbox{6} &  10
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt MERGE}{}{\tt (}{}{\tt TSOURCE},{\tt FSOURCE},{\tt MASK}{}{\tt )} =
+\left(
+\begin{array}{ccc}
+1 & 5 &  8 \\  
+2 & 6 & 11
+\end{array}
+\right)
+\end{displaymath}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt SPREAD}{\tt (A,2,4)} = 
+\left(
+\begin{array}{rrrr}
+5 &  5 &  5 &  5 \\  
+7 &  7 &  7 &  7
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt SPREAD}{\tt (A,1,4)} = 
+\left(
+\begin{array}{rr} 
+5 &  7  \\  
+5 &  7  \\  
+5 &  7  \\  
+5 &  7
+\end{array}
+\right)
+\end{displaymath}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt A} = 
+\left(
+\begin{array}{ccc}
+\fbox{1} & \fbox{5} & 9 \\  
+3 & 7 & \fbox{11}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt A} = 
+\left(
+\begin{array}{ccc}
+1 & 5 & 9 \\  
+3 & 7 & 11
+\end{array}
+\right)
+\end{displaymath}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt FIELD} = 
+\left(
+\begin{array}{rrr}
+    9 & 5 & 1 \\  
+    7 & 7 & 3
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt UNPACK((/6,5,4/),MASK,FIELD)} = 
+\left(
+\begin{array}{rrr}
+\fbox{6} &  \fbox{5} &  1 \\  
+7 &  7 &  \fbox{4}
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}{\tt UNPACK((/3,2,1/),.NOT.MASK,FIELD)} = 
+\left(
+\begin{array}{rrr}
+9 &  5 &  \fbox{1}\\  
+\fbox{3} &  \fbox{2} &  3
+\end{array}
+\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{equation}{\tt UNPACK((/3,2,1/),.NOT.MASK,FIELD)} = 
+\left(
+\begin{array}{rrr}
+9 &  5 &  \fbox{1}\\  
+\fbox{3} &  \fbox{2} &  3
+\end{array}
+\right)
+\end{equation}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \epsfig{figure=/home/spm/adamm/HPC/F90Course/Diagrams/TransferIntrinsicDiagram}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/F90Course/Diagrams/TransferIntrinsicDiagram}
+
+\end{center}
+\end{figure}
+}
+
+\stepcounter{part}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ProcessorGrid.eps}
+}
+
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ProcessorChain.eps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.5cm}
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ProcessorGrid.eps}
+
+\label{2DProcessorGrid:fig}
+\end{figure}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ProcessorChain.eps}
+
+\label{1DProcessorChain:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \scalebox{1.2}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/MessagePassing.eps}}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/MessagePassing.eps}
+
+\label{MessagePassing:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\lceil\frac{50}{4}\rceil = 13$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22244: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/BlockDistribution.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\#A$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22254: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\#P$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22256: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \( \lceil \#A/\#P \rceil \)
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/BlockDistribution.ps}
+
+\label{BLOCKDistributionVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/CyclicDistribution.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/CyclicDistribution.ps}
+
+\label{CYCLICDistributionVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/BlockCyclicDistribution.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/BlockCyclicDistribution.ps}
+
+\label{2DDistributionVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ReplicatedDistribution.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ReplicatedDistribution.ps}
+ 
+\label{STARDistributionVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/SORAccess.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{4.5cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/SORAccess.ps}
+
+\label{SORAccessPatterns:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/BlockMCyclicMDistribution.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{0.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/BlockMCyclicMDistribution.ps}
+
+\label{BLOCKmCYCLICmDistribution:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/2DBlockMCyclicMDistribution.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/2DBlockMCyclicMDistribution.ps}
+
+\label{2DBlockMCyclicMDistribution}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/AlignAB.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\forall j \mbox{align {\tt A(}}j\mbox{{\tt )} and {\tt A(}}j\mbox{{\tt
+)}with {\tt C(}}j\mbox{{\tt )}}
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/AlignAB.ps}
+
+\label{AlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\forall$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22386: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/2DAlign.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}
+\scalebox{0.75}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/2DAlign.ps}}
+
+\label{2DAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/Transposed2DAlign.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}
+\scalebox{0.75}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/Transposed2DAlign.ps}}
+
+\label{Transposed2DAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/StridedAlignment.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[h]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/StridedAlignment.ps}
+
+\label{StridedAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ReverseStridedAlignment.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ReverseStridedAlignment.ps}
+
+\label{ReverseStridedAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/CollapsedAlignment.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/CollapsedAlignment.ps}
+
+\label{CollapsingDimensionVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ReplicatedAlignment.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ReplicatedAlignment.ps}
+
+\label{ReplicatedAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/GaussF90Replication}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{-0.2cm}\begin{center}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/GaussF90Replication}\end{center}
+
+\label{2DGaussianEliminationVisualisation}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/AlignTemplateAB.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/AlignTemplateAB.ps}
+
+\label{TemplateAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/NewAlignTemplateDCE.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/NewAlignTemplateDCE.ps}
+
+\label{StridedTemplateAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/AlignToSection.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \fbox{Remember}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/AlignToSection.ps}
+
+\label{EmbeddedAlignmentVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ScalarAlignment.ps}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\hspace*{3.0cm}\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/ScalarAlignment.ps}
+
+\label{AlignedScalarVisualisation:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \scalebox{0.8}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/IndependentExample1.ps}}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\scalebox{0.75}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/IndependentExample1.ps}}
+
+\label{IndependentExample1Visualisation:fig}
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \scalebox{0.8}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/NewVariables1.ps}}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\scalebox{0.66}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/NewVariables1.ps}}
+
+\label{INDEPENDENTNEWVisualisation:fig}
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \rotatebox{270}{\scalebox{0.75}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/NewVariablesExample1.ps}}}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$n \times m$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22526: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\rotatebox{270}{\scalebox{0.6}{\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/NewVariablesExample1.ps}}}
+\end{center}
+
+\label{DoubleNestedIndependentLoop:fig}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$20 \times 20$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22534: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \fbox{Must avoid non-essential remapping.}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \fbox{Always specify {\tt INTENT}.}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/PassingSectionsActuals}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{figure}[H]
+\begin{center}
+\includegraphics{/home/spm/adamm/HPC/HPFCourse/Diagrams/PassingSectionsActuals}
+
+\label{DistributionActualDummyArgumentsVisualisation:fig}
+\end{center}
+\end{figure}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$4 \times 4$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22546: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \fbox{Do not pass array sections}
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \fbox{Optional Slide}
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$1\times 11$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22566: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\times$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22574: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|r|l|r|}\hline
+Source    & Compiler                  & Exec Time (s) \\ \hline\hline
+{\bf f90} & EPC                       &  85.0 \\ 
+          & Sun ($\parallel$) (1 proc)       & 111.0 \\ 
+          & Sun ($\parallel$) (2 proc)       & 111.0 \\ \hline
+{\bf hpf} & PGI ($\parallel$) (1 proc)       & 127.5 \\ 
+          & PGI  ($\parallel$) (2 proc)      &  67.6 \\ \hline
+\end{tabular}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$r_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22584: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$1 \leq i \leq 2n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22588: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{eqnarray*}z_{i+1} & = & a z_i (\mbox{{\em mod}} 2^{46})\\  
+r_{i+1} & = & 2^{-46} z_{i+1}
+\end{eqnarray*}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$1 \leq j \leq n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22590: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_j = 2r_{2j-1} - 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22592: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_i =
+2r_{2j} - 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22594: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_j$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22596: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_j$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22598: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(x_j,y_j)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22602: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$t_j = x^2_j + y^2_j \leq 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22604: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X_k = x_j \sqrt{(-2 \log t_j)/t_j}
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Y_k = y_j \sqrt{(-2 \log t_j)/t_j}
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X_k$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22606: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Y_k$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22608: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$2^{10}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22610: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{table}[H]\begin{center}
+\begin{tabular}{|r|l|r|}\hline
+Source    & Compiler                  & Exec Time (s) \\ \hline\hline
+{\bf f90} & EPC                       &  85.0 \\ 
+          & Sun ($\parallel$) (1 proc)       & 111.0 \\ 
+          & Sun ($\parallel$) (2 proc)       & 111.0 \\ \hline
+{\bf hpf} & PGI ($\parallel$) (1 proc)       & 127.5 \\ 
+          & PGI ($\parallel$) (2 proc)      &  67.6 \\ \hline
+\end{tabular}
+
+\end{center}\end{table}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$128 \times 128 \times 128$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline22620: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{table}[H]\begin{center}
+\begin{center}
+\begin{tabular}{|l|l|r|r|r|r|r|}\hline
+	\mbox{}	    &\multicolumn{5}{c}{Number of Processors}\\ 
+&	Compiler & $1\times 1\times 1$   &$2\times 1\times 1$
+&$2\times 2\times 1$ &$2\times 2\times 2$ &$4\times 2\times 2$ \\ \hline\hline
+{{\bf Sun}} &
+	Adaptor     &85.17  & 56.68 & 31.75 & 21.56 & 19.19 \\ 
+&	APR xHPF    &105.12 &51.41  & 27.75 & 19.12 & -     \\ 
+&	PGI         &94.55  & 71.69 & 38.73 & 22.78 & 30.05 \\ \cline{2-7}
+&	epc f90     &114.75 & -     & -     & -     & -     \\ 
+&	NAg f90     &121.00 & -     & -     & -     & -     \\ 
+&	Fuji f90    &112.68 & -     & -     & -     & -     \\ \hline\hline
+{{\bf SGI}} &
+	epc f90 & 37.12 & -     & -     & -     & -     \\ 
+&	SGI f90     & 25.14 & -     & -     & -     & -     \\ \cline{2-7}
+&	PGI     & 38.91 & 52.47 & 34.67 & 25.86 & -     \\ \hline
+\end{tabular}
+
+\label{PDE1:uxa:Tab}
+\end{center}
+\end{center}\end{table}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{table}[H]\begin{center}
+\begin{center}
+\begin{tabular}{|l|l|r|r|r|r|}\hline
+& \multicolumn{4}{c}{Number of Processors}\\ 
+            & Compiler  & 1     & 2      & 4 & 8     \\ \hline\hline
+{{\bf Sun}} &PGI        & 2.51  & 2.41   & 2.17 & 2.93  \\ 
+	    &APR xHPF       & 5.06          & 7.63          & &       \\ \hline
+&epc f90                 &0.1016         & -             & - & -     \\ 
+&Fuji f90                &0.0742         & -             & - & -     \\ \hline
+{{\bf SGI}} &SGI PGI                 & 0.70          & 2.28          & 3.42 & 5.43  \\ \hline
+&SGI F90                 & 0.16          & -             & - & -     \\ \hline
+\end{tabular}
+
+\label{FFT1:uxa:Tab}
+\end{center}
+
+\end{center}\end{table}
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+
+\end{document}

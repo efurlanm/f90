@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>UNPACK Intrinsic</TITLE>
+<META NAME="description" CONTENT="UNPACK Intrinsic">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2132" HREF="HTMLNotesnode164.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2130" HREF="HTMLNotesnode159.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2126" HREF="HTMLNotesnode162.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2134" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2133" HREF="HTMLNotesnode164.html">TRANSFER Intrinsic</A>
+<B>Up:</B> <A NAME="tex2html2131" HREF="HTMLNotesnode159.html">Array Construction Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2127" HREF="HTMLNotesnode162.html">PACK Intrinsic</A>
+<BR> <P>
+<A NAME="UnpackIntrinsic1">&#160;</A><H4><A NAME="SECTION01053240000000000000"><TT>UNPACK</TT> Intrinsic</A></H4>
+<P>
+<TT>UNPACK</TT><TT>(</TT><TT>VECTOR</TT>,<TT>MASK</TT>,<TT>FIELD</TT><TT>)</TT>
+<P>
+This function  unpacks a vector into an 
+array under a mask.  <TT>FIELD</TT>, must conform
+to <TT>MASK</TT> and and must be of same type and kind as <TT>VECTOR</TT>. The
+result is the same shape as <TT>MASK</TT>.
+<P>
+If 
+<P> <IMG WIDTH=315 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath23495" SRC="HTMLNotesimg77.gif"  > <P>
+and 
+<P> <IMG WIDTH=319 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath23422" SRC="HTMLNotesimg66.gif"  > <P>
+<P>
+then 
+<P> <IMG WIDTH=404 HEIGHT=41 ALIGN=BOTTOM ALT="displaymath23497" SRC="HTMLNotesimg78.gif"  > <P>
+<P>
+The highlighted elements originate
+from <TT>VECTOR</TT> and correspond to the <TT>.TRUE.</TT> values of <TT>MASK</TT>, 
+the other values are from the corresponding elements of <TT>FIELD</TT>.
+<P>
+Also
+<P>
+<P> <IMG WIDTH=500 HEIGHT=41 ALIGN=BOTTOM ALT="equation11983" SRC="HTMLNotesimg80.gif"  > <P>
+<P>
+again highlighted elements correspond to the <TT>.TRUE.</TT> values of <TT>NOT</TT><TT>MASK</TT>, 
+the other values are from the corresponding elements of <TT>FIELD</TT>.
+<P>
+<HR><A NAME="tex2html2132" HREF="HTMLNotesnode164.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2130" HREF="HTMLNotesnode159.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2126" HREF="HTMLNotesnode162.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2134" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2133" HREF="HTMLNotesnode164.html">TRANSFER Intrinsic</A>
+<B>Up:</B> <A NAME="tex2html2131" HREF="HTMLNotesnode159.html">Array Construction Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2127" HREF="HTMLNotesnode162.html">PACK Intrinsic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

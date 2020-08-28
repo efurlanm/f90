@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Collapsing Dimensions</TITLE>
+<META NAME="description" CONTENT="Collapsing Dimensions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3376" HREF="HTMLNotesnode263.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3374" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3368" HREF="HTMLNotesnode261.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3378" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3377" HREF="HTMLNotesnode263.html">Scalar Arguments</A>
+<B>Up:</B> <A NAME="tex2html3375" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3369" HREF="HTMLNotesnode261.html">Array Arguments Example 2</A>
+<BR> <P>
+<A NAME="PassingArraySections4">&#160;</A><H3><A NAME="SECTION020411300000000000000">Collapsing Dimensions</A></H3>
+<P>
+If a dimension has a scalar index it is collapsed. Consider,
+<PRE>!HPF$ DISTRIBUTE (BLOCK,BLOCK) :: A, B
+     ...
+    CALL Xubbie(A(i,:),b(i,:))
+     ...
+    SUBROUTINE Xubbie(x,y)
+     REAL, DIMENSION(:) :: x, y
+     !HPF$ DISTRIBUTE (BLOCK) :: x, y</PRE>
+<P>
+This code fragment demonstrates a further example of `accidental' remapping.
+Here the actual arguments are 1D sections of 2D objects. As the original
+objects are distributed over a 2D grid, the 1D dummy arguments will only
+be mapped over a 1D slice of the processor array. The problem arises
+because the procedure specifies that the dummy arguments are
+distributed over the default processor grid (which may well contain <EM>
+all</EM>
+the processors).
+<P>
+For example, if the system is executing on a
+16-processor grid, which is either viewed as a linear chain of
+16 processors or as a  <IMG WIDTH=30 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline23894" SRC="HTMLNotesimg146.gif"  >  square grid<A NAME="tex2html72" HREF="HTMLNotesfootnode.html#16451"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>, then <TT>A(i,:)</TT> and
+<TT>b(i,:)</TT> will be distributed onto a 4 processor slice (of the   <IMG WIDTH=30 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline23894" SRC="HTMLNotesimg146.gif"  >  grid,) but the dummy
+arguments <TT>x</TT> and <TT>y</TT> will be distributed over the whole
+16-processor
+chain. Due to the lack of intent specification, two remappings will take
+place, one on entry and one on exit.
+<P>
+<HR><A NAME="tex2html3376" HREF="HTMLNotesnode263.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3374" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3368" HREF="HTMLNotesnode261.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3378" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3377" HREF="HTMLNotesnode263.html">Scalar Arguments</A>
+<B>Up:</B> <A NAME="tex2html3375" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3369" HREF="HTMLNotesnode261.html">Array Arguments Example 2</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

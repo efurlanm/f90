@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Binary Cut</TITLE>
+<META NAME="description" CONTENT="Binary Cut">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html984" HREF="HTMLQuestionsnode80.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html982" HREF="HTMLQuestionsnode68.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html978" HREF="HTMLQuestionsnode78.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html986" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html985" HREF="HTMLQuestionsnode80.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html983" HREF="HTMLQuestionsnode68.html">Procedures and Modules</A>
+<B> Previous:</B> <A NAME="tex2html979" HREF="HTMLQuestionsnode78.html">Solution</A>
+<BR> <P>
+<A NAME="QProcBinaryCut">&#160;</A><H2><A NAME="SECTION00056000000000000000">Binary Cut</A></H2>
+<P>
+Write a module containing a  function which returns the position of 
+a particular number in an
+array of sorted integers. The function should employ the so-called
+``binary cut'' method. This method proceeds by determining in which
+half the number is and then
+concentrating on that half. It is easily implemented using two
+indices to point at the low and high positions of the current area
+of interest. It is assumed that if there is more than one
+ocurrence of the number then the one with the higher
+index will be chosen. This method is very efficient for very large arrays.
+<P>
+Algorithm,
+<UL><LI> Let <I>i</I> and <I>j</I> be the indices of the low and high marks.<LI> Initially set <I>i</I> = 1 and <I>j</I> = <I>n</I> (the number in the list)<LI> Assume <I>k</I> is the number we are trying to find<LI> <TT>DO</TT>
+<UL><LI> <TT>IF</TT><TT>(</TT> <IMG WIDTH=28 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline2952" SRC="HTMLQuestionsimg51.gif"  > <TT>)</TT><TT>EXIT</TT><LI> determine the half way point  <IMG WIDTH=83 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline2954" SRC="HTMLQuestionsimg52.gif"  > <LI> <TT>IF</TT> <I>k</I> is above  <IMG WIDTH=27 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline2958" SRC="HTMLQuestionsimg53.gif"  >  put  <IMG WIDTH=71 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline2960" SRC="HTMLQuestionsimg54.gif"  > <LI> Otherwise put  <IMG WIDTH=51 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline2962" SRC="HTMLQuestionsimg55.gif"  > </UL><LI> <TT>END</TT> <TT>DO</TT><LI> <I>j</I> will now point at the number <I>k</I></UL><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html987" HREF="HTMLQuestionsnode80.html#SECTION00056100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html984" HREF="HTMLQuestionsnode80.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html982" HREF="HTMLQuestionsnode68.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html978" HREF="HTMLQuestionsnode78.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html986" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html985" HREF="HTMLQuestionsnode80.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html983" HREF="HTMLQuestionsnode68.html">Procedures and Modules</A>
+<B> Previous:</B> <A NAME="tex2html979" HREF="HTMLQuestionsnode78.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

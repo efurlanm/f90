@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>DISTRIBUTE Directive</TITLE>
+<META NAME="description" CONTENT="DISTRIBUTE Directive">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2243" HREF="HTMLSlidesnode160.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2241" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2235" HREF="HTMLSlidesnode158.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2245" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2244" HREF="HTMLSlidesnode160.html">Block Distribution</A>
+<B>Up:</B> <A NAME="tex2html2242" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2236" HREF="HTMLSlidesnode158.html">PROCESSORS Declaration</A>
+<BR> <P>
+<H2><A NAME="SECTION02036000000000000000"><TT>DISTRIBUTE</TT> Directive</A></H2>
+<P>
+Distribute  objects <TT>ONTO</TT> processor grids:
+<P>
+<PRE>       REAL, DIMENSION(50)    :: A
+       REAL, DIMENSION(10,10) :: B, C, D
+ !HPF$ DISTRIBUTE (BLOCK) ONTO P1         :: A   !1-D
+ !HPF$ DISTRIBUTE (CYCLIC,CYCLIC) ONTO P2 :: B,C !2-D
+ !HPF$ DISTRIBUTE D(BLOCK,*) ONTO P1    ! alt. syntax</PRE>
+<P>
+There must be the same number of non-<TT>*</TT> distributed dimensions as the
+rank of the grid.
+<P>
+<UL><LI> <TT>BLOCK</TT> means give a continuous and, as far as possible,
+equal sized block of elements to each processor,<LI> <TT>CYCLIC</TT> means deal the elements out one at a time in a
+round-robin fashion,<LI> <TT>*</TT> means `give this whole dimension to the processor'.
+</UL>
+<P>
+If an object is distributed then it is said to be <B>mapped</B> (or have
+a mapping).
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode183.html#DataDistribution1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2243" HREF="HTMLSlidesnode160.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2241" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2235" HREF="HTMLSlidesnode158.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2245" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2244" HREF="HTMLSlidesnode160.html">Block Distribution</A>
+<B>Up:</B> <A NAME="tex2html2242" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2236" HREF="HTMLSlidesnode158.html">PROCESSORS Declaration</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

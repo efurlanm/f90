@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Cyclic Distribution</TITLE>
+<META NAME="description" CONTENT="Cyclic Distribution">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2265" HREF="HTMLSlidesnode162.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2263" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2257" HREF="HTMLSlidesnode160.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2267" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2266" HREF="HTMLSlidesnode162.html">2D Distribution Example</A>
+<B>Up:</B> <A NAME="tex2html2264" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2258" HREF="HTMLSlidesnode160.html">Block Distribution</A>
+<BR> <P>
+<H2><A NAME="SECTION02038000000000000000">Cyclic Distribution</A></H2>
+<P>
+Deal out elements of an array to processors in a round robin fashion
+<P>
+<PRE>        PROGRAM Round_Robin
+         REAL, DIMENSION(20)      :: A
+ !HPF$ PROCESSORS, DIMENSION(4)   :: P
+ !HPF$ DISTRIBUTE (CYCLIC) ONTO P :: A
+   ....</PRE>
+<P>
+ <IMG WIDTH=603 HEIGHT=218 ALIGN=BOTTOM ALT="tex2html_wrap22278" SRC="HTMLSlidesimg93.gif"  > 
+<P>
+If an array, <TT>A</TT> has  <IMG WIDTH=20 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline22254" SRC="HTMLSlidesimg88.gif"  >  elements and is mapped onto  <IMG WIDTH=20 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline22256" SRC="HTMLSlidesimg89.gif"  > 
+processors
+each processor gets (a maximum) total of  <IMG WIDTH=58 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap22248" SRC="HTMLSlidesimg90.gif"  > 
+separate elements.
+<P>
+In this case each processor gets <B>five</B> elements.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode185.html#DataDistribution3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2265" HREF="HTMLSlidesnode162.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2263" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2257" HREF="HTMLSlidesnode160.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2267" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2266" HREF="HTMLSlidesnode162.html">2D Distribution Example</A>
+<B>Up:</B> <A NAME="tex2html2264" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2258" HREF="HTMLSlidesnode160.html">Block Distribution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Function Example</TITLE>
+<META NAME="description" CONTENT="Function Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1729" HREF="HTMLNotesnode130.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1727" HREF="HTMLNotesnode128.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1723" HREF="HTMLNotesnode128.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1731" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1730" HREF="HTMLNotesnode130.html">Scope</A>
+<B>Up:</B> <A NAME="tex2html1728" HREF="HTMLNotesnode128.html">Function Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1724" HREF="HTMLNotesnode128.html">Function Syntax</A>
+<BR> <P>
+<A NAME="Function2">&#160;</A><H4><A NAME="SECTION01041610000000000000">Function Example</A></H4>
+<P>
+A function is invoked by its appearance in an expression
+at the place where its result value is needed,
+<P>
+<PRE>    total = total + largest(a,b,c)</PRE>
+<P>
+The function is defined as follows,
+<PRE>    INTEGER FUNCTION largest(i,j,k)
+     INTEGER :: i, j, k
+     largest = i
+     IF (j .GT. largest) largest = j
+     IF (k .GT. largest) largest = k
+    END FUNCTION largest</PRE>
+<P>
+or equivalently as,
+<PRE>    FUNCTION largest(i,j,k)
+     INTEGER :: i, j, k
+     INTEGER :: largest
+      ...
+    END FUNCTION largest</PRE>
+<P>
+The largest value of <TT>i, j</TT> and <TT>k</TT> will be substituted at the
+place where the function call is made.
+As with subroutines, the dummy and actual arguments must match in type
+kind and rank.
+<P>
+More than one function (or the same function more than once) may
+be invoked in a single statement.  For example,
+<PRE>    rezzy = funky1(a,b,c) + funky2(a,b,c)</PRE>
+<P>
+Care must be taken that the order of execution will not alter the
+result; aside from operator precedence, the order of evaluation of a
+statement in a Fortran&nbsp;90 program is undefined. It is not specified whether 
+<TT>funky1</TT> or 
+<TT>funky2</TT> is evaluated first; they could even be executed in
+parallel!
+<P>
+If a function invocation has side-effects and it is called twice in the same 
+statement then problems may occur. To safeguard against this a function 
+invocation should not assign
+to its arguments, modify any global variables or perform I/O! A function 
+which obeys
+these restrictions is termed <TT>PURE</TT><A NAME="tex2html27" HREF="HTMLNotesfootnode.html#9554"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode58.html#QProcSimpleFunction"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode66.html#QProcRandomNumber"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1729" HREF="HTMLNotesnode130.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1727" HREF="HTMLNotesnode128.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1723" HREF="HTMLNotesnode128.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1731" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1730" HREF="HTMLNotesnode130.html">Scope</A>
+<B>Up:</B> <A NAME="tex2html1728" HREF="HTMLNotesnode128.html">Function Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1724" HREF="HTMLNotesnode128.html">Function Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

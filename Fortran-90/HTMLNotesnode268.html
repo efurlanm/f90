@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Extrinsic Example</TITLE>
+<META NAME="description" CONTENT="Extrinsic Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3466" HREF="HTMLNotesnode269.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3464" HREF="HTMLNotesnode267.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3460" HREF="HTMLNotesnode267.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3468" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3467" HREF="HTMLNotesnode269.html">Rules for Extrinsic Procedures</A>
+<B>Up:</B> <A NAME="tex2html3465" HREF="HTMLNotesnode267.html">Language Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html3461" HREF="HTMLNotesnode267.html">Language Interoperability</A>
+<BR> <P>
+<A NAME="ExtrinsicExample1">&#160;</A><H4><A NAME="SECTION02051110000000000000">Extrinsic Example</A></H4>
+<P>
+Consider the following example,
+<P>
+<PRE>  INTERFACE
+   EXTRINSIC(F77_LOCAL) &amp;
+    SUBROUTINE Calc_u_like(My_P_No,Siz,Tot_Proc,a,b,c)
+    INTEGER, DIMENSION(:), INTENT(IN)  :: B, C
+    INTEGER, DIMENSION(:), INTENT(OUT) :: A
+    INTEGER, DIMENSION(:), INTENT(IN)  :: My_P_No
+    INTEGER, INTENT(IN)                :: Siz, Tot_Proc
+    !HPF$ PROCESSORS, &amp;
+    !HPF$  DIMENSION(NUMBER_OF_PROCESSORS()) :: P
+    !HPF$ DISTRIBUTE (BLOCK) ONTO P          :: A, B, C
+    !HPF$ DISTRIBUTE (BLOCK) ONTO P          :: My_P_No
+   END SUBROUTINE output ! EXTRINSIC(F77_LOCAL)
+  END INTERFACE</PRE>
+<P>
+The reason
+for all the arguments is that when control is inside this procedure, the
+processor has no idea that it is inside an extrinsic procedure that was
+called from an HPF program. The processor must therefore be given all
+the information it needs in order to calculate how big the dummy array
+arguments are. (F<font size=-1><small>ORTRAN</small></font>&nbsp;77 is different from Fortran&nbsp;90. The mechanism for passing
+arrays into procedures is much more primitive, the sizes of each
+dimension except the last must be supplied in the declaration of the
+dummy argument. The last dimension may be left as a <TT>*</TT>; if the actual
+extent of this dimension is required then it must be passed as an
+argument.)
+<P>
+It can be seen that, even though the extrinsic is written in F<font size=-1><small>ORTRAN</small></font>&nbsp;77, (the
+precursor to Fortran&nbsp;90,) the interface is expressed in terms of HPF. As usual,
+the <TT>INTENT</TT> should be specified to aid the compiler in optimisation.
+<P>
+The mapping information is <EM>very</EM> very important as when control
+passes to the extrinsic, the compiler must make sure that the mapping
+specified in the interface is really the way that things are.
+If there were no mapping directives specified in the
+interface, the compiler will have to ensure that all the dummy
+arguments possess the default mapping which is usually replication.
+If this was the case, every time the extrinsic subroutine 
+<TT>Calc_u_like</TT> is called, the
+array actual arguments would have to be remapped so that they were
+replicated on every processor in the grid.
+<P>
+The keyword <TT>F77_LOCAL</TT> is supported by the Portland Compiler, it
+allows extrinsics to be written in the F<font size=-1><small>ORTRAN</small></font>&nbsp;77 language. (The Portland
+Compiler also defines a set of message passing routines which allow
+different instances of the <TT>F77_LOCAL</TT> extrinsic to communicate
+with each other. Explanation of this style of programming is outside the
+scope of this course.)
+<P>
+<A NAME="ExtrinsicExample2">&#160;</A>
+In general, every <TT>EXTRINSIC</TT> must:
+<P>
+<UL><LI> have an explicit <TT>INTERFACE</TT> <EM>including</EM> mapping information,<LI> work out which, if any, array elements are local
+</UL>
+<P>
+The <TT>INTERFACE</TT> is expressed using HPF concepts of <TT>INTENT</TT>, distribution
+and
+assumed-shape arrays; the <TT>EXTRINSIC</TT> is not.
+<P>
+These sorts of extrinsic functions are often called <EM>local routines</EM>
+because they only have a local picture of the machine that they are
+executing on. Such routines only operate on local data and may have no
+concept that they are part of a network of processors.
+<P>
+<A NAME="ExtrinsicExample3">&#160;</A>
+Once inside the extrinsic, the first task is to 
+calculate the portions of <TT>A, B</TT> and <TT>C</TT> that are local. This
+can
+be worked out from the original size of the matrices, the number of
+processors in each dimension of the HPF processor arrangement and the
+distribution method. For example,
+<P>
+<PRE> SUBROUTINE Calc_u_like(My_P_No,Siz,Tot_Proc,a,b,c)
+  INTEGER A(*), B(*), C(*), My_P_No(1), Siz, Tot_Proc
+C Find blocksize
+  Blk_Siz    = NINT((DBLE(Siz)/DBLE(Tot_Proc))+0.5D0)
+C How many elements have I got
+  My_Blk_Siz = MIN(Blk_Siz,Siz-(My_P_No(1)-1)*Blk_Siz)
+  My_Blk_Siz = MAX(My_Blk_Siz,0)
+C Do the Calculation
+  DO 100 i = 1,My_Blk_Siz
+   a(i) = b(i) + c(i)
+  END DO
+ END</PRE>
+<P>
+In the calling program, <TT>P_Nos</TT> has same number of elements as
+there are processors and is distributed blockwise so that  each
+processor
+gets a single element of this array. It has been arranged that this
+element contains the number of the processor; the first processor in the
+chain is number 1, the second is number 2 and so on. Since the size
+of <TT>A</TT> and the total number of processors are given, each extrinsic
+can work out the number of array elements that it owns. The calculation
+of <TT>Blk_Siz</TT> works out the maximum number of elements that any
+processor may have; the calculation of <TT>My_Blk_Siz</TT> works out the
+size of the local set. (Recall that in some situations, the last
+processors in a chain may have less elements than the first processors
+on a chain.) Once the local set has been established, calculations may
+proceed as normal (using F<font size=-1><small>ORTRAN</small></font>&nbsp;77 syntax).
+<P>
+<PRE>  REAL, DIMENSION(Siz) :: A, B = 0, C = 0
+  INTEGER, DIMENSION(NUMBER_OF_PROCESSORS()) :: P_Nos
+  !HPF$ PROCESSORS, &amp;
+  !HPF$  DIMENSION(NUMBER_OF_PROCESSORS()) :: P
+  !HPF$ DISTRIBUTE (BLOCK) ONTO P :: A, B, C, P_Nos
+    ... Interface from before goes here
+  NOP   = NUMBER_OF_PROCESSORS()
+  P_Nos = (/ (i, i=1,NOP) /)
+  CALL Calc_u_like(P_Nos,SIZE(A),NOP,A,B,C)
+ END</PRE>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode130.html#QF77LocalExtrinsics"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+C routines will have to follow a similar method in order to
+establish their local sets.
+<P>
+<A NAME="ExtrinsicExample4">&#160;</A>
+<P>
+Some compilers, (but not Portland,) may support <TT>F90_LOCAL</TT>
+routines. If this is the case, then matters can be much simplified by
+using assumed-shape arrays. In this example, there is no need to
+calculate the local set; the Fortran&nbsp;90 <TT>SIZE</TT> intrinsic could be used if this
+needs to be established.
+<P>
+<PRE> SUBROUTINE Calc_u_like(A,B,C)
+  INTEGER, DIMENSION(:), INTENT(IN)  :: B, C
+  INTEGER, DIMENSION(:), INTENT(OUT) :: A
+   A = B+C
+ END</PRE>
+<P>
+Note how the extrinsic is relying on the sensible way in
+which Fortran&nbsp;90 treats zero-sized arrays to remove the need for block-size
+calculations.
+<P>
+<HR><A NAME="tex2html3466" HREF="HTMLNotesnode269.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3464" HREF="HTMLNotesnode267.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3460" HREF="HTMLNotesnode267.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3468" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3467" HREF="HTMLNotesnode269.html">Rules for Extrinsic Procedures</A>
+<B>Up:</B> <A NAME="tex2html3465" HREF="HTMLNotesnode267.html">Language Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html3461" HREF="HTMLNotesnode267.html">Language Interoperability</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Conformance</TITLE>
+<META NAME="description" CONTENT="Array Conformance">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1352" HREF="HTMLNotesnode98.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1350" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1344" HREF="HTMLNotesnode96.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1354" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1353" HREF="HTMLNotesnode98.html">Array Sections</A>
+<B>Up:</B> <A NAME="tex2html1351" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1345" HREF="HTMLNotesnode96.html">Whole Array Expressions</A>
+<BR> <P>
+<A NAME="ArrayConformance1">&#160;</A><H3><A NAME="SECTION01031600000000000000">Array Conformance</A></H3>
+<P>
+If an object or sub-object is used directly in an expression then it
+must conform with all other objects in that expression. As mentioned in
+the last section, a scalar conforms to any array with the same value for
+every element; for two array  references to conform both objects must be
+the same shape.
+<P>
+Using the declarations from before:
+<PRE>    C = D                   ! is valid
+    A = B                   ! is not valid</PRE>
+<P>
+Visualisation,
+<P>
+<P><A NAME="6954">&#160;</A> <IMG WIDTH=291 HEIGHT=291 ALIGN=BOTTOM ALT="figure6952" SRC="HTMLNotesimg28.gif"  > <BR>
+<STRONG>Figure 3:</STRONG> Visualisation of conforming Arrays<BR>
+<P>
+<P>
+<TT>A</TT> and <TT>B</TT> have the same size (15 elements) 
+but have different shapes so cannot be directly equated. To force 
+conformance the
+array must be used as an argument to a transformational intrinsic to
+change its shape, for example,
+<P>
+<PRE>    B = RESHAPE(A,(/5,3/))  ! is, see later
+    A = PACK(B,.TRUE.)      ! is, see later
+    A = RESHAPE(B,(/10,8/)) ! is, see later 
+    B = PACK(A,.TRUE.)      ! is, see later</PRE>
+<P>
+Arrays can have their shapes changed by using
+transformational intrinsics including,
+<TT>MERGE</TT>, <TT>PACK</TT>, <TT>SPREAD</TT>, <TT>UNPACK</TT> and <TT>RESHAPE</TT>.
+<P>
+Two arrays of different types conform and if used in the same
+expression will have the relevant type coercion performed just like
+scalars.
+<P>
+<HR><A NAME="tex2html1352" HREF="HTMLNotesnode98.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1350" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1344" HREF="HTMLNotesnode96.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1354" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1353" HREF="HTMLNotesnode98.html">Array Sections</A>
+<B>Up:</B> <A NAME="tex2html1351" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1345" HREF="HTMLNotesnode96.html">Whole Array Expressions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

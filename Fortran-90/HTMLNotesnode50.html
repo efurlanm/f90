@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Implicit Typing</TITLE>
+<META NAME="description" CONTENT="Implicit Typing">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html757" HREF="HTMLNotesnode51.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html755" HREF="HTMLNotesnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html749" HREF="HTMLNotesnode49.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html759" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html758" HREF="HTMLNotesnode51.html">Numeric and Logical Declarations</A>
+<B>Up:</B> <A NAME="tex2html756" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html750" HREF="HTMLNotesnode49.html">Literal Constants</A>
+<BR> <P>
+<A NAME="ImplicitTypingRules1">&#160;</A><H3><A NAME="SECTION01017300000000000000">Implicit Typing</A></H3>
+<P>
+If a variable is referenced but not declared (in its scoping unit) then,
+by default,  it
+is implicitly declared. The type that it assumes
+depends on the first letter,
+<P>
+<UL><LI> <TT>I, J, K, L, M</TT> and <TT>N</TT> represent integers;<LI> all other letters define real variables.
+</UL>
+<P>
+This short cut is potentially very dangerous as a misspelling of a
+variable name can declare and assign to  a brand new variable with the
+user being totally unaware.
+<P>
+Implicit typing should <B>always</B> be turned off by adding:
+<P>
+<PRE>    IMPLICIT NONE</PRE>
+<P>
+as the first line after any <TT>USE</TT> statements. In this way the user will
+be
+informed of any undeclared variables used in the program.
+<P>
+Consider,
+<PRE>    DO 30 I = 1.1000
+     ...
+ 30 CONTINUE</PRE>
+<P>
+in fixed format with implicit typing this declares a <TT>REAL</TT> variable <TT>DO30I</TT> and
+sets it to <TT>1.1000</TT> instead of performing a loop 1000 times!
+Legend has it that the example sighted caused the crash of the American
+Space Shuttle. An expensive missing comma!
+<P>
+<HR><A NAME="tex2html757" HREF="HTMLNotesnode51.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html755" HREF="HTMLNotesnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html749" HREF="HTMLNotesnode49.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html759" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html758" HREF="HTMLNotesnode51.html">Numeric and Logical Declarations</A>
+<B>Up:</B> <A NAME="tex2html756" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html750" HREF="HTMLNotesnode49.html">Literal Constants</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

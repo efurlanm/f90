@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>New Variables Example 2</TITLE>
+<META NAME="description" CONTENT="New Variables Example 2">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2975" HREF="HTMLSlidesnode225.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2973" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2969" HREF="HTMLSlidesnode223.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2977" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2976" HREF="HTMLSlidesnode225.html">Input and Output</A>
+<B>Up:</B> <A NAME="tex2html2974" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2970" HREF="HTMLSlidesnode223.html">Visualisation of New Variables </A>
+<BR> <P>
+<H2><A NAME="SECTION020421000000000000000">New Variables Example 2</A></H2>
+<P>
+Variable list specifies temporaries to use in <TT>INDEPENDENT</TT> loops,
+for example,
+<P>
+<PRE>    !HPF$ INDEPENDENT, NEW (i2)
+    DO i1 = 1, n1
+     !HPF$ INDEPENDENT, NEW (i3)
+     DO i2 = 1, n2
+      !HPF$ INDEPENDENT, NEW (i4)
+      DO i3 = 1, n3
+       DO i4 = 1, n4 
+        a(i1,i2,i3) = a(i1,i2,i3) &amp;
+          + b(i1,i2,i4)*c(i2,i3,i4)
+       END DO
+      END DO
+     END DO
+    END DO</PRE>
+<P>
+Inner loop not <TT>INDEPENDENT</TT> as <TT>a(i1,i2,i3)</TT> is assigned to repeatedly.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode242.html#NewExample21"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2975" HREF="HTMLSlidesnode225.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2973" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2969" HREF="HTMLSlidesnode223.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2977" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2976" HREF="HTMLSlidesnode225.html">Input and Output</A>
+<B>Up:</B> <A NAME="tex2html2974" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2970" HREF="HTMLSlidesnode223.html">Visualisation of New Variables </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

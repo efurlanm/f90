@@ -1,0 +1,62 @@
+# LaTeX2HTML 96.1 (Feb 5, 1996)
+# Associate internals original text with physical files.
+
+$key = q/INDEPENDENTNEWVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode220.html'; 
+$key = q/FFT1uxaTab/;
+$ref_files{$key} = 'HTMLSlidesnode281.html'; 
+$key = q/BLOCKmCYCLICmDistributionfig/;
+$ref_files{$key} = 'HTMLSlidesnode174.html'; 
+$key = q/SORAccessPatternsfig/;
+$ref_files{$key} = 'HTMLSlidesnode169.html'; 
+$key = q/EmbeddedAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode200.html'; 
+$key = q/2DProcessorGridfig/;
+$ref_files{$key} = 'HTMLSlidesnode146.html'; 
+$key = q/ReplicatedAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode190.html'; 
+$key = q/TemplateAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode195.html'; 
+$key = q/1DProcessorChainfig/;
+$ref_files{$key} = 'HTMLSlidesnode146.html'; 
+$key = q/STARDistributionVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode163.html'; 
+$key = q/2DGaussianEliminationVisualisation/;
+$ref_files{$key} = 'HTMLSlidesnode192.html'; 
+$key = q/PDE1uxaTab/;
+$ref_files{$key} = 'HTMLSlidesnode281.html'; 
+$key = q/BLOCKDistributionVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode160.html'; 
+$key = q/2DBlockMCyclicMDistribution/;
+$ref_files{$key} = 'HTMLSlidesnode175.html'; 
+$key = q/AlignedScalarVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode201.html'; 
+$key = q/2DDistributionVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode162.html'; 
+$key = q/AlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode178.html'; 
+$key = q/DistributionActualDummyArgumentsVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode242.html'; 
+$key = q/StridedTemplateAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode198.html'; 
+$key = q/MessagePassingfig/;
+$ref_files{$key} = 'HTMLSlidesnode151.html'; 
+$key = q/ReverseStridedAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode184.html'; 
+$key = q/CYCLICDistributionVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode161.html'; 
+$key = q/CollapsingDimensionVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode189.html'; 
+$key = q/2DAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode180.html'; 
+$key = q/IndependentExample1Visualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode218.html'; 
+$key = q/DoubleNestedIndependentLoopfig/;
+$ref_files{$key} = 'HTMLSlidesnode223.html'; 
+$key = q/StridedAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode183.html'; 
+$key = q/Transposed2DAlignmentVisualisationfig/;
+$ref_files{$key} = 'HTMLSlidesnode182.html'; 
+
+1;
+

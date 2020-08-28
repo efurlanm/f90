@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Independent Loop</TITLE>
+<META NAME="description" CONTENT="Independent Loop">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1356" HREF="HTMLQuestionsnode113.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1354" HREF="HTMLQuestionsnode101.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1350" HREF="HTMLQuestionsnode111.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1358" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1357" HREF="HTMLQuestionsnode113.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1355" HREF="HTMLQuestionsnode101.html">Parallel Loops</A>
+<B> Previous:</B> <A NAME="tex2html1351" HREF="HTMLQuestionsnode111.html">Solution</A>
+<BR> <P>
+<A NAME="QIndependentLoop">&#160;</A><H2><A NAME="SECTION00086000000000000000">Independent Loop</A></H2>
+<P>
+ Transform this into an independent
+loop with a <TT>NEW</TT> variable.
+<PRE>         DO j = i+1, n
+            alpha = A(j,i) / swap(i)
+            A(j, i+1:n) = A(j, i+1:n ) - alpha * SWAP(i+1:n)
+            Y(j) = Y(j) - alpha * TEMP
+            A(j,i) = alpha
+         ENDDO</PRE>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1359" HREF="HTMLQuestionsnode113.html#SECTION00086100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1356" HREF="HTMLQuestionsnode113.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1354" HREF="HTMLQuestionsnode101.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1350" HREF="HTMLQuestionsnode111.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1358" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1357" HREF="HTMLQuestionsnode113.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1355" HREF="HTMLQuestionsnode101.html">Parallel Loops</A>
+<B> Previous:</B> <A NAME="tex2html1351" HREF="HTMLQuestionsnode111.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

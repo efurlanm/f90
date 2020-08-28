@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Encapsulation - Stack example</TITLE>
+<META NAME="description" CONTENT="Encapsulation - Stack example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1754" HREF="HTMLSlidesnode133.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1752" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1746" HREF="HTMLSlidesnode131.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1756" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1755" HREF="HTMLSlidesnode133.html">The USE Renames Facility</A>
+<B>Up:</B> <A NAME="tex2html1753" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1747" HREF="HTMLSlidesnode131.html">Modules - Procedure Encapsulation</A>
+<BR> <P>
+<H2><A NAME="SECTION0101712000000000000000">Encapsulation - Stack example</A></H2>
+<P>
+We can also encapsulate the <TT>stack</TT> program,
+<P>
+<PRE>    MODULE stack
+     IMPLICIT NONE
+     INTEGER, PARAMETER :: stack_size = 100
+     INTEGER, SAVE :: store(stack_size), pos=0
+    CONTAINS
+     SUBROUTINE push(i)
+      INTEGER, INTENT(IN) :: i
+       ...
+     END SUBROUTINE push
+     SUBROUTINE pop(i)
+      INTEGER, INTENT(OUT) :: i
+       ...
+     END SUBROUTINE pop
+    END MODULE stack</PRE>
+<P>
+Any program unit that includes the line:
+<PRE>    USE stack
+    CALL push(2); CALL push(6); ..
+    CALL pop(i); ....</PRE>
+can access <TT>pop</TT> and <TT>push</TT> therefore use the 100 element
+global integer stack.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode154.html#ModulesProcedureDeclaration2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1754" HREF="HTMLSlidesnode133.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1752" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1746" HREF="HTMLSlidesnode131.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1756" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1755" HREF="HTMLSlidesnode133.html">The USE Renames Facility</A>
+<B>Up:</B> <A NAME="tex2html1753" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1747" HREF="HTMLSlidesnode131.html">Modules - Procedure Encapsulation</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Encapsulation Example</TITLE>
+<META NAME="description" CONTENT="Encapsulation Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2019" HREF="HTMLNotesnode154.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2017" HREF="HTMLNotesnode152.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2011" HREF="HTMLNotesnode152.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2021" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2020" HREF="HTMLNotesnode154.html">Encapsulation - Stack example</A>
+<B>Up:</B> <A NAME="tex2html2018" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<B> Previous:</B> <A NAME="tex2html2012" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<BR> <P>
+<A NAME="ModulesProcedureDeclaration1">&#160;</A><H4><A NAME="SECTION01052410000000000000">Encapsulation Example</A></H4>
+<P>
+The following program has the subroutines
+<TT>sub1</TT> and <TT>sub2</TT> encapsulated into the module, 
+<PRE>    MODULE related_procedures
+     ! INTERFACEs of MODULE PROCEDURES do 
+     ! not need to be specified they are 
+     ! 'already present'
+    CONTAINS
+     SUBROUTINE sub1(A,B,C)
+      ! Can see Sub2's INTERFACE
+      ...
+     END SUBROUTINE sub1
+     SUBROUTINE sub2(time,dist)
+      ! Can see Sub1's INTERFACE
+      ...
+     END SUBROUTINE sub2
+    END MODULE related_procedures
+
+    PROGRAM use_of_module
+     USE related_procedures
+     CALL sub1((/1.0,3.141,0.57112/),2,'Yobot')
+     CALL sub2(t,d)
+    END PROGRAM use_of_module</PRE>
+<P>
+the interfaces of all module procedures are visible to all other
+modules procedures in the same module, this means, 
+<TT>sub1</TT> can call <TT>sub2</TT> or vice versa and there is no need for any
+additional <TT>INTERFACE</TT>  declarations to be typed in.
+<P>
+Consider the following erroneous code,
+<P>
+<PRE>    MODULE Schmodule
+     CONTAINS
+      LOGICAL FUNCTION bool(y,z)
+       INTEGER, INTENT(IN) :: y, z
+       bool = .FALSE.
+       IF (y &gt; z) bool = .TRUE.
+      END FUNCTION bool
+      SUBROUTINE subby(x,y,z)
+       INTEGER, INTENT(IN) :: y, z 
+       INTEGER, INTENT(OUT) :: x
+! next line is error
+       LOGICAL :: bool
+!
+       if ( bool(y,z) ) x = 1
+      END SUBROUTINE subby
+    END MODULE Schmodule</PRE>
+<P>
+Both procedures are visible to one another by host association so in
+<TT>subby</TT> the intention of declaring the other module procedure is
+misguided. The <TT>LOGICAL</TT> <TT>FUNCTION</TT> <TT>bool</TT> is already visible to <TT>
+subby</TT> but due to the declaration is superseded by a local 
+<TT>LOGICAL</TT> object called <TT>bool</TT>. When the module is compiled a 
+complaint is made that the external function <TT>bool</TT> is missing.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode75.html#QModEncapsulation"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode77.html#QIntegerComplex1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode79.html#QProcBinaryCut"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html2019" HREF="HTMLNotesnode154.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2017" HREF="HTMLNotesnode152.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2011" HREF="HTMLNotesnode152.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2021" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2020" HREF="HTMLNotesnode154.html">Encapsulation - Stack example</A>
+<B>Up:</B> <A NAME="tex2html2018" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<B> Previous:</B> <A NAME="tex2html2012" HREF="HTMLNotesnode152.html">Modules - Procedure Declaration</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

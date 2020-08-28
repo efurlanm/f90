@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Function Syntax</TITLE>
+<META NAME="description" CONTENT="Function Syntax">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1432" HREF="HTMLSlidesnode105.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1430" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1424" HREF="HTMLSlidesnode103.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1434" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1433" HREF="HTMLSlidesnode105.html">External Function Example</A>
+<B>Up:</B> <A NAME="tex2html1431" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1425" HREF="HTMLSlidesnode103.html">External Subroutine Example</A>
+<BR> <P>
+<H2><A NAME="SECTION010159000000000000000">Function Syntax</A></H2>
+<P>
+Syntax of a (non-recursive) function:
+<PRE><TT> 
+ [ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;prefix </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > ] <TT>FUNCTION</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;procname </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > <TT>(</TT> [ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;dummy args </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > ]<TT>)</TT>
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;declaration of dummy args </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;declaration of local objects </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+ 		 		 ...
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;executable stmts, assignment of result </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+  [ <TT>CONTAINS</TT>
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;internal procedure definitions </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  ]
+<P>
+ <TT>END</TT> [ <TT>FUNCTION</TT> [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;procname </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  ] ]
+<P>
+</TT></PRE>
+here  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;prefix </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > , specifies the result type.
+or,
+<PRE><TT> 
+ <TT>FUNCTION</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;procname </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > <TT>(</TT> [ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;dummy args </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > ]<TT>)</TT>
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;declaration of dummy args </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;declaration of result type </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;declaration of local objects </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+ 		 		 ...
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;executable stmts, assignment of result </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  > 
+<P>
+  [ <TT>CONTAINS</TT>
+<P>
+ 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;internal procedure definitions </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  ]
+<P>
+ <TT>END</TT> [ <TT>FUNCTION</TT> [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;procname </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  ] ]
+<P>
+</TT></PRE>
+here,  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20398" SRC="HTMLSlidesimg1.gif"  > <EM>&nbsp;procname </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline20400" SRC="HTMLSlidesimg2.gif"  >  must be declared.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode128.html#Function1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1432" HREF="HTMLSlidesnode105.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1430" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1424" HREF="HTMLSlidesnode103.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1434" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1433" HREF="HTMLSlidesnode105.html">External Function Example</A>
+<B>Up:</B> <A NAME="tex2html1431" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1425" HREF="HTMLSlidesnode103.html">External Subroutine Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

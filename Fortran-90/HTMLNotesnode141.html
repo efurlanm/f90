@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Assumed-shape Arrays</TITLE>
+<META NAME="description" CONTENT="Assumed-shape Arrays">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1875" HREF="HTMLNotesnode142.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1873" HREF="HTMLNotesnode140.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1867" HREF="HTMLNotesnode140.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1877" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1876" HREF="HTMLNotesnode142.html">Automatic Arrays</A>
+<B>Up:</B> <A NAME="tex2html1874" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1868" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<BR> <P>
+<A NAME="AssumedShapeArrays1">&#160;</A><H3><A NAME="SECTION01051100000000000000">Assumed-shape Arrays</A></H3>
+<P>
+<A NAME="AssumedShapeArrays">&#160;</A>
+<P>
+Declaring dummy arrays as assumed-shape arrays is the recommended
+method in Fortran&nbsp;90. Consider,
+<P>
+<PRE>    PROGRAM TV
+     INTERFACE
+      SUBROUTINE gimlet(a,b)
+       REAL, INTENT(IN)   :: a(:), b(:,:)
+      END SUBROUTINE gimlet
+     END INTERFACE
+      ...
+     REAL, DIMENSION(40)    :: X
+     REAL, DIMENSION(40,40) :: Y
+      ...
+     CALL gimlet(X,Y)
+     CALL gimlet(X(1:39:2),Y(2:4,4:4))
+     CALL gimlet(X(1:39:2),Y(2:4,4)) ! invalid
+      ...
+    END PROGRAM TV
+
+    SUBROUTINE gimlet(a,b)
+     REAL, INTENT(IN)   :: a(:), b(:,:)
+      ...
+    END SUBROUTINE gimlet</PRE>
+<P>
+An assumed-shape array declaration must have the same 
+type, rank and kind as the actual argument. An <TT>INTERFACE</TT> 
+block is needed to transfer the type, kind  and bounds of the actual 
+argument into the procedure. These can then be checked alongside the 
+declaration of the dummy at compile time.
+<P>
+Note:
+<P>
+<UL><LI> array sections can be passed so long as they are regular, that is, not
+defined by vector subscripts. The reason for this is concerned with 
+efficiency. A vector
+subscripted section will be non-trivial to find in the memory, it is
+likely to be widely scattered and  would
+probably need to be copied on entry to the procedure and then copied back 
+on exit, this will  create all sorts of runtime penalties.<LI> the actual argument cannot be an assumed-size array. If an actual 
+argument were an assumed-size array then the 
+bound / extent information of the last dimension would not be known meaning
+that 
+the relevant information could not be passed on to a further procedure.
+<P>
+</UL>
+<P>
+The third call is invalid because 
+the second section reference has one dimensions whereas the
+declaration of the dummy has two.
+<P>
+<HR><A NAME="tex2html1875" HREF="HTMLNotesnode142.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1873" HREF="HTMLNotesnode140.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1867" HREF="HTMLNotesnode140.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1877" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1876" HREF="HTMLNotesnode142.html">Automatic Arrays</A>
+<B>Up:</B> <A NAME="tex2html1874" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<B> Previous:</B> <A NAME="tex2html1868" HREF="HTMLNotesnode140.html">Procedures and Array Arguments</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

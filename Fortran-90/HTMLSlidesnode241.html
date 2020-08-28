@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Passing Array Sections</TITLE>
+<META NAME="description" CONTENT="Passing Array Sections">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3182" HREF="HTMLSlidesnode242.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3180" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3174" HREF="HTMLSlidesnode240.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3184" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3183" HREF="HTMLSlidesnode242.html">Array Arguments Example 1</A>
+<B>Up:</B> <A NAME="tex2html3181" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3175" HREF="HTMLSlidesnode240.html">Explicit Intent</A>
+<BR> <P>
+<H2><A NAME="SECTION020614000000000000000">Passing Array Sections</A></H2>
+<P>
+Without using <TT>INHERIT</TT>, this is very complex. Consider
+<P>
+<PRE>     REAL, DIMENSION(4,6) :: A, B
+     REAL, DIMENSION(2,3) :: Res
+!HPF$ PROCESSORS, DIMENSION(2,2) :: P
+!HPF$ ALIGN B(:,:)   WITH A(:,:)
+!HPF$ ALIGN Res(:,:) WITH A(::2,::2)
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P :: A, B, Res
+      ...
+      CALL Zubbie(A(1:2,1::2),B(3:4,2::2),Res)</PRE>
+<P>
+For descriptive distributions what should interface look like?
+<P>
+<UL><LI> cannot describe mapping using <TT>DISTRIBUTE</TT>,<LI> cannot simply describe relative alignment,<LI> must construct intermediate <TT>TEMPLATE</TT> in order to specify distribution.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode259.html#PassingArraySections1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3182" HREF="HTMLSlidesnode242.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3180" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3174" HREF="HTMLSlidesnode240.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3184" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3183" HREF="HTMLSlidesnode242.html">Array Arguments Example 1</A>
+<B>Up:</B> <A NAME="tex2html3181" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3175" HREF="HTMLSlidesnode240.html">Explicit Intent</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

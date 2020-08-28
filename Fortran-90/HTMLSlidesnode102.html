@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Subroutine Example</TITLE>
+<META NAME="description" CONTENT="Subroutine Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1410" HREF="HTMLSlidesnode103.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1408" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1402" HREF="HTMLSlidesnode101.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1412" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1411" HREF="HTMLSlidesnode103.html">External Subroutine Example</A>
+<B>Up:</B> <A NAME="tex2html1409" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1403" HREF="HTMLSlidesnode101.html">Subroutine Syntax</A>
+<BR> <P>
+<H2><A NAME="SECTION010157000000000000000">Subroutine Example</A></H2>
+<P>
+<UL><LI> A subroutine is invoked by a <TT>CALL</TT> statement as in:
+<P>
+<PRE>  CALL sub1(arg1,arg2,arg3)</PRE>
+<TT>arg1, arg2</TT> and <TT>arg3</TT> are <EM>actual arguments</EM>.<LI>
+<TT>a, b</TT> and <TT>c</TT> are <EM>dummy arguments</EM> and must match
+the actual arguments in type, rank, kind and number.
+<PRE>  SUBROUTINE sub1(a,b,c)
+   IMPLICIT NONE
+   REAL :: a, b, c, s
+     ...
+    CALL sum_sq(a,b,c,s)
+     ...
+  CONTAINS
+   SUBROUTINE sum_sq(aa,bb,cc,ss)
+    REAL, INTENT(IN) :: aa, bb, cc
+    REAL, INTENT(OUT) :: ss 
+     ss = aa*aa + bb*bb + cc*cc
+   END SUBROUTINE sum_sq
+  END SUBROUTINE sub1</PRE><LI> the above shows any external subroutine can invoke one of its own
+ internal procedures,<LI> external subroutines should be declared,
+<PRE>   EXTERNAL sub1</PRE>
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode126.html#Subroutine2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1410" HREF="HTMLSlidesnode103.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1408" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1402" HREF="HTMLSlidesnode101.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1412" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1411" HREF="HTMLSlidesnode103.html">External Subroutine Example</A>
+<B>Up:</B> <A NAME="tex2html1409" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1403" HREF="HTMLSlidesnode101.html">Subroutine Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

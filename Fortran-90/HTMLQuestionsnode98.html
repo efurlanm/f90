@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1200" HREF="HTMLQuestionsnode99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1198" HREF="HTMLQuestionsnode97.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1194" HREF="HTMLQuestionsnode97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1202" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1201" HREF="HTMLQuestionsnode99.html">Local Index Sets</A>
+<B>Up:</B> <A NAME="tex2html1199" HREF="HTMLQuestionsnode97.html">Run Gaussian Elimination 2D</A>
+<B> Previous:</B> <A NAME="tex2html1195" HREF="HTMLQuestionsnode97.html">Run Gaussian Elimination 2D</A>
+<BR> <P>
+<H3><A NAME="SECTION00074100000000000000">Solution</A></H3>
+marks 5 (1 for each line except processors declaration)
+<P>
+<PRE>   !HPF$ ALIGN START(:) WITH A(*,:)
+   !HPF$ ALIGN SWAP(:)  WITH A(*,:)
+   !HPF$ ALIGN Y(:)     WITH A(:,*)
+   !HPF$ ALIGN X(:)     WITH A(*,:)
+   !HPF$ PROCESSORS P(16,16) ! say
+   !HPF$ DISTRIBUTE A(CYCLIC,CYCLIC) ONTO P</PRE>
+<P>
+marks 18 (2 per line)
+<P>
+Assume here that scalars are replicated:
+<P>
+<UL><LI> <code>location_array = MAXLOC( ABS(A(i:n,i)) )</code> reduction
+operation (therefore communication between rows to establish where the
+largest element is) 
+and broadcast (to all processors) with <TT>MAXLOC</TT>, (assume <code>location_array</code> is
+replicated),<LI> verb+location = ..+ no communications as RHS and LHS are both
+replicated<LI> <TT>SWAP</TT> is replicated along dimension 1 so information must be
+braodcast between rows.<LI> broadcast of TEMP to all processors,<LI> <code>A(location,i:n) = A(i,i:n)</code> communication in first dimension
+of A<LI> <code>A(i,i:n) = SWAP(i:n}</code> no comms<LI> <code>Y(location) = Y(i)</code> gives a one element communication,<LI> <code>Y(i) = TEMP</code> no comms as TEMP is replicated.
+<P>
+</UL><HR><A NAME="tex2html1200" HREF="HTMLQuestionsnode99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1198" HREF="HTMLQuestionsnode97.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1194" HREF="HTMLQuestionsnode97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1202" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1201" HREF="HTMLQuestionsnode99.html">Local Index Sets</A>
+<B>Up:</B> <A NAME="tex2html1199" HREF="HTMLQuestionsnode97.html">Run Gaussian Elimination 2D</A>
+<B> Previous:</B> <A NAME="tex2html1195" HREF="HTMLQuestionsnode97.html">Run Gaussian Elimination 2D</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

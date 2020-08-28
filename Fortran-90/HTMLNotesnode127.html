@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>External Subroutine Example</TITLE>
+<META NAME="description" CONTENT="External Subroutine Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1708" HREF="HTMLNotesnode128.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1706" HREF="HTMLNotesnode125.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1702" HREF="HTMLNotesnode126.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1710" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1709" HREF="HTMLNotesnode128.html">Function Syntax</A>
+<B>Up:</B> <A NAME="tex2html1707" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1703" HREF="HTMLNotesnode126.html">Subroutine Example</A>
+<BR> <P>
+<A NAME="Subroutine3">&#160;</A><H4><A NAME="SECTION01041520000000000000">External Subroutine Example</A></H4>
+<P>
+An external procedure may invoke a further external procedure,
+<P>
+<PRE>  SUBROUTINE sub1(a,b,c)
+   IMPLICIT NONE
+   EXTERNAL sum_sq
+   REAL :: a, b, c, s
+     ...
+    CALL sum_sq(a,b,c,s)
+    ...
+  END SUBROUTINE sub1</PRE>
+<P>
+calls,
+<P>
+<PRE>  SUBROUTINE sum_sq(aa,bb,cc,ss)
+   IMPLICIT NONE
+    REAL, INTENT(IN) :: aa, bb, cc
+    REAL, INTENT(OUT) :: ss
+    ss = aa*aa + bb*bb + cc*cc
+  END SUBROUTINE sum_sq</PRE>
+<P>
+The principle is the same as for calling an internal procedure except
+that:
+<P>
+<OL><LI> whereas an internal procedure has access to the host's declarations
+(and so inherits, amongst other things,
+ the <TT>IMPLICIT</TT> <TT>NONE</TT>) external procedures do not. An
+<TT>IMPLICIT</TT> <TT>NONE</TT> is needed in every external procedure.<LI> the external procedure should be declared in an <TT>EXTERNAL</TT> 
+statement. (This is optional but is good practise.)
+</OL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode56.html#QProcSimpleSubroutine"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1708" HREF="HTMLNotesnode128.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1706" HREF="HTMLNotesnode125.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1702" HREF="HTMLNotesnode126.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1710" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1709" HREF="HTMLNotesnode128.html">Function Syntax</A>
+<B>Up:</B> <A NAME="tex2html1707" HREF="HTMLNotesnode125.html">Subroutine Syntax</A>
+<B> Previous:</B> <A NAME="tex2html1703" HREF="HTMLNotesnode126.html">Subroutine Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

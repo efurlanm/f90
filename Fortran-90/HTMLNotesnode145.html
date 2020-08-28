@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules - General Form</TITLE>
+<META NAME="description" CONTENT="Modules - General Form">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1929" HREF="HTMLNotesnode146.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1927" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1921" HREF="HTMLNotesnode144.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1931" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1930" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<B>Up:</B> <A NAME="tex2html1928" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1922" HREF="HTMLNotesnode144.html">Modules</A>
+<BR> <P>
+<A NAME="ModulesSyntax1">&#160;</A><H3><A NAME="SECTION01052100000000000000">Modules - General Form</A></H3>
+<P>
+The syntax of a module program unit is:
+<P>
+<PRE><TT> 
+<TT>MODULE</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;module name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+		   <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;declarations and specifications statements </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+  [ <TT>CONTAINS</TT>
+<P>
+		   <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;definitions of module procedures </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+<TT>END</TT> [ <TT>MODULE</TT> [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;module name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ] ]
+<P>
+</TT></PRE>
+<P>
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;module name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is the name that appears in the <TT>USE</TT> statement,
+it is <EM>not</EM> necessarily the same as the filename.
+<P>
+<P><A NAME="10464">&#160;</A> <IMG WIDTH=316 HEIGHT=612 ALIGN=BOTTOM ALT="figure10462" SRC="HTMLNotesimg57.gif"  > <BR>
+<STRONG>Figure 9:</STRONG> Schematic Diagram of a Module Program Unit<BR>
+<P>
+<P>
+Entities of other modules can be accessed by a <TT>USE</TT> 
+statement as the first statement in the
+specification part. This is called <EM>use-association</EM>.
+<P>
+Non-circular dependent definition chains are allowed
+(one module <TT>USE</TT> s another which <TT>USE</TT> s
+another and so on) providing a partial-inheritance mechanism.
+<P>
+A module may include the following declarations and specifications:
+<P>
+<UL><LI> <TT>USE</TT> statements (a module 
+inherit the environment of another module either
+fully or partially by using <TT>USE</TT> .. <TT>ONLY</TT> clause,)<LI> object definitions,  (any declarations and definitions
+ that could appear in a main program can also be found here),<LI> object initialisations,<LI> type definitions,<LI> accessibility statements (see Section <A HREF="#Accessibility"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A>),<LI> interface declarations (of external procedures);<LI> <TT>MODULE</TT> <TT>PROCEDURE</TT> declarations (procedures that appear
+after the <TT>CONTAINS</TT> specifier).
+Module procedures are written in exactly the same way as regular
+(external) procedures and may also contain internal procedures. They can
+be given visibility attributes so may be private to the module or usable
+by any program unit that employs the module.
+</UL>
+<P>
+<HR><A NAME="tex2html1929" HREF="HTMLNotesnode146.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1927" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1921" HREF="HTMLNotesnode144.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1931" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1930" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<B>Up:</B> <A NAME="tex2html1928" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1922" HREF="HTMLNotesnode144.html">Modules</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

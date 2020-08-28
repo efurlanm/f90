@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Explicit Intent</TITLE>
+<META NAME="description" CONTENT="Explicit Intent">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3332" HREF="HTMLNotesnode259.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3330" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3324" HREF="HTMLNotesnode257.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3334" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3333" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<B>Up:</B> <A NAME="tex2html3331" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3325" HREF="HTMLNotesnode257.html">Argument Remapping</A>
+<BR> <P>
+<A NAME="ArgumentRemapping2">&#160;</A><H3><A NAME="SECTION020411100000000000000">Explicit Intent</A></H3>
+<P>
+A general procedure call can generate <EM>two</EM>
+remappings per argument:
+<P>
+<UL><LI> on procedure entry,<LI> on procedure exit.
+</UL>
+<P>
+The previous  example was modified slightly to include the
+argument intents:
+<P>
+<PRE>  INTEGER, DIMENSION(512,512), INTENT(IN)  :: iarg1
+  INTEGER, DIMENSION(512,512), INTENT(OUT) :: iarg2</PRE>
+<P>
+The version which involves remapping is now able to
+execute in just over half of the time, the reason for this is that only
+one remapping per argument is required instead of two.
+<P>
+<TT>arg1</TT>, which has <TT>INTENT(IN)</TT> is only remapped on procedure
+entry.
+The compiler is able to make this optimisation by creating a <EM>copy</EM>
+of the actual argument, remapping this copy (leaving the original
+in-place) and then simply discarding this copy (which has not been
+modified) at the end of the
+procedure. If the intent is not specified then the compiler has to
+`play-it-safe' and cannot make this optimisation.
+<P>
+The purpose of this slide is to highlight just how important it is to
+specify the argument intent.
+<P>
+<HR><A NAME="tex2html3332" HREF="HTMLNotesnode259.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3330" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3324" HREF="HTMLNotesnode257.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3334" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3333" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<B>Up:</B> <A NAME="tex2html3331" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3325" HREF="HTMLNotesnode257.html">Argument Remapping</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

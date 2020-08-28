@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Inquiry Intrinsics</TITLE>
+<META NAME="description" CONTENT="Array Inquiry Intrinsics">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1114" HREF="HTMLSlidesnode78.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1112" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1106" HREF="HTMLSlidesnode76.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1116" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1115" HREF="HTMLSlidesnode78.html">Array Constructors</A>
+<B>Up:</B> <A NAME="tex2html1113" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1107" HREF="HTMLSlidesnode76.html">Array Sections - Visualisation</A>
+<BR> <P>
+<H2><A NAME="SECTION0101310000000000000000">Array Inquiry Intrinsics</A></H2>
+<P>
+These are often useful in procedures, consider the
+declaration:
+<PRE>    REAL, DIMENSION(-10:10,23,14:28) :: A</PRE>
+<UL><LI> <TT>LBOUND</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>]<TT>)</TT> -- lower bounds of an array (or
+bound in an optionally specified dimension).
+<P>
+<UL><LI> <TT>LBOUND</TT><TT>(A)</TT> is <TT>(/-10,1,14/)</TT> (array);<LI> <TT>LBOUND</TT><TT>(A,1)</TT> is <TT>-10</TT> (scalar).
+</UL><LI> <TT>UBOUND</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>]<TT>)</TT> -- upper bounds of an array (or
+bound in an optionally specified dimension).<LI> <TT>SHAPE</TT><TT>(</TT><TT>SOURCE</TT><TT>)</TT>     -- shape of an array,
+<P>
+<UL><LI> <TT>SHAPE</TT><TT>(A)</TT> is <TT>(/21,23,15/)</TT> (array);<LI> <TT>SHAPE</TT><TT>((/4/))</TT> is <TT>(/1/)</TT> (array).
+</UL><LI> <TT>SIZE</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>]<TT>)</TT>   -- total number of array elements
+(in an optionally specified dimension),
+<P>
+<UL><LI> <TT>SIZE</TT><TT>(A,1)</TT> is <TT>21</TT>;<LI> <TT>SIZE</TT><TT>(A)</TT> is <TT>7245</TT>.
+</UL><LI> <TT>ALLOCATED</TT><TT>(</TT><TT>SOURCE</TT><TT>)</TT>  -- array allocation status;
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode100.html#ArrayInquiryIntrinsics1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode35.html#QArrayInquireyIntrinsics"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1114" HREF="HTMLSlidesnode78.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1112" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1106" HREF="HTMLSlidesnode76.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1116" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1115" HREF="HTMLSlidesnode78.html">Array Constructors</A>
+<B>Up:</B> <A NAME="tex2html1113" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1107" HREF="HTMLSlidesnode76.html">Array Sections - Visualisation</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Forall Examples</TITLE>
+<META NAME="description" CONTENT="Forall Examples">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2779" HREF="HTMLSlidesnode207.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2777" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2771" HREF="HTMLSlidesnode205.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2781" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2780" HREF="HTMLSlidesnode207.html">Execution Process</A>
+<B>Up:</B> <A NAME="tex2html2778" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2772" HREF="HTMLSlidesnode205.html">Forall Statement</A>
+<BR> <P>
+<H2><A NAME="SECTION02043000000000000000">Forall Examples</A></H2>
+<P>
+<TT>FORALL</TT> is more versatile than array assignment:
+<P>
+<UL><LI> can access unusual sections, 
+<PRE>FORALL (i=1:n) A(i,i) = B(i)  ! diagonal
+DO j = 1, n 
+ FORALL (i=1:j) A(i,j) = B(i) ! triangular
+END DO</PRE><LI> can use indices in RHS expression,
+<P>
+<PRE>FORALL (i=1:n,j=1:n,i/=j) A(i,j) = REAL(i+j)</PRE><LI> can call <TT>PURE</TT>  procedures,
+<P>
+<PRE>FORALL (i=1:n:3,j=1:n:5) A(i,j) = SIN(A(j,i))</PRE><LI> can use indirection (vector subscripting),
+<P>
+<PRE>FORALL (i=1:n,j=1:n) A(VS(i),j) = i+VS(j)</PRE>
+<P>
+</UL>
+<P>
+The above are <EM>very difficult</EM> to express in Fortran&nbsp;90.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode228.html#ForallExamples1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2779" HREF="HTMLSlidesnode207.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2777" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2771" HREF="HTMLSlidesnode205.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2781" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2780" HREF="HTMLSlidesnode207.html">Execution Process</A>
+<B>Up:</B> <A NAME="tex2html2778" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2772" HREF="HTMLSlidesnode205.html">Forall Statement</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Gaussian Elimination - 2D Grid</TITLE>
+<META NAME="description" CONTENT="Gaussian Elimination - 2D Grid">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2595" HREF="HTMLSlidesnode192.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2593" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2587" HREF="HTMLSlidesnode190.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2597" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2596" HREF="HTMLSlidesnode192.html">Visualisation of 2D Gaussian </A>
+<B>Up:</B> <A NAME="tex2html2594" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2588" HREF="HTMLSlidesnode190.html">Replicating Dimensions</A>
+<BR> <P>
+<H2><A NAME="SECTION020338000000000000000">Gaussian Elimination - 2D Grid</A></H2>
+<P>
+Consider kernel:
+<PRE>     ...
+    DO j = i+1, n
+     A(j,i) = A(j,i)/Swap(i)
+     A(j,i+1:n) = A(j,i+1:n) - A(j,i)*Swap(i+1:n)
+     Y(j) = Y(j) - A(j,i)*Temp
+    END DO</PRE>
+<P>
+Want to minimise communications in loop:
+<P>
+<PRE>!HPF$ ALIGN Y(:) WITH A(:,*)      
+      ! Y aligned with each col of A
+!HPF$ ALIGN Swap(:) WITH A(*,:)   
+      ! Swap aligned with each row of A
+!HPF$ DISTRIBUTE A(CYCLIC,CYCLIC) ! onto default grid</PRE>
+<P>
+<TT>CYCLIC</TT> gives a good load balance.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode214.html#GaussianExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2595" HREF="HTMLSlidesnode192.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2593" HREF="HTMLSlidesnode153.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2587" HREF="HTMLSlidesnode190.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2597" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2596" HREF="HTMLSlidesnode192.html">Visualisation of 2D Gaussian </A>
+<B>Up:</B> <A NAME="tex2html2594" HREF="HTMLSlidesnode153.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2588" HREF="HTMLSlidesnode190.html">Replicating Dimensions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Mixed Type Assignment</TITLE>
+<META NAME="description" CONTENT="Mixed Type Assignment">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html907" HREF="HTMLSlidesnode61.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html905" HREF="HTMLSlidesnode58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html899" HREF="HTMLSlidesnode59.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html909" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html908" HREF="HTMLSlidesnode61.html">Integer Division</A>
+<B>Up:</B> <A NAME="tex2html906" HREF="HTMLSlidesnode58.html">Mixing Objects of Different </A>
+<B> Previous:</B> <A NAME="tex2html900" HREF="HTMLSlidesnode59.html">Mixed Type Numeric Expressions</A>
+<BR> <P>
+<H2><A NAME="SECTION010112000000000000000">Mixed Type Assignment</A></H2>
+<P>
+Problems often  occur with mixed-type arithmetic; the rules for type
+conversion are given below.
+<P>
+<UL><LI>   LHS <TT>INTEGER</TT>; RHS <TT>REAL</TT> or <TT>DOUBLE PRECISION</TT> -- the RHS is 
+evaluated, truncated (all the decimal places lopped off) then
+assigned to the LHS.<LI> LHS <TT>REAL</TT> or <TT>DOUBLE PRECISION</TT>; RHS <TT>INTEGER</TT> -- the RHS is coerced and stored 
+(approximately) in the LHS.
+</UL>
+<P>
+For example,
+<P>
+<PRE>    REAL a, b; INTEGER i, j
+    a = 3.0; b = 4.0
+    i = b - a
+    j = -0.9
+    a = j</PRE>
+<P>
+<UL><LI> 
+<TT>b - a</TT> would be around <TT>1.0</TT>; due to truncation
+<TT>i</TT> would be <TT>0</TT> or <TT>1</TT>.<LI> <TT>j</TT> would be truncated to <TT>0</TT>.<LI> <TT>a</TT> would be set to (about) <TT>0.000</TT>.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode84.html#MixedTypeAssignment1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html907" HREF="HTMLSlidesnode61.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html905" HREF="HTMLSlidesnode58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html899" HREF="HTMLSlidesnode59.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html909" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html908" HREF="HTMLSlidesnode61.html">Integer Division</A>
+<B>Up:</B> <A NAME="tex2html906" HREF="HTMLSlidesnode58.html">Mixing Objects of Different </A>
+<B> Previous:</B> <A NAME="tex2html900" HREF="HTMLSlidesnode59.html">Mixed Type Numeric Expressions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

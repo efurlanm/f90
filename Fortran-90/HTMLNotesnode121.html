@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedure Classes</TITLE>
+<META NAME="description" CONTENT="Procedure Classes">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1643" HREF="HTMLNotesnode122.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1641" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1635" HREF="HTMLNotesnode120.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1645" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1644" HREF="HTMLNotesnode122.html">Main Program Syntax</A>
+<B>Up:</B> <A NAME="tex2html1642" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1636" HREF="HTMLNotesnode120.html">Program Units</A>
+<BR> <P>
+<A NAME="ProcedureClasses1">&#160;</A><H3><A NAME="SECTION01041200000000000000">Procedure Classes</A></H3>
+<P>
+A Fortran&nbsp;90 program <EM>must</EM> contain a main program where execution begins, it
+could also contain other user-defined procedures which may be:
+<P>
+<UL><LI> <EM>external</EM> -- defined externally to the procedure which
+              calls them and which can be compiled separately.<LI> <EM>internal</EM> -- whose definition is contained within the procedure
+              or main program that calls them (called the <EM>host</EM>).<LI> <EM>module-procedures</EM> -- have some characteristics of both internal
+              and external procedures.
+</UL>
+<P>
+A complete program can be self-contained (that is only call internal procedures)
+or can make references to other program units (external procedures or
+module procedures).
+<P>
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 only had one type of procedure which is known in Fortran&nbsp;90 as an 
+<EM>external</EM> procedure
+(so called because an arbitrary program unit has no knowledge of the
+internal structure / argument types or sizes of another procedure).
+In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 
+procedures can be compiled separately and then linked with an other
+separately compiled F<font size=-1><small>ORTRAN</small></font>&nbsp;77 
+program unit at the time that the object code is generated. This method is very 
+flexible
+but does not lend itself towards efficient optimisation. There was no
+possibility of checking that the type of the corresponding dummy and actual 
+arguments match (a fact which was abused
+by people who used this shortfall to change the type of an object across 
+a procedure boundary)
+nor was there any possibility of checking that the size of an array is
+the same in the calling and called procedures. Arrays were passed by
+relying upon storage and sequence association and their bounds had to
+passed as actual arguments. This means that, in a
+procedure, an erroneously declared array (too large)
+may end up containing meaningless bits of other variables in its last
+few locations  or that dummy
+arguments following an incorrectly sized array (declared too small in
+the procedure) may end up holding rubbish which should have been 
+ the last few elements of the array. In short -- all sorts of
+mistakes can be made and never get spotted.
+<P>
+Fortran&nbsp;90 has addressed many of the above mentioned problems so
+procedures now look very different.
+<P>
+<HR><A NAME="tex2html1643" HREF="HTMLNotesnode122.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1641" HREF="HTMLNotesnode119.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1635" HREF="HTMLNotesnode120.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1645" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1644" HREF="HTMLNotesnode122.html">Main Program Syntax</A>
+<B>Up:</B> <A NAME="tex2html1642" HREF="HTMLNotesnode119.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1636" HREF="HTMLNotesnode120.html">Program Units</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

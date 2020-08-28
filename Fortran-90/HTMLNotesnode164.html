@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>TRANSFER Intrinsic</TITLE>
+<META NAME="description" CONTENT="TRANSFER Intrinsic">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2141" HREF="HTMLNotesnode165.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2139" HREF="HTMLNotesnode157.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2135" HREF="HTMLNotesnode163.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2143" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2142" HREF="HTMLNotesnode165.html">High Performance Fortran</A>
+<B>Up:</B> <A NAME="tex2html2140" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2136" HREF="HTMLNotesnode163.html">UNPACK Intrinsic</A>
+<BR> <P>
+<A NAME="TransferIntrinsic1">&#160;</A><H3><A NAME="SECTION01053300000000000000"><TT>TRANSFER</TT> Intrinsic</A></H3>
+<P>
+Most languages have a facility to change the type of an area of storage,
+in F<font size=-1><small>ORTRAN</small></font>&nbsp;77 people used <TT>EQUIVALENCE</TT>. Fortran&nbsp;90 adds a different facility.
+The <TT>TRANSFER</TT> intrinsic 
+converts (not coerces) a physical representation between data types; it is
+a retyping facility. The intrinsic takes the bit pattern of the underlying 
+representation  and interprets it as a different type.
+The intrinsic has the following syntax:
+<P>
+<PRE><TT> 
+<TT>TRANSFER</TT><TT>(</TT><TT>SOURCE</TT>,<TT>MOLD</TT><TT>)</TT>
+<P>
+</TT></PRE>
+where <TT>SOURCE</TT> is the object to be retyped and <TT>MOLD</TT> is an object 
+of the target type. For example, 
+<PRE>    REAL A(10), AA(10)
+    INTEGER B(20)
+    COMPLEX C(5)
+     ...
+    A  = TRANSFER(B, (/ 0.0 /))
+    AA = TRANSFER(B, 0.0)
+    C  = TRANSFER(B, (/ (0.0,0.0) /))
+     ...</PRE>
+<P>
+The same bit pattern is used for each variable type:
+<P>
+<P><A NAME="12072">&#160;</A> <IMG WIDTH=265 HEIGHT=170 ALIGN=BOTTOM ALT="figure12070" SRC="HTMLNotesimg82.gif"  > <BR>
+<STRONG>Figure:</STRONG> Visualisation of the <TT>TRANSFER</TT> Intrinsic<BR>
+<P>
+<P>
+the variable will take on the number defined by its bit pattern.
+<P>
+The above example highlights the following points:
+<P>
+<UL><LI> <TT>SOURCE</TT> can be array or scalar valued of any type,<LI> <TT>MOLD</TT>  can be array or scalar valued of any type and
+specifies the result type (which is the same shape as <TT>SOURCE</TT>),<LI>  in the example there is a big difference between 
+<TT>MOLD</TT> being array valued <TT>(/ 0.0 /)</TT> and scalar <TT>0.0</TT>
+<UL><LI> the result of <TT>TRANSFER(B, (/ 0.0 /))</TT> is an array, this is
+assigned element-by-element to <TT>A</TT><LI> the result of <TT>TRANSFER(B, 0.0)</TT> is a scalar, this scalar is
+assigned to every element of <TT>AA</TT>. (The first half of <TT>B(1)</TT> (4
+bytes) is interpreted as a <TT>REAL</TT> number.)
+</UL><LI> <TT>(/ (0.0,0.0) /)</TT> represents an array valued <TT>COMPLEX</TT> 
+variable.
+</UL>
+<P>
+<HR><A NAME="tex2html2141" HREF="HTMLNotesnode165.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2139" HREF="HTMLNotesnode157.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2135" HREF="HTMLNotesnode163.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2143" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2142" HREF="HTMLNotesnode165.html">High Performance Fortran</A>
+<B>Up:</B> <A NAME="tex2html2140" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2136" HREF="HTMLNotesnode163.html">UNPACK Intrinsic</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

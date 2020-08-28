@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Simple 2D Alignment Example</TITLE>
+<META NAME="description" CONTENT="Simple 2D Alignment Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2711" HREF="HTMLNotesnode207.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2709" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2703" HREF="HTMLNotesnode205.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2713" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2712" HREF="HTMLNotesnode207.html">Transposed Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2710" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2704" HREF="HTMLNotesnode205.html">Alignment Example</A>
+<BR> <P>
+<A NAME="AlignmentExample1">&#160;</A><H4><A NAME="SECTION02020320000000000000">Simple 2D Alignment Example</A></H4>
+<P>
+Given,
+<PRE>    REAL, DIMENSION(10,10) :: A, B
+!HPF$ ALIGN A(:,:) WITH B(:,:)</PRE>
+<P>
+This is much the same as the previous example except that we are
+aligning 2D arrays. Each array is aligned dimension by dimension. The
+net effect of this alignment is that <TT>A(i,j)</TT> and <TT>B(i,j)</TT>
+reside on the same processor.  Effectively, this says:  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline23732" SRC="HTMLNotesimg110.gif"  >  <TT>i, j</TT>, 
+elements <TT>A(i,j)</TT> and <TT>B(i,j)</TT> are local.
+<P>
+The following align statement is equivalent but does not imply shape
+conformance:
+<P>
+<PRE>!HPF$ ALIGN A(i,j) WITH B(i,j)</PRE>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode93.html#QLife"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<A NAME="AlignmentExample2">&#160;</A>
+<P>
+Figure <A HREF="HTMLNotesnode206.html#2DAlignmentVisualisationfig">26</A> is supposed to show how elements <TT>A(1,1)</TT> and
+<TT>B(1,1)</TT> are
+aligned with each other. Alignment between every element of the first
+row of <TT>A</TT> and the first row of <TT>B</TT> is shown.
+<P>
+<P><A NAME="13651">&#160;</A><A NAME="2DAlignmentVisualisationfig">&#160;</A> <IMG WIDTH=378 HEIGHT=416 ALIGN=BOTTOM ALT="figure13647" SRC="HTMLNotesimg112.gif"  > <BR>
+<STRONG>Figure 26:</STRONG> Visualisation of 2D Alignment<BR>
+<P>
+<P>
+The two shaded blobs are also aligned and are therefore resident on the
+same processor.
+<P>
+This alignment is suitable
+for,
+<P>
+<PRE> A = A + B + A*B ! all local</PRE>
+<P>
+<HR><A NAME="tex2html2711" HREF="HTMLNotesnode207.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2709" HREF="HTMLNotesnode204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2703" HREF="HTMLNotesnode205.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2713" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2712" HREF="HTMLNotesnode207.html">Transposed Alignment Example</A>
+<B>Up:</B> <A NAME="tex2html2710" HREF="HTMLNotesnode204.html">Alignment Syntax</A>
+<B> Previous:</B> <A NAME="tex2html2704" HREF="HTMLNotesnode205.html">Alignment Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

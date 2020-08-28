@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example of Mapping Inquiry Procedures</TITLE>
+<META NAME="description" CONTENT="Example of Mapping Inquiry Procedures">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3445" HREF="HTMLSlidesnode264.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3443" HREF="HTMLSlidesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3437" HREF="HTMLSlidesnode262.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3447" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3446" HREF="HTMLSlidesnode264.html">New HPF Reduction Functions</A>
+<B>Up:</B> <A NAME="tex2html3444" HREF="HTMLSlidesnode259.html">HPF Intrinsics and Library</A>
+<B> Previous:</B> <A NAME="tex2html3438" HREF="HTMLSlidesnode262.html">Mapping Inquiry Subroutines</A>
+<BR> <P>
+<H2><A NAME="SECTION02084000000000000000">Example of Mapping Inquiry Procedures</A></H2>
+<P>
+For example,
+<P>
+<PRE>REAL, DIMENSION(100,100)          :: A
+CHARACTER(LEN=9), DIMENSION(2)    :: DISTS
+INTEGER, DIMENSION(2)             :: BLK_SIZE, PSHAPE
+INTEGER                           :: PRANK
+!HPF$ PROCESSORS, DIMENSION(4)    :: P
+!HPF$ DISTRIBUTE (BLOCK,*) ONTO P :: A
+
+CALL HPF_DISTRIBUTION(A,AXIS_TYPE        = DISTS,   &amp;
+                        AXIS_INFO        = BLK_SIZE,&amp;
+                        PROCESSORS_RANK  = PRANK,   &amp;
+                        PROCESSORS_SHAPE = PSHAPE)</PRE>
+<P>
+Here <TT>DISTS</TT> is equal to <TT>(/'BLOCK','COLLAPSED'/)</TT>.
+<P>
+ <TT>BLK_SIZE(1)</TT> is equal to <TT>50</TT>.
+<TT>BLK_SIZE(2)</TT> is compiler dependent.
+<P>
+ <TT>PRANK</TT> is <TT>1</TT> and <TT>PSHAPE(1)</TT> is <TT>4</TT>. 
+<TT>PSHAPE(2)</TT> has not been assigned a value.
+<P>
+The other procedures follow a similar pattern.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode276.html#MappingInquiry2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3445" HREF="HTMLSlidesnode264.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3443" HREF="HTMLSlidesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3437" HREF="HTMLSlidesnode262.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3447" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3446" HREF="HTMLSlidesnode264.html">New HPF Reduction Functions</A>
+<B>Up:</B> <A NAME="tex2html3444" HREF="HTMLSlidesnode259.html">HPF Intrinsics and Library</A>
+<B> Previous:</B> <A NAME="tex2html3438" HREF="HTMLSlidesnode262.html">Mapping Inquiry Subroutines</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

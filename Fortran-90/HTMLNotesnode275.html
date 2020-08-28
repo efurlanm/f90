@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Mapping Inquiry Subroutines</TITLE>
+<META NAME="description" CONTENT="Mapping Inquiry Subroutines">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3549" HREF="HTMLNotesnode276.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3547" HREF="HTMLNotesnode274.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3541" HREF="HTMLNotesnode274.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3551" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3550" HREF="HTMLNotesnode276.html">Example of Mapping Inquiry </A>
+<B>Up:</B> <A NAME="tex2html3548" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<B> Previous:</B> <A NAME="tex2html3542" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<BR> <P>
+<A NAME="MappingInquiry1">&#160;</A><H3><A NAME="SECTION02053100000000000000">Mapping Inquiry Subroutines</A></H3>
+<P>
+There are three <TT>SUBROUTINE</TT> s in this class:
+<P>
+<UL><LI> <TT>HPF_ALIGNMENT</TT>,
+<P>
+Returns information about the alignment of an argument. It is possible
+to find out:  the
+upper and lower bounds and the stride that were used in the alignment;
+if
+and how
+the axes of the alignee and the align-target are permuted; whether any
+axes are reversed and the effect of any replication that may have 
+been specified.<LI> <TT>HPF_DISTRIBUTION</TT>,
+<P>
+Returns information about the distribution of an array or template
+argument. It is possible to find out:  the distribution method of each 
+axis; the
+block-size in each axis and the rank and shape of the grid that an array
+or template is distributed onto.<LI> <TT>HPF_TEMPLATE</TT>,
+<P>
+Returns information about the array or template to which an object is
+aligned. It is possible to find out: the rank of the align-target to
+which the
+argument is aligned; the upper and lower bounds of the align-target 
+to which the argument is aligned
+and the total number of objects aligned with the align-target.
+<P>
+</UL>
+<P>
+All above procedures must be supplied with an object name and
+up to 7 optional arguments of <TT>INTENT</TT><TT>(</TT><TT>OUT</TT><TT>)</TT> which return mapping
+information.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3552" HREF="HTMLNotesnode276.html#SECTION02053110000000000000">Example of Mapping Inquiry Procedures</A>
+</UL>
+<HR><A NAME="tex2html3549" HREF="HTMLNotesnode276.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3547" HREF="HTMLNotesnode274.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3541" HREF="HTMLNotesnode274.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3551" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3550" HREF="HTMLNotesnode276.html">Example of Mapping Inquiry </A>
+<B>Up:</B> <A NAME="tex2html3548" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<B> Previous:</B> <A NAME="tex2html3542" HREF="HTMLNotesnode274.html">HPF Library Module</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

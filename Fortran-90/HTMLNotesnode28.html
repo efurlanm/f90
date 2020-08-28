@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Object Oriented Programming</TITLE>
+<META NAME="description" CONTENT="Object Oriented Programming">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html494" HREF="HTMLNotesnode29.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html492" HREF="HTMLNotesnode2.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html486" HREF="HTMLNotesnode27.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html496" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html495" HREF="HTMLNotesnode29.html">Fortran&nbsp;90 's Object Oriented </A>
+<B>Up:</B> <A NAME="tex2html493" HREF="HTMLNotesnode2.html">OverviewObjects and Expressions</A>
+<B> Previous:</B> <A NAME="tex2html487" HREF="HTMLNotesnode27.html">ENTRY Statement</A>
+<BR> <P>
+<A NAME="ObjectOrientedFacilities1">&#160;</A><H2><A NAME="SECTION01014000000000000000">Object Oriented Programming</A></H2>
+<P>
+<A NAME="ObjectOrientedProgramming">&#160;</A>
+<P>
+In the last ten years Object Oriented Design and Object Oriented
+Programming has become increasingly popular; languages such as C++ and
+Eiffel have been hailed as the programming languages of the future, but
+how does Fortran&nbsp;90 compare?
+<P>
+Programming paradigms have evolved over the years. With each successive
+refinement of programming style have come improvements in readability,
+maintainability, reliability, testability, complexity, power, structure
+and reusability. The first computer programs were written in assembler
+languages and primitive languages such as (the original) Fortran which
+possessed only the single statement <TT>IF</TT> and <TT>GOTO</TT> statement to
+control the flow of
+execution; even procedures had to be simulated using a cunning
+combination of <TT>ASSIGN</TT> and <TT>GOTO</TT>. Clearly the
+directed graphs of these early programs resembled a bowl of spaghetti
+with a vast number of logical paths passing through the code in an
+unstructured fashion. Each path of a program represents a unique
+combination of predicates which (some argue) must all be tested in order
+to gain confidence that the program will function correctly. In
+[<A HREF="HTMLNotesnode306.html#Davis">4</A>] Davis presents some estimations of the possible number of
+paths through such an unstructured program: a 100 line program can have
+up to  <IMG WIDTH=28 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline21846" SRC="HTMLNotesimg4.gif"  >  possible paths.
+<P>
+The next phase of programming style introduced the concept of a
+<B>function</B>; code modules could be written and the program
+partitioned
+into logical (and to some extent) reusable blocks. This had the effect
+of reducing the complexity of the program (less paths) and improving the
+maintainability, readability and overall structure. A good example of an
+advanced functional language is F<font size=-1><small>ORTRAN</small></font>&nbsp;77. If the 100 line
+program of above could be split into four separate functions then the
+number of paths would be reduced to  <IMG WIDTH=23 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline21848" SRC="HTMLNotesimg5.gif"  > .
+<P>
+Functional programming forced the user to adopt better programming
+practises, however, there still existed many dimly lit back alleys where
+programmers can perform dirty tricks. In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 one of the <TT>COMMON</TT> block
+is one classic example. Due to the absence of high level data structures
+(see next paragraph) users were often reluctant to supply seemingly
+endless
+lists of objects as arguments to functions; it was much easier to hide
+things `behind-the-scenes' in a <TT>COMMON</TT> block which allows contiguous
+areas of memory to be available to procedures. In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 it is also  easy
+to
+inadvertently retype parts of the memory leading to all sort of
+problems. For example, the following program was supplied to the
+Sun <TT>f77</TT> compiler which generated one warning:
+<P>
+<PRE>       PROGRAM DUFFER
+       DOUBLE PRECISION INIT
+       COMMON /GOOF/ INIT, A, B
+       CALL WHOOPS()
+       PRINT*, &quot;INIT=&quot;, INIT, &quot;A=&quot;, A, &quot;B=&quot;, B
+       END
+       SUBROUTINE WHOOPS()
+       COMMON /GOOF/ INIT, A, B
+       INIT = 3
+       A = 4
+       B = 5
+       END</PRE>
+<P>
+the following output was generated:
+<P>
+<PRE>    INIT=    6.9006308436664-314A=    5.00000B=  0.</PRE>
+<P>
+With the introduction of Algol the concept of <B>
+structured programming</B> was born; chaotic jumps around the code were
+replaced by compact and succinct blocks with a rigidly defined
+structure.
+Examples of such structures are loops and if blocks. Data was also
+allowed
+to be structured through the use of pointers and structures. Both these
+features allowed for greater modularity, clarity and more compact code.
+F<font size=-1><small>ORTRAN</small></font>&nbsp;77 missed the boat with regards to structured data, however, Fortran&nbsp;90 has
+corrected this oversight. With this new structure applied, our 100 line
+program will now have a maximum of  <IMG WIDTH=18 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline21850" SRC="HTMLNotesimg6.gif"  >  paths.
+<P>
+The latest and most fashionable programming paradigm is <B>
+object-oriented programming</B>. This style of programming promotes
+software
+reusability, modularity and precludes certain error conditions by packaging
+together type definitions and procedures for the manipulation of objects
+of that type. Fortran&nbsp;90 does not have such an extensive range of
+object-oriented capabilities as, say, C++ but is comparable to
+(original) ADA and provides enough to be of great use to the programmer.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html497" HREF="HTMLNotesnode29.html#SECTION01014100000000000000">Fortran&nbsp;90 's Object Oriented Facilities</A>
+<UL> 
+<LI> <A NAME="tex2html498" HREF="HTMLNotesnode30.html#SECTION01014110000000000000">Data Abstraction</A>
+<LI> <A NAME="tex2html499" HREF="HTMLNotesnode31.html#SECTION01014120000000000000">Data Hiding</A>
+<LI> <A NAME="tex2html500" HREF="HTMLNotesnode32.html#SECTION01014130000000000000">Encapsulation</A>
+<LI> <A NAME="tex2html501" HREF="HTMLNotesnode33.html#SECTION01014140000000000000">Inheritance and Extensibility</A>
+<LI> <A NAME="tex2html502" HREF="HTMLNotesnode34.html#SECTION01014150000000000000">Polymorphism</A>
+<LI> <A NAME="tex2html503" HREF="HTMLNotesnode35.html#SECTION01014160000000000000">Reusability</A>
+</UL> 
+<LI> <A NAME="tex2html504" HREF="HTMLNotesnode36.html#SECTION01014200000000000000">Comparisons with C++</A>
+</UL>
+<HR><A NAME="tex2html494" HREF="HTMLNotesnode29.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html492" HREF="HTMLNotesnode2.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html486" HREF="HTMLNotesnode27.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html496" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html495" HREF="HTMLNotesnode29.html">Fortran&nbsp;90 's Object Oriented </A>
+<B>Up:</B> <A NAME="tex2html493" HREF="HTMLNotesnode2.html">OverviewObjects and Expressions</A>
+<B> Previous:</B> <A NAME="tex2html487" HREF="HTMLNotesnode27.html">ENTRY Statement</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

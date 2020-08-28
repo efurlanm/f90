@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>READ Statement</TITLE>
+<META NAME="description" CONTENT="READ Statement">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1130" HREF="HTMLNotesnode82.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1128" HREF="HTMLNotesnode79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1124" HREF="HTMLNotesnode80.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1132" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1131" HREF="HTMLNotesnode82.html">Mixing Objects of Different </A>
+<B>Up:</B> <A NAME="tex2html1129" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<B> Previous:</B> <A NAME="tex2html1125" HREF="HTMLNotesnode80.html">PRINT Statement</A>
+<BR> <P>
+<A NAME="SimpleScalarIO3">&#160;</A><H3><A NAME="SECTION01022200000000000000"><TT>READ</TT> Statement</A></H3>
+<P>
+This is the simplest form of reading unformatted data from the standard
+input channel, for example, if the type declarations are the same as for
+the <TT>PRINT</TT> example,
+<P>
+<PRE>    READ*, long_name
+    READ*, x, y, z
+    READ*, lacigol</PRE>
+<P>
+would read the following input from the keyboard
+<PRE>    Llanphairphwyll...gogogoch
+    0.4 5. 1.0e12
+    T</PRE>
+Note,
+<UL><LI> each <TT>READ</TT> statement reads from a newline;<LI> the <TT>READ</TT> statement can transfer any object of
+intrinsic type from the standard input;
+<P>
+</UL>
+<P>
+The <TT>*</TT> format specifier the <TT>READ</TT> statement is comparable
+to the functionality of <TT>PRINT</TT>, in other words, unformatted data is read. (Actually
+this is not strictly true formatted data can be read but
+the format cannot be specified!) As long as each entity to be read in is
+blank separated the <TT>READ</TT> statement simply works through its `argument'
+list. Each <TT>READ</TT> statement begins a new line so if there are less
+arguments to the read statement than there are entries on a line the
+extra items  will be ignored.
+<P>
+<HR><A NAME="tex2html1130" HREF="HTMLNotesnode82.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1128" HREF="HTMLNotesnode79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1124" HREF="HTMLNotesnode80.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1132" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1131" HREF="HTMLNotesnode82.html">Mixing Objects of Different </A>
+<B>Up:</B> <A NAME="tex2html1129" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<B> Previous:</B> <A NAME="tex2html1125" HREF="HTMLNotesnode80.html">PRINT Statement</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

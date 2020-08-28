@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>HPF and Data Parallelism</TITLE>
+<META NAME="description" CONTENT="HPF and Data Parallelism">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2365" HREF="HTMLNotesnode178.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2363" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2357" HREF="HTMLNotesnode176.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2367" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2366" HREF="HTMLNotesnode178.html">Subset HPF</A>
+<B>Up:</B> <A NAME="tex2html2364" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2358" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<BR> <P>
+<A NAME="WhatIsHPF1">&#160;</A><H3><A NAME="SECTION02013100000000000000">HPF and Data Parallelism</A></H3>
+<P>
+In an HPF program we:
+<P>
+<UL><LI> define conceptual processor grids,<LI> distribute data onto processors,<LI> perform calculations,
+</UL>
+<P>
+The conceptual processor grids do not have to bear any relation to the
+underlying physical processor configurations -- these are merely the
+way in which the HPF program views the system.
+<P>
+Each of the executable mechanisms in the following list specify some form of
+parallelism. The compiler will spot when constructs such as these are
+being used and can the parallelise the code at this point:
+<P>
+<UL><LI> Fortran&nbsp;90 contains array syntax and intrinsics to express parallelism<LI> <TT>FORALL</TT> is a generalised array assignment statement (and is in
+Fortran&nbsp;95)<LI> <TT>INDEPENDENT</TT> loops are <TT>DO</TT> loops which have the property that
+the
+order in which the iterations are executed is unimportant. This means
+that they can  all be executed at the same time.<LI> <TT>PURE</TT> procedures are `side-effect free' procedures. They can be
+called in the body of  <TT>FORALL</TT> and it is clear that one instance of a
+<TT>PURE</TT> procedure will not interfere with another.<LI> <TT>EXTRINSIC</TT> s are procedures written in a different language (ie
+non-HPF)<LI> The HPF Library module and the new intrinsics are comparable to
+the Fortran&nbsp;90 intrinsics.
+<P>
+</UL>
+<P>
+<HR><A NAME="tex2html2365" HREF="HTMLNotesnode178.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2363" HREF="HTMLNotesnode176.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2357" HREF="HTMLNotesnode176.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2367" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2366" HREF="HTMLNotesnode178.html">Subset HPF</A>
+<B>Up:</B> <A NAME="tex2html2364" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<B> Previous:</B> <A NAME="tex2html2358" HREF="HTMLNotesnode176.html">Data Distribution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

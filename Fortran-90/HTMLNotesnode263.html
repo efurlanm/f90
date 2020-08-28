@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Scalar Arguments</TITLE>
+<META NAME="description" CONTENT="Scalar Arguments">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3387" HREF="HTMLNotesnode264.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3385" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3379" HREF="HTMLNotesnode262.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3389" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3388" HREF="HTMLNotesnode264.html">Processors Problem</A>
+<B>Up:</B> <A NAME="tex2html3386" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3380" HREF="HTMLNotesnode262.html">Collapsing Dimensions</A>
+<BR> <P>
+<A NAME="PassingArraySections5">&#160;</A><H3><A NAME="SECTION020411400000000000000">Scalar Arguments</A></H3>
+<P>
+This example demonstrates what happens if a single array item is used as
+an actual argument. Consider,
+<P>
+<PRE>    REAL, DIMENSION(100,100)    :: A, B
+    REAL                        :: z
+!HPF$ DISTRIBUTE (BLOCK,BLOCK)  :: A, B
+    INTERFACE
+     SUBROUTINE Schmubbie(r,t,X)
+      REAL, INTENT(OUT)         :: r
+      REAL, INTENT(IN)          :: t
+      REAL, INTENT(IN)          :: X(:,:)
+!HPF$ DISTRIBUTE *(BLOCK,BLOCK) :: X
+     END SUBROUTINE Schmubbie
+    END INTERFACE
+     ...
+    CALL Schmubbie(A(1,1),z,B)</PRE>
+<P>
+The subroutine <TT>Schmubbie</TT> is expecting three dummy
+arguments, two scalars followed by an array. Taking the actual arguments
+in order, <TT>A(1,1)</TT> is one element of a distributed object, in this
+case it will be mapped onto processor <TT>P(1,1)</TT>, the procedure
+specifies no mapping for the corresponding scalar dummy argument, this
+generally means that the argument should be replicated. This  means that
+the
+value of <TT>A(1,1)</TT> must be broadcast to <EM>every</EM> processor.
+<P>
+The second actual argument is a scalar so will already be replicated,
+the
+corresponding dummy is also scalar so will also be replicated. This will
+clearly involve no remapping.
+<P>
+The third argument is a distributed array
+which will remain distributed and again will cause no remapping.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode119.html#QProcedureMistake"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html3387" HREF="HTMLNotesnode264.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3385" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3379" HREF="HTMLNotesnode262.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3389" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3388" HREF="HTMLNotesnode264.html">Processors Problem</A>
+<B>Up:</B> <A NAME="tex2html3386" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3380" HREF="HTMLNotesnode262.html">Collapsing Dimensions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

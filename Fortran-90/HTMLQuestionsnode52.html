@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html677" HREF="HTMLQuestionsnode53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html675" HREF="HTMLQuestionsnode51.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html671" HREF="HTMLQuestionsnode51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html679" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html678" HREF="HTMLQuestionsnode53.html">Procedures</A>
+<B>Up:</B> <A NAME="tex2html676" HREF="HTMLQuestionsnode51.html">Travelling Salesman Problem</A>
+<B> Previous:</B> <A NAME="tex2html672" HREF="HTMLQuestionsnode51.html">Travelling Salesman Problem</A>
+<BR> <P>
+<H3><A NAME="SECTION000314100000000000000">Solution</A></H3>
+The program uses nested loops to investigate all possible permutations
+which do not have repeated visits.
+<PRE>  PROGRAM TravSaley
+   IMPLICIT NONE
+   INTEGER :: I,J,K,L,M
+   INTEGER :: dist_travelled, min_dist=HUGE(0)
+   INTEGER, PARAMETER :: n_towns=5
+   INTEGER, DIMENSION(6) :: route
+   CHARACTER, DIMENSION(5) :: towns = (/'A','B','C','D','E'/)  
+   INTEGER, DIMENSION(n_towns,n_towns) :: dist= &amp;
+   RESHAPE( &amp;
+     (/  0,120,180,202,300, &amp;
+       120,  0,175,340,404, &amp;
+       180,175,  0, 98, 56, &amp;
+       202,340, 98,  0,168, &amp;
+       300,404, 56,168,  0 /), (/5,5/) )
+ LI:  DO I = 1, n_towns
+ LJ:    DO J = 1, n_towns
+          IF (J==I) CYCLE
+ LK:      DO K = 1, n_towns
+            IF (K==J .OR. K==I) CYCLE
+ LL:        DO L = 1, n_towns
+              IF (L==J .OR. L==K .OR. L==I ) CYCLE
+ LM:          DO M = 1, n_towns
+                IF (M==L .OR. M==K .OR. M==J .OR. M==I) CYCLE
+                dist_travelled = dist(I,J) + dist(J,K) + dist(K,L) + &amp;
+                                 dist(L,M) + dist(M,I)
+                IF (dist_travelled &lt; min_dist) THEN
+                  min_dist = dist_travelled
+                  route(1) = I
+                  route(2) = J   
+                  route(3) = K
+                  route(4) = L
+                  route(5) = M
+                  route(6) = I   
+                END IF
+            END DO LM
+          END DO LL
+        END DO LK
+      END DO LJ
+    END DO LI 
+    PRINT*,'Shortest route travelled is :'
+    DO I=1,n_towns+1
+      PRINT*,towns(route(I))
+    END DO
+    PRINT*,'Distance travelled = ',min_dist
+  END PROGRAM TravSaley</PRE>
+<P>
+<HR><A NAME="tex2html677" HREF="HTMLQuestionsnode53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html675" HREF="HTMLQuestionsnode51.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html671" HREF="HTMLQuestionsnode51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html679" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html678" HREF="HTMLQuestionsnode53.html">Procedures</A>
+<B>Up:</B> <A NAME="tex2html676" HREF="HTMLQuestionsnode51.html">Travelling Salesman Problem</A>
+<B> Previous:</B> <A NAME="tex2html672" HREF="HTMLQuestionsnode51.html">Travelling Salesman Problem</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

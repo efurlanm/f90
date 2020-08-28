@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1617" HREF="HTMLQuestionsnode136.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1615" HREF="HTMLQuestionsnode134.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1611" HREF="HTMLQuestionsnode134.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1619" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1618" HREF="HTMLQuestionsnode136.html">HPF Library</A>
+<B>Up:</B> <A NAME="tex2html1616" HREF="HTMLQuestionsnode134.html">Golf - HPF Intrinsics  </A>
+<B> Previous:</B> <A NAME="tex2html1612" HREF="HTMLQuestionsnode134.html">Golf - HPF Intrinsics  </A>
+<BR> <P>
+<H3><A NAME="SECTION000103100000000000000">Solution</A></H3>
+10 marks in total.
+<P>
+<UL><LI> 2 marks for running total<LI> 2 marks for running total of first and second set of nine holes<LI> 2 marks for running total of per 3, 4 and 5 holes<LI> 2 marks for birdie thingy<LI> 2 marks for distribution and rest of program
+</UL>
+<P>
+<PRE>      PROGRAM golf
+
+! Include HPF library
+!
+      USE hpf_library
+
+      IMPLICIT NONE
+
+      INTEGER, PARAMETER :: nhole=18
+
+! Declare arrays
+!
+      INTEGER, DIMENSION(nhole) :: score,par,rtot,rsplit,
+     &amp;                             rtot3,rtot4,rtot5,birdie
+      LOGICAL, DIMENSION(nhole) :: smask,mask
+
+! Distribute arrays
+!
+!HPF$ DISTRIBUTE (BLOCK) :: score
+!HPF$ ALIGN WITH score :: par, rtot, rsplit, smask, mask, rtot3
+!HPF$ ALIGN WITH score :: rtot4, rtot5, birdie
+
+! Set up score and par
+!
+      DATA score/5,3,4,4,4,2,3,5,6,2,5,4,3,4,4,4,7,3/,
+     &amp;       par/4,4,4,4,4,4,3,4,4,4,3,4,3,5,3,4,5,4/
+      INTEGER i
+
+! Initializations
+!
+      rtot3 = 0
+      rtot4 = 0
+      rtot5 = 0
+      birdie = 0
+
+!.... 1) Find running total
+!
+      rtot = SUM_PREFIX(score)
+
+!.... 2) Find running total per 9 holes
+!
+      FORALL (i=1:nhole) smask(i) = i.GT.9
+      rsplit = SUM_PREFIX(score, segment=smask)
+
+!.... 3) Find running total for par 3, 4 and 5 holes
+!
+      mask = (par.EQ.3)
+      WHERE(mask)
+     &amp;  rtot3 = SUM_PREFIX(score, mask=mask)
+      mask = (par.EQ.4)
+      WHERE(mask)
+     &amp;  rtot4 = SUM_PREFIX(score, mask=mask)
+      mask = (par.EQ.5)
+      WHERE(mask)
+     &amp;  rtot5 = SUM_PREFIX(score, mask=mask)
+
+!.... 4) Enumerate holes where a birdie was scored
+
+      mask = (score.EQ.(par - 1))
+      WHERE (mask)
+        birdie = 1  ! Use also as the source array
+        birdie = SUM_PREFIX(birdie, mask=mask)
+       END WHERE
+
+      WRITE (*,10) par, score, rtot, rsplit,
+     &amp;             rtot3, rtot4, rtot5, birdie
+
+ 10   FORMAT(//
+     &amp; tr15,' Golf statistics using Scan routines'/
+     &amp; tr1,65('-')/
+     &amp; '     par: ',18I3/
+     &amp; '   score: ',18I3//
+     &amp; '    rtot: ',18I3/
+     &amp; '  sprtot: ',18I3/
+     &amp; '   rtot3: ',18I3/
+     &amp; '   rtot4: ',18I3/
+     &amp; '   rtot5: ',18I3/
+     &amp; '  birdie: ',18I3/)
+
+      END</PRE>
+<P>
+<HR><A NAME="tex2html1617" HREF="HTMLQuestionsnode136.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1615" HREF="HTMLQuestionsnode134.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1611" HREF="HTMLQuestionsnode134.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1619" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1618" HREF="HTMLQuestionsnode136.html">HPF Library</A>
+<B>Up:</B> <A NAME="tex2html1616" HREF="HTMLQuestionsnode134.html">Golf - HPF Intrinsics  </A>
+<B> Previous:</B> <A NAME="tex2html1612" HREF="HTMLQuestionsnode134.html">Golf - HPF Intrinsics  </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

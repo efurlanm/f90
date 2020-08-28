@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Extrinsic simulates an INDEPENDENT Loop</TITLE>
+<META NAME="description" CONTENT="Extrinsic simulates an INDEPENDENT Loop">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1586" HREF="HTMLQuestionsnode133.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1584" HREF="HTMLQuestionsnode129.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1578" HREF="HTMLQuestionsnode131.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1588" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1587" HREF="HTMLQuestionsnode133.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1585" HREF="HTMLQuestionsnode129.html">Extrinsics and HPF Library</A>
+<B> Previous:</B> <A NAME="tex2html1579" HREF="HTMLQuestionsnode131.html">Solution</A>
+<BR> <P>
+<A NAME="QIndependentLoopExtrinsics">&#160;</A><H2><A NAME="SECTION000102000000000000000">Extrinsic simulates an <TT>INDEPENDENT</TT> Loop</A></H2>
+<P>
+Consider the following code fragment / loop:
+<P>
+<PRE>      INTEGER                           :: i, n
+      REAL, DIMENSION(:,:), ALLOCATABLE :: A, B, C
+!HPF$ PROCESSORS, DIMENSION(10,10)      :: P
+!HPF$ ALIGN (:,:) WITH A(:,:)           :: B, C
+!HPF$ DISTRIBUTE (CYCLIC,CYCLIC) ONTO P :: A
+!
+! ... C, B, A and N set up somehow
+!
+ !HPF$ INDEPENDENT, NEW(i)
+ DO j = LBOUND(A,1),UBOUND(A,1),1
+  DO i = LBOUND(A,2),UBOUND(A,2),1
+   IF (ABS(A(i,j)) .GE. 0.01) THEN
+    A(i,j) = (B(i,j)*C(i,j)*n)/A(i,j)
+   ENDIF
+  END DO
+ END DO</PRE>
+<P>
+Since <TT>INDEPENDENT</TT> is rarely implemented, recode the loop 
+as a call to a  Fortran&nbsp;90 extrinsic procedure (<TT>F90_LOCAL</TT>)
+ in order to exploit parallelism.
+<P>
+State the interface as it would appear in the HPF calling program.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1589" HREF="HTMLQuestionsnode133.html#SECTION000102100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1586" HREF="HTMLQuestionsnode133.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1584" HREF="HTMLQuestionsnode129.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1578" HREF="HTMLQuestionsnode131.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1588" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1587" HREF="HTMLQuestionsnode133.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1585" HREF="HTMLQuestionsnode129.html">Extrinsics and HPF Library</A>
+<B> Previous:</B> <A NAME="tex2html1579" HREF="HTMLQuestionsnode131.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

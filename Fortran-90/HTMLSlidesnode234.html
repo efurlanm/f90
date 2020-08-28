@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Templates and Modules</TITLE>
+<META NAME="description" CONTENT="Templates and Modules">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3105" HREF="HTMLSlidesnode235.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3103" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3097" HREF="HTMLSlidesnode233.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3107" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3106" HREF="HTMLSlidesnode235.html">Problems with Modules</A>
+<B>Up:</B> <A NAME="tex2html3104" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3098" HREF="HTMLSlidesnode233.html">Consequences</A>
+<BR> <P>
+<H2><A NAME="SECTION02067000000000000000">Templates and Modules</A></H2>
+<P>
+Modules are now supported by most compilers. Should make <TT>TEMPLATE</TT> s,
+<TT>PROCESSORS</TT> <EM>and</EM> <TT>DISTRIBUTE</TT> statements global:
+<P>
+<PRE> MODULE Global_Mapping_Info
+  !HPF$ PROCESSORS, DIMENSION(2,2)      :: P
+  !HPF$ TEMPLATE, DIMENSION(4,6)        :: T
+  !HPF$ DISTRIBUTE (BLOCK,BLOCK) ONTO P :: T
+ END MODULE Global_Mapping_Info</PRE>
+<P>
+Makes things easier,
+<P>
+<PRE>    SUBROUTINE Subby(A,B,RES)
+     USE Global_Mapping_Info
+     IMPLICIT NONE
+     REAL, DIMENSION(:,:), INTENT(IN) :: A, B
+     REAL, DIMENSION(:,:), INTENT(OUT) :: RES
+!HPF$ ALIGN WITH *T :: A, B, RES
+       ...
+    END SUBROUTINE Subby</PRE>
+<P>
+Note: not for <TT>PURE</TT> procedures.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode253.html#ModulesAndMapping1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode124.html#QModulesTemplatesProblems"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3105" HREF="HTMLSlidesnode235.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3103" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3097" HREF="HTMLSlidesnode233.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3107" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3106" HREF="HTMLSlidesnode235.html">Problems with Modules</A>
+<B>Up:</B> <A NAME="tex2html3104" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3098" HREF="HTMLSlidesnode233.html">Consequences</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>SELECT CASE Construct</TITLE>
+<META NAME="description" CONTENT="SELECT CASE Construct">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1087" HREF="HTMLNotesnode78.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1085" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1081" HREF="HTMLNotesnode76.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1089" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1088" HREF="HTMLNotesnode78.html">Example Of SELECT CASE </A>
+<B>Up:</B> <A NAME="tex2html1086" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1082" HREF="HTMLNotesnode76.html">Scope of DO Variables</A>
+<BR> <P>
+<A NAME="SelectCase1">&#160;</A><H3><A NAME="SECTION01021900000000000000"><TT>SELECT</TT> <TT>CASE</TT> Construct</A></H3>
+<P>
+This is a useful control construct if one of several paths through an
+algorithm must be chosen based on the value of a particular expression.
+<TT>SELECT</TT> <TT>CASE</TT> is more efficient than <TT>ELSE</TT><TT>IF</TT> because there is only
+one expression
+that controls the branching. The expression needs to be evaluated once
+and then control transferred to whichever branch corresponds to the
+expressions value. An <TT>IF</TT> .. <TT>ELSE</TT><TT>IF</TT> ... has the potential to have a
+different expression to evaluate at each branch point making it less
+efficient.
+<P>
+The syntax is as follows,
+<P>
+<PRE><TT> 
+ [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > <code>:</code> ] <TT>SELECT</TT> <TT>CASE</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-expr </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > 
+<P>
+		 [ <TT>CASE</TT>  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+		 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;exec-stmts </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ] ...
+<P>
+		 [ <TT>CASE</TT> <TT>DEFAULT</TT> [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+		 		  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;exec-stmts </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+<TT>END</TT> <TT>SELECT</TT>  [  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;name </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+</TT></PRE>
+<P>
+Note,
+<UL><LI>
+the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-expr </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  must be scalar and <TT>INTEGER</TT>, <TT>LOGICAL</TT> or <TT>CHARACTER</TT> 
+valued;<LI>  there may be any number of general <TT>CASE</TT> statements but only 
+one <TT>CASE</TT> <TT>DEFAULT</TT> branch;<LI>  the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  must  be a parenthesised single value or
+a range (section with a stride of one), for example, <TT>(.TRUE.)</TT> or
+<TT>(99:101)</TT>. A range specifier is a lower and upper limit separated by
+a single
+colon. One or other of the bounds is optional giving an open ended range
+specifier.<LI> the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-expr </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is evaluated and compared with the
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > s in turn to see which branch to take.<LI> if no branches are chosen then the <TT>CASE</TT> <TT>DEFAULT</TT> is executed
+(if present).<LI> when the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;exec-stmts </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  in the selected branch
+have been executed, control jumps out of
+the <TT>CASE</TT> construct (via the <TT>END</TT> <TT>SELECT</TT> statement).<LI> as with other similar structures it is not possible to jump into
+a <TT>CASE</TT> construct.
+<P>
+</UL>
+<P>
+<TT>CASE</TT> constructs may be named -- if the header is named then so
+must be the <TT>END</TT> <TT>SELECT</TT> statement. If any of the <TT>CASE</TT> branches are
+named then so must be the <TT>SELECT</TT> statement and the <TT>END</TT> statement
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1090" HREF="HTMLNotesnode78.html#SECTION01021910000000000000">Example Of <TT>SELECT</TT> <TT>CASE</TT> Construct</A>
+</UL>
+<HR><A NAME="tex2html1087" HREF="HTMLNotesnode78.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1085" HREF="HTMLNotesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1081" HREF="HTMLNotesnode76.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1089" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1088" HREF="HTMLNotesnode78.html">Example Of SELECT CASE </A>
+<B>Up:</B> <A NAME="tex2html1086" HREF="HTMLNotesnode67.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html1082" HREF="HTMLNotesnode76.html">Scope of DO Variables</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Numeric and Logical Declarations</TITLE>
+<META NAME="description" CONTENT="Numeric and Logical Declarations">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html768" HREF="HTMLNotesnode52.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html766" HREF="HTMLNotesnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html760" HREF="HTMLNotesnode50.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html770" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html769" HREF="HTMLNotesnode52.html">Character Declarations</A>
+<B>Up:</B> <A NAME="tex2html767" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html761" HREF="HTMLNotesnode50.html">Implicit Typing</A>
+<BR> <P>
+<A NAME="NumericLogicalDeclarations1">&#160;</A><H3><A NAME="SECTION01017400000000000000">Numeric and Logical Declarations</A></H3>
+<P>
+<A NAME="NumericAndLogicalDeclarations">&#160;</A>
+<P>
+Variables of a given type should be declared in type declaration
+statements
+at the start of a program unit. A simplified syntax follows,
+<P>
+<PRE><TT> 
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;type </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  [<code>,</code> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;attribute</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ] [<code>:</code><code>:</code> ] 
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;variable</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  [ <TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;value </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  ]
+<P>
+</TT></PRE>
+<P>
+If  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;attribute</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  or <TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;value </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  are present then so must be <code>:</code><code>:</code>.
+<P>
+The following are all valid declarations,
+<PRE>    REAL x
+    INTEGER :: i,j
+    LOGICAL, POINTER :: ptr
+    REAL, DIMENSION(10,10) :: y, z(10)
+    DOUBLE PRECISION, DIMENSION(0:9,0:9) :: x</PRE>
+<P>
+The <TT>DIMENSION</TT> attribute declares a  <IMG WIDTH=42 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline21898" SRC="HTMLNotesimg10.gif"  >  array, this can be overridden as with <TT>z</TT> which is
+declared as a 1D array with 10 elements.
+<P>
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;attribute</EM>-list  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  represents a list of attributes such as
+ <TT>PARAMETER</TT>, <TT>SAVE</TT>, <TT>INTENT</TT>, <TT>POINTER</TT>, <TT>TARGET</TT>,
+<TT>DIMENSION</TT>, (for arrays) or visibility attributes.
+An object may be given more than one attribute per declaration but
+some cannot be mixed (such as <TT>PARAMETER</TT> and <TT>POINTER</TT>).
+<P>
+<HR><A NAME="tex2html768" HREF="HTMLNotesnode52.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html766" HREF="HTMLNotesnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html760" HREF="HTMLNotesnode50.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html770" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html769" HREF="HTMLNotesnode52.html">Character Declarations</A>
+<B>Up:</B> <A NAME="tex2html767" HREF="HTMLNotesnode47.html">Data Objects</A>
+<B> Previous:</B> <A NAME="tex2html761" HREF="HTMLNotesnode50.html">Implicit Typing</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html637" HREF="HTMLQuestionsnode49.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html635" HREF="HTMLQuestionsnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html631" HREF="HTMLQuestionsnode47.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html639" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html638" HREF="HTMLQuestionsnode49.html">Salaries Example</A>
+<B>Up:</B> <A NAME="tex2html636" HREF="HTMLQuestionsnode47.html">Summation Example</A>
+<B> Previous:</B> <A NAME="tex2html632" HREF="HTMLQuestionsnode47.html">Summation Example</A>
+<BR> <P>
+<H3><A NAME="SECTION000312100000000000000">Solution</A></H3>
+<PRE> PROGRAM Summation
+   INTEGER, PARAMETER :: n_miles=20, stretch=5
+   REAL :: maxcost = TINY(0.0), cost5
+   REAL, DIMENSION(n_miles) :: cost = &amp;
+   (/6.3, 7.6, 9.2, 3.4, 5.6, 7.23, 9.76, 6.83, 5.45, 4.56, &amp;
+     4.86, 5.8, 6.4, 7.43, 7.8, 8.6, 9.25, 8.9, 8.4, 7.23/)
+   INTEGER :: start 
+   DO I = 1, n_miles-stretch+1
+     cost5 = 0
+     DO J= I, I+stretch-1
+       cost5 = cost5 + cost(J)
+     END DO
+     IF(cost5 &gt; maxcost)THEN
+       maxcost=cost5
+       start = I
+     END IF
+   END DO
+   PRINT*, &amp;
+    ' The most expensive ',stretch,' mile stretch is', &amp; 
+    ' from ',start,' to ',start+stretch,' and costs ',maxcost
+ END PROGRAM Summation</PRE>
+<P>
+ Or, using whole array notation:
+<P>
+<PRE> PROGRAM Summation2
+   INTEGER, PARAMETER :: n_miles=20, stretch=5
+   INTEGER, PARAMETER :: n_stretches = n_miles-stretch+1
+   INTEGER, DIMENSION(1) :: start  ! needed for result of MAXLOC
+   REAL :: maxcost
+   REAL, DIMENSION(n_stretches) :: cost5
+   REAL, DIMENSION(n_miles) :: cost = &amp;
+   (/6.3, 7.6, 9.2 ,3.4, 5.6, 7.23 ,9.76, 6.83, 5.45, 4.56, &amp;
+     4.86, 5.8, 6.4, 7.43, 7.87, 8.6, 9.25, 8.9, 8.4, 7.23/)
+   DO I= 1, n_stretches
+     cost5(I) = SUM(cost(I:I+stretch-1))
+   END DO
+   maxcost = MAXVAL(cost5)
+   start = MAXLOC(cost5)
+   PRINT*, &amp;
+    ' The most expensive ',stretch,' mile stretch is', &amp;
+    ' from ',start,' to ',start+stretch,' and costs
+ ',maxcost
+ END PROGRAM Summation2</PRE>
+<P>
+ Note that the whole array solution involves the extra storage for the
+array cos
+t5.
+<P>
+<HR><A NAME="tex2html637" HREF="HTMLQuestionsnode49.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html635" HREF="HTMLQuestionsnode47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html631" HREF="HTMLQuestionsnode47.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html639" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html638" HREF="HTMLQuestionsnode49.html">Salaries Example</A>
+<B>Up:</B> <A NAME="tex2html636" HREF="HTMLQuestionsnode47.html">Summation Example</A>
+<B> Previous:</B> <A NAME="tex2html632" HREF="HTMLQuestionsnode47.html">Summation Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

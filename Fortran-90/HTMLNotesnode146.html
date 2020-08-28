@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules - Global Data</TITLE>
+<META NAME="description" CONTENT="Modules - Global Data">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1940" HREF="HTMLNotesnode147.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1938" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1932" HREF="HTMLNotesnode145.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1942" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1941" HREF="HTMLNotesnode147.html">Module Global Data Example</A>
+<B>Up:</B> <A NAME="tex2html1939" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1933" HREF="HTMLNotesnode145.html">Modules - General Form</A>
+<BR> <P>
+<A NAME="ModulesGlobalData1">&#160;</A><H3><A NAME="SECTION01052200000000000000">Modules - Global Data</A></H3>
+<P>
+<A NAME="ModulesGlobalData">&#160;</A>
+<TT>COMMON</TT> blocks have long been regarded as an unsafe feature of
+Fortran. In F<font size=-1><small>ORTRAN</small></font>&nbsp;77 they were the only way to achieve global storage;
+ Fortran&nbsp;90 implements a new mechanism to allow specific procedures
+to have access to global data. This can be done by:
+<P>
+<UL><LI> declaring the required global objects within a module.<LI> giving these objects the <TT>SAVE</TT> attribute<A NAME="tex2html32" HREF="HTMLNotesfootnode.html#10548"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>.<LI> attaching the module (via <TT>USE</TT>) to each program unit which
+requires access to the global data.
+(Wherever the <TT>MODULE</TT> is used, the global objects are visible.)
+</UL>
+<P>
+For example, to declare <TT>pi</TT> as a global constant
+<P>
+<PRE>  MODULE  Pye
+   REAL, SAVE :: pi = 3.142
+  END MODULE Pye
+
+  PROGRAM Area
+   USE Pye
+   IMPLICIT NONE
+   REAL :: r
+    READ*, r
+    PRINT*, &quot;Area= &quot;,pi*r*r
+  END PROGRAM Area</PRE>
+<P>
+In the example the module <TT>Pye</TT> defines global data (the
+constant <TT>Pi</TT>). Its value can be accessed by <TT>USE</TT> ing the module.
+<P>
+Name clashes caused by the above
+ can be avoided by using the object renaming facility, (see Section
+<A HREF="HTMLNotesnode155.html#UseStatement">5.2.5</A>).
+<P>
+If the use of a <TT>COMMON</TT> block is absolutely essential then a single
+instance of it should be
+placed in a <TT>MODULE</TT> and then used<A NAME="tex2html33" HREF="HTMLNotesfootnode.html#10554"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>. This will have the effect of ensuring
+that each time the <TT>COMMON</TT> block is accessed it will be laid out in
+<B>exactly</B> the same way and mimics the techniques of placing
+<TT>COMMON</TT> blocks in <TT>INCLUDE</TT> files (a common F<font size=-1><small>ORTRAN</small></font>&nbsp;77 technique).
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1943" HREF="HTMLNotesnode147.html#SECTION01052210000000000000">Module Global Data Example</A>
+<LI> <A NAME="tex2html1944" HREF="HTMLNotesnode148.html#SECTION01052220000000000000">Module Global Data Example</A>
+<LI> <A NAME="tex2html1945" HREF="HTMLNotesnode149.html#SECTION01052230000000000000">Visualisation of Global Storage</A>
+</UL>
+<HR><A NAME="tex2html1940" HREF="HTMLNotesnode147.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1938" HREF="HTMLNotesnode144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1932" HREF="HTMLNotesnode145.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1942" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1941" HREF="HTMLNotesnode147.html">Module Global Data Example</A>
+<B>Up:</B> <A NAME="tex2html1939" HREF="HTMLNotesnode144.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1933" HREF="HTMLNotesnode145.html">Modules - General Form</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

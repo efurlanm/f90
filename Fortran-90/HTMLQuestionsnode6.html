@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Area Of a Circle</TITLE>
+<META NAME="description" CONTENT="Area Of a Circle">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html158" HREF="HTMLQuestionsnode7.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html156" HREF="HTMLQuestionsnode1.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html150" HREF="HTMLQuestionsnode5.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html160" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html159" HREF="HTMLQuestionsnode7.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html157" HREF="HTMLQuestionsnode1.html">Introduction to Fortran&nbsp;90</A>
+<B> Previous:</B> <A NAME="tex2html151" HREF="HTMLQuestionsnode5.html">Solution</A>
+<BR> <P>
+<A NAME="QBasicAreaOfCircle">&#160;</A><H2><A NAME="SECTION00013000000000000000">Area Of a Circle</A></H2>
+<P>
+Write a simple program to read in the radius and calculate the area of the
+corresponding circle and volume of the sphere. Demonstrate correctness by
+calculating the area and volume using radii of 2, 5, 10 and -1.
+<P>
+Area of a circle,
+<P> <IMG WIDTH=500 HEIGHT=14 ALIGN=BOTTOM ALT="equation1228" SRC="HTMLQuestionsimg3.gif"  > <P>
+<P>
+Volume of a sphere,
+<P>
+<P> <IMG WIDTH=500 HEIGHT=30 ALIGN=BOTTOM ALT="equation1231" SRC="HTMLQuestionsimg4.gif"  > <P>
+<P>
+Hint 1: place the  <TT>READ</TT>, the area calculation and the <TT>PRINT</TT> statement 
+in a loop as follows. A program template (which is available by clicking <A NAME="tex2html2" HREF="BasicAreaOfCircleQuestion.f90">here</A>)
+is given below.
+<P>
+<PRE>  DO
+   PRINT*, &quot;Type in the radius, a negative value will terminate&quot;
+   READ*, radius
+   IF (radius .LT. 0) EXIT
+    ... area calculation
+    PRINT*, &quot;Area of circle with radius &quot;,&amp;
+            radius, &quot; is &quot;, area
+    PRINT*, &quot;Volume of sphere with radius &quot;,&amp;
+            radius, &quot; is &quot;, volume
+  END DO
+  END</PRE>
+<P>
+In this way when a negative radius is supplied the program will
+terminate.
+<P>
+Hint 2:  <IMG WIDTH=106 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline2760" SRC="HTMLQuestionsimg5.gif"  > .  <IMG WIDTH=37 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline2762" SRC="HTMLQuestionsimg6.gif"  >  in Fortran&nbsp;90 is <TT>ATAN</TT>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html161" HREF="HTMLQuestionsnode7.html#SECTION00013100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html158" HREF="HTMLQuestionsnode7.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html156" HREF="HTMLQuestionsnode1.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html150" HREF="HTMLQuestionsnode5.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html160" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html159" HREF="HTMLQuestionsnode7.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html157" HREF="HTMLQuestionsnode1.html">Introduction to Fortran&nbsp;90</A>
+<B> Previous:</B> <A NAME="tex2html151" HREF="HTMLQuestionsnode5.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

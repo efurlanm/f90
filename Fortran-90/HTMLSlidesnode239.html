@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Argument Remapping</TITLE>
+<META NAME="description" CONTENT="Argument Remapping">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3160" HREF="HTMLSlidesnode240.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3158" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3152" HREF="HTMLSlidesnode238.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3162" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3161" HREF="HTMLSlidesnode240.html">Explicit Intent</A>
+<B>Up:</B> <A NAME="tex2html3159" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3153" HREF="HTMLSlidesnode238.html">Mapping Function Results</A>
+<BR> <P>
+<H2><A NAME="SECTION020612000000000000000">Argument Remapping</A></H2>
+<P>
+Should not remap across a procedure boundary unless <EM>absolutely
+essential</EM>. The implied communications can be very time consuming. Consider,
+<P>
+<PRE>      INTEGER, DIMENSION(512,512) :: ia, ib
+!HPF$ DISTRIBUTE (BLOCK,BLOCK) :: ia, ib
+       DO icnt = 1, 10
+        CALL ReMapSub(ia,ib)
+       END DO
+      END 
+      SUBROUTINE ReMapSub(iarg1, iarg2)
+      INTEGER, DIMENSION(512,512):: iarg1, iarg2
+!HPF directive goes here 
+       iarg2 = 2*iarg1
+      END SUBROUTINE ReMapSub</PRE>
+<P>
+With NA Software Compiler, if <TT>iarg1</TT> and <TT>iarg2</TT> are
+distributed as,
+<P>
+<UL><LI> <TT>(BLOCK,BLOCK)</TT> -- execution time is 0.25,<LI> <TT>(CYCLIC,CYCLIC)</TT> -- execution time is 25.00s,
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode257.html#ArgumentRemapping1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3160" HREF="HTMLSlidesnode240.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3158" HREF="HTMLSlidesnode227.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3152" HREF="HTMLSlidesnode238.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3162" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3161" HREF="HTMLSlidesnode240.html">Explicit Intent</A>
+<B>Up:</B> <A NAME="tex2html3159" HREF="HTMLSlidesnode227.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3153" HREF="HTMLSlidesnode238.html">Mapping Function Results</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Modules Interface Declaration Example</TITLE>
+<META NAME="description" CONTENT="Modules Interface Declaration Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1721" HREF="HTMLSlidesnode130.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1719" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1713" HREF="HTMLSlidesnode128.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1723" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1722" HREF="HTMLSlidesnode130.html">Modules - Procedure Declaration</A>
+<B>Up:</B> <A NAME="tex2html1720" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1714" HREF="HTMLSlidesnode128.html">Modules - Interface Declaration</A>
+<BR> <P>
+<H2><A NAME="SECTION010179000000000000000">Modules Interface Declaration Example</A></H2>
+<P>
+Consider the following module containing procedure interfaces:
+<P>
+<PRE>    MODULE my_interfaces
+     INTERFACE
+      SUBROUTINE sub1(A,B,C)
+       ... ! etc
+      END SUBROUTINE sub1
+      SUBROUTINE sub2(time,dist)
+       ... ! etc
+      END SUBROUTINE sub2
+     END INTERFACE
+    END MODULE my_interfaces
+
+    PROGRAM use_of_module
+     USE my_interfaces
+     CALL sub1((/1.0,3.14,0.57/),2,'Yobot')
+     CALL sub2(t,d)
+    END PROGRAM use_of_module
+    SUBROUTINE sub1(A,B,C)
+      ...
+    END SUBROUTINE sub1
+    SUBROUTINE sub2(time,dist)
+      ...
+    END SUBROUTINE sub2</PRE>
+<P>
+The module containing the interfaces is used in the main program.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode151.html#ModulesInterfaceDeclaration2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1721" HREF="HTMLSlidesnode130.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1719" HREF="HTMLSlidesnode120.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1713" HREF="HTMLSlidesnode128.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1723" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1722" HREF="HTMLSlidesnode130.html">Modules - Procedure Declaration</A>
+<B>Up:</B> <A NAME="tex2html1720" HREF="HTMLSlidesnode120.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html1714" HREF="HTMLSlidesnode128.html">Modules - Interface Declaration</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

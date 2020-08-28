@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html786" HREF="HTMLQuestionsnode62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html784" HREF="HTMLQuestionsnode60.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html780" HREF="HTMLQuestionsnode60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html788" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html787" HREF="HTMLQuestionsnode62.html">Local Variables</A>
+<B>Up:</B> <A NAME="tex2html785" HREF="HTMLQuestionsnode60.html">Standard Deviation</A>
+<B> Previous:</B> <A NAME="tex2html781" HREF="HTMLQuestionsnode60.html">Standard Deviation</A>
+<BR> <P>
+<H3><A NAME="SECTION00044100000000000000">Solution</A></H3>
+<PRE>    PROGRAM Main
+     REAL, ALLOCATABLE, DIMENSION(:) :: X
+     INTEGER :: n_elts, istat
+
+      PRINT*, &quot;How big is the array? &quot;
+      READ*, n_elts
+
+      ALLOCATE(X(n_elts),STAT=istat)
+
+      IF (istat .NE. 0) THEN
+       PRINT*, &quot;Allocation request failed&quot;
+      ELSE
+       PRINT*, &quot;Type in your &quot;,n_elts,&quot; numbers&quot;
+       READ*, X
+       PRINT*, &quot;Std Dev = &quot;, Std_Dev()
+       DEALLOCATE(X)
+      END IF
+
+     CONTAINS
+
+      REAL FUNCTION Std_Dev()
+       REAL mean
+       mean = SUM(X)/REAL(n_elts)
+       Std_Dev = SQRT(SUM((X-mean)**2)/REAL(n_elts))
+      END FUNCTION Std_Dev
+
+    END PROGRAM MAIN</PRE>
+<P>
+The results for the specified sequences are:
+<P>
+<PRE>5.0 3.0 17.0 -7.56 78.1 99.99 0.8 11.7 33.8 29.6
+ Std Dev =    33.56556</PRE>
+<P>
+and
+<P>
+<PRE>1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0
+ Std Dev =    4.031129</PRE>
+<P>
+<HR><A NAME="tex2html786" HREF="HTMLQuestionsnode62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html784" HREF="HTMLQuestionsnode60.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html780" HREF="HTMLQuestionsnode60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html788" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html787" HREF="HTMLQuestionsnode62.html">Local Variables</A>
+<B>Up:</B> <A NAME="tex2html785" HREF="HTMLQuestionsnode60.html">Standard Deviation</A>
+<B> Previous:</B> <A NAME="tex2html781" HREF="HTMLQuestionsnode60.html">Standard Deviation</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

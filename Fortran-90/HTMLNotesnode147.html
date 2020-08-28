@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Module Global Data Example</TITLE>
+<META NAME="description" CONTENT="Module Global Data Example">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1954" HREF="HTMLNotesnode148.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1952" HREF="HTMLNotesnode146.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1946" HREF="HTMLNotesnode146.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1956" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1955" HREF="HTMLNotesnode148.html">Module Global Data Example</A>
+<B>Up:</B> <A NAME="tex2html1953" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<B> Previous:</B> <A NAME="tex2html1947" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<BR> <P>
+<A NAME="ModulesGlobalDataStackExplanation1">&#160;</A><H4><A NAME="SECTION01052210000000000000">Module Global Data Example</A></H4>
+<P>
+<P><A NAME="10618">&#160;</A> <IMG WIDTH=388 HEIGHT=291 ALIGN=BOTTOM ALT="figure10616" SRC="HTMLNotesimg58.gif"  > <BR>
+<STRONG>Figure 10:</STRONG> How a Stack Works<BR>
+<P>
+<P>
+A stack can be thought of as a pile of things that can only be accessed from the
+top. You can put something on the top of the pile: a <TT>Push</TT> action,
+and you can grab things off the top of the pile: a <TT>Pop</TT> action.
+<P>
+The diagrams show the conventional visualisation of a stack.  As 
+elements are 
+<EM>pushed</EM> onto the top of the stack, the previous top elements get 
+pushed down, as things are
+<EM>popped</EM> off the top the lower stack entries move towards the top.
+<P>
+<A NAME="ModulesGlobalDataStackExplanation2">&#160;</A>
+<P>
+<P><A NAME="10638">&#160;</A> <IMG WIDTH=490 HEIGHT=358 ALIGN=BOTTOM ALT="figure10636" SRC="HTMLNotesimg61.gif"  > <BR>
+<STRONG>Figure 11:</STRONG> How a Stack Could be Implemented<BR>
+<P>
+<P>
+These  diagrams show how we will simulate the stack using an array
+with
+a pointer to indicate where the top of the stack is. As elements are
+pushed onto the stack they are stored in the array and
+the `top' position moves right; as things are popped
+off, the top of the stack moves left. From this description it can be
+seen that we need three objects to simulate a stack:
+<P>
+<UL><LI> a current position marker,<LI> the array to hold the data,<LI> the maximum size of the stack (array).
+</UL>
+<P>
+This data is needed by both the <TT>Push</TT> and <TT>Pop</TT> procedures, and
+should be made global.
+<P>
+<HR><A NAME="tex2html1954" HREF="HTMLNotesnode148.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1952" HREF="HTMLNotesnode146.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1946" HREF="HTMLNotesnode146.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1956" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1955" HREF="HTMLNotesnode148.html">Module Global Data Example</A>
+<B>Up:</B> <A NAME="tex2html1953" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<B> Previous:</B> <A NAME="tex2html1947" HREF="HTMLNotesnode146.html">Modules - Global Data</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Nested and Named IF Constructs</TITLE>
+<META NAME="description" CONTENT="Nested and Named IF Constructs">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html740" HREF="HTMLSlidesnode46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html738" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html732" HREF="HTMLSlidesnode44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html742" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html741" HREF="HTMLSlidesnode46.html">Conditional Exit Loops</A>
+<B>Up:</B> <A NAME="tex2html739" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html733" HREF="HTMLSlidesnode44.html">IF Construct</A>
+<BR> <P>
+<H2><A NAME="SECTION01094000000000000000">Nested and Named <TT>IF</TT> Constructs</A></H2>
+<P>
+All control constructs can be both named and nested.
+<P>
+<PRE>    outa: IF (a .NE. 0) THEN
+     x = b/a
+     inna1: IF (c .NE. 0) THEN
+      y = d/c
+     ELSE inna1
+      y = -99
+     ENDIF inna1   
+    ELSEIF (a .GT. 0) THEN outa
+     ...
+    ELSE outa
+     ...
+    ENDIF outa</PRE>
+<P>
+The names may only be used <EM>once</EM> per program unit and 
+are only intended to make the code clearer.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode70.html#NestedIfConstruct1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode12.html#QControlTriangle"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html740" HREF="HTMLSlidesnode46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html738" HREF="HTMLSlidesnode41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html732" HREF="HTMLSlidesnode44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html742" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html741" HREF="HTMLSlidesnode46.html">Conditional Exit Loops</A>
+<B>Up:</B> <A NAME="tex2html739" HREF="HTMLSlidesnode41.html">Control Flow</A>
+<B> Previous:</B> <A NAME="tex2html733" HREF="HTMLSlidesnode44.html">IF Construct</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

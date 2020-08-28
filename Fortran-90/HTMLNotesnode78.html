@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example Of SELECT CASE Construct</TITLE>
+<META NAME="description" CONTENT="Example Of SELECT CASE Construct">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1097" HREF="HTMLNotesnode79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1095" HREF="HTMLNotesnode77.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1091" HREF="HTMLNotesnode77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1099" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1098" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<B>Up:</B> <A NAME="tex2html1096" HREF="HTMLNotesnode77.html">SELECT CASE Construct</A>
+<B> Previous:</B> <A NAME="tex2html1092" HREF="HTMLNotesnode77.html">SELECT CASE Construct</A>
+<BR> <P>
+<A NAME="SelectCase2">&#160;</A><H4><A NAME="SECTION01021910000000000000">Example Of <TT>SELECT</TT> <TT>CASE</TT> Construct</A></H4>
+<P>
+A simple example, (the corresponding <TT>IF</TT> structure is given as a
+comment,)
+<P>
+<PRE>      SELECT CASE (num)
+
+       CASE (6,9,99,66)
+     ! IF(num==9.OR. .. .OR.char==66) THEN
+        PRINT*, &quot;Woof woof&quot;
+
+       CASE (10:65,67:98)
+     ! ELSEIF((num.GE.10.AND.LE.65) .OR. ...
+        PRINT*, &quot;Bow wow&quot;
+
+       CASE (100:)
+     ! ELSEIF (num.GE.100) THEN
+        PRINT*, &quot;Bark&quot;
+
+       CASE DEFAULT
+     ! ELSE
+        PRINT*, &quot;Meow&quot;
+
+      END SELECT     
+     ! ENDIF</PRE>
+<P>
+An <TT>IF</TT> .. <TT>END</TT><TT>IF</TT> construct could be used but a <TT>SELECT</TT> <TT>CASE</TT> is
+neater and more efficient.
+<P>
+Important points are,
+<UL><LI> the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-expr </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  in this case is <TT>num</TT>.<LI> the first  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , <TT>(6,9,99,66)</TT> means ``if num
+is equal to either 6, 9, 66 or 99 then'',<LI> the second  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , <TT>(10:65,67:98)</TT> means ``if num
+is between 10 and 65 (inclusive) or 67 and 98 (inclusive) then'',<LI> <TT>(100:)</TT> specifies the range of greater than or equal to
+one.<LI> if a case branch has been executed then when the next
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is encountered control jumps to the <TT>END</TT> <TT>SELECT</TT> 
+statement.<LI>  if a particular case expression is not satisfied then the next one
+is tested.
+<P>
+</UL>
+<P>
+A more complex exmaple is given below, this also demonstrates how
+<TT>SELECT</TT> <TT>CASE</TT> constructs may be named.
+<P>
+<PRE>     ...
+    outa: SELECT CASE (n)
+     CASE (:-1) outa
+      M = -1
+     CASE (1:) outa
+      DO i = 1, n
+       inna: SELECT CASE (line(i:i))
+        CASE ('@','&amp;','*','$')
+         PRINT*, &quot;At EOL&quot;
+        CASE ('a':'z','A':'Z')
+         PRINT*, &quot;Alphabetic&quot;
+        CASE DEFAULT
+         PRINT*, &quot;CHAR OK&quot;
+       END SELECT inna
+      END DO
+     CASE DEFAULT outa
+      PRINT*, &quot;N is zero&quot;
+     END SELECT outa</PRE>
+<P>
+Analysis:
+<P>
+<UL><LI> the first <TT>SELECT</TT> <TT>CASE</TT> statement is named <TT>outa</TT> and so
+is the corresponding <TT>END</TT> <TT>SELECT</TT> statement.<LI> the  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-expr </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  in this case is <TT>n</TT> this is evaluated
+first and its value stored somewhere.<LI> the first  <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > , <TT>(:-1)</TT> means ``if n is less
+than or
+equal to <TT>-1</TT>'' so if
+this is true then this branch is executed -- when the next
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-selector </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  is encountered, control jumps to the <TT>END</TT> <TT>SELECT</TT> 
+statement.<LI>  if the above case expression is not satisfied then the next one
+is tested. <TT>(1:)</TT> specifies the range of greater than or equal to
+one. If <TT>n</TT> satisfies this then the <TT>DO</TT> loop containing the
+nested <TT>CASE</TT> construct is entered. If it does not then the <TT>DEFAULT</TT> 
+action is carried out. In this case this branch corresponds to the
+value <TT>0</TT>, the only value not covered by the other branches.<LI> the inner case structure demonstrates a scalar <TT>CHARACTER</TT> 
+ <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;case-expr </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  >  which is matched to a list of possible values or,
+indeed, a list of possible ranges. If the character substring <TT>
+line(i:i)</TT> matches a value from either the list or list of ranges then
+the appropriate branch is executed. If it is not matched then the
+<TT>DEFAULT</TT> branch is executed. Note a <TT>CHARACTER</TT> substring <B>cannot</B> be
+written as <TT>line(i)</TT><LI> this inner case structure is executed <TT>n</TT> times, (due to the
+loop,) and then control passes back to the outer case structure. Since the
+executable statements of the case branch have now been completed the
+construct is exited.
+<P>
+</UL><HR><A NAME="tex2html1097" HREF="HTMLNotesnode79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1095" HREF="HTMLNotesnode77.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1091" HREF="HTMLNotesnode77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1099" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1098" HREF="HTMLNotesnode79.html">Simple Input / Output</A>
+<B>Up:</B> <A NAME="tex2html1096" HREF="HTMLNotesnode77.html">SELECT CASE Construct</A>
+<B> Previous:</B> <A NAME="tex2html1092" HREF="HTMLNotesnode77.html">SELECT CASE Construct</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

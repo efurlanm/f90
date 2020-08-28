@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Whole Array Expressions</TITLE>
+<META NAME="description" CONTENT="Whole Array Expressions">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1070" HREF="HTMLSlidesnode74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1068" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1062" HREF="HTMLSlidesnode72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1072" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1071" HREF="HTMLSlidesnode74.html">Array Conformance</A>
+<B>Up:</B> <A NAME="tex2html1069" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1063" HREF="HTMLSlidesnode72.html">Array Syntax</A>
+<BR> <P>
+<H2><A NAME="SECTION010136000000000000000">Whole Array Expressions</A></H2>
+<P>
+Arrays can be treated like a single variable in that:
+<P>
+<UL><LI> can use intrinsic operators between conformable arrays (or
+sections),
+<PRE>    B = C * D - B**2</PRE>
+this is equivalent to concurrent execution of:
+<PRE>    B(-4,0) = C(1,1)*D(0,0)-B(-4,0)**2 ! in ||
+    B(-3,0) = C(2,1)*D(1,0)-B(-3,0)**2 ! in ||
+     ...
+    B(-4,1) = C(1,2)*D(0,1)-B(-4,1)**2 ! in ||
+     ...
+    B(0,2)  = C(5,3)*D(4,2)-B(0,2)**2  ! in ||</PRE><LI> elemental intrinsic functions can be used,
+<P>
+<PRE>    B = SIN(C)+COS(D)</PRE>
+the function is applied element by element.
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode96.html#WholeArrayExpressions1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1070" HREF="HTMLSlidesnode74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1068" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1062" HREF="HTMLSlidesnode72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1072" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1071" HREF="HTMLSlidesnode74.html">Array Conformance</A>
+<B>Up:</B> <A NAME="tex2html1069" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1063" HREF="HTMLSlidesnode72.html">Array Syntax</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

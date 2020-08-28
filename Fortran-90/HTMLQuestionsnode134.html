@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Golf - HPF Intrinsics  - curtosy of Edinburgh Parallel
+Computing Centre.</TITLE>
+<META NAME="description" CONTENT="Golf - HPF Intrinsics  - curtosy of Edinburgh Parallel
+Computing Centre.">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1607" HREF="HTMLQuestionsnode135.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1605" HREF="HTMLQuestionsnode129.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1599" HREF="HTMLQuestionsnode133.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1609" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1608" HREF="HTMLQuestionsnode135.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1606" HREF="HTMLQuestionsnode129.html">Extrinsics and HPF Library</A>
+<B> Previous:</B> <A NAME="tex2html1600" HREF="HTMLQuestionsnode133.html">Solution</A>
+<BR> <P>
+<A NAME="QGolf">&#160;</A><H2><A NAME="SECTION000103000000000000000">Golf - HPF Intrinsics  - curtosy of Edinburgh Parallel
+Computing Centre.</A></H2>
+<P>
+The purpose of this exercise is to analyse the following golf score
+card, using HPF Library functions.
+<P>
+At each hole there is an ``expected'' score, say, 3 or 4 shots which is
+called par. A good golfer should be able to get the ball in the hole in
+that number of shots.
+<P>
+<PRE>Par    4  4  4  4  4  4  3  4  4  4  3  4  3  5  3  4  5  4
+Score  5  3  4  4  4  2  3  5  6  2  5  4  3  4  4  4  7  3</PRE>
+<P>
+The exercise consists of a number of parts -- use a different array to
+store the answers from each part.
+<OL><LI> add distribution and alignment directives<LI> Find the running total scores of the golfer for the round.<LI> Find the running total scores for the first and second nine holes.<LI> Find the running totals for Par 3, 4 and 5 holes separately. Use
+three separate arrays. For each example only set the running total at
+the holes concerned, set other positions to zero.<LI> Enumerate the holes on which the player scored a birdie (one
+less than par). In other words, at the first birdied hole set to 1, then
+2 for the second birdied hole and so on. The holes on which birdies were
+not scored should have value 0.
+</OL>
+<P>
+Use the following program skeleton (which is available by clicking <A NAME="tex2html7" HREF="GolfQuestion.hpf">here</A>) to base your answer on.
+<P>
+<PRE>PROGRAM golf
+
+! Include HPF library
+!
+      USE hpf_library
+      IMPLICIT NONE
+      INTEGER, PARAMETER :: nhole=18
+! Declare arrays
+!
+      INTEGER, DIMENSION(nhole) :: score = &amp;
+         (/5,3,4,4,4,2,3,5,6,2,5,4,3,4,4,4,7,3/)
+      INTEGER, DIMENSION(nhole) :: par =   &amp;
+         (/4,4,4,4,4,4,3,4,4,4,3,4,3,5,3,4,5,4/)
+      INTEGER, DIMENSION(nhole) :: rtot,rsplit,
+     &amp;                             rtot3,rtot4,rtot5,birdie
+      LOGICAL, DIMENSION(nhole) :: smask,mask
+      INTEGER i
+
+! Distribute and align arrays
+!
+!.... 1) add directives
+
+! Initializations
+!
+!.... 2) Find running total
+!
+!.... 3) Find running total per 9 holes
+!
+!.... 4) Find running total for par 3, 4 and 5 holes
+!
+!.... 5) Enumerate holes where a birdie was scored
+!
+        WRITE(*,10) par, score, rtot, rsplit,
+     &amp;             rtot3, rtot4, rtot5, birdie
+ 10   FORMAT(//
+     &amp; tr15,' Golf statistics using Scan routines'/
+     &amp; tr1,65(`-')/
+     &amp; `     par: `,18I3/
+     &amp; `   score: `,18I3//
+     &amp; `    rtot: `,18I3/
+     &amp; `   rtot3: `,18I3/
+     &amp; `   rtot4: `,18I3/
+     &amp; `   rtot5: `,18I3/
+     &amp; `  birdie: `,18I3/)
+      END</PRE>
+<P>
+Ignore the warnings about <TT>score</TT> and <TT>par</TT>:
+<P>
+<PRE>PGHPF-W-0311-Non-replicated mapping for data-initialized array, score,
+ignored (golf.hpf: 80)
+PGHPF-W-0311-Non-replicated mapping for data-initialized array, par,
+ignored (golf.hpf: 80)
+  0 inform,   2 warnings,   0 severes, 0 fatal for golf</PRE>
+<P>
+these are compiler restrictions.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1610" HREF="HTMLQuestionsnode135.html#SECTION000103100000000000000">Solution</A>
+</UL>
+<HR><A NAME="tex2html1607" HREF="HTMLQuestionsnode135.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1605" HREF="HTMLQuestionsnode129.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1599" HREF="HTMLQuestionsnode133.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1609" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1608" HREF="HTMLQuestionsnode135.html">Solution</A>
+<B>Up:</B> <A NAME="tex2html1606" HREF="HTMLQuestionsnode129.html">Extrinsics and HPF Library</A>
+<B> Previous:</B> <A NAME="tex2html1600" HREF="HTMLQuestionsnode133.html">Solution</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

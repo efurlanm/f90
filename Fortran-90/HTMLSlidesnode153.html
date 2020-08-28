@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Data Distribution</TITLE>
+<META NAME="description" CONTENT="Data Distribution">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2128" HREF="HTMLSlidesnode154.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2126" HREF="HTMLSlidesnode143.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2120" HREF="HTMLSlidesnode152.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2130" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2129" HREF="HTMLSlidesnode154.html">HPF and Data Parallelism</A>
+<B>Up:</B> <A NAME="tex2html2127" HREF="HTMLSlidesnode143.html">High Performance Fortran</A>
+<B> Previous:</B> <A NAME="tex2html2121" HREF="HTMLSlidesnode152.html">Processor Communications</A>
+<BR> <P>
+<H1><A NAME="SECTION02030000000000000000">Data Distribution</A></H1>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2131" HREF="HTMLSlidesnode154.html#SECTION02031000000000000000">HPF and Data Parallelism</A>
+<LI> <A NAME="tex2html2132" HREF="HTMLSlidesnode155.html#SECTION02032000000000000000">Fortran&nbsp;90 features in High Performance Fortran</A>
+<LI> <A NAME="tex2html2133" HREF="HTMLSlidesnode156.html#SECTION02033000000000000000">Language Covered</A>
+<LI> <A NAME="tex2html2134" HREF="HTMLSlidesnode157.html#SECTION02034000000000000000">HPF Directives</A>
+<LI> <A NAME="tex2html2135" HREF="HTMLSlidesnode158.html#SECTION02035000000000000000"><TT>PROCESSORS</TT> Declaration</A>
+<LI> <A NAME="tex2html2136" HREF="HTMLSlidesnode159.html#SECTION02036000000000000000"><TT>DISTRIBUTE</TT> Directive</A>
+<LI> <A NAME="tex2html2137" HREF="HTMLSlidesnode160.html#SECTION02037000000000000000">Block Distribution</A>
+<LI> <A NAME="tex2html2138" HREF="HTMLSlidesnode161.html#SECTION02038000000000000000">Cyclic Distribution</A>
+<LI> <A NAME="tex2html2139" HREF="HTMLSlidesnode162.html#SECTION02039000000000000000">2D Distribution Example</A>
+<LI> <A NAME="tex2html2140" HREF="HTMLSlidesnode163.html#SECTION020310000000000000000">Visualisation of <TT>*</TT> Distribution</A>
+<LI> <A NAME="tex2html2141" HREF="HTMLSlidesnode164.html#SECTION020311000000000000000">Commentary</A>
+<LI> <A NAME="tex2html2142" HREF="HTMLSlidesnode165.html#SECTION020312000000000000000">Distribution of Allocatables</A>
+<LI> <A NAME="tex2html2143" HREF="HTMLSlidesnode166.html#SECTION020313000000000000000">The Owner-Computes Rule</A>
+<LI> <A NAME="tex2html2144" HREF="HTMLSlidesnode167.html#SECTION020314000000000000000">Scalar Variables</A>
+<LI> <A NAME="tex2html2145" HREF="HTMLSlidesnode168.html#SECTION020315000000000000000">Examples of Good Distributions</A>
+<LI> <A NAME="tex2html2146" HREF="HTMLSlidesnode169.html#SECTION020316000000000000000">Successive Over Relaxation Example</A>
+<LI> <A NAME="tex2html2147" HREF="HTMLSlidesnode170.html#SECTION020317000000000000000">Other Mappings</A>
+<LI> <A NAME="tex2html2148" HREF="HTMLSlidesnode171.html#SECTION020318000000000000000">HPF Programming Issues</A>
+<LI> <A NAME="tex2html2149" HREF="HTMLSlidesnode172.html#SECTION020319000000000000000">HPF Programming Issues II</A>
+<LI> <A NAME="tex2html2150" HREF="HTMLSlidesnode173.html#SECTION020320000000000000000">HPFacts</A>
+<LI> <A NAME="tex2html2151" HREF="HTMLSlidesnode174.html#SECTION020321000000000000000">More Distributions</A>
+<LI> <A NAME="tex2html2152" HREF="HTMLSlidesnode175.html#SECTION020322000000000000000">2D Example</A>
+<LI> <A NAME="tex2html2153" HREF="HTMLSlidesnode176.html#SECTION020323000000000000000">Alignment</A>
+<LI> <A NAME="tex2html2154" HREF="HTMLSlidesnode177.html#SECTION020324000000000000000">Alignment Syntax</A>
+<LI> <A NAME="tex2html2155" HREF="HTMLSlidesnode178.html#SECTION020325000000000000000">Example and Visualisation</A>
+<LI> <A NAME="tex2html2156" HREF="HTMLSlidesnode179.html#SECTION020326000000000000000">Simple 2D Alignment Example</A>
+<LI> <A NAME="tex2html2157" HREF="HTMLSlidesnode180.html#SECTION020327000000000000000">Visualisation of Simple Alignment Example</A>
+<LI> <A NAME="tex2html2158" HREF="HTMLSlidesnode181.html#SECTION020328000000000000000">Transposed Alignment Example</A>
+<LI> <A NAME="tex2html2159" HREF="HTMLSlidesnode182.html#SECTION020329000000000000000">Visualisation of Transposed Alignment Example</A>
+<LI> <A NAME="tex2html2160" HREF="HTMLSlidesnode183.html#SECTION020330000000000000000">Strided Alignment Example</A>
+<LI> <A NAME="tex2html2161" HREF="HTMLSlidesnode184.html#SECTION020331000000000000000">Reverse Strided Alignment Example</A>
+<LI> <A NAME="tex2html2162" HREF="HTMLSlidesnode185.html#SECTION020332000000000000000">Practical Example of Alignment</A>
+<LI> <A NAME="tex2html2163" HREF="HTMLSlidesnode186.html#SECTION020333000000000000000">Aligning Allocatable Arrays</A>
+<LI> <A NAME="tex2html2164" HREF="HTMLSlidesnode187.html#SECTION020334000000000000000">Example</A>
+<LI> <A NAME="tex2html2165" HREF="HTMLSlidesnode188.html#SECTION020335000000000000000">Other Pitfalls</A>
+<LI> <A NAME="tex2html2166" HREF="HTMLSlidesnode189.html#SECTION020336000000000000000">Collapsing Dimensions</A>
+<LI> <A NAME="tex2html2167" HREF="HTMLSlidesnode190.html#SECTION020337000000000000000">Replicating Dimensions</A>
+<LI> <A NAME="tex2html2168" HREF="HTMLSlidesnode191.html#SECTION020338000000000000000">Gaussian Elimination - 2D Grid</A>
+<LI> <A NAME="tex2html2169" HREF="HTMLSlidesnode192.html#SECTION020339000000000000000">Visualisation of 2D Gaussian Elimination</A>
+<LI> <A NAME="tex2html2170" HREF="HTMLSlidesnode193.html#SECTION020340000000000000000">New HPF Intrinsics</A>
+<LI> <A NAME="tex2html2171" HREF="HTMLSlidesnode194.html#SECTION020341000000000000000">Template Syntax</A>
+<LI> <A NAME="tex2html2172" HREF="HTMLSlidesnode195.html#SECTION020342000000000000000">Simple Template Example</A>
+<LI> <A NAME="tex2html2173" HREF="HTMLSlidesnode196.html#SECTION020343000000000000000">Alternative Template Syntax</A>
+<LI> <A NAME="tex2html2174" HREF="HTMLSlidesnode197.html#SECTION020344000000000000000">Another Template Example</A>
+<LI> <A NAME="tex2html2175" HREF="HTMLSlidesnode198.html#SECTION020345000000000000000">Visualisation</A>
+<LI> <A NAME="tex2html2176" HREF="HTMLSlidesnode199.html#SECTION020346000000000000000">Alignment and Distribution of Templates</A>
+<LI> <A NAME="tex2html2177" HREF="HTMLSlidesnode200.html#SECTION020347000000000000000">Aligning to a Template Section</A>
+<LI> <A NAME="tex2html2178" HREF="HTMLSlidesnode201.html#SECTION020348000000000000000">Aligning Scalars</A>
+<LI> <A NAME="tex2html2179" HREF="HTMLSlidesnode202.html#SECTION020349000000000000000">Explicit Replication Using Templates</A>
+</UL>
+<HR><A NAME="tex2html2128" HREF="HTMLSlidesnode154.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2126" HREF="HTMLSlidesnode143.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2120" HREF="HTMLSlidesnode152.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2130" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2129" HREF="HTMLSlidesnode154.html">HPF and Data Parallelism</A>
+<B>Up:</B> <A NAME="tex2html2127" HREF="HTMLSlidesnode143.html">High Performance Fortran</A>
+<B> Previous:</B> <A NAME="tex2html2121" HREF="HTMLSlidesnode152.html">Processor Communications</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

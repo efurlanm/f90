@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Random Number Intrinsic</TITLE>
+<META NAME="description" CONTENT="Random Number Intrinsic">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1528" HREF="HTMLNotesnode114.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1526" HREF="HTMLNotesnode112.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1520" HREF="HTMLNotesnode112.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1530" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1529" HREF="HTMLNotesnode114.html">Vector and Matrix Multiply </A>
+<B>Up:</B> <A NAME="tex2html1527" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1521" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<BR> <P>
+<A NAME="RandomNumbers1">&#160;</A><H3><A NAME="SECTION01032100000000000000">Random Number Intrinsic</A></H3>
+<P>
+<TT>RANDOM_NUMBER</TT><TT>(</TT><TT>HARVEST</TT><TT>)</TT> is a useful intrinsic especially when 
+developing and testing code. It is an elemental <TT>SUBROUTINE</TT> so when invoked 
+with a <TT>REAL</TT> valued argument (which has <TT>INTENT</TT><TT>(</TT><TT>OUT</TT><TT>)</TT>), it 
+will return, in
+its argument, a pseudorandom number
+or conformable array of pseudorandom numbers in the range  <IMG WIDTH=56 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline22916" SRC="HTMLNotesimg45.gif"  > .
+<P>
+For example,
+<P>
+<PRE>    REAL HARVEST, HARVEYS(100,100,100)
+    CALL RANDOM_NUMBER(HARVEST)
+    CALL RANDOM_NUMBER(HARVEYS)</PRE>
+<P>
+will assign a random number to the scalar variable <TT>HARVEST</TT> and an array
+of (different) random numbers to <TT>HARVEYS</TT>.
+This subroutine is very useful for numeric applications where large arrays
+need to be generated in order to test or time codes.
+<P>
+The random number generator can be seeded by user specified values.
+The seed is an integer array of a compiler dependent size. Using the same 
+seed on separate invocations will generate the same sequence
+of random numbers.
+<P>
+<TT>RANDOM_SEED</TT><TT>(</TT>[<TT>SIZE</TT><TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;int </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]<TT>)</TT> finds the size of the
+seed.
+<P>
+<TT>RANDOM_SEED</TT><TT>(</TT>[<TT>PUT</TT><TT>=</TT> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21746" SRC="HTMLNotesimg2.gif"  > <EM>&nbsp;array </EM> <IMG WIDTH=8 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline21748" SRC="HTMLNotesimg3.gif"  > ]<TT>)</TT> seeds the
+random number generator.
+<P>
+For example,
+<PRE>    CALL RANDOM_SEED(SIZE=isze)
+    CALL RANDOM_SEED(PUT=IArr(1:isze))
+    CALL RANDOM_NUMBER(HARVEST)
+
+    PRINT*, &quot;Type in a scalar seed for the generator&quot;
+    READ*, iseed
+    CALL RANDOM_SEED(PUT=(/(iseed, i = 1, isze)/))
+    CALL RANDOM_NUMBER(HARVEST)
+
+    ALLOCATE(ISeedArray(isze))
+    PRINT*, &quot;Type in a &quot;, isze,&quot; element array as a seed for the generator&quot;
+    READ*, ISeedArray
+    CALL RANDOM_SEED(PUT=ISeedArray)
+    CALL RANDOM_NUMBER(HARVEST)
+
+    DEALLOCATE(ISeedArray)</PRE>
+<P>
+Using the same seed on separate executions will generate the same sequence 
+of random numbers.
+<P>
+There are other optional arguments which can be used to report on
+which seed is in use and report on how big an array is needed to hold a
+seed. This procedure may also be called with no arguments in order to initialise
+the random number generator.
+<P>
+<HR><A NAME="tex2html1528" HREF="HTMLNotesnode114.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1526" HREF="HTMLNotesnode112.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1520" HREF="HTMLNotesnode112.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1530" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1529" HREF="HTMLNotesnode114.html">Vector and Matrix Multiply </A>
+<B>Up:</B> <A NAME="tex2html1527" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<B> Previous:</B> <A NAME="tex2html1521" HREF="HTMLNotesnode112.html">Selected Intrinsic Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

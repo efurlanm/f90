@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Procedures and Mapping</TITLE>
+<META NAME="description" CONTENT="Procedures and Mapping">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3223" HREF="HTMLNotesnode249.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3221" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3215" HREF="HTMLNotesnode247.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3225" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3224" HREF="HTMLNotesnode249.html">Prescriptive Distribution</A>
+<B>Up:</B> <A NAME="tex2html3222" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3216" HREF="HTMLNotesnode247.html">HPF Procedure Interfaces</A>
+<BR> <P>
+<A NAME="ProcedureInterfaces2">&#160;</A><H3><A NAME="SECTION02041200000000000000">Procedures and Mapping</A></H3>
+<P>
+Procedures can contain declarations of the same classes of
+HPF objects that occur in a main program. A procedure can declare a
+processor grid  or a template, can align arrays relative to each other
+or
+to a template and can specify distribution methods. Here, we are only
+concerned with two different styles of declarations in procedures:
+prescriptive and descriptive. Prescriptive directives look exactly the
+same as main program directives; descriptive directives are actually
+assertions about the global state of the program and look slightly
+different to the directives that have already been met.
+<P>
+Although not compulsory, explicit interfaces should be given for <EM>
+all</EM>
+external procedures. In any case, HPF programs should
+always use  assumed-shape arrays which means that the supplication of
+interfaces will be mandatory. Explicit-shape arrays could also be used
+but these are not as flexible and are therefore not recommended.
+Assumed-size
+arrays (F<font size=-1><small>ORTRAN</small></font>&nbsp;77 style dummy array arguments that rely on sequence
+association<A NAME="tex2html69" HREF="HTMLNotesfootnode.html#15885"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/foot_motif.gif" width="15" height="20"></A>) should also be avoided.
+<P>
+Interfaces should also contain mapping information, this will aid
+compiler optimisations.
+<P>
+In general, it is not a good idea to remap data on entry to (or on exit
+from) a procedure. Data remapping is <EM>extremely</EM> time-consuming and
+will become a real bottleneck if it allowed. Data will be remapped if,
+for example, an actual argument is mapped with <TT>BLOCK</TT> distribution but
+the corresponding dummy is given <TT>CYCLIC</TT> distribution. Every processor
+will have to scatter all its elements to other processors and receive
+all its new elements from the processors that previously owned them.
+<P>
+When a procedure is exited, any dummy arguments which were remapped on
+entry must be remapped back again to their original mapping, in other
+words, a procedure call involving remapping does not permanently alter
+the mapping of an object, it just modifies it for the duration of the
+procedure.
+<P>
+<HR><A NAME="tex2html3223" HREF="HTMLNotesnode249.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3221" HREF="HTMLNotesnode246.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3215" HREF="HTMLNotesnode247.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3225" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3224" HREF="HTMLNotesnode249.html">Prescriptive Distribution</A>
+<B>Up:</B> <A NAME="tex2html3222" HREF="HTMLNotesnode246.html">HPF and Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3216" HREF="HTMLNotesnode247.html">HPF Procedure Interfaces</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Free Format Code</TITLE>
+<META NAME="description" CONTENT="Free Format Code">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html653" HREF="HTMLNotesnode42.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html651" HREF="HTMLNotesnode39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html645" HREF="HTMLNotesnode40.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html655" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html654" HREF="HTMLNotesnode42.html">Character Set</A>
+<B>Up:</B> <A NAME="tex2html652" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B> Previous:</B> <A NAME="tex2html646" HREF="HTMLNotesnode40.html">Source Form</A>
+<BR> <P>
+<H3><A NAME="SECTION01016200000000000000">Free Format Code</A></H3>
+<P>
+Fortran&nbsp;90 supports the new free format source form:
+<UL><LI> 132 characters per line;<LI> extended character set;<LI> `<TT>&amp;</TT>' line continuation character;<LI> `<TT>!</TT>' comment initiator;<LI> `<code>;</code>' statement separator;<LI> significant blanks.
+</UL>
+<P>
+Fortran&nbsp;90 has two basically incompatible source forms, an old form
+compatible with that used in F<font size=-1><small>ORTRAN</small></font>&nbsp;77, <B>fixed format</B>,
+ and a new form more suited to the
+modern computing environment, <B>free format</B>.  The old form used a
+very strictly defined
+layout of program statements on lines.  This was well suited to the
+expression of programs when the main method of entering programs into
+a computer was by the use of stacks of cards with holes punched in them
+to represent the characters of the program statements.  Such punched
+card
+systems also worked with a very restricted set of characters; only
+upper-case letters, for example, were allowed.  The new form is designed
+to be
+easier to prepare and to read using the sort of keyboard / display that
+is now
+ubiquitous.  This new form uses a much wider character set and it allows
+much greater freedom in laying out statements on a line.  It is this new
+form that we are going to describe here since this is the form we would
+expect any new programmer to employ.  The old form will not be described
+in any great detail.
+<P>
+The old ``character in column 6'' method of line continuation is
+replaced by an <TT>&amp;</TT> at the end of a line.  
+Only one <TT>&amp;</TT> is essential
+however if a string is to be split then there should also be an
+<TT>&amp;</TT> at the beginning of the text on the next line in order  to preserve
+the spacing. 
+The contined line effectively begins from the character after the <TT>&amp;</TT>.
+<P>
+<PRE>INTEGER SQUASHED, UP; REAL CLOSE
+PRINT*, 'This is a long constant continued from line to line&amp;
+        &amp;by use of the continuation mark at both the end of the&amp;
+        &amp;continued line and at the start of the continuation line'</PRE>
+<P>
+<TT>&amp;</TT> is ineffective within a comment and cannot be on a line on
+its own.
+<P>
+The `<code>;</code>' allows two statements (or more)  to occupy the
+same line and <TT>!</TT> signifies that the following text is a comment.
+<P>
+In free format blanks become significant. The rules are fairly
+straightforward: blanks cannot occur in the middle of names, keywords or
+literals and, in general, blanks must appear between keywords and
+between keywords and names.
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode2.html#QBasicReformat"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html653" HREF="HTMLNotesnode42.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html651" HREF="HTMLNotesnode39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html645" HREF="HTMLNotesnode40.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html655" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html654" HREF="HTMLNotesnode42.html">Character Set</A>
+<B>Up:</B> <A NAME="tex2html652" HREF="HTMLNotesnode39.html">Language Elements</A>
+<B> Previous:</B> <A NAME="tex2html646" HREF="HTMLNotesnode40.html">Source Form</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

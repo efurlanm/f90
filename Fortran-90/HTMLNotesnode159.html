@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Construction Intrinsics</TITLE>
+<META NAME="description" CONTENT="Array Construction Intrinsics">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2086" HREF="HTMLNotesnode160.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2084" HREF="HTMLNotesnode157.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2078" HREF="HTMLNotesnode158.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2088" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2087" HREF="HTMLNotesnode160.html">MERGE Intrinsic</A>
+<B>Up:</B> <A NAME="tex2html2085" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2079" HREF="HTMLNotesnode158.html">Bit Manipulation Intrinsic Functions</A>
+<BR> <P>
+<A NAME="ArrayConstructionIntrinsics1">&#160;</A><H3><A NAME="SECTION01053200000000000000">Array Construction Intrinsics</A></H3>
+<P>
+There are four intrinsics in this class:
+<P>
+<UL><LI> <TT>MERGE</TT><TT>(</TT><TT>TSOURCE</TT>,<TT>FSOURCE</TT>,<TT>MASK</TT><TT>)</TT>
+<P>
+This function has the effect of merging two arrays under a
+mask, whether to include <TT>TSOURCE</TT> or <TT>FSOURCE</TT> in the         
+result depends on <TT>LOGICAL</TT> array <TT>MASK</TT>; where it is <TT>.TRUE.</TT> the element 
+from <TT>TSOURCE</TT> is included otherwise the element from <TT>FSOURCE</TT> is 
+used instead.<LI> <TT>SPREAD</TT><TT>(</TT><TT>SOURCE</TT>,<TT>DIM</TT>,<TT>NCOPIES</TT>)
+<P>
+This function replicates an array by adding <TT>NCOPIES</TT> along a dimension.  
+The effect is analogous to taking a single page and replicating it to 
+form a book with multiple copies of the same page.  The result has one 
+more dimension that the source array. <TT>SPREAD</TT> is useful during 
+vectorisation of <TT>DO</TT>-loops.<LI> <TT>PACK</TT><TT>(</TT><TT>SOURCE</TT>,<TT>MASK</TT> [,<TT>VECTOR</TT> ]<TT>)</TT>
+<P>
+This function packs an arbitrary dimensioned array into a
+one-dimensional vector under a mask. <TT>PACK</TT> is useful for compressing data.<LI> <TT>UNPACK</TT><TT>(</TT><TT>VECTOR</TT>,<TT>MASK</TT>,<TT>FIELD</TT><TT>)</TT>
+<P>
+This function unpacks a vector into an
+array under a mask, <TT>UNPACK</TT> is a complementary function to <TT>PACK</TT> and
+is therefore  useful for uncompressing data.
+<P>
+</UL>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2089" HREF="HTMLNotesnode160.html#SECTION01053210000000000000"><TT>MERGE</TT> Intrinsic</A>
+<LI> <A NAME="tex2html2090" HREF="HTMLNotesnode161.html#SECTION01053220000000000000"><TT>SPREAD</TT> Intrinsic</A>
+<LI> <A NAME="tex2html2091" HREF="HTMLNotesnode162.html#SECTION01053230000000000000"><TT>PACK</TT> Intrinsic</A>
+<LI> <A NAME="tex2html2092" HREF="HTMLNotesnode163.html#SECTION01053240000000000000"><TT>UNPACK</TT> Intrinsic</A>
+</UL>
+<HR><A NAME="tex2html2086" HREF="HTMLNotesnode160.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2084" HREF="HTMLNotesnode157.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2078" HREF="HTMLNotesnode158.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2088" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2087" HREF="HTMLNotesnode160.html">MERGE Intrinsic</A>
+<B>Up:</B> <A NAME="tex2html2085" HREF="HTMLNotesnode157.html">Intrinsics</A>
+<B> Previous:</B> <A NAME="tex2html2079" HREF="HTMLNotesnode158.html">Bit Manipulation Intrinsic Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

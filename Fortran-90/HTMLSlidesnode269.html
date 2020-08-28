@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Prefix and Suffix Functions</TITLE>
+<META NAME="description" CONTENT="Prefix and Suffix Functions">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3511" HREF="HTMLSlidesnode270.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3509" HREF="HTMLSlidesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3503" HREF="HTMLSlidesnode268.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3513" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3512" HREF="HTMLSlidesnode270.html">Prefix and Suffix Functions </A>
+<B>Up:</B> <A NAME="tex2html3510" HREF="HTMLSlidesnode259.html">HPF Intrinsics and Library</A>
+<B> Previous:</B> <A NAME="tex2html3504" HREF="HTMLSlidesnode268.html">Array Combining Scatter Functions </A>
+<BR> <P>
+<H2><A NAME="SECTION020810000000000000000">Prefix and Suffix Functions</A></H2>
+<P>
+Both classes of functions are related
+<P>
+<UL><LI> prefix functions scan along an array. Each element of the result 
+depends upon the preceding elements (in array element order). For
+example,
+<P>
+<PRE>PRODUCT_PREFIX((/1,2,3,4/)) = (/1,2,6,24/)
+PRODUCT_PREFIX((/1,4,7/), = ((/1, 24,  5040/),
+               (/2,5,8/), =  (/2,120, 40320/),
+               (/3,6,9/)) =  (/6,720,362880/))</PRE><LI> suffix functions do the same but scan <EM>backwards</EM>.
+<P>
+<PRE>PRODUCT_SUFFIX((/1,2,3,4/)) = (/24,24,12,4/)
+PRODUCT_SUFFIX((/1,4,7/), = ((/362880,60480,504/),
+               (/2,5,8/), =  (/362880,15120, 72/),
+               (/3,6,9/)) =  (/181440, 3024,  9/))</PRE>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode281.html#PrefixSuffix1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3511" HREF="HTMLSlidesnode270.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3509" HREF="HTMLSlidesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3503" HREF="HTMLSlidesnode268.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3513" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3512" HREF="HTMLSlidesnode270.html">Prefix and Suffix Functions </A>
+<B>Up:</B> <A NAME="tex2html3510" HREF="HTMLSlidesnode259.html">HPF Intrinsics and Library</A>
+<B> Previous:</B> <A NAME="tex2html3504" HREF="HTMLSlidesnode268.html">Array Combining Scatter Functions </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

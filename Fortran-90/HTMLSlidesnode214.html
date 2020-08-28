@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>MIMD Example</TITLE>
+<META NAME="description" CONTENT="MIMD Example">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2867" HREF="HTMLSlidesnode215.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2865" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2859" HREF="HTMLSlidesnode213.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2869" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2868" HREF="HTMLSlidesnode215.html">The INDEPENDENT Directive</A>
+<B>Up:</B> <A NAME="tex2html2866" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2860" HREF="HTMLSlidesnode213.html">Pure Subroutine Example</A>
+<BR> <P>
+<H2><A NAME="SECTION020411000000000000000">MIMD Example</A></H2>
+<P>
+Multiple Instructions Multiple Data,
+<P>
+<PRE>    REAL FUNCTION F(x,i) ! PURE
+     IMPLICIT NONE
+     REAL, INTENT(IN) :: x    ! element
+     INTEGER, INTENT(IN) :: i ! index
+      IF (x &gt; 0.0) THEN
+       F = x*x
+      ELSEIF (i==1 .OR. i==n) THEN
+       F = 0.0
+      ELSE
+       F = x
+      END IF
+    END FUNCTION F</PRE>
+<P>
+<UL><LI> different processors perform different tasks,<LI> used as alternative to <TT>WHERE</TT> or <TT>FORALL</TT>.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode235.html#MIMDExample1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2867" HREF="HTMLSlidesnode215.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2865" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2859" HREF="HTMLSlidesnode213.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2869" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2868" HREF="HTMLSlidesnode215.html">The INDEPENDENT Directive</A>
+<B>Up:</B> <A NAME="tex2html2866" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2860" HREF="HTMLSlidesnode213.html">Pure Subroutine Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

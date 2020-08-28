@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Deallocating Arrays</TITLE>
+<META NAME="description" CONTENT="Deallocating Arrays">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1169" HREF="HTMLSlidesnode83.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1167" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1161" HREF="HTMLSlidesnode81.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1171" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1170" HREF="HTMLSlidesnode83.html">Array I/O</A>
+<B>Up:</B> <A NAME="tex2html1168" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1162" HREF="HTMLSlidesnode81.html">Allocatable Arrays</A>
+<BR> <P>
+<H2><A NAME="SECTION0101315000000000000000">Deallocating Arrays</A></H2>
+<P>
+Heap storage can be reclaimed using the <TT>DEALLOCATE</TT> statement:
+<P>
+<PRE>    IF (ALLOCATED(ages)) DEALLOCATE(ages,STAT=ierr)</PRE>
+<P>
+<UL><LI> it is an error to deallocate an array without the
+<TT>ALLOCATE</TT> attribute or one that has not been previously
+allocated space,<LI> there is an intrinsic function, <TT>ALLOCATED</TT>, which
+returns a scalar <TT>LOGICAL</TT> values reporting on the status of an array,<LI> the <TT>STAT</TT><TT>=</TT> field is optional but its use is recommended,<LI> if a procedure containing an allocatable array which does not have
+the  <TT>SAVE</TT> attribute is exited without the array being <TT>DEALLOCATE</TT> d 
+then this storage becomes inaccessible.
+<P>
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode105.html#ArrayAllocation2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1169" HREF="HTMLSlidesnode83.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1167" HREF="HTMLSlidesnode67.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1161" HREF="HTMLSlidesnode81.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1171" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1170" HREF="HTMLSlidesnode83.html">Array I/O</A>
+<B>Up:</B> <A NAME="tex2html1168" HREF="HTMLSlidesnode67.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1162" HREF="HTMLSlidesnode81.html">Allocatable Arrays</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

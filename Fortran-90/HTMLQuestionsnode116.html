@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1412" HREF="HTMLQuestionsnode117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1410" HREF="HTMLQuestionsnode115.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1406" HREF="HTMLQuestionsnode115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1414" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1413" HREF="HTMLQuestionsnode117.html">Life in a Procedure</A>
+<B>Up:</B> <A NAME="tex2html1411" HREF="HTMLQuestionsnode115.html">Decsriptive Distributions</A>
+<B> Previous:</B> <A NAME="tex2html1407" HREF="HTMLQuestionsnode115.html">Decsriptive Distributions</A>
+<BR> <P>
+<H3><A NAME="SECTION00091100000000000000">Solution</A></H3>
+Assuming that the question has been answered in its non-procedural form.
+One gets 3 marks for descriptive distribution of dummy args and 1 marks for SWAP
+being local to the procedure plus 1 mark for giving an interface.
+<P>
+<PRE>      PROGRAM GAUSS_90
+      REAL, allocatable ::  A(:,:), X(:), Y(:), START(:)
+      INTEGER :: i
+
+      INTEGER j, n
+
+   !HPF$ ALIGN START(:) WITH A(*,:)
+   !HPF$ ALIGN Y(:)     WITH A(:,*)
+   !HPF$ ALIGN X(:)     WITH A(*,:)
+   !HPF$ PROCESSORS P(16,16) ! say
+   !HPF$ DISTRIBUTE A(CYCLIC,CYCLIC) ONTO P
+
+      INTERFACE
+       SUBROUTINE GAUSS_ELIM_90( A, X, Y )
+
+       REAL, DIMENSION(:,:), INTENT(INOUT) :: A
+       REAL, DIMENSION(:),   INTENT(INOUT) :: X, Y
+
+   !HPF$ ALIGN Y(:) WITH *A(:,*)
+   !HPF$ ALIGN X(:) WITH *A(:,*)
+   !HPF$ DISTRIBUTE A *(CYCLIC,*)
+
+       END  SUBROUTINE GAUSS_ELIM_90
+      END INTERFACE
+
+      print *, &quot;Problem size = ? (&gt;5)&quot;
+      read (*,*) n
+      print *, &quot;Problem size = &quot;, n
+      allocate(a(n,n), x(n), y(n), start(n))
+      A = 0.1
+      DO i=1,n
+        START(i) = i
+        A(1+MODULO(i+1,n),i) = i+5
+      ENDDO
+      Y = 0
+      DO i = 1, n
+        Y(i) = SUM( A(i,:)*START )
+      ENDDO
+
+      CALL GAUSS_ELIM_90( A, X, Y )
+
+      DO i = 1, 5
+        WRITE(*,*) i, X(i)
+      ENDDO
+
+      DO i = n - 4, n
+        WRITE(*,*) i, X(i)
+      ENDDO
+
+      END PROGRAM GAUSS_90
+
+      SUBROUTINE GAUSS_ELIM_90( A, X, Y )
+
+       REAL, DIMENSION(:,:), INTENT(INOUT) :: A
+       REAL, DIMENSION(:),   INTENT(INOUT) :: X, Y
+       REAL TEMP
+       REAL SWAP(SIZE(X))
+
+!HPF$ ALIGN SWAP(:) WITH A(*,:)
+!HPF$ ALIGN Y(:) WITH *A(:,*)
+!HPF$ ALIGN X(:) WITH *A(:,*)
+!HPF$ DISTRIBUTE A *(CYCLIC,*)
+
+       INTEGER i,j, n, location, location_array(1)
+
+       n = SIZE( X )
+
+       DO i = 1, n-1
+
+         location_array = MAXLOC( ABS(A(i:n,i)) ) !
+         location = location_array(1)+i-1         !
+         SWAP(i:n) = A(location,i:n)              !
+         TEMP = Y(location)                       !
+         IF (location /= i) THEN                  !
+           A(location,i:n) = A(i,i:n)             !
+           A(i,i:n) = SWAP(i:n)                   !
+           Y(location) = Y(i)                     !
+           Y(i) = TEMP                            !
+         END IF                                   !
+
+         DO j = i+1, n
+            A(j,i) = A(j, i) / swap(i)
+            A(j, i+1:n) = A(j, i+1:n ) - a(j, i) * SWAP(i+1:n)
+            Y(j) = Y(j) - a(j,i) * TEMP
+         ENDDO
+       ENDDO
+
+       X(n) = Y(n) / A(n,n)
+       DO i = n-1, 1, -1
+         Y(1:i) = Y(1:i) - X(i+1) * A(1:i, i+1)
+         X(i) = Y(i) / A(i,i)
+       ENDDO
+
+
+       END SUBROUTINE GAUSS_ELIM_90</PRE>
+<P>
+<HR><A NAME="tex2html1412" HREF="HTMLQuestionsnode117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1410" HREF="HTMLQuestionsnode115.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1406" HREF="HTMLQuestionsnode115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1414" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1413" HREF="HTMLQuestionsnode117.html">Life in a Procedure</A>
+<B>Up:</B> <A NAME="tex2html1411" HREF="HTMLQuestionsnode115.html">Decsriptive Distributions</A>
+<B> Previous:</B> <A NAME="tex2html1407" HREF="HTMLQuestionsnode115.html">Decsriptive Distributions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solution</TITLE>
+<META NAME="description" CONTENT="Solution">
+<META NAME="keywords" CONTENT="HTMLQuestions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLQuestions.css">
+</HEAD>
+<BODY  bgcolor=f00000  text=ffffff LANG="EN">
+ <A NAME="tex2html1596" HREF="HTMLQuestionsnode134.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1594" HREF="HTMLQuestionsnode132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1590" HREF="HTMLQuestionsnode132.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1598" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1597" HREF="HTMLQuestionsnode134.html">Golf - HPF Intrinsics  </A>
+<B>Up:</B> <A NAME="tex2html1595" HREF="HTMLQuestionsnode132.html">Extrinsic simulates an INDEPENDENT </A>
+<B> Previous:</B> <A NAME="tex2html1591" HREF="HTMLQuestionsnode132.html">Extrinsic simulates an INDEPENDENT </A>
+<BR> <P>
+<H3><A NAME="SECTION000102100000000000000">Solution</A></H3>
+<PRE> SUBROUTINE DoIt(X,Y,Z,n)
+  IMPLICIT NONE
+   INTEGER, INTENT(IN)                 :: n
+   REAL, DIMENSION(:,:), INTENT(INOUT) :: X
+   REAL, DIMENSION(:,:), INTENT(IN)    :: Y,Z
+    WHERE (ABS(X) .GE. 0.01) X = (Y*Z*n)/X
+ END SUBROUTINE DoIt</PRE>
+<P>
+and in the calling program
+<P>
+<PRE>  INTERFACE
+   EXTRINSIC(F90_LOCAL) SUBROUTINE DoIt(X,Y,Z,n)
+     IMPLICIT NONE
+      INTEGER, INTENT(IN)                 :: n
+      REAL, DIMENSION(:,:), INTENT(INOUT) :: X
+      REAL, DIMENSION(:,:), INTENT(IN)    :: Y,Z
+!HPF$ PROCESSORS, DIMENSION(10,10)        :: P
+!HPF$ ALIGN (:,:) WITH X(:,:)             :: Y, Z
+!HPF$ DISTRIBUTE (CYCLIC,CYCLIC) ONTO P   :: X
+    END SUBROUTINE DoIt
+  END INTERFACE</PRE>
+<P>
+<HR><A NAME="tex2html1596" HREF="HTMLQuestionsnode134.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1594" HREF="HTMLQuestionsnode132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1590" HREF="HTMLQuestionsnode132.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1598" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1597" HREF="HTMLQuestionsnode134.html">Golf - HPF Intrinsics  </A>
+<B>Up:</B> <A NAME="tex2html1595" HREF="HTMLQuestionsnode132.html">Extrinsic simulates an INDEPENDENT </A>
+<B> Previous:</B> <A NAME="tex2html1591" HREF="HTMLQuestionsnode132.html">Extrinsic simulates an INDEPENDENT </A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:02:31 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

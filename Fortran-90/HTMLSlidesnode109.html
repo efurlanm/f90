@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>SAVE Statement</TITLE>
+<META NAME="description" CONTENT="SAVE Statement">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1487" HREF="HTMLSlidesnode110.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1485" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1479" HREF="HTMLSlidesnode108.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1489" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1488" HREF="HTMLSlidesnode110.html">Implicit SAVE Attribute and </A>
+<B>Up:</B> <A NAME="tex2html1486" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1480" HREF="HTMLSlidesnode108.html">Scope of Names</A>
+<BR> <P>
+<H2><A NAME="SECTION0101514000000000000000"><TT>SAVE</TT> Statement</A></H2>
+<P>
+ Local objects:
+<P>
+<UL><LI> are created each time a procedure is invoked,<LI> are  destroyed when the procedure completes,<LI> <EM>do not</EM> retain their values between calls. 
+</UL>
+<P>
+A local variable with the <TT>SAVE</TT> attribute 
+will retain its value and allocation status between calls. For example,
+<P>
+<PRE>   SUBROUTINE sub1
+    REAL, SAVE :: keep
+    REAL       :: chuck
+    REAL, ALLOCATABLE, DIMENSION(:,:), SAVE :: X
+     ...  
+    IF (.NOT.ALLOCATED(X)) ALLOCATE(X(20,20))</PRE>
+<P>
+<UL><LI> <TT>keep</TT> and  <TT>X</TT> will retain their values between calls.<LI> <TT>X</TT> will remain allocated between calls,<LI> <TT>chuck</TT> will disappear between calls,<LI> <TT>keep</TT> and  <TT>X</TT> have <EM>static</EM> storage class.
+</UL>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode134.html#SaveStatement1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1487" HREF="HTMLSlidesnode110.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1485" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1479" HREF="HTMLSlidesnode108.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1489" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1488" HREF="HTMLSlidesnode110.html">Implicit SAVE Attribute and </A>
+<B>Up:</B> <A NAME="tex2html1486" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1480" HREF="HTMLSlidesnode108.html">Scope of Names</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

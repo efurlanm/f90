@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Examples of Good Distributions</TITLE>
+<META NAME="description" CONTENT="Examples of Good Distributions">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html2531" HREF="HTMLNotesnode193.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2529" HREF="HTMLNotesnode191.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2523" HREF="HTMLNotesnode191.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2533" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2532" HREF="HTMLNotesnode193.html">Successive Over Relaxation Example</A>
+<B>Up:</B> <A NAME="tex2html2530" HREF="HTMLNotesnode191.html">Scalar Variables</A>
+<B> Previous:</B> <A NAME="tex2html2524" HREF="HTMLNotesnode191.html">Scalar Variables</A>
+<BR> <P>
+<A NAME="GoodDistributions1">&#160;</A><H4><A NAME="SECTION020131210000000000000">Examples of Good Distributions</A></H4>
+<P>
+Given the following assignments:
+<P>
+<PRE>  A(2:99) = (A(:98)+A(3:))/2 ! neighbour calculations
+  B(22:56)= 4.0*ATAN(1.0)    ! section of B calculated
+  C(:) = SUM(D,DIM=1)        ! Sum down a column</PRE>
+<P>
+Assuming the `owner-computes' rule,
+the following distributions would be examples of good HPF programming,
+<P>
+<PRE> !HPF$ DISTRIBUTE (BLOCK) ONTO P   :: A
+ !HPF$ DISTRIBUTE (CYCLIC) ONTO P  :: B
+ !HPF$ DISTRIBUTE (BLOCK) ONTO P   :: C  ! or (CYCLIC)
+ !HPF$ DISTRIBUTE (*,BLOCK) ONTO P :: D ! or (*,CYCLIC)</PRE>
+<P>
+The following facts were used in deciding which distribution methods were
+to be used:
+<P>
+<UL><LI> <TT>A</TT> is involved in neighbourhood calculations. <TT>A(3)</TT> is
+combined
+with <TT>A(1)</TT> and assigned to <TT>A(2)</TT><LI> <TT>B</TT> an `odd shaped' inner section of <TT>B</TT> is used -
+in order to balance the load a <TT>CYCLIC</TT> distribution should be used.<LI> the calculation of an element of <TT>C</TT> involves a whole column
+of <TT>D</TT>. This means that every element of <TT>C</TT> should be aligned
+with the corresponding whole column of <TT>D</TT>.
+<P>
+</UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode86.html#QWhereStatementHPF"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html2531" HREF="HTMLNotesnode193.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2529" HREF="HTMLNotesnode191.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2523" HREF="HTMLNotesnode191.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2533" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2532" HREF="HTMLNotesnode193.html">Successive Over Relaxation Example</A>
+<B>Up:</B> <A NAME="tex2html2530" HREF="HTMLNotesnode191.html">Scalar Variables</A>
+<B> Previous:</B> <A NAME="tex2html2524" HREF="HTMLNotesnode191.html">Scalar Variables</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

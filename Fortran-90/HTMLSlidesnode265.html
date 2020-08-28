@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Example of New Reduction Functions</TITLE>
+<META NAME="description" CONTENT="Example of New Reduction Functions">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3467" HREF="HTMLSlidesnode266.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3465" HREF="HTMLSlidesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3459" HREF="HTMLSlidesnode264.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3469" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3468" HREF="HTMLSlidesnode266.html">Bit Manipulation Functions</A>
+<B>Up:</B> <A NAME="tex2html3466" HREF="HTMLSlidesnode259.html">HPF Intrinsics and Library</A>
+<B> Previous:</B> <A NAME="tex2html3460" HREF="HTMLSlidesnode264.html">New HPF Reduction Functions</A>
+<BR> <P>
+<H2><A NAME="SECTION02086000000000000000">Example of New Reduction Functions</A></H2>
+<P>
+All functions operate on arrays, for example, <TT>IALL</TT><TT>(A)</TT> is the same as
+<P>
+<PRE> ...(IAND(IAND(IAND(A(1),A(2)),A(3)),A(4)),...)</PRE>
+<P>
+<TT>PARITY</TT> is not bitwise and is used with <TT>LOGICAL</TT> valued expressions.
+<TT>PARITY</TT><TT>(A)</TT> is
+<P>
+<PRE> A(1).NEQV.A(2).NEQV.A(3).NEQV.A(4). ...</PRE>
+<P>
+For example,
+<PRE> PARITY((/F,T,F,T,F/))</PRE>
+<P>
+is <TT>.FALSE.</TT> whereas,
+<PRE> PARITY((/F,T,F,T,T/))</PRE>
+<P>
+is <TT>.TRUE.</TT>.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode278.html#Reductions2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3467" HREF="HTMLSlidesnode266.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3465" HREF="HTMLSlidesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3459" HREF="HTMLSlidesnode264.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3469" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3468" HREF="HTMLSlidesnode266.html">Bit Manipulation Functions</A>
+<B>Up:</B> <A NAME="tex2html3466" HREF="HTMLSlidesnode259.html">HPF Intrinsics and Library</A>
+<B> Previous:</B> <A NAME="tex2html3460" HREF="HTMLSlidesnode264.html">New HPF Reduction Functions</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

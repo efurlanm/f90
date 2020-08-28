@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Rules for Extrinsic Procedures</TITLE>
+<META NAME="description" CONTENT="Rules for Extrinsic Procedures">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3477" HREF="HTMLNotesnode270.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3475" HREF="HTMLNotesnode266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3469" HREF="HTMLNotesnode268.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3479" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3478" HREF="HTMLNotesnode270.html">Uses of Extrinsics</A>
+<B>Up:</B> <A NAME="tex2html3476" HREF="HTMLNotesnode266.html">Extrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3470" HREF="HTMLNotesnode268.html">Extrinsic Example</A>
+<BR> <P>
+<A NAME="ExtrinsicConditions1">&#160;</A><H3><A NAME="SECTION02051200000000000000">Rules for Extrinsic Procedures</A></H3>
+<P>
+Extrinsic procedures have a number of constraints placed on them so
+they behave in the same way as `regular' HPF procedures. An <TT>EXTRINSIC</TT> 
+must:
+<P>
+<UL><LI> fully terminate before control returns,<LI> not permanently change the mapping of an object,<LI> obey any <TT>INTENT</TT>,<LI> ensure that non-local replicated variables have a consistent
+value,<LI> not permanently modify the number of available processors.
+</UL>
+<P>
+All these rules aim to make sure that the invocation of an <TT>EXTRINSIC</TT> 
+is
+seamless. Guards are set against the extrinsic spawning processes which
+remain active after control has returned to HPF; if this was not
+enforced these processes could interact with execution in a destructive
+way.
+<P>
+The extrinsic should also leave the global state of the program in the
+same way as it found it. In other words, if any remapping takes place
+within the extrinsic, then it must be undone before control returns to
+HPF. The extrinsic must also ensure that scalar variables, which HPF
+goes to great lengths to ensure are equal across every processor, do not
+become corrupted.
+<P>
+<HR><A NAME="tex2html3477" HREF="HTMLNotesnode270.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3475" HREF="HTMLNotesnode266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3469" HREF="HTMLNotesnode268.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3479" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3478" HREF="HTMLNotesnode270.html">Uses of Extrinsics</A>
+<B>Up:</B> <A NAME="tex2html3476" HREF="HTMLNotesnode266.html">Extrinsic Procedures</A>
+<B> Previous:</B> <A NAME="tex2html3470" HREF="HTMLNotesnode268.html">Extrinsic Example</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

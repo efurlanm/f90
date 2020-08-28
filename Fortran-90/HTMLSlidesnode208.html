@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Do-loops and Forall Statements</TITLE>
+<META NAME="description" CONTENT="Do-loops and Forall Statements">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html2801" HREF="HTMLSlidesnode209.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2799" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2793" HREF="HTMLSlidesnode207.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2803" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2802" HREF="HTMLSlidesnode209.html">Forall Construct</A>
+<B>Up:</B> <A NAME="tex2html2800" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2794" HREF="HTMLSlidesnode207.html">Execution Process</A>
+<BR> <P>
+<H2><A NAME="SECTION02045000000000000000">Do-loops and Forall Statements</A></H2>
+<P>
+Take care, <TT>FORALL</TT> semantics are different to <TT>DO</TT>-loop semantics,
+<P>
+<PRE>    DO i = 2, n-1
+     a(i) = a(i-1) + a(i) + a(i+1)
+    END DO</PRE>
+<P>
+is different to,
+<P>
+<PRE>    FORALL (i=2:n-1) &amp;
+     a(i) = a(i-1) + a(i) + a(i+1)</PRE>
+<P>
+which is the same as,
+<P>
+<PRE>     a(2:n-1) = a(1:n-2) + a(2:n-1) + a(3:n)</PRE>
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode230.html#DoVsForall1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html2801" HREF="HTMLSlidesnode209.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html2799" HREF="HTMLSlidesnode203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html2793" HREF="HTMLSlidesnode207.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html2803" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html2802" HREF="HTMLSlidesnode209.html">Forall Construct</A>
+<B>Up:</B> <A NAME="tex2html2800" HREF="HTMLSlidesnode203.html">Data Parallel Execution</A>
+<B> Previous:</B> <A NAME="tex2html2794" HREF="HTMLSlidesnode207.html">Execution Process</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

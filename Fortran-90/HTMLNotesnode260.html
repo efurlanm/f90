@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Arguments Example 1</TITLE>
+<META NAME="description" CONTENT="Array Arguments Example 1">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html3356" HREF="HTMLNotesnode261.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3354" HREF="HTMLNotesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3348" HREF="HTMLNotesnode259.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3358" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3357" HREF="HTMLNotesnode261.html">Array Arguments Example 2</A>
+<B>Up:</B> <A NAME="tex2html3355" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<B> Previous:</B> <A NAME="tex2html3349" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<BR> <P>
+<A NAME="PassingArraySections2">&#160;</A><H4><A NAME="SECTION020411210000000000000">Array Arguments Example 1</A></H4>
+<P>
+Assuming that <TT>Zubbie</TT> is invoked by the <TT>CALL</TT> statement given
+on the previous slide, the two diagrams show how the actual arguments,
+<TT>A</TT> and <TT>B</TT>, are aligned at the call site and how the two
+corresponding dummy arguments, <TT>X</TT> and <TT>Y</TT>, are aligned in the
+procedure. It can be seen that <TT>A</TT> and <TT>B</TT> are such that element
+<TT>A(i,j)</TT> is aligned with <TT>B(i,j)</TT>. It is perhaps best to view
+both <TT>A</TT> and <TT>B</TT> as being aligned to a conformable template.
+<P>
+The only way that the alignment of <TT>x</TT> and <TT>y</TT> can be described
+is by reconstructing this template and then explicitly aligning <TT>X</TT>
+and <TT>Y</TT> in exactly the same way as the two actual arguments were. In
+other words, we must calculate the alignment, with respect to the
+template, of the subsections of <TT>A</TT> and <TT>B</TT> that were used as
+arguments to <TT>Zubbie</TT>.
+<P>
+<P><A NAME="16385">&#160;</A><A NAME="DistributionActualDummyArgumentsVisualisationfig">&#160;</A> <IMG WIDTH=498 HEIGHT=204 ALIGN=BOTTOM ALT="figure16382" SRC="HTMLNotesimg145.gif"  > <BR>
+<STRONG>Figure 40:</STRONG> Visualisation of Distribution of Actual and Dummy Arguments<BR>
+<P>
+<P>
+thus to prevent remapping, the procedure should be:
+<P>
+<PRE>     SUBROUTINE Zubbie(x,y,z)
+!HPF$ TEMPLATE, DIMENSION(4,6)            :: T
+!HPF$ PROCESSORS, DIMENSION(2,2)          :: P
+      REAL, INTENT(INOUT), DIMENSION(:,:) :: x, y
+      REAL, INTENT(INOUT), DIMENSION(:,:) :: z
+!HPF$ ALIGN (:,:) WITH *T(:,::2)          :: x, z
+!HPF$ ALIGN (:,:) WITH *T(3:,2::2)        :: y
+!HPF$ DISTRIBUTE *(BLOCK,BLOCK) ONTO *P   :: T
+      ...</PRE>
+<P>
+It can be seen that the alignment given in the procedure corresponds to
+the
+layout in the second diagram. By using the original template, we have
+been able to reconstruct the relative alignment of the dummies.
+<P>
+There is one large problem with this approach; what happens if <TT>
+Zubbie</TT> is invoked with different sections of <TT>A</TT> and <TT>B</TT> such
+as
+<P>
+<PRE>      CALL Zubbie(A(3:4,::2),B(1:2,2::2),Res)</PRE>
+<P>
+Clearly, our carefully
+constructed alignment is no longer valid and, if it were used, would
+result in data remapping. If this approach is adopted then a separate
+subroutine for each invocation must be written. We get into even deeper
+water if the sectioning of <TT>A</TT> or <TT>B</TT> is performed by
+variables instead of literals.
+<P>
+It may be a good idea to only pass whole objects to procedures!
+<P>
+Note that the use of a module to hold the <TT>PROCESSORS</TT> and <TT>TEMPLATE</TT> 
+declarations and the distribution of the template would simplify matters
+here.
+<P>
+<HR><A NAME="tex2html3356" HREF="HTMLNotesnode261.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3354" HREF="HTMLNotesnode259.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3348" HREF="HTMLNotesnode259.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3358" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3357" HREF="HTMLNotesnode261.html">Array Arguments Example 2</A>
+<B>Up:</B> <A NAME="tex2html3355" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<B> Previous:</B> <A NAME="tex2html3349" HREF="HTMLNotesnode259.html">Passing Array Sections</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

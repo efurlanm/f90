@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Extrinsic instead of INDEPENDENT</TITLE>
+<META NAME="description" CONTENT="Extrinsic instead of INDEPENDENT">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html3365" HREF="HTMLSlidesnode258.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3363" HREF="HTMLSlidesnode249.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3357" HREF="HTMLSlidesnode256.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3367" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3366" HREF="HTMLSlidesnode258.html">Calls to the NAG </A>
+<B>Up:</B> <A NAME="tex2html3364" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<B> Previous:</B> <A NAME="tex2html3358" HREF="HTMLSlidesnode256.html">Uses of Extrinsics</A>
+<BR> <P>
+<H2><A NAME="SECTION02078000000000000000">Extrinsic instead of <TT>INDEPENDENT</TT></A></H2>
+<P>
+The <TT>INDEPENDENT</TT> directive is currently not implemented by most
+compilers. Assuming the loop implies no communication an 
+<TT>EXTRINSIC</TT> can be used to achieve the same functionality:
+<P>
+<PRE> !HPF$ DISTRIBUTE A(*,CYCLIC)
+....
+ !HPF$ INDEPENDENT, NEW(i)
+ DO j = 1, n
+  DO i = 1, m
+   ! ... stuff missing
+   A(i,j) =
+   ! ... stuff missing
+  END DO
+ END DO
+....</PRE>
+<P>
+the loop can be replaced by a call to the <TT>EXTRINSIC</TT> <TT>Ext_Loop</TT>:
+<P>
+<PRE>....
+ CALL Ext_Loop(A,...)
+....</PRE>
+<P>
+The <TT>EXTRINSIC</TT> contains the loop with <TT>n</TT> and <TT>m</TT> modified.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode271.html#ExtrinsicUseExamples1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode132.html#QIndependentLoopExtrinsics"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html3365" HREF="HTMLSlidesnode258.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html3363" HREF="HTMLSlidesnode249.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html3357" HREF="HTMLSlidesnode256.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html3367" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html3366" HREF="HTMLSlidesnode258.html">Calls to the NAG </A>
+<B>Up:</B> <A NAME="tex2html3364" HREF="HTMLSlidesnode249.html">Extrinsics</A>
+<B> Previous:</B> <A NAME="tex2html3358" HREF="HTMLSlidesnode256.html">Uses of Extrinsics</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

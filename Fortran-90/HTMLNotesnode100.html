@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Array Inquiry Intrinsics</TITLE>
+<META NAME="description" CONTENT="Array Inquiry Intrinsics">
+<META NAME="keywords" CONTENT="HTMLNotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLNotes.css">
+</HEAD>
+<BODY   LANG="EN">
+ <A NAME="tex2html1385" HREF="HTMLNotesnode101.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1383" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1377" HREF="HTMLNotesnode99.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1387" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1386" HREF="HTMLNotesnode101.html">Array Constructors</A>
+<B>Up:</B> <A NAME="tex2html1384" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1378" HREF="HTMLNotesnode99.html">Visualising Array Sections</A>
+<BR> <P>
+<A NAME="ArrayInquiryIntrinsics1">&#160;</A><H3><A NAME="SECTION01031900000000000000">Array Inquiry Intrinsics</A></H3>
+<P>
+These intrinsics allow the user to quiz arrays about their attributes
+and status and are most
+often applied to dummy arguments  in procedures. Consider the declaration:
+<P>
+<PRE>    REAL, DIMENSION(-10:10,23,14:28) :: A</PRE>
+<P>
+the following inquiry intrinsics are available,
+<UL><LI> <TT>LBOUND</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>]<TT>)</TT>
+<P>
+Returns a one dimensional array containing the lower bounds of an array or, 
+if a dimension is specified, a scalar containing the lower bound in that 
+dimension. For example,
+<P>
+<UL><LI> <TT>LBOUND</TT><TT>(A)</TT> is <TT>(/-10,1,14/)</TT> (array);<LI> <TT>LBOUND</TT><TT>(A,1)</TT> is <TT>-10</TT> (scalar).
+</UL><LI> <TT>UBOUND</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>]<TT>)</TT>
+<P>
+Returns a one dimensional array containing the upper bounds of an array or,
+if a dimension is specified, a scalar containing the upper bound in that 
+dimension. For example,
+<P>
+<UL><LI> <TT>UBOUND</TT><TT>(A)</TT> is <TT>(/10,23,28/)</TT><LI> <TT>UBOUND</TT><TT>(A,1)</TT> is <TT>10</TT>.
+</UL><LI> <TT>SHAPE</TT><TT>(</TT><TT>SOURCE</TT><TT>)</TT>
+<P>
+Returns a one dimensional array containing the shape of an object. For example,
+<P>
+<UL><LI> <TT>SHAPE</TT><TT>(A)</TT> is <TT>(/21,23,15/)</TT> (array);<LI> <TT>SHAPE</TT><TT>((/4/))</TT> is <TT>(/1/)</TT> (array).
+</UL><LI> <TT>SIZE</TT><TT>(</TT><TT>SOURCE</TT>[,<TT>DIM</TT>]<TT>)</TT>
+<P>
+Returns a scalar containing  the total number of array elements either in 
+the whole array or in an optionally specified dimension. For example,
+<P>
+<UL><LI> <TT>SIZE</TT><TT>(A,1)</TT> is <TT>21</TT>.<LI> <TT>SIZE</TT><TT>(A)</TT> is <TT>7245</TT>.<LI> <TT>SIZE</TT><TT>(4)</TT> is an error as the argument must not be scalar.
+</UL><LI> <TT>ALLOCATED</TT><TT>(</TT><TT>SOURCE</TT><TT>)</TT>
+<P>
+Returns a scalar <TT>LOGICAL</TT> result indicating whether an  array is allocated  or not. 
+For example,
+<P>
+<PRE>    INTEGER, ALLOCATABLE, DIMENSION(:) :: Vec
+    PRINT*, ALLOCATED(Vec)
+    ALLOCATE(Vec(10))
+    PRINT*, ALLOCATED(Vec)
+    DEALLOCATE(Vec)
+    PRINT*, ALLOCATED(Vec)
+    END</PRE>
+<P>
+will produce <TT>.FALSE.</TT>, <TT>.TRUE.</TT>  and <TT>.FALSE.</TT> in that order.
+</UL>
+<P>
+<EM>Now try this question <A HREF="HTMLQuestionsnode35.html#QArrayInquireyIntrinsics"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/redball.gif" width="14" height="14"></A></EM>
+<P>
+<HR><A NAME="tex2html1385" HREF="HTMLNotesnode101.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1383" HREF="HTMLNotesnode91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1377" HREF="HTMLNotesnode99.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1387" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1386" HREF="HTMLNotesnode101.html">Array Constructors</A>
+<B>Up:</B> <A NAME="tex2html1384" HREF="HTMLNotesnode91.html">Arrays</A>
+<B> Previous:</B> <A NAME="tex2html1378" HREF="HTMLNotesnode99.html">Visualising Array Sections</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 17:50:42 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

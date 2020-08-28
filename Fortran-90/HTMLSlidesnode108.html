@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Scope of Names</TITLE>
+<META NAME="description" CONTENT="Scope of Names">
+<META NAME="keywords" CONTENT="HTMLSlides">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="HTMLSlides.css">
+</HEAD>
+<BODY  bgcolor=fffff  LANG="EN">
+ <A NAME="tex2html1476" HREF="HTMLSlidesnode109.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1474" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1468" HREF="HTMLSlidesnode107.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1478" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1477" HREF="HTMLSlidesnode109.html">SAVE Statement</A>
+<B>Up:</B> <A NAME="tex2html1475" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1469" HREF="HTMLSlidesnode107.html">Host Association</A>
+<BR> <P>
+<H2><A NAME="SECTION0101513000000000000000">Scope of Names</A></H2>
+<P>
+Consider the following example,
+<PRE>    SUBROUTINE sub1        ! scope sub1
+     EXTERNAL sub4         ! scope sub1
+     REAL A, B, C          ! scope sub1
+      ...                  ! scope sub1
+     CALL sub3(A)          ! scope sub1
+     CALL sub4(A)          ! scope sub1
+    CONTAINS
+     SUBROUTINE sub3(D)   ! scope sub3
+      REAL C, D           ! local C, D 
+       ...                ! scope sub3
+      C = A**3     ! A cant be changed
+      D = D**3 + C ! D can be changed
+      B = C  ! B from sub1; C from sub3 
+       ...                ! scope sub3
+     END SUBROUTINE sub3
+    END SUBROUTINE sub1
+
+    SUBROUTINE sub4(C)    ! scope sub4
+     REAL B, C            ! scope sub4
+       ...                ! scope sub4
+      B = C               ! scope sub4
+       ...                ! scope sub4
+    END SUBROUTINE sub4</PRE>
+In <TT>sub3</TT>, <TT>A</TT> may not be changed but may be referenced.
+<P>
+<EM>For more information, click here
+<A HREF="HTMLNotesnode133.html#HostAssociation2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<EM>Now try this question
+<A HREF="HTMLQuestionsnode62.html#QProcScope"><IMG  ALIGN=BOTTOM ALT="gif" SRC="localIcons/little_i.gif" width="15" height="15"></A></EM>
+<P>
+<HR><A NAME="tex2html1476" HREF="HTMLSlidesnode109.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="localIcons/next_motif.gif"></A> <A NAME="tex2html1474" HREF="HTMLSlidesnode95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="localIcons/up_motif.gif"></A> <A NAME="tex2html1468" HREF="HTMLSlidesnode107.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="localIcons/previous_motif.gif"></A> <A NAME="tex2html1478" HREF="HTMLSlides.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="localIcons/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1477" HREF="HTMLSlidesnode109.html">SAVE Statement</A>
+<B>Up:</B> <A NAME="tex2html1475" HREF="HTMLSlidesnode95.html">Program Units</A>
+<B> Previous:</B> <A NAME="tex2html1469" HREF="HTMLSlidesnode107.html">Host Association</A>
+<P><ADDRESS>
+<I>Adam Marshall &#169;University of Liverpool, 1996<BR>
+Tue Nov 26 19:51:50 GMT 1996</I>
+</ADDRESS>
+</BODY>
+</HTML>

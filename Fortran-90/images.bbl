@@ -1,0 +1,26 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\begin{thebibliography}{1}
+
+\bibitem{F91}
+Anonymous, \emph{Fortran}, {ISO/IEC 1539}, 1991.
+
+\bibitem{PARKCtte94}
+PARKBENCH Committee, \emph{Public internatioanl benchmarks for parallel
+  computers}, Tech. report, PARKBENCH Committee, 1994.
+
+\bibitem{CSEP:f90}
+CSEP, \emph{{F}ortran~90 and {C}omputational {S}cience}, Tech. report, Oak
+  Ridge National Laboratory, 1994.
+
+\bibitem{Davis}
+S.~Davis, \emph{C++ programmer's companion}, Addison-Wesley, 1993.
+
+\bibitem{HPF93}
+High~Performance Forum, \emph{{H}igh {P}erformance {F}ortran language
+  specification, version 1.1}, Tech. report, Rice University, May 1993.
+
+\bibitem{HPF96}
+\bysame, \emph{{H}igh {P}erformance {F}ortran language specification, version
+  2.0 (draft)}, Tech. report, Rice University, Nov 1996.
+
+\end{thebibliography}
