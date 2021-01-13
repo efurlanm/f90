@@ -11,9 +11,9 @@ Mirror mostly from ftp.liv.ac.uk
 
 ## LINKS
 
-* [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/)
-* [Tutorialspoint Online Fortran compiler](https://www.tutorialspoint.com/compile_fortran_online.php)
-* [Series of video tutorials](https://www.youtube.com/user/hexafoil/videos)
-* [SHENE, Dr.C.-K. *Fortran 90 Tutorial*. Michigan Technological University.](https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/fortran.html)
-* [PAGE, Dr.C. *Clive Page's list of Fortran Resources*. University of Leicester, UK.](https://www.star.le.ac.uk/~cgp/fortran.html)
-* [MOZAFFARI, M.R. *Teaching Computational Physics*. University of Qom, Qom-Iran](http://www.alum.sharif.ir/~reza_mozaffari/Teaching_computational_physics.html). Fortran Programming for beginner; Useful C++ and Fortran Documentations; C++ and Fortran Libraries.
+* [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
+* [Tutorialspoint Online Fortran compiler](https://www.tutorialspoint.com/compile_fortran_online.php). Compile and Execute FORTRAN-95 Online (GNU Fortran, GCC).
+* [Modern Fortran by Example](https://www.youtube.com/user/hexafoil/videos). Series of video tutorials.
+* SHENE, Dr.C.-K. [Fortran 90 Tutorial](https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/fortran.html). Michigan Technological University.
+* PAGE, Dr.C. [Clive Page's list of Fortran Resources](https://www.star.le.ac.uk/~cgp/fortran.html). University of Leicester, UK.
+* MOZAFFARI, M.R. [Teaching Computational Physics](http://www.alum.sharif.ir/~reza_mozaffari/Teaching_computational_physics.html). University of Qom, Qom-Iran. Fortran Programming for beginner; Useful C++ and Fortran Documentations; C++ and Fortran Libraries.
