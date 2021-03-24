@@ -5,7 +5,7 @@ Mirror from ftp://ftp.liv.ac.uk/pub/
 * http://github.com/efurlanm/f90/blob/master/F90Course
 * http://github.com/efurlanm/f90/blob/master/Fortran-90
 * http://github.com/efurlanm/f90/blob/master/HPFCourse
-* http://github.com/efurlanm/f90/blob/master/HPFFMatter <a name="#1">[1]</a>
+* http://github.com/efurlanm/f90/blob/master/HPFFMatter [[1]](#1)
 
 
 My notes
@@ -16,7 +16,7 @@ My notes
 
 ## Links
 
-* [[1]](#[1]) [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
+* [<a name="1">1</a>] [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
 * [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
 * [Tutorialspoint Online Fortran compiler](https://www.tutorialspoint.com/compile_fortran_online.php). Compile and Execute FORTRAN-95 Online (GNU Fortran, GCC).
 * [Modern Fortran by Example](https://www.youtube.com/user/hexafoil/videos). Series of video tutorials.
