@@ -34,7 +34,7 @@ Source: http://www.idris.fr/formations/mpi/
 
 * https://numpy.org/doc/stable/f2py/
 
-F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem without having to reinvent the wheel.
+F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel.
 
 
 
