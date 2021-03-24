@@ -1,6 +1,11 @@
 # My notes about Fortran
 
-### Directories mirrored from ftp://ftp.liv.ac.uk/pub/
+## My personal notes
+
+* http://github.com/efurlanm/f90/blob/master/MyNotes
+
+
+## Directories mirrored from ftp://ftp.liv.ac.uk/pub/
 
 * http://github.com/efurlanm/f90/blob/master/F90Course
 * http://github.com/efurlanm/f90/blob/master/HPFCourse
@@ -15,14 +20,18 @@ The above directory listing can also be found at
 
 ("HTMLHPFCourse" is the content of the compressed file HTMLHPFCourse.tar.gz)
 
+## IDRIS
 
-### My personal notes
+Institut du développement et des ressources en informatique scientifique
 
-* http://github.com/efurlanm/f90/blob/master/MyNotes
+MPI course with many examples in fortran
+
+* http://github.com/efurlanm/f90/blob/master/IDRIS
+
+Source: http://www.idris.fr/formations/mpi/)
 
 
-
-## Links
+## Ccollection of links of interest
 
 * [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
 * [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
