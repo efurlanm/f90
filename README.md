@@ -9,9 +9,9 @@
 
 The above directory listing can also be found at
 
-http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/F90Course
-http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/HPFCourse
-http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/HPFFMatter
+* http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/F90Course
+* http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/HPFCourse
+* http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/HPFFMatter
 
 "HTMLHPFCourse" is the content of the compressed file HTMLHPFCourse.tar.gz
 
