@@ -52,7 +52,7 @@ Fortran 2018 Features supported by GNU Fortran
 
 
 
-## Notes about F2Py
+## Notes on F2Py
 
 F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel.
 
@@ -71,6 +71,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/cohen2018.jpg)](https://www.google.com.br/books/edition/Modern_Fortran_Explained/sB1rDwAAQBAJ)
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ)
 
+(click to see more details about the book)
 
 
 ## Collection of links of interest
