@@ -36,9 +36,9 @@ F2PY provide a connection between Python and F90 languages, and allows you to br
 
 * https://numpy.org/doc/stable/f2py/
 
-Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in this example
+Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in this example note the mix between languages: 
 
-https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369
+* https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369
 
 
 ## Collection of links of interest
