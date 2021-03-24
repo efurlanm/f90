@@ -1,6 +1,6 @@
-# My notes about Fortran
+# My notes about F90
 
-## My personal notes
+## My personal Notebook notes
 
 * http://github.com/efurlanm/f90/blob/master/MyNotes
 
@@ -24,14 +24,21 @@ The above directory listing can also be found at
 
 Institut du développement et des ressources en informatique scientifique
 
-MPI course with many examples in fortran
+MPI course with many examples in F90
 
 * http://github.com/efurlanm/f90/blob/master/IDRIS
 
-Source: http://www.idris.fr/formations/mpi/)
+Source: http://www.idris.fr/formations/mpi/
+
+## Notes about F2Py
+
+* https://numpy.org/doc/stable/f2py/
+
+F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem without having to reinvent the wheel.
 
 
-## Ccollection of links of interest
+
+## Collection of links of interest
 
 * [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
 * [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
