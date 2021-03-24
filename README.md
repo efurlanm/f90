@@ -67,7 +67,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 ## Books
 
-| - |
+| --- |
 | [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)   |
 
 
