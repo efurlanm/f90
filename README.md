@@ -67,7 +67,8 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 ## Books
 
-![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)
+| - | - |
+| ![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg) |
     @book{Ray2020,
     title =     {Fortran 2018 With Parallel Programming},
     author =    {Subrata Ray},
@@ -75,7 +76,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
     isbn =      {0367218437, 9780367218430, 1000546853, 9781000546859},
     year =      {2020},
     }
-
+|
 
 
 
