@@ -1,6 +1,7 @@
 # My notes about F90
 
 
+
 ## My personal Notebook notes
 
 * http://github.com/efurlanm/f90/blob/master/MyNotes
@@ -36,7 +37,15 @@ Source: http://www.idris.fr/formations/mpi/
 
 
 
-## Fortran 2018
+## F2018
+
+JTC1/SC22/WG5, Fortran 2018, ISO/IEC 1539:2018
+
+* http://wg5-fortran.org/f2018.html
+
+    JTC1/SC22 is the international standardization subcommittee for programming languages, their environments and system software interfaces.
+
+    WG5 is the Fortran working group (http://wg5-fortran.org/).
 
 Specs
 
@@ -49,6 +58,27 @@ Fortran 2018 Examples
 Fortran 2018 Features supported by GNU Fortran
 
 * https://gcc.gnu.org/wiki/Fortran2018Status
+
+F2018 Interpretation Document
+
+* https://j3-fortran.org/doc/year/18/18-007r1.pdf
+
+TS 18508 Additional ParallelFeatures in Fortran
+
+* http://isotc.iso.org/livelink/livelink?func=ll&objId=17288706&objAction=Open
+
+
+
+## F202x
+
+Development
+
+* https://wg5-fortran.org/f202x.html
+
+Draft Fortran 202x
+
+* https://j3-fortran.org/doc/year/21/21-007.pdf
+
 
 
 
@@ -64,18 +94,21 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 
 
-
 ## Books
 
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/cohen2018.jpg)](https://www.google.com.br/books/edition/Modern_Fortran_Explained/sB1rDwAAQBAJ)
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ)
 
-(click to see more details about the book)
+(click on the book to see more details)
+
 
 
 ## Collection of links of interest
 
+* [BCS Fortran Specialist Group](https://fortran.bcs.org/) Open forum for Fortran users.
+* [WG5 ISO IEC Fortran Standards](https://wg5-fortran.org/)
+* [US Fortran Programming Language Standards Technical Committee](https://j3-fortran.org/)
 * [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
 * [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
 * [Tutorialspoint Online Fortran compiler](https://www.tutorialspoint.com/compile_fortran_online.php). Compile and Execute FORTRAN-95 Online (GNU Fortran, GCC).
