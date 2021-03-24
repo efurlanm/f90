@@ -1,8 +1,10 @@
 # My notes about F90
 
+
 ## My personal Notebook notes
 
 * http://github.com/efurlanm/f90/blob/master/MyNotes
+
 
 
 ## Directories mirrored from ftp://ftp.liv.ac.uk/pub/
@@ -20,6 +22,8 @@ The above directory listing can also be found at
 
 ("HTMLHPFCourse" is the content of the compressed file HTMLHPFCourse.tar.gz)
 
+
+
 ## IDRIS
 
 Institut du développement et des ressources en informatique scientifique
@@ -30,6 +34,24 @@ MPI course with many examples in F90
 
 Source: http://www.idris.fr/formations/mpi/
 
+
+
+## Fortran 2018
+
+Specs
+
+* http://fortranwiki.org/fortran/show/Fortran+2018
+
+Fortran 2018 Examples
+
+* https://github.com/scivision/fortran2018-examples
+
+Fortran 2018 Features supported by GNU Fortran
+
+* https://gcc.gnu.org/wiki/Fortran2018Status
+
+
+
 ## Notes about F2Py
 
 F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel.
@@ -39,6 +61,22 @@ F2PY provide a connection between Python and F90 languages, and allows you to br
 Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in this example (note the use of both languages): 
 
 * https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369
+
+
+
+
+## Books
+
+![](http://github.com/efurlanm/f90/blob/master/ray2020.jpg)
+@book{Ray2020,
+   title =     {Fortran 2018 With Parallel Programming},
+   author =    {Subrata Ray},
+   publisher = {CRC/Chapman & Hall/Taylor & Francis Group},
+   isbn =      {0367218437, 9780367218430, 1000546853, 9781000546859},
+   year =      {2020},
+}
+
+
 
 
 ## Collection of links of interest
