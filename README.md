@@ -69,9 +69,13 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 | |
 | --- |
-| [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)   |
+| [](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)   |
 
 
+
+
+![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)
+![](https://raw.githubusercontent.com/efurlanm/f90/master/img/cohen2018.jpg)
 
 
     @book{Ray2020,
