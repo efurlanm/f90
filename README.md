@@ -73,7 +73,7 @@ TS 18508 Additional ParallelFeatures in Fortran
 
 ## F2008
 
-Considering that F2018 is a small revision of F2008, then most of the features are the same as F2008.
+Considering that F2018 is a small revision of F2008, then most of the features are the same.
 
 Fortran 2008 Features supported by GNU Fortran
 
