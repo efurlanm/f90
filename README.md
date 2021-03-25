@@ -81,7 +81,7 @@ Fortran 2008 Features supported by GNU Fortran
 
 Specs
 
-* http://fortranwiki.org/fortran/show/Fortran+2018
+* http://fortranwiki.org/fortran/show/Fortran+2008
 
 
 
