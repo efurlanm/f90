@@ -1,5 +1,7 @@
 # My notes about F90
 
+Fortran is developed by the Working Group 5 of Sub-Committee 22 of the Joint Technical Committee 1 of the International Organization for Standardization and the International Electrotechnical Commission (IEC). This group is known as WG5.[_Source_](https://gcc.gnu.org/onlinedocs/gfortran/Fortran-2008-status.html)
+
 
 
 ## My personal Notebook notes
