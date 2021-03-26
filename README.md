@@ -85,9 +85,7 @@ Specs
 
 
 
-## F202x
-
-Development
+## F202x (Development)
 
 * https://wg5-fortran.org/f202x.html
 
@@ -96,6 +94,19 @@ Draft Fortran 202x
 * https://j3-fortran.org/doc/year/21/21-007.pdf
 
 
+
+## NVF2021
+
+NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs
+
+* https://developer.nvidia.com/cuda-fortran
+* https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide
+
+
+
+## Fortran Compilers
+
+* https://fortran-lang.org/compilers/
 
 
 ## Notes on F2Py
