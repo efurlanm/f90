@@ -57,6 +57,10 @@ Intel compiler is free (as in beer) as part of oneAPI
 
 * https://www.reddit.com/r/cpp/comments/kafmsz/intel_c_compiler_is_free_as_in_beer_as_part_of/
 
+Installing via YUM (DNF)
+
+* https://software.intel.com/content/www/us/en/develop/articles/installing-intel-oneapi-toolkits-via-yum.html
+
 
 
 ## F2018
