@@ -164,23 +164,14 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 ## Collection of links of interest
 
 * [BCS Fortran Specialist Group](https://fortran.bcs.org/). Open forum for Fortran users.
-
 * [WG5 ISO IEC Fortran Standards](https://wg5-fortran.org/)
-
 * [US Fortran Programming Language Standards Technical Committee](https://j3-fortran.org/)
-
 * [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
-
 * [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
-
 * [Tutorialspoint Online Fortran compiler](https://www.tutorialspoint.com/compile_fortran_online.php). Compile and Execute FORTRAN-95 Online (GNU Fortran, GCC).
-
 * [Modern Fortran by Example](https://www.youtube.com/user/hexafoil/videos). Series of video tutorials.
-
 * SHENE, Dr.C.-K. [Fortran 90 Tutorial](https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/fortran.html). Michigan Technological University.
-
 * PAGE, Dr.C. [Clive Page's list of Fortran Resources](https://www.star.le.ac.uk/~cgp/fortran.html). University of Leicester, UK.
-
 * MOZAFFARI, M.R. [Teaching Computational Physics](http://www.alum.sharif.ir/~reza_mozaffari/Teaching_computational_physics.html). University of Qom, Qom-Iran. Fortran Programming for beginner; Useful C++ and Fortran Documentations; C++ and Fortran Libraries.
 
 
@@ -188,9 +179,6 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 ## Videos of interest
 
 * [The IBM 1401 compiles and runs FORTRAN II [2018]](https://youtu.be/uFQ3sajIdaM). 1959 IBM mainframe computer at the Computer History Museum. 63-pass Fortran compiler that ran in only 8 k of core. Compiles to bytecode which is then executed by an interpreter. The video description includes several links and information.
-
 * [FortranCon2020 [Keynote]: Fortran 2018...and Beyond [2020]](https://youtu.be/mn8QMp6J3R0). Includes an overview of what's new in Fortran 2018.
-
 * [FortranCon2020 [SP]: Parallelization of a Legacy Software through Fortran 2018 Standard [2020]](https://youtu.be/ib4ZZ7xJwJk). Results of a modernization and parallelization of an existing application developed by the Brazilian Electrical Energy Research Center (Cepel).
-
 * [First Experiences with Parallel Application Development in Fortran 2018 [2018]](https://youtu.be/01-ez4v4YPc). Performance results and scalability of algorithms from the National Center for Atmospheric Research (NCAR), using Fortran 2018 and running on platforms with up to 98,000 cores.
