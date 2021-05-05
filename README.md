@@ -186,6 +186,6 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 * [FortranCon2020 [Keynote]: Fortran 2018...and Beyond [2020]](https://youtu.be/mn8QMp6J3R0). Includes an overview of what's new in Fortran 2018.
 
-* [FortranCon2020 [SP]: Parallelization of a Legacy Software through Fortran 2018 Standard [2020]](https://youtu.be/ib4ZZ7xJwJk). Results of a modernization and parallelization of an existing application.
+* [FortranCon2020 [SP]: Parallelization of a Legacy Software through Fortran 2018 Standard [2020]](https://youtu.be/ib4ZZ7xJwJk). Results of a modernization and parallelization of an existing application developed by the Brazilian Electrical Energy Research Center (Cepel).
 
 * [First Experiences with Parallel Application Development in Fortran 2018 [2018]](https://youtu.be/01-ez4v4YPc). Performance results and scalability of algorithms from the National Center for Atmospheric Research (NCAR), using Fortran 2018 and running on platforms with up to 98,000 cores.
