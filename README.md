@@ -112,9 +112,11 @@ Specs
 
 ## F202x (Development)
 
+Schedule and documents
+
 * https://wg5-fortran.org/f202x.html
 
-Draft Fortran 202x
+Fortran 202x draft
 
 * https://j3-fortran.org/doc/year/21/21-007.pdf
 
@@ -131,7 +133,10 @@ NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports
 
 ## Fortran Compilers
 
+Listing of open source and commercial compilers
+
 * https://fortran-lang.org/compilers/
+
 
 
 ## Notes on F2Py
