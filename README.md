@@ -158,7 +158,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 ## Collection of links of interest
 
-* [BCS Fortran Specialist Group](https://fortran.bcs.org/) Open forum for Fortran users.
+* [BCS Fortran Specialist Group](https://fortran.bcs.org/). Open forum for Fortran users.
 * [WG5 ISO IEC Fortran Standards](https://wg5-fortran.org/)
 * [US Fortran Programming Language Standards Technical Committee](https://j3-fortran.org/)
 * [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
