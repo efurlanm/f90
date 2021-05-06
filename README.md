@@ -1,14 +1,8 @@
 # My personal notes on Fortran
 
-Fortran, in the latest version, is a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping, array assignment, vectorization help, GPU). It can also be used in conjunction with Python (NumPy F2Py) to create modules to be used interactively in a Jupyter Notebook.
+Fortran, in the latest version, is a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, GPU). It can also be used in conjunction with Python (NumPy F2Py) to create modules to be used interactively in a Jupyter Notebook, bringing together the best of these languages and environments. None is better than the other, each has its own application.
 
 Fortran is developed by the Working Group 5 of Sub-Committee 22 of the Joint Technical Committee 1 of the International Organization for Standardization and the International Electrotechnical Commission (IEC). This group is known as WG5. [_(Source)_](https://gcc.gnu.org/onlinedocs/gfortran/Fortran-2008-status.html)
-
-
-
-## My Notebook notes
-
-* http://github.com/efurlanm/f90/blob/master/MyNotes
 
 
 
@@ -28,6 +22,19 @@ The above directory listing can also be found at
 
 
 
+## My Notebook notes
+
+* http://github.com/efurlanm/f90/blob/master/MyNotes
+
+
+
+## PARF
+
+PARF is parallel implementation of Random Forest using Fortran 90
+* http://github.com/efurlanm/f90/blob/master/parf
+
+
+
 ## IDRIS
 
 Institut du Développement et des Ressources en Informatique Scientifique
@@ -39,9 +46,9 @@ Source: http://www.idris.fr/formations/mpi/
 
 
 
-## INTEL FORTRAN
+## Intel Fortran
 
-Intel oneAPI Toolkits are available at no cost and do not require license files. Includes _ifort_ Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and _ifx_ Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). ifx uses the LLVM back-end technology and is released as a Beta version for users interested in trying Intel Gen9 GPU offloading, which ifort does not support.
+Intel oneAPI Toolkits are available at no cost and do not require license files. Includes _ifort_ Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and _ifx_ Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). ifx uses the LLVM back-end technology and is released as a Beta version for users interested in trying Intel Gen9 GPU offloading, which ifort does not support
 * https://software.intel.com/content/www/us/en/develop/articles/free-intel-software-developer-tools.html
 
 ifort - full implementation of the Fortran 2018 standard
@@ -106,7 +113,7 @@ Fortran 202x draft
 
 ## NVF2021
 
-NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs.
+NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs
 * https://developer.nvidia.com/cuda-fortran
 * https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide
 
@@ -121,7 +128,7 @@ Listing of open source and commercial compilers
 
 ## Notes on F2Py
 
-F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel.
+F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel
 * https://numpy.org/doc/stable/f2py/
 
 Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in this example (note the use of both languages): 
