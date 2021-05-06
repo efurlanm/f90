@@ -28,13 +28,6 @@ The above directory listing can also be found at
 
 
 
-## PARF
-
-PARF is parallel implementation of Random Forest using Fortran 90
-* http://github.com/efurlanm/f90/blob/master/parf
-
-
-
 ## IDRIS
 
 Institut du Développement et des Ressources en Informatique Scientifique
