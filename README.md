@@ -44,23 +44,14 @@ Source: http://www.idris.fr/formations/mpi/
 ## INTEL FORTRAN
 
 Intel oneAPI Toolkits are available at no cost and do not require license files. Includes _ifort_ Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and _ifx_ Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). ifx uses the LLVM back-end technology and is released as a Beta version for users interested in trying Intel Gen9 GPU offloading, which ifort does not support.
-
 * https://software.intel.com/content/www/us/en/develop/articles/free-intel-software-developer-tools.html
-
 ifort - full implementation of the Fortran 2018 standard
-
 * https://software.intel.com/content/www/us/en/develop/articles/intel-oneapi-fortran-compiler-release-notes.html
-
 Intel releases oneAPI Toolkit, free, Fortran 2018
-
 * https://fortran-lang.discourse.group/t/intel-releases-oneapi-toolkit-free-fortran-2018/471
-
 Intel compiler is free (as in beer) as part of oneAPI
-
 * https://www.reddit.com/r/cpp/comments/kafmsz/intel_c_compiler_is_free_as_in_beer_as_part_of/
-
 Installing via YUM (DNF)
-
 * https://software.intel.com/content/www/us/en/develop/articles/installing-intel-oneapi-toolkits-via-yum.html
 
 
