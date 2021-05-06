@@ -1,4 +1,6 @@
-# My personal notes on F90
+# My personal notes on Fortran
+
+Fortran, in the latest version, is a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping, array assignment, vectorization help, GPU). It can also be used in conjunction with Python (NumPy F2Py) to create modules to be used interactively in a Jupyter Notebook.
 
 Fortran is developed by the Working Group 5 of Sub-Committee 22 of the Joint Technical Committee 1 of the International Organization for Standardization and the International Electrotechnical Commission (IEC). This group is known as WG5. [_(Source)_](https://gcc.gnu.org/onlinedocs/gfortran/Fortran-2008-status.html)
 
@@ -66,31 +68,17 @@ Installing via YUM (DNF)
 ## F2018
 
 JTC1/SC22/WG5, Fortran 2018, ISO/IEC 1539:2018
-
 * http://wg5-fortran.org/f2018.html
-
-    JTC1/SC22 is the international standardization subcommittee for programming languages, their environments and system software interfaces.
-
-    WG5 is the Fortran working group (http://wg5-fortran.org/).
-
+    JTC1/SC22 is the international standardization subcommittee for programming languages, their environments and system software interfaces. WG5 is the Fortran working group (http://wg5-fortran.org/).
 Specs
-
 * http://fortranwiki.org/fortran/show/Fortran+2018
-
 Fortran 2018 Examples
-
 * https://github.com/scivision/fortran2018-examples
-
 Fortran 2018 Features supported by GNU Fortran
-
 * https://gcc.gnu.org/wiki/Fortran2018Status
-
 F2018 Interpretation Document
-
 * https://j3-fortran.org/doc/year/18/18-007r1.pdf
-
 TS 18508 Additional ParallelFeatures in Fortran
-
 * http://isotc.iso.org/livelink/livelink?func=ll&objId=17288706&objAction=Open
 
 
@@ -101,11 +89,8 @@ TS 18508 Additional ParallelFeatures in Fortran
 Considering that F2018 is a small revision of F2008, then most of the features are the same.
 
 Fortran 2008 Features supported by GNU Fortran
-
 * https://gcc.gnu.org/wiki/Fortran2008Status
-
 Specs
-
 * http://fortranwiki.org/fortran/show/Fortran+2008
 
 
@@ -113,18 +98,15 @@ Specs
 ## F202x (Development)
 
 Schedule and documents
-
 * https://wg5-fortran.org/f202x.html
-
 Fortran 202x draft
-
 * https://j3-fortran.org/doc/year/21/21-007.pdf
 
 
 
 ## NVF2021
 
-NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs
+NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs.
 
 * https://developer.nvidia.com/cuda-fortran
 * https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide
@@ -164,8 +146,8 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 ## Collection of links of interest
 
 * [BCS Fortran Specialist Group](https://fortran.bcs.org/). Open forum for Fortran users.
-* [WG5 ISO IEC Fortran Standards](https://wg5-fortran.org/)
-* [US Fortran Programming Language Standards Technical Committee](https://j3-fortran.org/)
+* [WG5 ISO IEC Fortran Standards](https://wg5-fortran.org/).
+* [US Fortran Programming Language Standards Technical Committee](https://j3-fortran.org/).
 * [High Performance Fortran (HPF)](https://www.netlib.org/hpf/index.html). Extensions to F90.
 * [Tutorialspoint Learn Fortran](https://www.tutorialspoint.com/fortran/). Tutorial designed for beginners.
 * [Tutorialspoint Online Fortran compiler](https://www.tutorialspoint.com/compile_fortran_online.php). Compile and Execute FORTRAN-95 Online (GNU Fortran, GCC).
