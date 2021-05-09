@@ -53,12 +53,19 @@ Intel releases oneAPI Toolkit, free, Fortran 2018
 Intel compiler is free (as in beer) as part of oneAPI
 * https://www.reddit.com/r/cpp/comments/kafmsz/intel_c_compiler_is_free_as_in_beer_as_part_of/
 
-Installing via YUM (DNF)
+Install Using Package Managers
+* https://software.intel.com/content/www/us/en/develop/documentation/installation-guide-for-intel-oneapi-toolkits-linux/top/installation/install-using-package-managers.html
 * https://software.intel.com/content/www/us/en/develop/articles/installing-intel-oneapi-toolkits-via-yum.html
 
+Intel oneAPI Developer Tools -- Introduction and Install
+* https://www.pugetsystems.com/labs/hpc/Intel-oneAPI-Developer-Tools----Introduction-and-Install-2054/
+
+Intel oneAPI AI Analytics Toolkit -- Introduction and Install with conda
+* https://www.pugetsystems.com/labs/hpc/Intel-oneAPI-AI-Analytics-Toolkit----Introduction-and-Install-with-conda-2068/
 
 
-## F2018
+
+## F18 (Fortran 2018)
 
 JTC1/SC22/WG5, Fortran 2018, ISO/IEC 1539:2018
 * http://wg5-fortran.org/f2018.html
@@ -82,7 +89,7 @@ TS 18508 Additional ParallelFeatures in Fortran
 
 
 
-## F2008
+## F08 (Fortran 2008)
 
 Considering that F2018 is a small revision of F2008, then most of the features are the same.
 
