@@ -4,6 +4,7 @@ Fortran, in the latest version, is a modern programming language, including supp
 
 
 
+
 ## Directories mirrored from ftp://ftp.liv.ac.uk/pub/
 
 * http://github.com/efurlanm/f90/blob/master/F90Course
@@ -21,9 +22,11 @@ The above directory listing can also be found at
 
 
 
+
 ## My Notebook notes
 
 * http://github.com/efurlanm/f90/blob/master/MyNotes
+
 
 
 
@@ -36,6 +39,7 @@ MPI course with many examples in F90
 * http://github.com/efurlanm/f90/blob/master/IDRIS
 
 Source: http://www.idris.fr/formations/mpi/
+
 
 
 
@@ -73,6 +77,7 @@ Intel oneAPI AI Analytics Toolkit -- Introduction and Install with conda
 PARF - Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2
 
 * https://github.com/efurlanm/parf
+
 
 
 
@@ -133,7 +138,6 @@ Fortran 202x draft
 
 
 
-
 ## NVF2021
 
 NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs
@@ -148,6 +152,7 @@ NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports
 Listing of open source and commercial compilers
 
 * https://fortran-lang.org/compilers/
+
 
 
 ## Notes on F2Py
