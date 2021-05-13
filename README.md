@@ -1,8 +1,6 @@
 # My personal notes on Fortran
 
-Fortran, in the latest version, is a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, GPU). It can also be used in conjunction with Python (NumPy F2Py) to create modules to be used interactively in a Jupyter Notebook, bringing together the best of these languages and environments. None is better than the other, each has its own application.
-
-Fortran is developed by the Working Group 5 of Sub-Committee 22 of the Joint Technical Committee 1 of the International Organization for Standardization and the International Electrotechnical Commission (IEC). This group is known as WG5. [_(Source)_](https://gcc.gnu.org/onlinedocs/gfortran/Fortran-2008-status.html)
+Fortran, in the latest version, is a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, GPU). It can also be used in conjunction with Python (NumPy F2Py) to create modules to be used interactively in a Jupyter Notebook, bringing together the best of these languages and environments. None is better than the other, each has its own application. Fortran is developed by the Working Group 5 of Sub-Committee 22 of the Joint Technical Committee 1 of the International Organization for Standardization and the International Electrotechnical Commission (IEC). This group is known as WG5. [*(Source)*](https://gcc.gnu.org/onlinedocs/gfortran/Fortran-2008-status.html)
 
 
 
@@ -107,6 +105,7 @@ TS 18508 Additional ParallelFeatures in Fortran
 
 
 
+
 ## Fortran 2008
 
 Considering that F2018 is a small revision of F2008, then most of the features are the same.
@@ -118,6 +117,7 @@ Fortran 2008 Features supported by GNU Fortran
 Specs
 
 * http://fortranwiki.org/fortran/show/Fortran+2008
+
 
 
 
@@ -133,12 +133,14 @@ Fortran 202x draft
 
 
 
+
 ## NVF2021
 
 NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs
 
 * https://developer.nvidia.com/cuda-fortran
 * https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide
+
 
 
 ## Fortran Compilers
@@ -159,6 +161,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 * https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369
 
 
+
 ## Books
 
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)
@@ -166,6 +169,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ)
 
 (click on the book to see more details)
+
 
 
 ## Collection of links of interest
@@ -180,6 +184,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 * SHENE, Dr.C.-K. [Fortran 90 Tutorial](https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/fortran.html). Michigan Technological University.
 * PAGE, Dr.C. [Clive Page's list of Fortran Resources](https://www.star.le.ac.uk/~cgp/fortran.html). University of Leicester, UK.
 * MOZAFFARI, M.R. [Teaching Computational Physics](http://www.alum.sharif.ir/~reza_mozaffari/Teaching_computational_physics.html). University of Qom, Qom-Iran. Fortran Programming for beginner; Useful C++ and Fortran Documentations; C++ and Fortran Libraries.
+
 
 
 ## Videos of interest
