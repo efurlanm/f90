@@ -76,7 +76,7 @@ Intel oneAPI AI Analytics Toolkit -- Introduction and Install with conda
 
 PARF - Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2
 
-* https://github.com/efurlanm/parf
+* Is in the repository: https://github.com/efurlanm/ml
 
 
 
