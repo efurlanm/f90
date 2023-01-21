@@ -1,0 +1,12 @@
+     1                                      global  main
+     2                                      extern  puts
+     3                                  
+     4                                      section .text
+     5                                  main:                     ; This is called by the C library startup code
+     6 00000000 48BF-                       mov     rdi, message  ; First integer|pointer argument in rdi
+     6 00000002 [1000000000000000] 
+     7 0000000A E8(00000000)                call    puts          ; puts(message)
+     8 0000000F C3                          ret                   ; Return from main back into C library wrapper
+     9                                  message:
+    10 00000010 48656C6C6F2C20776F-         db      "Hello, world!", 0    ; strings must be terminated with 0
+    10 00000019 726C642100         

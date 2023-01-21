@@ -1,46 +1,11 @@
-# My personal notes on Fortran
+# My personal notes on Fortran and related topics
 
 Fortran, in the latest version, is a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, GPU). It can also be used in conjunction with Python (NumPy F2Py) to create modules to be used interactively in a Jupyter Notebook, bringing together the best of these languages and environments. None is better than the other, each has its own application. Fortran is developed by the Working Group 5 of Sub-Committee 22 of the Joint Technical Committee 1 of the International Organization for Standardization and the International Electrotechnical Commission (IEC). This group is known as WG5. [*(Source)*](https://gcc.gnu.org/onlinedocs/gfortran/Fortran-2008-status.html)
 
 
-
-
-## Directories mirrored from ftp://ftp.liv.ac.uk/pub/
-
-* http://github.com/efurlanm/f90/blob/master/F90Course
-* http://github.com/efurlanm/f90/blob/master/HPFCourse
-* http://github.com/efurlanm/f90/blob/master/HPFFMatter
-* http://github.com/efurlanm/f90/blob/master/HTMLHPFCourse
-
-The above directory listing can also be found at
-
-* http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/F90Course
-* http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/HPFCourse
-* http://web.archive.org/web/20170706012641/ftp://ftp.liv.ac.uk/pub/HPFFMatter
-
-("HTMLHPFCourse" is the content of the compressed file HTMLHPFCourse.tar.gz)
-
-
-
-
 ## My Notebook notes
 
-* http://github.com/efurlanm/f90/blob/master/MyNotes
-
-
-
-
-## IDRIS
-
-Institut du Développement et des Ressources en Informatique Scientifique
-
-MPI course with many examples in F90
-
-* http://github.com/efurlanm/f90/blob/master/IDRIS
-
-Source: http://www.idris.fr/formations/mpi/
-
-
+* [MyNotes](MyNotes) Code snippets, tips, tricks, and random stuff
 
 
 ## Intel Fortran
@@ -79,8 +44,6 @@ PARF - Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortra
 * Is in the repository: https://github.com/efurlanm/ml
 
 
-
-
 ## Fortran 2018
 
 JTC1/SC22/WG5, Fortran 2018, ISO/IEC 1539:2018
@@ -109,8 +72,6 @@ TS 18508 Additional ParallelFeatures in Fortran
 * http://isotc.iso.org/livelink/livelink?func=ll&objId=17288706&objAction=Open
 
 
-
-
 ## Fortran 2008
 
 Considering that F2018 is a small revision of F2008, then most of the features are the same.
@@ -124,8 +85,6 @@ Specs
 * http://fortranwiki.org/fortran/show/Fortran+2008
 
 
-
-
 ## Fortran 202x (Development)
 
 Schedule and documents
@@ -137,7 +96,6 @@ Fortran 202x draft
 * https://j3-fortran.org/doc/year/21/21-007.pdf
 
 
-
 ## NVF2021
 
 NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports F2003 and many features of F2008, CUDA, SIMD vectorization, OpenACC and OpenMP for multicore x86-64, Arm, and OpenPOWER CPUs
@@ -146,13 +104,11 @@ NVIDIA CUDA Fortran 2021 compiler and tool chain, former PGI compilers, supports
 * https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide
 
 
-
 ## Fortran Compilers
 
 Listing of open source and commercial compilers
 
 * https://fortran-lang.org/compilers/
-
 
 
 ## Notes on F2Py
@@ -166,7 +122,6 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 * https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369
 
 
-
 ## Books
 
 [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)
@@ -176,8 +131,7 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 (click on the book to see more details)
 
 
-
-## Collection of links of interest
+## Links of interest
 
 * [BCS Fortran Specialist Group](https://fortran.bcs.org/). Open forum for Fortran users.
 * [WG5 ISO IEC Fortran Standards](https://wg5-fortran.org/).
@@ -189,7 +143,6 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 * SHENE, Dr.C.-K. [Fortran 90 Tutorial](https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/fortran.html). Michigan Technological University.
 * PAGE, Dr.C. [Clive Page's list of Fortran Resources](https://www.star.le.ac.uk/~cgp/fortran.html). University of Leicester, UK.
 * MOZAFFARI, M.R. [Teaching Computational Physics](http://www.alum.sharif.ir/~reza_mozaffari/Teaching_computational_physics.html). University of Qom, Qom-Iran. Fortran Programming for beginner; Useful C++ and Fortran Documentations; C++ and Fortran Libraries.
-
 
 
 ## Videos of interest
