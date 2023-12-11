@@ -109,9 +109,9 @@ Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in th
 
 * https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369
 
-## My random notes
+## My random note and snippets
 
-* [MyNotes](MyNotes) Code snippets, tips, tricks, and random stuff
+* [snippets](snippets) Code snippets, tips, tricks, and random stuff
 
 ## Books
 
