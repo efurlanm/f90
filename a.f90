@@ -1,7 +1,18 @@
+
+subroutine a(x)
+    integer :: x
+    x = 345
+end
+
 program main
-    print*, a()
-contains
-    integer function a()
-        a = 123
-    end
+    ! implicit none (type, external)  ! a() must be explicitly declared
+
+    ! external a     ! or:
+    ! procedure() a  ! or:
+    ! procedure() :: a
+
+    integer :: x
+
+    call a(x)
+    print*, x
 end
