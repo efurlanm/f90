@@ -4,15 +4,16 @@ This repository contains my personal notes and notebooks on some subjects relate
 
 ## Introduction
 
-Fortran is one of the first programming languages and over time it has been improved and updated, and today it can be considered a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, etc.). It is a relatively small and high-level language, and therefore easy to learn and use, productive, allowing programmers to focus on the program's algorithm without having to spend time or worry about many technical details. An important feature is that it generally produces fast code, sometimes as fast as C, without the need to resort to low/medium level languages. An interesting detail is that Python/Numpy/[F2PY](https://numpy.org/doc/stable/f2py/) has good integration, allowing you to use Fortran in parts that require performance, and in this way trying to combine the best of both worlds, especially when using Python's interactivity and easy prototyping features. Fortran is used in various areas of science and engineering, such as numerical prediction of climate and oceans, computational fluid dynamics, applied mathematics, statistics and finance, and in particular in the area of high-performance computing and supercomputers.
+Fortran is one of the first programming languages and over time it has been improved and updated, and today it can be considered a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, etc.). It is a productive, relatively small, high-level language that is easy to learn and use, allowing programmers to focus on the program's algorithm without having to worry about too many technical details. An important feature is that it generally produces fast code, sometimes as fast as C, without the need to resort to low/medium level languages. An interesting detail is that Python/Numpy/[F2PY](https://numpy.org/doc/stable/f2py/) has good integration, allowing you to use Fortran in parts that require performance, and in this way trying to combine the best of both worlds, especially when using Python's interactivity and easy prototyping features. Fortran is used in various areas of science and engineering, such as numerical prediction of climate and oceans, computational fluid dynamics, applied mathematics, statistics and finance, and in particular in the area of high-performance computing and supercomputers.
 
 ## Fortran 2023
 
 * Standard and documents. <https://wg5-fortran.org/f2023.html>
 * Fortran 2023 draft. <https://j3-fortran.org/doc/year/21/21-007.pdf>
-* Book: Modern FORTRAN Explained 6th Edition: Incorporating Fortran 2023. <https://www.amazon.com.br/Modern-Fortran-Explained-Incorporating-2023/dp/0198876580>
+* Modern FORTRAN Explained 6th ed. <https://www.amazon.com.br/Modern-Fortran-Explained-Incorporating-2023/dp/0198876580>
 * Intel compiler including some Fortran 2023 features. <https://www.intel.com/content/www/us/en/developer/articles/release-notes/oneapi-fortran-compiler-release-notes.html>
-* John Reid's summary of changes: <[https://fortran.bcs.org/2022/AGM22_Reid.pdf](https://t.co/Z6IDYiRUIw)>
+* Summary of changes [J Reid].: <https://fortran.bcs.org/2022/AGM22_Reid.pdf>
+* New features [J Reid]. <https://wg5-fortran.org/N2201-N2250/N2212.pdf>
 
 ## Fortran 2018
 
