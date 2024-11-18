@@ -1,5 +1,7 @@
 # My personal notes on Fortran and related topics
 
+Repo: <https://github.com/efurlanm/f90/>
+
 This repository contains my personal notes and notebooks on some subjects related to Fortran, which I find interesting and write down over time. It is a work in progress and subject to constant change.
 
 ## Introduction

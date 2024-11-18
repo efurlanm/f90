@@ -10,8 +10,8 @@ theme:
     name: material
     # squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
     palette:
-        primary: white
-        accent: white
+        primary: 'deep purple'
+        accent: 'deep purple'
     features:
         - header.autohide
         - navigation.instant
