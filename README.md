@@ -1,4 +1,4 @@
-# My personal notes on Fortran and related topics
+# F90 - my personal notes on Fortran and related topics
 
 Web site: https://efurlanm.github.io/f90
 

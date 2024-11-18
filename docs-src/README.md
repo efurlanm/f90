@@ -2,11 +2,11 @@
 
 Repo: <https://github.com/efurlanm/f90/>
 
-This repository contains my personal notes and notebooks on some subjects related to Fortran, which I find interesting and write down over time. It is a work in progress and subject to constant change.
+This repo contains my personal notes on subjects related to Fortran which I find interesting and write down over time. The Jupyter Notebooks used appear in the left menu, and are in HTML format. The original `.ipynb` source files are available in the repo. It is a work in progress and subject to constant change.
 
 ## Introduction
 
-Fortran is one of the first programming languages and over time it has been improved and updated, and today it can be considered a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, etc.). It is a productive, relatively small, high-level language that is easy to learn and use, allowing programmers to focus on the program's algorithm without having to worry about too many technical details. An important feature is that it generally produces fast code, sometimes as fast as C, without the need to resort to low/medium level languages. An interesting detail is that Python/Numpy/[F2PY](https://numpy.org/doc/stable/f2py/) has good integration, allowing you to use Fortran in parts that require performance, and in this way trying to combine the best of both worlds, especially when using Python's interactivity and easy prototyping features. Fortran is used in various areas of science and engineering, such as numerical prediction of climate and oceans, computational fluid dynamics, applied mathematics, statistics and finance, and in particular in the area of high-performance computing and supercomputers.
+Fortran is one of the first programming languages and over time it has been improved and updated, and today it can be considered a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, etc.). It is a productive, relatively small, high-level language that is easy to learn and use, allowing programmers to focus on the program's algorithm without having to worry about too many technical details. An important feature is that it generally produces fast code, sometimes as fast as C, without the need to resort to low/medium level languages. An interesting detail is that Python/Numpy/[F2PY](https://numpy.org/doc/stable/f2py/) has good integration, allowing you to use Fortran in parts that require performance, and in this way trying to combine the best of both worlds, especially when using Python's interactivity and easy prototyping features. Fortran is used in various areas of science and engineering, such as numerical prediction of climate and oceans, computational fluid dynamics, applied mathematics, statistics and finance, high-performance computing and supercomputers.
 
 ## Fortran 2023
 
@@ -37,7 +37,7 @@ Considering that F2018 is a small revision of F2008, then most of the features a
 
 ## Intel Fortran
 
-Intel oneAPI Toolkits are available at no cost and do not require license files. Includes *ifort* Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and *ifx* Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). ifx uses the LLVM back-end technology and is released as a Beta version for users interested in trying Intel Gen9 GPU offloading, which ifort does not support.
+Intel oneAPI Toolkits are available at no cost and do not require license files. Includes *ifort* Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and *ifx* Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). 'ifx' uses the LLVM back-end technology and is released as a Beta version for users interested in trying **Intel Gen9 GPU** offloading, which ifort does not support.
 
 - Intel ifort - full implementation of the Fortran 2018 standard. Free Intel Software Development Tools. <https://software.intel.com/content/www/us/en/develop/articles/free-intel-software-developer-tools.html>
 - Intel oneAPI - Intel oneAPI Toolkit, free, Fortran 2018. Intel Fortran Compiler for oneAPI Release Notes. <https://software.intel.com/content/www/us/en/develop/articles/intel-oneapi-fortran-compiler-release-notes.html>
@@ -53,28 +53,24 @@ NVIDIA CUDA Fortran compiler and tool chain, former PGI compilers, supports F200
 * CUDA Fortran. <https://developer.nvidia.com/cuda-fortran>
 * Programming guide. <https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide>
 
-## Notes on F2PY
+## F2PY
 
 * F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel. <https://numpy.org/doc/stable/f2py/>
 * Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in this example (note the use of both languages): <https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369>
 
-## My random notes and code snippets
+## My random notes
 
 Some interesting things I collect over time, mainly related to gfortran.
 
-Fortran 2018
-
-* `implicit none (external | type)` : [implicit.ipynb](implicit.ipynb)
-
-Other
+* Fortran 2018 `implicit none (external | type)` : [implicit.ipynb](implicit.ipynb)
 
 * My version of PARF Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2. <https://github.com/efurlanm/ml>
 
 ## Books
 
-[![](https://raw.githubusercontent.com/efurlanm/f90/master/img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)  [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/cohen2018.jpg)](https://www.google.com.br/books/edition/Modern_Fortran_Explained/sB1rDwAAQBAJ)  [![](https://raw.githubusercontent.com/efurlanm/f90/master/img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ)
+[![](img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)  [![](img/cohen2018.jpg)](https://www.google.com.br/books/edition/Modern_Fortran_Explained/sB1rDwAAQBAJ)  [![](img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ)
 
-(click on the book to see more details)
+(click on the book picture to see more details)
 
 ## Links of interest
 
@@ -112,3 +108,6 @@ Some useful topics when analyzing the compilation result.
 
 * HOEY, J. V. [Beginning x64 Assembly Programming](http://www.google.com.br/books/edition/Beginning_x64_Assembly_Programming/mSa7DwAAQBAJ). 2019.
 * MILLER, A. R. [Assembly Language Techniques for the IBM PC](https://www.google.com.br/books/edition/Assembly_Language_Techniques_for_the_IBM/0FsgAQAAIAAJ). 1986.
+
+
+<br><br><p><small>Last edited: 2024-11-18</small></p>
