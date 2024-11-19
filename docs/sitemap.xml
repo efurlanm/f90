@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://efurlanm.github.io/f90/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/assembly/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/assembly/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/auxrout/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/auxrout/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/csv/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/csv/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/flang-aarch64/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/flang-aarch64/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/fortran-assembly/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/fortran-assembly/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/implicit/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/implicit/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/small-assembly/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/small-assembly/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/small-executable/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/small-executable/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://efurlanm.github.io/f90/snippets-f90/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <loc>https://efurlanm.github.io/fortran/snippets-f90/</loc>
+         <lastmod>2024-11-19</lastmod>
     </url>
 </urlset>

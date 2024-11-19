@@ -1,9 +1,9 @@
-site_name: F90
+site_name: Fortran
 site_author: Eduardo Furlan
-site_url: https://efurlanm.github.io/f90
+site_url: https://efurlanm.github.io/fortran/
 copyright: CC BY 4.0 License
-repo_name: F90
-repo_url: https://github.com/efurlanm/f90
+repo_name: fortran
+repo_url: https://github.com/efurlanm/fortran/
 docs_dir: docs-src
 site_dir: docs
 theme:
@@ -14,21 +14,20 @@ theme:
         accent: 'deep purple'
     features:
         - header.autohide
-        - navigation.instant
-markdown_extensions:
-    - def_list
-    - md_in_html
-    - tables
-extra_javascript:
-    - javascripts/katex.js
-    - https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js
-    - https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
-extra_css:
-    - https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css
-    - css/extra.css
 plugins:
     - search
     - mkdocs-jupyter:
         ignore_h1_titles: True
+markdown_extensions:
+    - def_list
+    - md_in_html
+    - tables
+extra_css:
+    - css/extra.css
+    - https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css
+extra_javascript:
+    - javascripts/katex.js
+    - https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js
+    - https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
 exclude_docs: |
     .*

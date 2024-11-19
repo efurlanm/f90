@@ -1,8 +1,8 @@
 # My personal notes on Fortran and related topics
 
-Repo: <https://github.com/efurlanm/f90/>
+Repository: <https://github.com/efurlanm/fortran/>
 
-This repo contains my personal notes on subjects related to Fortran which I find interesting and write down over time. The Jupyter Notebooks used appear in the left menu, and are in HTML format. The original `.ipynb` source files are available in the repo. It is a work in progress and subject to constant change.
+This document and the repository contains my personal notes on subjects related to Fortran which I find interesting and write down over time. The Jupyter Notebooks used appear in the left menu, and are in HTML format. The original `.ipynb` source files are available in the repository. It is a work in progress and subject to constant change.
 
 ## Introduction
 
