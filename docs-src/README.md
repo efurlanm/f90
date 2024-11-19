@@ -62,7 +62,7 @@ NVIDIA CUDA Fortran compiler and tool chain, former PGI compilers, supports F200
 
 Some interesting things I collect over time, mainly related to gfortran.
 
-* Fortran 2018 `implicit none (external | type)` : [implicit.ipynb](implicit.ipynb)
+* Fortran 2018 `implicit none (external | type)` : [Notebooks/implicit.ipynb](Notebooks/implicit.ipynb)
 
 * My version of PARF Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2. <https://github.com/efurlanm/ml>
 

@@ -1,5 +1,5 @@
 # My personal notes on Fortran and related topics
 
-Web site: <https://efurlanm.github.io/f90/>
+Web site: <https://efurlanm.github.io/fortran/>
 
 Most of the files are in the `docs-src` directory.
