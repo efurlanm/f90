@@ -12,6 +12,7 @@ theme:
     palette:
         primary: 'deep purple'
         accent: 'deep purple'
+    font: false
     features:
         - header.autohide
 plugins:
