@@ -2,19 +2,7 @@
 
 *Last edited: 2023-12-10*
 
-Some exercises to try to better understand the creation of executables by a compiler.
-
-References:
-- <https://fortran-lang.org/en/learn/quickstart/hello_world/>
-- <https://wiki.wxwidgets.org/Reducing_Executable_Size>
-- <http://www.muppetlabs.com/~breadbox/software/tiny/teensy.html>
-- <http://cs107e.github.io/guides/gcc/>
-- <http://timelessname.com/elfbin/>
-- <https://web.archive.org/web/20100924220817/http://utilitybase.com/article/show/2007/04/09/225/Size+does+matter:+Optimizing+with+size+in+mind+with+GCC>
-- <https://stackoverflow.com/questions/33597523/why-is-smallest-compiled-exe-i-can-make-with-gcc-is-67kb>
-- <https://stackoverflow.com/questions/67516597/gcc-passing-nostartfiles-to-ld-via-gcc-for-minimal-binary-size>
-- <https://stackoverflow.com/questions/65037919/minimal-executable-size-now-10x-larger-after-linking-than-2-years-ago-for-tiny>
-- <https://stackoverflow.com/questions/60570279/what-is-a-reasonable-minimum-number-of-assembly-instructions-for-a-small-c-progr>
+Some exercises to try to better understand the creation of executables by a compiler. There is also a [Notebook that uses the assembly language](https://efurlanm.github.io/ldi/assembly/small-assembly/).
 
 
 ```python
@@ -27,8 +15,6 @@ References:
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     
 
-
----
 
 
 ```python
@@ -968,11 +954,6 @@ void _start(){
 
 
 
-```python
-#23456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_
-```
-
-
 ```bash
 %%bash
 gcc -Os -s -static -nostartfiles \
@@ -1090,11 +1071,6 @@ end
     42
     16264 a.out
 
-
-
-```python
-#23456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_
-```
 
 
 ```bash
@@ -1266,11 +1242,6 @@ hello.f95
     42
     11160 a.out
 
-
-
-```python
-#23456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_
-```
 
 
 ```bash
@@ -1802,7 +1773,15 @@ objcopy -R .comment -R .gnu.version -R .eh_frame -R .gnu.hash a.out
     
 
 
+## References
 
-```python
-
-```
+- <https://fortran-lang.org/en/learn/quickstart/hello_world/>
+- <https://wiki.wxwidgets.org/Reducing_Executable_Size>
+- <http://www.muppetlabs.com/~breadbox/software/tiny/teensy.html>
+- <http://cs107e.github.io/guides/gcc/>
+- <http://timelessname.com/elfbin/>
+- <https://web.archive.org/web/20100924220817/http://utilitybase.com/article/show/2007/04/09/225/Size+does+matter:+Optimizing+with+size+in+mind+with+GCC>
+- <https://stackoverflow.com/questions/33597523/why-is-smallest-compiled-exe-i-can-make-with-gcc-is-67kb>
+- <https://stackoverflow.com/questions/67516597/gcc-passing-nostartfiles-to-ld-via-gcc-for-minimal-binary-size>
+- <https://stackoverflow.com/questions/65037919/minimal-executable-size-now-10x-larger-after-linking-than-2-years-ago-for-tiny>
+- <https://stackoverflow.com/questions/60570279/what-is-a-reasonable-minimum-number-of-assembly-instructions-for-a-small-c-progr>
