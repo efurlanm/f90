@@ -1,5 +1,5 @@
-# My personal notes on Fortran and related topics
+# Fortran
 
-Web site: <https://efurlanm.github.io/fortran/>
+My personal notes on Fortran and related topics.
 
-Most of the files are in the `docs-src` directory.
+Documentation: <https://efurlanm.github.io/fortran/>

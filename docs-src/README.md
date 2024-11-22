@@ -37,7 +37,7 @@ Considering that F2018 is a small revision of F2008, then most of the features a
 
 ## Intel Fortran
 
-Intel oneAPI Toolkits are available at no cost and do not require license files. Includes *ifort* Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and *ifx* Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). 'ifx' uses the LLVM back-end technology and is released as a Beta version for users interested in trying **Intel Gen9 GPU** offloading, which ifort does not support.
+Intel oneAPI Toolkits are available at no cost and do not require license files. Includes *ifort* Intel Fortran Compiler Classic (Full 77, 90, 95, 2003, 2008, and 2018), and *ifx* Intel Fortran Compiler Beta (Full 77, 90, 95, and partial 2003). *ifx* uses the LLVM back-end technology and is released as a Beta version for users interested in trying **Intel Gen9 GPU** offloading, which ifort does not support.
 
 - Intel ifort - full implementation of the Fortran 2018 standard. Free Intel Software Development Tools. <https://software.intel.com/content/www/us/en/develop/articles/free-intel-software-developer-tools.html>
 - Intel oneAPI - Intel oneAPI Toolkit, free, Fortran 2018. Intel Fortran Compiler for oneAPI Release Notes. <https://software.intel.com/content/www/us/en/develop/articles/intel-oneapi-fortran-compiler-release-notes.html>
@@ -62,15 +62,9 @@ NVIDIA CUDA Fortran compiler and tool chain, former PGI compilers, supports F200
 
 Some interesting things I collect over time, mainly related to gfortran.
 
-* Fortran 2018 `implicit none (external | type)` : [Notebooks/implicit.ipynb](Notebooks/implicit.ipynb)
+* Fortran 2018 `implicit none (external | type)` : [notebooks/implicit.md](notebooks/implicit.md)
 
 * My version of PARF Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2. <https://github.com/efurlanm/ml>
-
-## Books
-
-[![](img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ)  [![](img/cohen2018.jpg)](https://www.google.com.br/books/edition/Modern_Fortran_Explained/sB1rDwAAQBAJ)  [![](img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ)
-
-(click on the book picture to see more details)
 
 ## Links of interest
 
@@ -92,11 +86,19 @@ Some interesting things I collect over time, mainly related to gfortran.
 * [First Experiences with Parallel Application Development in Fortran 2018](https://youtu.be/01-ez4v4YPc). Performance results and scalability of algorithms from the National Center for Atmospheric Research (NCAR), using Fortran 2018 and running on platforms with up to 98,000 cores.
 * [Modern Fortran by Example](https://www.youtube.com/user/hexafoil/videos). Series of video tutorials.
 
+## Selected books
+
+[![](img/ray2020.jpg)](https://www.google.com.br/books/edition/Fortran_2018_with_Parallel_Programming/_natDwAAQBAJ) &nbsp;
+[![](img/cohen2018.jpg)](https://www.google.com.br/books/edition/Modern_Fortran_Explained/sB1rDwAAQBAJ) &nbsp;
+[![](img/chapman2017.jpg)](https://www.google.com.br/books/edition/FORTRAN_FOR_SCIENTISTS_ENGINEERS/OQhBMQAACAAJ) &nbsp;
+
+(click on the book picture to see more details)
+
 ## Assembly
 
 Some useful topics when analyzing the compilation result.
 
-### Useful links
+### Links of interest
 
 * Intel manuals. <https://software.intel.com/en-us/articles/intel-sdm>
 * x86 and amd64 instruction reference. <https://www.felixcloutier.com/x86/index.html>
@@ -110,4 +112,4 @@ Some useful topics when analyzing the compilation result.
 * MILLER, A. R. [Assembly Language Techniques for the IBM PC](https://www.google.com.br/books/edition/Assembly_Language_Techniques_for_the_IBM/0FsgAQAAIAAJ). 1986.
 
 
-<br><br><p><small>Last edited: 2024-11-18</small></p>
+<br><br><br><small>Last edited: 2024-11-22</small>
