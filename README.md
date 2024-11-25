@@ -4,7 +4,17 @@
 
 This repository contains my personal notes on subjects related to Fortran which I find interesting and write down over time. It is a work in progress and subject to constant change.
 
-## Introduction
+## Notebooks and random notes
+
+
+
+Some interesting things I collect over time.
+
+* Fortran 2018 `implicit none (external | type)` : [notebooks/implicit.md](notebooks/implicit.md).
+
+* My version of PARF Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2. <https://github.com/efurlanm/ml/tree/main/parf>
+
+## About Fortran
 
 Fortran is one of the first programming languages and over time it has been improved and updated, and today it can be considered a modern programming language, including support for object-oriented programming (type extension and inheritance, polymorphism, dynamic type allocation, procedures linked to type), and support for parallel programming (coarray, looping , array assignment, vectorization help, etc.). It is a productive, relatively small, high-level language that is easy to learn and use, allowing programmers to focus on the program's algorithm without having to worry about too many technical details. An important feature is that it generally produces fast code, sometimes as fast as C, without the need to resort to low/medium level languages. An interesting detail is that Python/Numpy/[F2PY](https://numpy.org/doc/stable/f2py/) has good integration, allowing you to use Fortran in parts that require performance, and in this way trying to combine the best of both worlds, especially when using Python's interactivity and easy prototyping features. Fortran is used in various areas of science and engineering, such as numerical prediction of climate and oceans, computational fluid dynamics, applied mathematics, statistics and finance, high-performance computing and supercomputers.
 
@@ -57,14 +67,6 @@ NVIDIA CUDA Fortran compiler and tool chain, former PGI compilers, supports F200
 
 * F2PY provide a connection between Python and F90 languages, and allows you to bring together the best of both worlds. It is not a replacement for the F90, it is just a way to take advantage of the rapidly developing features of the Python ecosystem, and in this way without having to reinvent the wheel. <https://numpy.org/doc/stable/f2py/>
 * Perhaps the best way to use it is in conjunction with Jupyter Notebook, as in this example (note the use of both languages): <https://gist.github.com/shane5ul/79340646ba0a4487c9da50b805215369>
-
-## Random notes
-
-Some interesting things I collect over time.
-
-* Fortran 2018 `implicit none (external | type)` : [notebooks/implicit.md](notebooks/implicit.md)
-
-* My version of PARF Parallel Random Forest Algorithm, MPI-enabled, compiled with Intel Fortran 2021.2. <https://github.com/efurlanm/ml>
 
 ## Assembly
 
