@@ -1,6 +1,9 @@
 # My personal notes on Fortran and related topics
 
+*Last edited: 2024-11-26*
+
 This page contains my personal notes on subjects related to Fortran which I find interesting and write down over time. It is a work in progress and subject to constant change.
+
 
 ## Jupyter Notebooks
 
@@ -117,5 +120,3 @@ For debugging and optimization purposes it is important to know the "assembly" l
 
 (click on the book picture to see more details)
 
-
-<br><br><br><small>Last edited: 2024-11-26</small>
